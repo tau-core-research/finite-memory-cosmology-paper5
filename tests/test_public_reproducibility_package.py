@@ -17,7 +17,7 @@ def test_submission_packet_exists():
         "make_pdf.py",
         "src/fmc/likelihood.py",
         "scripts/run_gate_current_packet.py",
-        "scripts/build_tau_core_a2_preflight_proof_packet.py",
+        "scripts/build_finite_memory_preflight_packet.py",
     ]
     missing = [rel for rel in required if not (ROOT / rel).exists()]
     assert not missing
@@ -25,7 +25,7 @@ def test_submission_packet_exists():
 
 def test_key_preflight_summaries_preserve_claim_boundary():
     required = [
-        "evidence/tau_core_a2_preflight_proof_packet_summary.csv",
+        "evidence/finite_memory_preflight_summary.csv",
         "evidence/author_protocol_guided_dominance_summary.csv",
         "evidence/source_native_reproduction_family_dominance_summary.csv",
     ]

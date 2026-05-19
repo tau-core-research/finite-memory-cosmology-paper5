@@ -658,7 +658,7 @@ The most important repository paths are:
 The key manuscript-facing outputs are:
 
 \noindent $\bullet$ evidence/gate\_results\_current.csv;\\
-\noindent $\bullet$ evidence/tau\_core\_a2\_preflight\_proof\_packet\_summary.csv;\\
+\noindent $\bullet$ evidence/finite\_memory\_preflight\_summary.csv;\\
 \noindent $\bullet$ evidence/author\_protocol\_guided\_dominance\_summary.csv;\\
 \noindent $\bullet$ evidence/source\_native\_reproduction\_family\_dominance\_summary.csv;\\
 \noindent $\bullet$ finite\_memory\_projection\_corrections.pdf;\\
@@ -674,7 +674,7 @@ The current package can be regenerated with:
 \begin{verbatim}
 python3 -m pip install -r requirements.txt
 PYTHONPATH=src python scripts/run_gate_current_packet.py
-PYTHONPATH=src python scripts/build_tau_core_a2_preflight_proof_packet.py
+PYTHONPATH=src python scripts/build_finite_memory_preflight_packet.py
 python studies/finite_memory_cosmology_paper5_v01/make_paper5_submission_source_v01.py
 python -m pytest -q
 \end{verbatim}

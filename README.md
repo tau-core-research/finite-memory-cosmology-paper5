@@ -67,7 +67,7 @@ PYTHONPATH=src python scripts/run_null_comparison.py
 PYTHONPATH=src python scripts/build_author_protocol_guided_reproduction_families.py
 PYTHONPATH=src python scripts/run_author_protocol_guided_bridge_scorecard.py
 PYTHONPATH=src python scripts/build_author_protocol_guided_dominance_audit.py
-PYTHONPATH=src python scripts/build_tau_core_a2_preflight_proof_packet.py
+PYTHONPATH=src python scripts/build_finite_memory_preflight_packet.py
 ```
 
 Regenerate the paper-facing PDF and arXiv-style packet:
@@ -88,7 +88,7 @@ python -m pytest -q
 - `paper5_submission_source/main.tex`
 - `paper5_submission_source/draft.md`
 - `finite_memory_projection_corrections.pdf`
-- `evidence/tau_core_a2_preflight_proof_packet_summary.csv`
+- `evidence/finite_memory_preflight_summary.csv`
 - `evidence/author_protocol_guided_dominance_summary.csv`
 - `evidence/source_native_reproduction_family_dominance_summary.csv`
 - `arxiv_submission_source.zip`

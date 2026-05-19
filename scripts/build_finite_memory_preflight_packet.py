@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Tau Core A2 preflight proof packet.
+"""Build the finite-memory preflight packet.
 
 This packet aggregates the existing locked-A2 evidence into one auditable
 summary. It does not introduce a new claim, tune a parameter, or authorize
@@ -146,9 +146,9 @@ FILES = {
     "source_native_reproduction_tasks": EVIDENCE / "source_native_reproduction_task_readiness.csv",
 }
 
-OUT_PACKET = EVIDENCE / "tau_core_a2_preflight_proof_packet.csv"
-OUT_SUMMARY = EVIDENCE / "tau_core_a2_preflight_proof_packet_summary.csv"
-OUT_DOC = DOCS / "tau_core_a2_preflight_proof_packet.md"
+OUT_PACKET = EVIDENCE / "finite_memory_preflight_packet.csv"
+OUT_SUMMARY = EVIDENCE / "finite_memory_preflight_summary.csv"
+OUT_DOC = DOCS / "finite_memory_preflight_audit_log.md"
 
 
 def truthy(value: object) -> bool:
@@ -180,13 +180,13 @@ def prediction_lock_passed(path: Path) -> bool:
 def add(rows: list[dict[str, object]], gate_id: str, evidence_file: str, status: str, finding: str, role: str) -> None:
     rows.append(
         {
-            "PacketID": "TAU_CORE_A2_PREFLIGHT_PROOF_PACKET_V1",
+            "PacketID": "FINITE_MEMORY_PREFLIGHT_PACKET_V1",
             "GateID": gate_id,
             "EvidenceFile": evidence_file,
             "Status": status,
             "Finding": finding,
             "RoleInProofChain": role,
-            "ClaimBoundary": "tau_core_a2_preflight_packet_no_measurement_validation",
+            "ClaimBoundary": "finite_memory_preflight_no_measurement_validation",
         }
     )
 
@@ -242,7 +242,7 @@ def build_rows() -> list[dict[str, object]]:
         str(FILES["depth_activation"].relative_to(ROOT)),
         "PASS" if truthy(depth["DepthActivationPatternSupported"]) else "BLOCKED",
         f"Depth activation checks={depth['PassedChecks']}/{depth['Checks']}; {depth['CurrentInterpretation']}",
-        "tau_core_signature",
+        "projection_signature",
     )
 
     geometry = read_first(FILES["source_geometry"])
@@ -252,7 +252,7 @@ def build_rows() -> list[dict[str, object]]:
         str(FILES["source_geometry"].relative_to(ROOT)),
         "PASS" if truthy(geometry["GeometrySupportsATau2Preflight"]) else "BLOCKED",
         f"Geometry checks={geometry['PassedChecks']}/{geometry['Checks']}; {geometry['CurrentInterpretation']}",
-        "tau_core_signature",
+        "projection_signature",
     )
 
     amp = read_first(FILES["a2_amplitude"])
@@ -2598,7 +2598,7 @@ def build_rows() -> list[dict[str, object]]:
 def write_doc(packet: pd.DataFrame, summary: pd.Series) -> None:
     DOCS.mkdir(parents=True, exist_ok=True)
     lines = [
-        "# Tau Core A2 Preflight Proof Packet",
+        "# Finite-Memory Preflight Audit Log",
         "",
         "Status: preflight support packet; no measurement-validation claim.",
         "",
@@ -2664,7 +2664,7 @@ def main() -> None:
     summary = pd.DataFrame(
         [
             {
-                "PacketID": "TAU_CORE_A2_PREFLIGHT_PROOF_PACKET_V1",
+                "PacketID": "FINITE_MEMORY_PREFLIGHT_PACKET_V1",
                 "TotalGates": total,
                 "PassedGates": passed,
                 "WarningGates": warnings,
@@ -2674,11 +2674,11 @@ def main() -> None:
                 "PreflightSupportPacketComplete": int(preflight_critical_blocked.sum()) == 0,
                 "MeasurementGateBlocked": bool(measurement_blocked.any()),
                 "MeasurementValidationAllowed": False,
-        "StrongestAllowedClaim": "Tau Core A2 has strong preflight support for locked low-depth operator suppression and a stable mid/high memory-active component",
+        "StrongestAllowedClaim": "The finite-memory A2 preflight packet supports locked low-depth operator suppression and a stable mid/high memory-active component",
                 "DisallowedClaim": "measurement validation is not authorized",
                 "PrimaryResidualRisk": primary_risk,
                 "NextAction": next_action,
-                "ClaimBoundary": "tau_core_a2_preflight_packet_no_measurement_validation",
+                "ClaimBoundary": "finite_memory_preflight_no_measurement_validation",
             }
         ]
     )

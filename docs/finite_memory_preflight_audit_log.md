@@ -1,4 +1,4 @@
-# Tau Core A2 Preflight Proof Packet
+# Finite-Memory Preflight Audit Log
 
 Status: preflight support packet; no measurement-validation claim.
 
@@ -9,7 +9,7 @@ Status: preflight support packet; no measurement-validation claim.
 - Blocked gates: 0
 - Preflight critical blocked gates: 0
 - Measurement boundary blocked: False
-- Strongest allowed claim: Tau Core A2 has strong preflight support for locked low-depth operator suppression and a stable mid/high memory-active component
+- Strongest allowed claim: The finite-memory A2 preflight packet supports locked low-depth operator suppression and a stable mid/high memory-active component
 - Disallowed claim: measurement validation is not authorized
 
 ## Gate Findings
@@ -45,14 +45,14 @@ Status: preflight support packet; no measurement-validation claim.
 ### DEPTH_ACTIVATION
 
 - Status: PASS
-- Role: tau_core_signature
+- Role: projection_signature
 - Evidence: `evidence/tau_core_depth_activation_summary.csv`
 - Finding: Depth activation checks=8/8; locked_A2_matches_depth_activation_preflight_pattern
 
 ### SOURCE_SPLIT_GEOMETRY
 
 - Status: PASS
-- Role: tau_core_signature
+- Role: projection_signature
 - Evidence: `evidence/tau_core_source_split_geometry_summary.csv`
 - Finding: Geometry checks=9/9; A_tau_2_supported_by_source_split_geometry_plus_depth_activation
 
