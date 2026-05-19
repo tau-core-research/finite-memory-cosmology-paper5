@@ -1,0 +1,11 @@
+FiniteMemory_Diagnostic_Check.wl
+ReproducibilityStatus=REPRODUCIBILITY_OK
+SymbolicTail=rho/4
+PassiveBound=rho <= 4
+PowerTail=rho/(1 + p)
+PowerBound=rho <= 1 + p
+ShapeBaseline=p=3
+SNBAOPointRows=9
+SNBAOSignStableRows=5
+SNBAOSignUnstableRows=4
+OutputCSV=studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.csv

@@ -273,6 +273,14 @@ def build_zip() -> None:
             "evidence/registered_protocol_guided_dominance_summary.csv",
             "evidence/source_native_reproduction_family_dominance_summary.csv",
             "evidence/gate_results_current.csv",
+            "evidence/threshold_sensitivity.csv",
+            "evidence/threshold_kernel_outcomes.csv",
+            "evidence/diagnostic_point_audit.csv",
+            "evidence/result_summary.csv",
+            "wolfram/README.md",
+            "wolfram/FiniteMemory_Diagnostic_Check.wl",
+            "studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.csv",
+            "studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.log",
         ]:
             path = ROOT / rel
             if path.exists():

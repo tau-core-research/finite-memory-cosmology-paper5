@@ -36,6 +36,7 @@ frozen/                                           Locked operator/configuration 
 src/fmc/                                          Minimal scoring and covariance helpers
 scripts/                                          Reproduction and audit scripts
 studies/finite_memory_cosmology_paper5_v01/       Paper 5 package generator
+wolfram/                                         Independent Wolfram checks
 tests/                                            Public reproducibility checks
 arxiv_submission_source.zip                       arXiv-style source packet
 ```
@@ -83,6 +84,17 @@ Run public checks:
 python -m pytest -q
 ```
 
+Optional independent Wolfram check:
+
+```bash
+wolframscript -file wolfram/FiniteMemory_Diagnostic_Check.wl
+```
+
+This second implementation verifies the symbolic memory-budget identities and
+cross-checks the shape-selection, threshold-sensitivity, and SN+BAO point-level
+gate CSVs used by the manuscript. It checks software/table reproducibility, not
+the physical correctness of the finite-memory diagnostic ansatz.
+
 ## Main outputs
 
 - `paper5_submission_source/main.pdf`
@@ -93,6 +105,7 @@ python -m pytest -q
 - `evidence/finite_memory_preflight_summary.csv`
 - `evidence/registered_protocol_guided_dominance_summary.csv`
 - `evidence/source_native_reproduction_family_dominance_summary.csv`
+- `studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.csv`
 - `arxiv_submission_source.zip`
 
 ## Claim boundary
