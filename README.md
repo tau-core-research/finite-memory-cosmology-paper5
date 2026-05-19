@@ -68,6 +68,7 @@ PYTHONPATH=src python scripts/build_registered_protocol_guided_reproduction_fami
 PYTHONPATH=src python scripts/run_registered_protocol_guided_bridge_scorecard.py
 PYTHONPATH=src python scripts/build_registered_protocol_guided_dominance_audit.py
 PYTHONPATH=src python scripts/build_finite_memory_preflight_packet.py
+python scripts/build_figures.py
 ```
 
 Regenerate the paper-facing PDF and arXiv-style packet:
@@ -88,6 +89,7 @@ python -m pytest -q
 - `paper5_submission_source/main.tex`
 - `paper5_submission_source/draft.md`
 - `finite_memory_projection_corrections.pdf`
+- `figures/*.pdf`
 - `evidence/finite_memory_preflight_summary.csv`
 - `evidence/registered_protocol_guided_dominance_summary.csv`
 - `evidence/source_native_reproduction_family_dominance_summary.csv`

@@ -126,6 +126,8 @@ The form is intentionally simple. Its purpose is to test whether a bounded,
 delayed, monotone memory response can be made reproducible before comparison
 with diagnostic envelopes.
 
+![Locked finite-memory operator. The shaded band is the predeclared $\rho\in[3,4]$ window inside the passive bound $\rho\leq4$; the low-depth guard shows why the response remains weak near the origin.](figures/fig1_locked_operator.pdf)
+
 ### Robustness And Coordinate Dependence
 
 The present note is coordinate-explicit. Its numerical tables use
@@ -279,6 +281,8 @@ predeclared range.
 
 The current threshold-sensitivity policy is summarized as follows:
 
+![Power-kernel shape-selection audit. The cubic representative is selected by the current low-depth visibility and endpoint-budget thresholds; this is a methodological selection rule, not a fundamental-law claim.](figures/figA_threshold_sensitivity.pdf)
+
 | Threshold set | Low-depth limit | Endpoint budget | Admissible simple kernels | Interpretation |
 |---|---|---|---|---|
 | baseline | $\Delta W_p(0.25)\leq 0.10$ | endpoint $\leq 0.75$ | $p=3$ | cubic is the current audit-selected representative |
@@ -391,6 +395,8 @@ SN+BAO sign-stability-aware gate: non-violating diagnostic status
 claim level: theory-method diagnostic, not measurement validation
 ```
 
+![Point-level SN+BAO diagnostic gate. Filled points are sign-stable reconstructed medians, open points are sign-unstable medians, the grey band is the no-degree-4 robust envelope, and the red curve is the locked K2 prediction.](figures/fig2_snbao_gate.pdf)
+
 The point-level SN+BAO audit makes the gate policy more explicit. The source
 for all rows is the no-degree-4 robust SN+BAO envelope, and the `x` column uses
 the provisional mapping $x=z/z_{\max}$ over this grid.
@@ -434,6 +440,10 @@ public-proxy scorecards it is stronger than fixed K2. Fifth, several
 source-split and registered-protocol-guided preflight routes favor locked K2 over
 local reproduction-family and backreaction-proxy controls, but these are not
 likelihood-native measurement validations.
+
+![Coordinate robustness audit. Most mappings remain non-violating under the current gate, while the chi-normalized operator-only remap produces the localized coordinate warning that remains a Phase II target.](figures/fig3_coordinate_robustness.pdf)
+
+![Null-comparator preflight scorecard. The chart reports proxy information-criterion scores across the current mappings; it is a benchmark diagnostic, not a measurement-validation result.](figures/fig4_null_scorecard.pdf)
 
 Thus the measurement gate is useful precisely because it does not promote the
 current result too far. The present package supports a disciplined diagnostic
@@ -555,6 +565,8 @@ The Phase II work package should therefore include:
 - direct comparison against BAO-only and SN+BAO reconstruction families;
 - a frozen benchmark challenge in which the K2 window is locked before testing.
 
+![Measurement-gate preflight workflow. The current repository implements the left-hand preflight stages; the covariance-aware benchmark and falsification criteria remain the required route to stronger empirical claims.](figures/figB_measurement_gate_flow.pdf)
+
 ## 14. Conclusion
 
 We have defined a finite-memory projection correction as a bounded diagnostic
@@ -587,6 +599,7 @@ input packets, audit summaries, and the arXiv-style source archive.
 The most important repository paths are:
 
 - `paper5_submission_source/`: paper-facing draft, LaTeX facsimile, and PDF;
+- `figures/`: rendered manuscript figures in PDF and PNG form;
 - `src/fmc/`: scoring, covariance, coordinate, operator, and backreaction
   helper code;
 - `scripts/`: executable reproduction and audit scripts;

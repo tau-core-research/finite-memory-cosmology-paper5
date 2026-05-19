@@ -131,12 +131,38 @@ def markdown_to_tex(markdown: str) -> str:
             lines.append(line)
             idx += 1
             continue
+        image_match = re.fullmatch(r"!\[(.*?)\]\((.*?)\)", line.strip())
+        if image_match:
+            caption = inline_to_tex(image_match.group(1).strip())
+            image_path = image_match.group(2).strip()
+            lines.extend(
+                [
+                    r"\begin{figure}[htbp]",
+                    r"\centering",
+                    rf"\includegraphics[width=0.95\textwidth]{{{image_path}}}",
+                    rf"\caption{{{caption}}}",
+                    r"\end{figure}",
+                ]
+            )
+            idx += 1
+            continue
         if line.strip().startswith("|"):
             table_lines = []
             while idx < len(source_lines) and source_lines[idx].strip().startswith("|"):
                 table_lines.append(source_lines[idx].rstrip())
                 idx += 1
             lines.extend(markdown_table_to_tex(table_lines))
+            continue
+        if line.startswith("- "):
+            lines.append(r"\begin{itemize}")
+            while idx < len(source_lines) and source_lines[idx].startswith("- "):
+                item = source_lines[idx][2:].strip()
+                idx += 1
+                while idx < len(source_lines) and source_lines[idx].startswith("  "):
+                    item += " " + source_lines[idx].strip()
+                    idx += 1
+                lines.append(r"\item " + inline_to_tex(item))
+            lines.append(r"\end{itemize}")
             continue
         if not line:
             lines.append("")
@@ -148,8 +174,6 @@ def markdown_to_tex(markdown: str) -> str:
             lines.append(r"\subsection*{" + inline_to_tex(line[3:].strip()) + "}")
         elif line.startswith("### "):
             lines.append(r"\subsubsection*{" + inline_to_tex(line[4:].strip()) + "}")
-        elif line.startswith("- "):
-            lines.append(r"\noindent $\bullet$ " + inline_to_tex(line[2:].strip()) + r"\\")
         else:
             lines.append(inline_to_tex(line))
         idx += 1
@@ -189,6 +213,14 @@ proof of a background theory.
     SUBMISSION.mkdir(parents=True, exist_ok=True)
     (SUBMISSION / "main.tex").write_text(tex, encoding="utf-8")
     shutil.copy2(ROOT / "draft.md", SUBMISSION / "draft.md")
+    submission_figures = SUBMISSION / "figures"
+    if submission_figures.exists():
+        shutil.rmtree(submission_figures)
+    figures = ROOT / "figures"
+    if figures.exists():
+        submission_figures.mkdir(parents=True, exist_ok=True)
+        for path in figures.glob("*.pdf"):
+            shutil.copy2(path, submission_figures / path.name)
 
 
 def refresh_pdf() -> None:
@@ -233,6 +265,8 @@ def build_zip() -> None:
             ROOT / "DATA_NOTICE.md",
             ROOT / "CITATION.cff",
         ]:
+            zf.write(path, path.relative_to(ROOT))
+        for path in sorted((SUBMISSION / "figures").glob("*.pdf")):
             zf.write(path, path.relative_to(ROOT))
         for rel in [
             "evidence/finite_memory_preflight_summary.csv",

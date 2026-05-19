@@ -145,6 +145,12 @@ The form is intentionally simple. Its purpose is to test whether a bounded,
 delayed, monotone memory response can be made reproducible before comparison
 with diagnostic envelopes.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig1_locked_operator.pdf}
+\caption{Locked finite-memory operator. The shaded band is the predeclared $\rho\in[3,4]$ window inside the passive bound $\rho\leq4$; the low-depth guard shows why the response remains weak near the origin.}
+\end{figure}
+
 \subsubsection*{Robustness And Coordinate Dependence}
 
 The present note is coordinate-explicit. Its numerical tables use
@@ -185,13 +191,12 @@ physically final, or likelihood-preferred.
 
 Several assumptions are therefore intentionally modest:
 
-\noindent $\bullet$ the coordinate $x$ is a diagnostic ordering variable, not a new directly\\
-  measured cosmological coordinate;
-\noindent $\bullet$ the operator $W(x)$ is an effective response, not a complete field equation;\\
-\noindent $\bullet$ the reconstructed envelopes are treated as diagnostic targets, not as final\\
-  likelihood surfaces;
-\noindent $\bullet$ the public module does not require the reader to accept any broader\\
-  background theory.
+\begin{itemize}
+\item the coordinate $x$ is a diagnostic ordering variable, not a new directly measured cosmological coordinate;
+\item the operator $W(x)$ is an effective response, not a complete field equation;
+\item the reconstructed envelopes are treated as diagnostic targets, not as final likelihood surfaces;
+\item the public module does not require the reader to accept any broader background theory.
+\end{itemize}
 
 These restrictions make the paper weaker than a full theory paper, but stronger
 as a falsifiable method note. A reader can reject or test the effective module
@@ -297,6 +302,12 @@ visibility and endpoint-concentration cuts are varied within a reasonable
 predeclared range.
 
 The current threshold-sensitivity policy is summarized as follows:
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/figA_threshold_sensitivity.pdf}
+\caption{Power-kernel shape-selection audit. The cubic representative is selected by the current low-depth visibility and endpoint-budget thresholds; this is a methodological selection rule, not a fundamental-law claim.}
+\end{figure}
 
 \begin{center}
 \begingroup
@@ -436,6 +447,12 @@ SN+BAO sign-stability-aware gate: non-violating diagnostic status
 claim level: theory-method diagnostic, not measurement validation
 \end{verbatim}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig2_snbao_gate.pdf}
+\caption{Point-level SN+BAO diagnostic gate. Filled points are sign-stable reconstructed medians, open points are sign-unstable medians, the grey band is the no-degree-4 robust envelope, and the red curve is the locked K2 prediction.}
+\end{figure}
+
 The point-level SN+BAO audit makes the gate policy more explicit. The source
 for all rows is the no-degree-4 robust SN+BAO envelope, and the x column uses
 the provisional mapping $x=z/z_{\max}$ over this grid.
@@ -493,19 +510,31 @@ source-split and registered-protocol-guided preflight routes favor locked K2 ove
 local reproduction-family and backreaction-proxy controls, but these are not
 likelihood-native measurement validations.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig3_coordinate_robustness.pdf}
+\caption{Coordinate robustness audit. Most mappings remain non-violating under the current gate, while the chi-normalized operator-only remap produces the localized coordinate warning that remains a Phase II target.}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig4_null_scorecard.pdf}
+\caption{Null-comparator preflight scorecard. The chart reports proxy information-criterion scores across the current mappings; it is a benchmark diagnostic, not a measurement-validation result.}
+\end{figure}
+
 Thus the measurement gate is useful precisely because it does not promote the
 current result too far. The present package supports a disciplined diagnostic
 claim: a bounded finite-memory operator can be locked, scored, compared with
 nulls, and stress-tested reproducibly. It does not yet support a measurement
 claim. The gate remains closed until the following objects are available:
 
-\noindent $\bullet$ a likelihood-native K1/no-memory target;\\
-\noindent $\bullet$ a joint SN+BAO covariance or a preregistered shrinkage-covariance benchmark;\\
-\noindent $\bullet$ calibrated optical and backreaction physical-null comparators;\\
-\noindent $\bullet$ source-native or independently reproduced derivative/covariance exports for\\
-  the backreaction route;
-\noindent $\bullet$ a frozen public benchmark in which no K2 kernel, rho bound, or K1 baseline is\\
-  changed after scoring.
+\begin{itemize}
+\item a likelihood-native K1/no-memory target;
+\item a joint SN+BAO covariance or a preregistered shrinkage-covariance benchmark;
+\item calibrated optical and backreaction physical-null comparators;
+\item source-native or independently reproduced derivative/covariance exports for the backreaction route;
+\item a frozen public benchmark in which no K2 kernel, rho bound, or K1 baseline is changed after scoring.
+\end{itemize}
 
 The detailed implementation log, including source-split export guards,
 covariance registries, registered-protocol-guided reproduction families, and
@@ -520,15 +549,13 @@ or become substantially less interesting.
 
 The diagnostic would fail in its present form if:
 
-\noindent $\bullet$ the BAO-only envelope overlap disappeared under the same locked K2 window;\\
-\noindent $\bullet$ sign-stable SN+BAO points required the opposite sign from the locked\\
-  prediction;
-\noindent $\bullet$ compatibility required $\rho > 4$ or a different kernel power chosen after\\
-  seeing the envelope;
-\noindent $\bullet$ the localized SN+BAO warning became sign-stable under a stronger\\
-  reconstruction audit;
-\noindent $\bullet$ a full covariance likelihood rejected the whole locked window rather than\\
-  merely shifting the best point inside it.
+\begin{itemize}
+\item the BAO-only envelope overlap disappeared under the same locked K2 window;
+\item sign-stable SN+BAO points required the opposite sign from the locked prediction;
+\item compatibility required $\rho > 4$ or a different kernel power chosen after seeing the envelope;
+\item the localized SN+BAO warning became sign-stable under a stronger reconstruction audit;
+\item a full covariance likelihood rejected the whole locked window rather than merely shifting the best point inside it.
+\end{itemize}
 
 Conversely, the diagnostic would become more interesting if the same locked
 window survived a covariance-aware likelihood test, if independent
@@ -546,14 +573,12 @@ advantage of being predeclared.
 The main significance of the construction is not that it establishes a new
 cosmological model. Its value is methodological:
 
-\noindent $\bullet$ it gives a compact finite-memory operator whose amplitude is bounded before\\
-  comparison with data;
-\noindent $\bullet$ it interfaces naturally with FLRW consistency, optical-propagation, and\\
-  backreaction tests;
-\noindent $\bullet$ it demonstrates a way to handle sign-unstable reconstructed diagnostics\\
-  without silently overclaiming;
-\noindent $\bullet$ it provides a small public module that can be tested independently as a\\
-  diagnostic proposal.
+\begin{itemize}
+\item it gives a compact finite-memory operator whose amplitude is bounded before comparison with data;
+\item it interfaces naturally with FLRW consistency, optical-propagation, and backreaction tests;
+\item it demonstrates a way to handle sign-unstable reconstructed diagnostics without silently overclaiming;
+\item it provides a small public module that can be tested independently as a diagnostic proposal.
+\end{itemize}
 
 The near-term audience is likely narrow: researchers interested in
 cosmological consistency tests, backreaction, light propagation, and
@@ -565,11 +590,13 @@ direct public likelihood products.
 
 This manuscript is a theory-method diagnostic note. It does not claim:
 
-\noindent $\bullet$ a full covariance likelihood;\\
-\noindent $\bullet$ a direct measurement claim;\\
-\noindent $\bullet$ exclusion of cosmic backreaction;\\
-\noindent $\bullet$ a complete derivation of cosmology from an underlying action;\\
-\noindent $\bullet$ reconstruction of a full background theory.\\
+\begin{itemize}
+\item a full covariance likelihood;
+\item a direct measurement claim;
+\item exclusion of cosmic backreaction;
+\item a complete derivation of cosmology from an underlying action;
+\item reconstruction of a full background theory.
+\end{itemize}
 
 The next stage is a paper-aligned likelihood comparison using covariance or
 shrinkage-covariance products and direct published likelihood data where
@@ -604,14 +631,20 @@ that it fixes a small target before the stronger test is performed.
 
 The Phase II work package should therefore include:
 
-\noindent $\bullet$ covariance-aware likelihood ingestion;\\
-\noindent $\bullet$ null comparators for no-memory, smooth-response, optical-propagation, and\\
-  backreaction-only alternatives;
-\noindent $\bullet$ a public reconstruction benchmark;\\
-\noindent $\bullet$ coordinate-mapping robustness across redshift-normalized, comoving-distance,\\
-  optical-depth-like, and likelihood-native coordinates;
-\noindent $\bullet$ direct comparison against BAO-only and SN+BAO reconstruction families;\\
-\noindent $\bullet$ a frozen benchmark challenge in which the K2 window is locked before testing.\\
+\begin{itemize}
+\item covariance-aware likelihood ingestion;
+\item null comparators for no-memory, smooth-response, optical-propagation, and backreaction-only alternatives;
+\item a public reconstruction benchmark;
+\item coordinate-mapping robustness across redshift-normalized, comoving-distance, optical-depth-like, and likelihood-native coordinates;
+\item direct comparison against BAO-only and SN+BAO reconstruction families;
+\item a frozen benchmark challenge in which the K2 window is locked before testing.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/figB_measurement_gate_flow.pdf}
+\caption{Measurement-gate preflight workflow. The current repository implements the left-hand preflight stages; the covariance-aware benchmark and falsification criteria remain the required route to stronger empirical claims.}
+\end{figure}
 
 \subsection*{14. Conclusion}
 
@@ -644,25 +677,28 @@ input packets, audit summaries, and the arXiv-style source archive.
 
 The most important repository paths are:
 
-\noindent $\bullet$ paper5\_submission\_source/: paper-facing draft, LaTeX facsimile, and PDF;\\
-\noindent $\bullet$ src/fmc/: scoring, covariance, coordinate, operator, and backreaction\\
-  helper code;
-\noindent $\bullet$ scripts/: executable reproduction and audit scripts;\\
-\noindent $\bullet$ data/: derived public-input and local reproduction packets;\\
-\noindent $\bullet$ evidence/: compact CSV outputs used by the manuscript and audit gates;\\
-\noindent $\bullet$ docs/measurement\_gate\_audit\_log.md: detailed implementation/audit log moved\\
-  out of the main paper;
-\noindent $\bullet$ frozen/: locked operator and configuration artifacts;\\
-\noindent $\bullet$ tests/: public reproducibility checks.\\
+\begin{itemize}
+\item paper5\_submission\_source/: paper-facing draft, LaTeX facsimile, and PDF;
+\item figures/: rendered manuscript figures in PDF and PNG form;
+\item src/fmc/: scoring, covariance, coordinate, operator, and backreaction helper code;
+\item scripts/: executable reproduction and audit scripts;
+\item data/: derived public-input and local reproduction packets;
+\item evidence/: compact CSV outputs used by the manuscript and audit gates;
+\item docs/measurement\_gate\_audit\_log.md: detailed implementation/audit log moved out of the main paper;
+\item frozen/: locked operator and configuration artifacts;
+\item tests/: public reproducibility checks.
+\end{itemize}
 
 The key manuscript-facing outputs are:
 
-\noindent $\bullet$ evidence/gate\_results\_current.csv;\\
-\noindent $\bullet$ evidence/finite\_memory\_preflight\_summary.csv;\\
-\noindent $\bullet$ evidence/registered\_protocol\_guided\_dominance\_summary.csv;\\
-\noindent $\bullet$ evidence/source\_native\_reproduction\_family\_dominance\_summary.csv;\\
-\noindent $\bullet$ finite\_memory\_projection\_corrections.pdf;\\
-\noindent $\bullet$ arxiv\_submission\_source.zip.\\
+\begin{itemize}
+\item evidence/gate\_results\_current.csv;
+\item evidence/finite\_memory\_preflight\_summary.csv;
+\item evidence/registered\_protocol\_guided\_dominance\_summary.csv;
+\item evidence/source\_native\_reproduction\_family\_dominance\_summary.csv;
+\item finite\_memory\_projection\_corrections.pdf;
+\item arxiv\_submission\_source.zip.
+\end{itemize}
 
 The current comparison should be treated as reconstruction-level diagnostic
 preflight. Raw survey data and unpublished source-native derivative exports are not
