@@ -52,11 +52,58 @@ def inline_to_tex(text: str) -> str:
     return "".join(converted)
 
 
+def is_markdown_table_separator(line: str) -> bool:
+    cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+    return bool(cells) and all(re.fullmatch(r":?-{3,}:?", cell) for cell in cells)
+
+
+def markdown_table_to_tex(table_lines: list[str]) -> list[str]:
+    rows = []
+    for line in table_lines:
+        if is_markdown_table_separator(line):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        rows.append(cells)
+
+    if not rows:
+        return []
+
+    col_count = max(len(row) for row in rows)
+    normalized = [row + [""] * (col_count - len(row)) for row in rows]
+    spec = "l" * col_count
+    tex_rows = []
+    for row_index, row in enumerate(normalized):
+        rendered = " & ".join(inline_to_tex(cell) for cell in row)
+        tex_rows.append(rendered + r" \\")
+        if row_index == 0:
+            tex_rows.append(r"\hline")
+
+    return [
+        r"\begin{center}",
+        r"\begingroup",
+        r"\scriptsize",
+        r"\setlength{\tabcolsep}{3pt}",
+        r"\renewcommand{\arraystretch}{1.15}",
+        r"\resizebox{\textwidth}{!}{%",
+        rf"\begin{{tabular}}{{{spec}}}",
+        r"\hline",
+        *tex_rows,
+        r"\hline",
+        r"\end{tabular}%",
+        r"}",
+        r"\endgroup",
+        r"\end{center}",
+    ]
+
+
 def markdown_to_tex(markdown: str) -> str:
     lines = []
     in_code = False
     in_math = False
-    for raw in markdown.splitlines():
+    source_lines = markdown.splitlines()
+    idx = 0
+    while idx < len(source_lines):
+        raw = source_lines[idx]
         line = raw.rstrip()
         if line.strip() == "$$":
             if in_math:
@@ -65,9 +112,11 @@ def markdown_to_tex(markdown: str) -> str:
             else:
                 lines.append(r"\[")
                 in_math = True
+            idx += 1
             continue
         if in_math:
             lines.append(line)
+            idx += 1
             continue
         if line.startswith("```"):
             if in_code:
@@ -76,12 +125,22 @@ def markdown_to_tex(markdown: str) -> str:
             else:
                 lines.append(r"\begin{verbatim}")
                 in_code = True
+            idx += 1
             continue
         if in_code:
             lines.append(line)
+            idx += 1
+            continue
+        if line.strip().startswith("|"):
+            table_lines = []
+            while idx < len(source_lines) and source_lines[idx].strip().startswith("|"):
+                table_lines.append(source_lines[idx].rstrip())
+                idx += 1
+            lines.extend(markdown_table_to_tex(table_lines))
             continue
         if not line:
             lines.append("")
+            idx += 1
             continue
         if line.startswith("# "):
             lines.append(r"\section*{" + inline_to_tex(line[2:].strip()) + "}")
@@ -93,6 +152,7 @@ def markdown_to_tex(markdown: str) -> str:
             lines.append(r"\noindent $\bullet$ " + inline_to_tex(line[2:].strip()) + r"\\")
         else:
             lines.append(inline_to_tex(line))
+        idx += 1
     if in_code:
         lines.append(r"\end{verbatim}")
     if in_math:
@@ -108,6 +168,7 @@ def build_main_tex() -> None:
 \usepackage{{hyperref}}
 \usepackage{{amsmath}}
 \usepackage{{amssymb}}
+\usepackage{{graphicx}}
 \title{{Finite-memory projection corrections as a diagnostic gate for cosmological consistency tests}}
 \author{{Jozsef Olcsak}}
 \date{{2026-05-19}}
