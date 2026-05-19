@@ -22,6 +22,9 @@ def test_submission_packet_exists():
         "wolfram/FiniteMemory_Diagnostic_Check.wl",
         "studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.csv",
         "studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.log",
+        "evidence/source_split_likelihood_native_support_ladder.csv",
+        "evidence/source_split_likelihood_native_support_ladder_summary.csv",
+        "figures/fig5_support_ladder.pdf",
     ]
     missing = [rel for rel in required if not (ROOT / rel).exists()]
     assert not missing
@@ -80,7 +83,20 @@ def test_submission_zip_contains_wolfram_audit():
     required = {
         "wolfram/README.md",
         "wolfram/FiniteMemory_Diagnostic_Check.wl",
+        "evidence/source_split_likelihood_native_support_ladder.csv",
+        "evidence/source_split_likelihood_native_support_ladder_summary.csv",
+        "paper5_submission_source/figures/fig5_support_ladder.pdf",
         "studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.csv",
         "studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.log",
     }
     assert required <= names
+
+
+def test_k2_support_ladder_preserves_claim_boundary():
+    path = ROOT / "evidence/source_split_likelihood_native_support_ladder.csv"
+    rows = list(csv.DictReader(path.open()))
+    assert rows
+    statuses = {row["LevelID"]: row["Status"] for row in rows}
+    assert statuses["L1_K2_VS_K1"] == "SUPPORTIVE_PREFLIGHT"
+    assert statuses["L5_MEASUREMENT_VALIDATION"] == "BLOCKED"
+    assert all(row["ClaimBoundary"] == "support_ladder_no_measurement_validation" for row in rows)

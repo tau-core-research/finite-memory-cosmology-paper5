@@ -162,6 +162,69 @@ def fig_null_scorecard() -> None:
     save(fig, "fig4_null_scorecard")
 
 
+def fig_support_ladder() -> None:
+    df = pd.read_csv(EVIDENCE / "source_split_likelihood_native_support_ladder.csv")
+    labels = [
+        "K2 vs K1",
+        "K2 vs poly",
+        "public cov.",
+        "branch scatter",
+        "measurement",
+    ]
+    status_score = {
+        "SUPPORTIVE_PREFLIGHT": 3.0,
+        "MIXED_CONDITIONAL_SUPPORT": 2.0,
+        "WEAKENING_PUBLIC_PROXY": 1.25,
+        "DECLARED_PREFLIGHT_SUPPORT": 2.6,
+        "BLOCKED": 0.25,
+    }
+    status_color = {
+        "SUPPORTIVE_PREFLIGHT": GREEN,
+        "MIXED_CONDITIONAL_SUPPORT": ORANGE,
+        "WEAKENING_PUBLIC_PROXY": "#b7791f",
+        "DECLARED_PREFLIGHT_SUPPORT": BLUE,
+        "BLOCKED": RED,
+    }
+    scores = [status_score[s] for s in df["Status"]]
+    colors = [status_color[s] for s in df["Status"]]
+
+    fig, ax = plt.subplots(figsize=(7.0, 3.4))
+    y = np.arange(len(df))[::-1]
+    ax.barh(y, scores, color=colors, alpha=0.86)
+    ax.set_yticks(y)
+    ax.set_yticklabels(labels)
+    ax.set_xlim(0, 3.25)
+    ax.set_xticks([0, 1, 2, 3])
+    ax.set_xticklabels(["blocked", "weak", "mixed", "supportive"])
+    ax.set_xlabel("preflight support level")
+    ax.set_title("K2 support ladder: improvement routes and remaining blockers")
+    ax.grid(True, axis="x", color=LIGHT_GRAY, lw=0.7)
+    for yi, (_, row), score in zip(y, df.iterrows(), scores):
+        evidence = row["Evidence"]
+        if row["LevelID"] == "L1_K2_VS_K1":
+            note = "9/9 routes; 8/8 rows; 6/6 CV"
+        elif row["LevelID"] == "L2_K2_VS_POLYNOMIAL_CONTROLS":
+            note = "6/9 routes; 5/6 CV; public proxy mixed"
+        elif row["LevelID"] == "L3_PUBLIC_COVARIANCE_ROUTE":
+            note = "public proxy not decisive"
+        elif row["LevelID"] == "L4_BRANCH_SCATTER_ROUTE":
+            note = "strongest current preflight route"
+        else:
+            note = "closed until covariance-native benchmark"
+        ax.text(min(score + 0.05, 3.05), yi, note, va="center", fontsize=8, color=GRAY)
+    ax.text(
+        0.01,
+        -0.18,
+        "Diagnostic support only: this figure summarizes reproducible scorecards, not physical validation.",
+        transform=ax.transAxes,
+        ha="left",
+        va="top",
+        fontsize=8,
+        color=GRAY,
+    )
+    save(fig, "fig5_support_ladder")
+
+
 def fig_threshold_sensitivity() -> None:
     p = np.arange(1, 7)
     low_visibility = (p + 1) * 0.25**p
@@ -213,6 +276,7 @@ def main() -> None:
     fig_snbao_gate()
     fig_coordinate_robustness()
     fig_null_scorecard()
+    fig_support_ladder()
     fig_threshold_sensitivity()
     fig_measurement_gate_flow()
     print(f"Wrote figures to {FIGURES}")

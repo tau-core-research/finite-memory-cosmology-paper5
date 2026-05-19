@@ -437,11 +437,15 @@ localized sign-stability warning rather than a clean median-sign match. Third,
 coordinate robustness is not automatic: an operator-only chi-normalized mapping
 produces an envelope-tension warning, although bounded rho values within the
 allowed rho <= 4 range can recover non-violating status in that diagnostic
-stress test. Fourth, K1/no-memory remains competitive, and in some diagonal or
-public-proxy scorecards it is stronger than fixed K2. Fifth, several
-source-split and predeclared-protocol-guided preflight routes favor locked K2 over
-local reproduction-family and backreaction-proxy controls, but these are not
-likelihood-native measurement validations.
+stress test. Fourth, locked K2 is materially more accurate than K1/no-memory in
+several predeclared preflight scorecards: the memory-active scorecard improves
+over K1 across the full, low-, mid-, high-, mid/high-, sign-stable, and
+anti-aligned subsets, the positive-definite cross-covariance audit supports K2
+over K1 across its scanned routes, and the whitened covariance and external-alpha
+preflight routes also favor K2 over their K1 or optical-null comparators. Fifth,
+this improvement is not yet a measurement-validation result, because flexible
+polynomial controls and some diagonal/public-proxy routes remain competitive and
+the decisive likelihood-native covariance benchmark is still missing.
 
 ### 9.2 Coordinate Robustness
 
@@ -451,7 +455,31 @@ likelihood-native measurement validations.
 
 ![Null-comparator preflight scorecard. The chart reports proxy information-criterion scores across the current mappings; it is a benchmark diagnostic, not a measurement-validation result. These proxy scores are route-dependent and do not constitute likelihood-level model selection.](figures/fig4_null_scorecard.pdf)
 
-### 9.4 Gate Closure Conditions
+### 9.4 K2 Support Ladder
+
+The K2-improvement claim is best read as a support ladder rather than as a
+single win/loss statement. The current repository contains a compact
+reproducibility table at
+`evidence/source_split_likelihood_native_support_ladder.csv`. Its role is to
+separate the robust preflight gains from the still-open validation blockers.
+
+| Route | Current evidence | Status | Blocking issue |
+|---|---|---|---|
+| K2 versus K1/no-memory | route scorecard 9/9; row gap 8/8; CV 6/6 | supportive preflight | none at K2-vs-K1 preflight level |
+| K2 versus polynomial controls | route scorecard 6/9; public-proxy row gap 1/8; CV 5/6 | mixed conditional support | public-proxy polynomial controls remain competitive |
+| public covariance proxy | K2 improves over K1, but does not beat best polynomial | weakening public proxy | full likelihood covariance or better public transform missing |
+| branch-scatter route | competitive routes 5; preflight promotion allowed | declared preflight support | not public full covariance |
+| measurement validation | promotion not allowed | blocked | covariance-native benchmark missing |
+
+![K2 support ladder. The figure summarizes reproducible improvement routes and blockers: K2 is consistently stronger than K1/no-memory at preflight level, conditionally supportive against flexible controls, and still blocked from measurement-validation language.](figures/fig5_support_ladder.pdf)
+
+This ladder is deliberately paper-facing but not overclaiming. It makes explicit
+that the K2 signal is stronger than mere envelope compatibility: several
+independent preflight routes show improvement over K1/no-memory. It also shows
+why the paper does not promote the result to a measurement claim: the flexible
+control and covariance-native gates remain unresolved.
+
+### 9.5 Gate Closure Conditions
 
 Thus the measurement gate is useful precisely because it does not promote the
 current result too far. The present package supports a disciplined diagnostic
@@ -629,6 +657,13 @@ reconstruction-aware SN+BAO sign-stability gate. The strict SN+BAO median-sign
 warning is retained as a limitation rather than hidden: it marks a
 reconstruction-sensitive point that should be revisited with direct likelihood
 products.
+
+The central preflight finding is therefore not that K2 lacks predictive gain.
+On the contrary, the locked K2 response repeatedly improves over K1/no-memory
+and several external or physical-null comparators in the current diagnostics.
+The conservative boundary is narrower: these gains are still preflight-level
+and do not yet establish a covariance-aware measurement validation or unique
+physical interpretation.
 
 The result is therefore a release-candidate method-note claim, not an
 measurement-validation claim. Its next meaningful test is a covariance-aware

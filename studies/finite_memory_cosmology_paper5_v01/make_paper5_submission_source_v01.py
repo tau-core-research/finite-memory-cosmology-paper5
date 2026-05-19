@@ -277,6 +277,8 @@ def build_zip() -> None:
             "evidence/threshold_kernel_outcomes.csv",
             "evidence/diagnostic_point_audit.csv",
             "evidence/result_summary.csv",
+            "evidence/source_split_likelihood_native_support_ladder.csv",
+            "evidence/source_split_likelihood_native_support_ladder_summary.csv",
             "wolfram/README.md",
             "wolfram/FiniteMemory_Diagnostic_Check.wl",
             "studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.csv",
