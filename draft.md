@@ -431,7 +431,7 @@ produces an envelope-tension warning, although bounded rho values within the
 allowed rho <= 4 range can recover non-violating status in that diagnostic
 stress test. Fourth, K1/no-memory remains competitive, and in some diagonal or
 public-proxy scorecards it is stronger than fixed K2. Fifth, several
-source-split and author-protocol-guided preflight routes favor locked K2 over
+source-split and registered-protocol-guided preflight routes favor locked K2 over
 local reproduction-family and backreaction-proxy controls, but these are not
 likelihood-native measurement validations.
 
@@ -450,7 +450,7 @@ claim. The gate remains closed until the following objects are available:
   changed after scoring.
 
 The detailed implementation log, including source-split export guards,
-covariance registries, author-protocol-guided reproduction families, and
+covariance registries, registered-protocol-guided reproduction families, and
 backreaction preflight audits, is retained in the public repository as
 `docs/measurement_gate_audit_log.md`.
 
@@ -601,13 +601,13 @@ The key manuscript-facing outputs are:
 
 - `evidence/gate_results_current.csv`;
 - `evidence/finite_memory_preflight_summary.csv`;
-- `evidence/author_protocol_guided_dominance_summary.csv`;
+- `evidence/registered_protocol_guided_dominance_summary.csv`;
 - `evidence/source_native_reproduction_family_dominance_summary.csv`;
 - `finite_memory_projection_corrections.pdf`;
 - `arxiv_submission_source.zip`.
 
 The current comparison should be treated as reconstruction-level diagnostic
-preflight. Raw survey data and unpublished author derivative exports are not
+preflight. Raw survey data and unpublished source-native derivative exports are not
 redistributed. Source-native derivative/covariance exports remain a blocker for
 measurement-validation language.
 

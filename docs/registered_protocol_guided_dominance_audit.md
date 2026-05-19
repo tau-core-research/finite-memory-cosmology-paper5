@@ -1,6 +1,6 @@
-# Author-Protocol-Guided Dominance Audit
+# Registered-Protocol-Guided Dominance Audit
 
-Status: K2_DOMINATES_AUTHOR_PROTOCOL_GUIDED_FAMILIES_PREFLIGHT.
+Status: K2_DOMINATES_REGISTERED_PROTOCOL_GUIDED_FAMILIES_PREFLIGHT.
 
 This audit decomposes publication-protocol-guided local families against locked K2 by row and depth zone. It does not modify K2, refit K1, allow a scale fit, or authorize measurement validation.
 
@@ -14,4 +14,4 @@ This audit decomposes publication-protocol-guided local families against locked 
 
 ## Boundary
 
-This is not author-native validation.
+This is not source-native validation.

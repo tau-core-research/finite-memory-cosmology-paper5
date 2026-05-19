@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Row and zone dominance audit for author-protocol-guided families."""
+"""Row and zone dominance audit for registered-protocol-guided families."""
 
 from __future__ import annotations
 
@@ -11,15 +11,15 @@ ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "evidence"
 DOCS = ROOT / "docs"
 
-ROW = EVIDENCE / "author_protocol_guided_bridge_row_audit.csv"
-SCORE = EVIDENCE / "author_protocol_guided_bridge_scorecard.csv"
+ROW = EVIDENCE / "registered_protocol_guided_bridge_row_audit.csv"
+SCORE = EVIDENCE / "registered_protocol_guided_bridge_scorecard.csv"
 
-OUT_ROW = EVIDENCE / "author_protocol_guided_dominance_row_audit.csv"
-OUT_ZONE = EVIDENCE / "author_protocol_guided_dominance_zone_audit.csv"
-OUT_SUMMARY = EVIDENCE / "author_protocol_guided_dominance_summary.csv"
-OUT_DOC = DOCS / "author_protocol_guided_dominance_audit.md"
+OUT_ROW = EVIDENCE / "registered_protocol_guided_dominance_row_audit.csv"
+OUT_ZONE = EVIDENCE / "registered_protocol_guided_dominance_zone_audit.csv"
+OUT_SUMMARY = EVIDENCE / "registered_protocol_guided_dominance_summary.csv"
+OUT_DOC = DOCS / "registered_protocol_guided_dominance_audit.md"
 
-CLAIM_BOUNDARY = "author_protocol_guided_dominance_no_measurement_validation"
+CLAIM_BOUNDARY = "registered_protocol_guided_dominance_no_measurement_validation"
 
 
 def depth_zone(z: float) -> str:
@@ -72,7 +72,7 @@ def main() -> None:
         k2_chi2 = float(group["K2Chi2Contribution"].sum())
         zone_rows.append(
             {
-                "AuditID": "AUTHOR_PROTOCOL_GUIDED_DOMINANCE_ZONE_AUDIT_V1",
+                "AuditID": "REGISTERED_PROTOCOL_GUIDED_DOMINANCE_ZONE_AUDIT_V1",
                 "RouteID": route_id,
                 "FamilyID": family_id,
                 "DepthZone": zone,
@@ -102,7 +102,7 @@ def main() -> None:
     summary = pd.DataFrame(
         [
             {
-                "AuditID": "AUTHOR_PROTOCOL_GUIDED_DOMINANCE_AUDIT_V1",
+                "AuditID": "REGISTERED_PROTOCOL_GUIDED_DOMINANCE_AUDIT_V1",
                 "FamiliesScored": int(score["FamilyID"].nunique()),
                 "RoutesScored": int(score["RouteID"].nunique()),
                 "RouteFamilyCases": route_family_cases,
@@ -122,20 +122,20 @@ def main() -> None:
                 "K2KernelChanged": False,
                 "K1Refit": False,
                 "ScaleFitAllowed": False,
-                "AuthorExport": False,
-                "ExactAuthorNative": False,
+                "SourceExport": False,
+                "SourceNative": False,
                 "MeasurementValidationAllowed": False,
-                "CurrentStatus": "K2_DOMINATES_AUTHOR_PROTOCOL_GUIDED_FAMILIES_PREFLIGHT"
+                "CurrentStatus": "K2_DOMINATES_REGISTERED_PROTOCOL_GUIDED_FAMILIES_PREFLIGHT"
                 if k2_route_family_wins == route_family_cases
                 and int(zone["DominanceStatus"].eq("K2_ZONE_BETTER_THAN_FAMILY").sum()) == len(zone)
-                else "AUTHOR_PROTOCOL_GUIDED_FAMILIES_HAVE_LOCAL_ADVANTAGES",
+                else "REGISTERED_PROTOCOL_GUIDED_FAMILIES_HAVE_LOCAL_ADVANTAGES",
                 "StrongestAllowedClaim": (
-                    "locked K2 remains more competitive than the author-protocol-guided local families in the current preflight benchmark"
+                    "locked K2 remains more competitive than the registered-protocol-guided local families in the current preflight benchmark"
                 ),
                 "PrimaryResidualRisk": (
-                    "manual author choices and branch-specific DESI/eBOSS exports remain unavailable"
+                    "manual protocol-selection details and branch-specific DESI/eBOSS exports remain unavailable"
                 ),
-                "NextAction": "implement DESI/eBOSS branch-specific reproductions and keep exact author-native gate closed",
+                "NextAction": "implement DESI/eBOSS branch-specific reproductions and keep fully source-native gate closed",
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
         ]
@@ -145,7 +145,7 @@ def main() -> None:
     OUT_DOC.write_text(
         "\n".join(
             [
-                "# Author-Protocol-Guided Dominance Audit",
+                "# Registered-Protocol-Guided Dominance Audit",
                 "",
                 f"Status: {summary.iloc[0]['CurrentStatus']}.",
                 "",
@@ -161,7 +161,7 @@ def main() -> None:
                 "",
                 "## Boundary",
                 "",
-                "This is not author-native validation.",
+                "This is not source-native validation.",
                 "",
             ]
         ),

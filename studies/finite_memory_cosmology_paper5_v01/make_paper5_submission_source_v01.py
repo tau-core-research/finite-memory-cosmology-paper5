@@ -236,7 +236,7 @@ def build_zip() -> None:
             zf.write(path, path.relative_to(ROOT))
         for rel in [
             "evidence/finite_memory_preflight_summary.csv",
-            "evidence/author_protocol_guided_dominance_summary.csv",
+            "evidence/registered_protocol_guided_dominance_summary.csv",
             "evidence/source_native_reproduction_family_dominance_summary.csv",
             "evidence/gate_results_current.csv",
         ]:

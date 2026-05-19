@@ -4,8 +4,8 @@ Status: preflight support packet; no measurement-validation claim.
 
 ## Summary
 
-- Passed gates: 49/123
-- Warning gates: 74
+- Passed gates: 47/123
+- Warning gates: 76
 - Blocked gates: 0
 - Preflight critical blocked gates: 0
 - Measurement boundary blocked: False
@@ -635,7 +635,7 @@ Status: preflight support packet; no measurement-validation claim.
 - Status: WARNING
 - Role: source_native_reproduction_protocol_boundary
 - Evidence: `evidence/source_native_symbolic_protocol_extract_summary.csv`
-- Finding: the upstream symbolic-regression protocol is partially machine-readable, but final derivative vectors are not exposed; protocol items=10; BAO rows extracted=10; directly executable items=4; manual judgment items=6; author vectors available=False.
+- Finding: the upstream symbolic-regression protocol is partially machine-readable, but final derivative vectors are not exposed; protocol items=10; BAO rows extracted=10; directly executable items=4; manual judgment items=6; upstream vectors available=False.
 
 ### PYSR_CRITERIA3_REPRODUCTION_CONTRACT
 
@@ -793,10 +793,10 @@ Status: preflight support packet; no measurement-validation claim.
 
 ### SOURCE_NATIVE_REPRODUCTION_CANDIDATE_EXPORT
 
-- Status: PASS
+- Status: WARNING
 - Role: source_native_reproduction_candidate_boundary
 - Evidence: `evidence/source_native_reproduction_candidate_summary.csv`
-- Finding: a local criteria-set-3 reproduction candidate export is available for preflight scoring; rows=12; bootstrap samples=200; cov min eig=2.591498530681691e-16; author export=False.
+- Finding: a local criteria-set-3 reproduction candidate export is available for preflight scoring; rows=12; bootstrap samples=200; cov min eig=2.591498530681691e-16; source export=False.
 
 ### SOURCE_NATIVE_REPRODUCTION_CANDIDATE_BRIDGE
 
@@ -814,7 +814,7 @@ Status: preflight support packet; no measurement-validation claim.
 
 ### SOURCE_NATIVE_REPRODUCTION_FAMILY_EXPORT
 
-- Status: PASS
+- Status: WARNING
 - Role: source_native_reproduction_family_boundary
 - Evidence: `evidence/source_native_reproduction_family_export_summary.csv`
 - Finding: local source-native-style reproduction families can be exported from the 200-bootstrap D/H branches; families=5; sample range=40..122; omega rows=60; omega bootstrap rows=4476; omega abs max=2.827894452065505.
@@ -833,26 +833,26 @@ Status: preflight support packet; no measurement-validation claim.
 - Evidence: `evidence/source_native_reproduction_family_dominance_summary.csv`
 - Finding: locked K2 remains more competitive than all local reproduction families in the current preflight benchmark; route-family cases=10/10; rows=80/80; stable rows=50/50; zones=30/30; median DeltaChi2 K2-family=-29.8362599660701.
 
-### AUTHOR_PROTOCOL_GUIDED_REPRODUCTION
+### REGISTERED_PROTOCOL_GUIDED_REPRODUCTION
 
 - Status: PASS
-- Role: author_protocol_guided_reproduction_boundary
-- Evidence: `evidence/author_protocol_guided_reproduction_summary.csv`
+- Role: registered_protocol_guided_reproduction_boundary
+- Evidence: `evidence/registered_protocol_guided_reproduction_summary.csv`
 - Finding: published selection protocols can define local reproduction-family labels and proxy filters; registered families=6; used families=3; blocked protocol families=2; sample range=31..133; omega abs max=2.839140872099283.
 
-### AUTHOR_PROTOCOL_GUIDED_BRIDGE
+### REGISTERED_PROTOCOL_GUIDED_BRIDGE
 
 - Status: WARNING
-- Role: author_protocol_guided_bridge_boundary
-- Evidence: `evidence/author_protocol_guided_bridge_summary.csv`
-- Finding: published protocol-guided local families can be scored against locked K2 as preflight comparators; K2 beats protocol-guided families=6/6; best family=AUTHOR_HD_CRITERIA_3_LOSS_COMPLEXITY; median corr family-K2=0.4527159700416064; median DeltaChi2 K2-family=-32.390056966471235.
+- Role: registered_protocol_guided_bridge_boundary
+- Evidence: `evidence/registered_protocol_guided_bridge_summary.csv`
+- Finding: published protocol-guided local families can be scored against locked K2 as preflight comparators; K2 beats protocol-guided families=6/6; best family=REGISTERED_HD_CRITERIA_3_LOSS_COMPLEXITY; median corr family-K2=0.4527159700416064; median DeltaChi2 K2-family=-32.390056966471235.
 
-### AUTHOR_PROTOCOL_GUIDED_DOMINANCE
+### REGISTERED_PROTOCOL_GUIDED_DOMINANCE
 
 - Status: PASS
-- Role: author_protocol_guided_dominance_boundary
-- Evidence: `evidence/author_protocol_guided_dominance_summary.csv`
-- Finding: locked K2 remains more competitive than the author-protocol-guided local families in the current preflight benchmark; route-family cases=6/6; rows=48/48; stable rows=30/30; zones=18/18; median DeltaChi2 K2-family=-32.390056966471235.
+- Role: registered_protocol_guided_dominance_boundary
+- Evidence: `evidence/registered_protocol_guided_dominance_summary.csv`
+- Finding: locked K2 remains more competitive than the registered-protocol-guided local families in the current preflight benchmark; route-family cases=6/6; rows=48/48; stable rows=30/30; zones=18/18; median DeltaChi2 K2-family=-32.390056966471235.
 
 ### BACKREACTION_ROUTE_ADJUDICATION
 

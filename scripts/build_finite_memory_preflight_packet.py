@@ -139,9 +139,9 @@ FILES = {
     / "source_native_reproduction_family_bridge_summary.csv",
     "source_native_reproduction_family_dominance": EVIDENCE
     / "source_native_reproduction_family_dominance_summary.csv",
-    "author_protocol_guided_reproduction": EVIDENCE / "author_protocol_guided_reproduction_summary.csv",
-    "author_protocol_guided_bridge": EVIDENCE / "author_protocol_guided_bridge_summary.csv",
-    "author_protocol_guided_dominance": EVIDENCE / "author_protocol_guided_dominance_summary.csv",
+    "registered_protocol_guided_reproduction": EVIDENCE / "registered_protocol_guided_reproduction_summary.csv",
+    "registered_protocol_guided_bridge": EVIDENCE / "registered_protocol_guided_bridge_summary.csv",
+    "registered_protocol_guided_dominance": EVIDENCE / "registered_protocol_guided_dominance_summary.csv",
     "backreaction_route_adjudication": EVIDENCE / "backreaction_route_adjudication_summary.csv",
     "source_native_reproduction_tasks": EVIDENCE / "source_native_reproduction_task_readiness.csv",
 }
@@ -153,6 +153,13 @@ OUT_DOC = DOCS / "finite_memory_preflight_audit_log.md"
 
 def truthy(value: object) -> bool:
     return str(value).strip().lower() in {"true", "1", "yes"}
+
+
+def first_present(row: pd.Series, *names: str, default: object = "") -> object:
+    for name in names:
+        if name in row:
+            return row[name]
+    return default
 
 
 def read_first(path: Path) -> pd.Series:
@@ -1812,7 +1819,7 @@ def build_rows() -> list[dict[str, object]]:
             f"BAO rows extracted={symbolic_protocol['BAOTableRowsExtracted']}; "
             f"directly executable items={symbolic_protocol['DirectlyExecutableItems']}; "
             f"manual judgment items={symbolic_protocol['ManualJudgmentItems']}; "
-            f"author vectors available={symbolic_protocol['AuthorDerivativeVectorsAvailable']}."
+            f"upstream vectors available={symbolic_protocol['AuthorDerivativeVectorsAvailable']}."
         ),
         "source_native_reproduction_protocol_boundary",
     )
@@ -2322,9 +2329,9 @@ def build_rows() -> list[dict[str, object]]:
         str(FILES["source_native_reproduction_candidate"].relative_to(ROOT)),
         "PASS"
         if str(reproduction_candidate["CurrentStatus"])
-        == "REPRODUCTION_CANDIDATE_EXPORTS_READY_NOT_AUTHOR_SOURCE_NATIVE"
+        == "REPRODUCTION_CANDIDATE_EXPORTS_READY_NOT_SOURCE_NATIVE"
         and truthy(reproduction_candidate["ReproductionCandidate"])
-        and not truthy(reproduction_candidate["AuthorExport"])
+        and not truthy(first_present(reproduction_candidate, "SourceExport", "AuthorExport"))
         and not truthy(reproduction_candidate["SourceNativeScoringReady"])
         and not truthy(reproduction_candidate["MeasurementValidationAllowed"])
         else "WARNING",
@@ -2333,7 +2340,7 @@ def build_rows() -> list[dict[str, object]]:
             f"rows={reproduction_candidate['ReconstructionRows']}; "
             f"bootstrap samples={reproduction_candidate['BootstrapSamples']}; "
             f"cov min eig={reproduction_candidate['CovarianceMinEigenvalue']}; "
-            f"author export={reproduction_candidate['AuthorExport']}."
+            f"source export={first_present(reproduction_candidate, 'SourceExport', 'AuthorExport')}."
         ),
         "source_native_reproduction_candidate_boundary",
     )
@@ -2348,7 +2355,7 @@ def build_rows() -> list[dict[str, object]]:
         == "REPRODUCTION_CANDIDATE_BRIDGE_SCORED_SOURCE_NATIVE_STILL_BLOCKED"
         and int(reproduction_bridge["K2BeatsCandidateBackreactionCases"])
         == int(reproduction_bridge["RouteFamilyCases"])
-        and not truthy(reproduction_bridge["AuthorExport"])
+        and not truthy(first_present(reproduction_bridge, "SourceExport", "AuthorExport"))
         and not truthy(reproduction_bridge["SourceNativeBridgeScoringReady"])
         and not truthy(reproduction_bridge["MeasurementValidationAllowed"])
         else "BLOCKED",
@@ -2398,9 +2405,9 @@ def build_rows() -> list[dict[str, object]]:
         str(FILES["source_native_reproduction_family"].relative_to(ROOT)),
         "PASS"
         if str(reproduction_family["CurrentStatus"])
-        == "LOCAL_REPRODUCTION_FAMILY_EXPORTS_READY_NOT_AUTHOR_SOURCE_NATIVE"
+        == "LOCAL_REPRODUCTION_FAMILY_EXPORTS_READY_NOT_SOURCE_NATIVE"
         and truthy(reproduction_family["ReproductionFamily"])
-        and not truthy(reproduction_family["AuthorExport"])
+        and not truthy(first_present(reproduction_family, "SourceExport", "AuthorExport"))
         and not truthy(reproduction_family["SourceNativeScoringReady"])
         and not truthy(reproduction_family["MeasurementValidationAllowed"])
         else "WARNING",
@@ -2426,7 +2433,7 @@ def build_rows() -> list[dict[str, object]]:
         == "REPRODUCTION_FAMILY_BRIDGE_SCORED_SOURCE_NATIVE_STILL_BLOCKED"
         and int(reproduction_family_bridge["K2BeatsFamilyBackreactionCases"])
         == int(reproduction_family_bridge["RouteFamilyCases"])
-        and not truthy(reproduction_family_bridge["AuthorExport"])
+        and not truthy(first_present(reproduction_family_bridge, "SourceExport", "AuthorExport"))
         and not truthy(reproduction_family_bridge["SourceNativeBridgeScoringReady"])
         and not truthy(reproduction_family_bridge["MeasurementValidationAllowed"])
         else "BLOCKED",
@@ -2475,40 +2482,40 @@ def build_rows() -> list[dict[str, object]]:
         "source_native_reproduction_family_dominance_boundary",
     )
 
-    author_protocol = read_first(FILES["author_protocol_guided_reproduction"])
+    source_protocol = read_first(FILES["registered_protocol_guided_reproduction"])
     add(
         rows,
-        "AUTHOR_PROTOCOL_GUIDED_REPRODUCTION",
-        str(FILES["author_protocol_guided_reproduction"].relative_to(ROOT)),
+        "REGISTERED_PROTOCOL_GUIDED_REPRODUCTION",
+        str(FILES["registered_protocol_guided_reproduction"].relative_to(ROOT)),
         "PASS"
-        if str(author_protocol["CurrentStatus"]) == "AUTHOR_PROTOCOL_GUIDED_LOCAL_REPRODUCTION_READY"
-        and truthy(author_protocol["PublishedProtocolBasisAvailable"])
-        and not truthy(author_protocol["AuthorExport"])
-        and not truthy(author_protocol["ExactAuthorNative"])
-        and not truthy(author_protocol["MeasurementValidationAllowed"])
+        if str(source_protocol["CurrentStatus"]) == "REGISTERED_PROTOCOL_GUIDED_LOCAL_REPRODUCTION_READY"
+        and truthy(source_protocol["PublishedProtocolBasisAvailable"])
+        and not truthy(source_protocol["SourceExport"])
+        and not truthy(source_protocol["SourceNative"])
+        and not truthy(source_protocol["MeasurementValidationAllowed"])
         else "WARNING",
         (
-            f"{author_protocol['StrongestAllowedClaim']}; "
-            f"registered families={author_protocol['RegisteredFamilies']}; "
-            f"used families={author_protocol['UsedFamilies']}; "
-            f"blocked protocol families={author_protocol['BlockedProtocolFamilies']}; "
-            f"sample range={author_protocol['MinBootstrapSamplesPerFamily']}.."
-            f"{author_protocol['MaxBootstrapSamplesPerFamily']}; "
-            f"omega abs max={author_protocol['OmegaAbsMax']}."
+            f"{source_protocol['StrongestAllowedClaim']}; "
+            f"registered families={source_protocol['RegisteredFamilies']}; "
+            f"used families={source_protocol['UsedFamilies']}; "
+            f"blocked protocol families={source_protocol['BlockedProtocolFamilies']}; "
+            f"sample range={source_protocol['MinBootstrapSamplesPerFamily']}.."
+            f"{source_protocol['MaxBootstrapSamplesPerFamily']}; "
+            f"omega abs max={source_protocol['OmegaAbsMax']}."
         ),
-        "author_protocol_guided_reproduction_boundary",
+        "registered_protocol_guided_reproduction_boundary",
     )
 
-    author_bridge = read_first(FILES["author_protocol_guided_bridge"])
+    author_bridge = read_first(FILES["registered_protocol_guided_bridge"])
     add(
         rows,
-        "AUTHOR_PROTOCOL_GUIDED_BRIDGE",
-        str(FILES["author_protocol_guided_bridge"].relative_to(ROOT)),
+        "REGISTERED_PROTOCOL_GUIDED_BRIDGE",
+        str(FILES["registered_protocol_guided_bridge"].relative_to(ROOT)),
         "WARNING"
-        if str(author_bridge["CurrentStatus"]) == "AUTHOR_PROTOCOL_GUIDED_BRIDGE_SCORED_EXACT_AUTHOR_NATIVE_BLOCKED"
+        if str(author_bridge["CurrentStatus"]) == "REGISTERED_PROTOCOL_GUIDED_BRIDGE_SCORED_SOURCE_NATIVE_BLOCKED"
         and int(author_bridge["K2BeatsFamilyBackreactionCases"]) == int(author_bridge["RouteFamilyCases"])
-        and not truthy(author_bridge["AuthorExport"])
-        and not truthy(author_bridge["ExactAuthorNative"])
+        and not truthy(author_bridge["SourceExport"])
+        and not truthy(author_bridge["SourceNative"])
         and not truthy(author_bridge["MeasurementValidationAllowed"])
         else "BLOCKED",
         (
@@ -2519,16 +2526,16 @@ def build_rows() -> list[dict[str, object]]:
             f"median corr family-K2={author_bridge['MedianCorrelationFamilyWithK2']}; "
             f"median DeltaChi2 K2-family={author_bridge['MedianDeltaChi2_K2_minus_FamilyBackreaction']}."
         ),
-        "author_protocol_guided_bridge_boundary",
+        "registered_protocol_guided_bridge_boundary",
     )
 
-    author_dominance = read_first(FILES["author_protocol_guided_dominance"])
+    author_dominance = read_first(FILES["registered_protocol_guided_dominance"])
     add(
         rows,
-        "AUTHOR_PROTOCOL_GUIDED_DOMINANCE",
-        str(FILES["author_protocol_guided_dominance"].relative_to(ROOT)),
+        "REGISTERED_PROTOCOL_GUIDED_DOMINANCE",
+        str(FILES["registered_protocol_guided_dominance"].relative_to(ROOT)),
         "PASS"
-        if str(author_dominance["CurrentStatus"]) == "K2_DOMINATES_AUTHOR_PROTOCOL_GUIDED_FAMILIES_PREFLIGHT"
+        if str(author_dominance["CurrentStatus"]) == "K2_DOMINATES_REGISTERED_PROTOCOL_GUIDED_FAMILIES_PREFLIGHT"
         and int(author_dominance["K2BeatsFamilyRouteCases"]) == int(author_dominance["RouteFamilyCases"])
         and int(author_dominance["K2BeatsFamilyZones"]) == int(author_dominance["Zones"])
         and not truthy(author_dominance["MeasurementValidationAllowed"])
@@ -2545,7 +2552,7 @@ def build_rows() -> list[dict[str, object]]:
             f"zones={author_dominance['K2BeatsFamilyZones']}/{author_dominance['Zones']}; "
             f"median DeltaChi2 K2-family={author_dominance['MedianDeltaChi2_K2_minus_Family_Route']}."
         ),
-        "author_protocol_guided_dominance_boundary",
+        "registered_protocol_guided_dominance_boundary",
     )
 
     route_adjudication = read_first(FILES["backreaction_route_adjudication"])

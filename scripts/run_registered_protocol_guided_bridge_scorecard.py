@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Score author-protocol-guided local reproduction families against locked K2."""
+"""Score registered-protocol-guided local reproduction families against locked K2."""
 
 from __future__ import annotations
 
@@ -13,13 +13,13 @@ DATA = ROOT / "data" / "physical_nulls" / "backreaction_reproduction"
 EVIDENCE = ROOT / "evidence"
 DOCS = ROOT / "docs"
 
-OMEGA = DATA / "author_protocol_guided_reproduction_backreaction_vector.csv"
-OUT_ROW = EVIDENCE / "author_protocol_guided_bridge_row_audit.csv"
-OUT_SCORE = EVIDENCE / "author_protocol_guided_bridge_scorecard.csv"
-OUT_SUMMARY = EVIDENCE / "author_protocol_guided_bridge_summary.csv"
-OUT_DOC = DOCS / "author_protocol_guided_bridge_scorecard.md"
+OMEGA = DATA / "registered_protocol_guided_reproduction_backreaction_vector.csv"
+OUT_ROW = EVIDENCE / "registered_protocol_guided_bridge_row_audit.csv"
+OUT_SCORE = EVIDENCE / "registered_protocol_guided_bridge_scorecard.csv"
+OUT_SUMMARY = EVIDENCE / "registered_protocol_guided_bridge_summary.csv"
+OUT_DOC = DOCS / "registered_protocol_guided_bridge_scorecard.md"
 
-CLAIM_BOUNDARY = "author_protocol_guided_bridge_no_measurement_validation"
+CLAIM_BOUNDARY = "registered_protocol_guided_bridge_no_measurement_validation"
 
 ROUTES = [
     {
@@ -96,7 +96,7 @@ def main() -> None:
             k2_chi2 = chi2(target, k2)
             score_rows.append(
                 {
-                    "AuditID": "AUTHOR_PROTOCOL_GUIDED_BRIDGE_SCORECARD_V1",
+                    "AuditID": "REGISTERED_PROTOCOL_GUIDED_BRIDGE_SCORECARD_V1",
                     "RouteID": route["RouteID"],
                     "FamilyID": family_id,
                     "SampleID": sample_id,
@@ -114,8 +114,8 @@ def main() -> None:
                     "LockedK2Changed": False,
                     "K1Refit": False,
                     "ScaleFitAllowed": False,
-                    "AuthorExport": False,
-                    "ExactAuthorNative": False,
+                    "SourceExport": False,
+                    "SourceNative": False,
                     "MeasurementValidationAllowed": False,
                     "ClaimBoundary": CLAIM_BOUNDARY,
                 }
@@ -123,7 +123,7 @@ def main() -> None:
             for i, vector_row in vector.iterrows():
                 row_rows.append(
                     {
-                        "AuditID": "AUTHOR_PROTOCOL_GUIDED_BRIDGE_ROW_V1",
+                        "AuditID": "REGISTERED_PROTOCOL_GUIDED_BRIDGE_ROW_V1",
                         "RouteID": route["RouteID"],
                         "FamilyID": family_id,
                         "SampleID": sample_id,
@@ -154,7 +154,7 @@ def main() -> None:
     summary = pd.DataFrame(
         [
             {
-                "AuditID": "AUTHOR_PROTOCOL_GUIDED_BRIDGE_SCORECARD_V1",
+                "AuditID": "REGISTERED_PROTOCOL_GUIDED_BRIDGE_SCORECARD_V1",
                 "RowsScored": len(row),
                 "RoutesScored": score["RouteID"].nunique(),
                 "FamiliesScored": score["FamilyID"].nunique(),
@@ -170,15 +170,15 @@ def main() -> None:
                 "LockedK2Changed": False,
                 "K1Refit": False,
                 "ScaleFitAllowed": False,
-                "AuthorExport": False,
-                "ExactAuthorNative": False,
+                "SourceExport": False,
+                "SourceNative": False,
                 "MeasurementValidationAllowed": False,
-                "CurrentStatus": "AUTHOR_PROTOCOL_GUIDED_BRIDGE_SCORED_EXACT_AUTHOR_NATIVE_BLOCKED",
+                "CurrentStatus": "REGISTERED_PROTOCOL_GUIDED_BRIDGE_SCORED_SOURCE_NATIVE_BLOCKED",
                 "StrongestAllowedClaim": (
                     "published protocol-guided local families can be scored against locked K2 as preflight comparators"
                 ),
                 "PrimaryResidualRisk": (
-                    "manual author choices and branch-specific DESI/eBOSS exports remain unavailable"
+                    "manual protocol-selection details and branch-specific DESI/eBOSS exports remain unavailable"
                 ),
                 "NextAction": "run row/zone dominance and implement DESI/eBOSS branch-specific reproductions",
                 "ClaimBoundary": CLAIM_BOUNDARY,
@@ -190,7 +190,7 @@ def main() -> None:
     OUT_DOC.write_text(
         "\n".join(
             [
-                "# Author-Protocol-Guided Bridge Scorecard",
+                "# Registered-Protocol-Guided Bridge Scorecard",
                 "",
                 f"Status: {summary.iloc[0]['CurrentStatus']}.",
                 "",
@@ -206,7 +206,7 @@ def main() -> None:
                 "",
                 "## Boundary",
                 "",
-                "This is a preflight artifact only. It is not author-native validation.",
+                "This is a preflight artifact only. It is not source-native validation.",
                 "",
             ]
         ),

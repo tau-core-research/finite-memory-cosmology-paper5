@@ -26,7 +26,7 @@ def test_submission_packet_exists():
 def test_key_preflight_summaries_preserve_claim_boundary():
     required = [
         "evidence/finite_memory_preflight_summary.csv",
-        "evidence/author_protocol_guided_dominance_summary.csv",
+        "evidence/registered_protocol_guided_dominance_summary.csv",
         "evidence/source_native_reproduction_family_dominance_summary.csv",
     ]
     for rel in required:

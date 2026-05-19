@@ -64,9 +64,9 @@ current package:
 ```bash
 PYTHONPATH=src python scripts/run_coordinate_robustness.py
 PYTHONPATH=src python scripts/run_null_comparison.py
-PYTHONPATH=src python scripts/build_author_protocol_guided_reproduction_families.py
-PYTHONPATH=src python scripts/run_author_protocol_guided_bridge_scorecard.py
-PYTHONPATH=src python scripts/build_author_protocol_guided_dominance_audit.py
+PYTHONPATH=src python scripts/build_registered_protocol_guided_reproduction_families.py
+PYTHONPATH=src python scripts/run_registered_protocol_guided_bridge_scorecard.py
+PYTHONPATH=src python scripts/build_registered_protocol_guided_dominance_audit.py
 PYTHONPATH=src python scripts/build_finite_memory_preflight_packet.py
 ```
 
@@ -89,7 +89,7 @@ python -m pytest -q
 - `paper5_submission_source/draft.md`
 - `finite_memory_projection_corrections.pdf`
 - `evidence/finite_memory_preflight_summary.csv`
-- `evidence/author_protocol_guided_dominance_summary.csv`
+- `evidence/registered_protocol_guided_dominance_summary.csv`
 - `evidence/source_native_reproduction_family_dominance_summary.csv`
 - `arxiv_submission_source.zip`
 
