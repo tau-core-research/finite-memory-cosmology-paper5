@@ -14,6 +14,12 @@ model, or measurement validation of a finite-memory effect. All Tau Core /
 projection-language references are treated as motivation for a locked diagnostic
 operator, not as assumptions required to reproduce the benchmark.
 
+## Author And Research Workflow
+
+I am an independent researcher using an AI-assisted workflow to develop reproducible diagnostic tests around projection-sensitive residual hypotheses. I am not claiming expert-level validation. I would value criticism on whether the proposed gate/falsification structure is scientifically meaningful.
+
+AI systems are used for drafting, mathematical organization, code generation, literature triage, and internal consistency checks. Numerical and symbolic audits can support reproducibility and error-finding, but they do not replace independent expert review or physical validation.
+
 ## Theory Context
 
 The broader Tau Core theory background is maintained separately at:
