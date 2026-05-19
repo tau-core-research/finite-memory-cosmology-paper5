@@ -1,0 +1,10 @@
+complexity,loss,equation,score,sympy_format,lambda_format,criteria3_penalty,criteria3_score,ClaimBoundary
+1,0.7890149,-0.23899917,0.0,-0.238999170000000,PySRFunction(X=>-0.238999170000000),1.0,1.7890149,pysr_criteria3_smoke_no_measurement_validation
+2,0.20282188,log(x0),1.3584570498879724,log(x0),PySRFunction(X=>log(x0)),1.0,2.20282188,pysr_criteria3_smoke_no_measurement_validation
+3,0.099389836,-1.2734658 + x0,0.7132783005305668,x0 - 1.2734658,PySRFunction(X=>x0 - 1.2734658),1.0,3.099389836,pysr_criteria3_smoke_no_measurement_validation
+5,0.098187596,log(exp(x0)) + -1.2488165,0.0060849805882976,log(exp(x0)) - 1.2488165,PySRFunction(X=>log(exp(x0)) - 1.2488165),1.0,5.098187596,pysr_criteria3_smoke_no_measurement_validation
+6,0.030051084,-0.42272225 + (log(x0) * x0),1.1839811601946504,x0*log(x0) - 0.42272225,PySRFunction(X=>x0*log(x0) - 0.42272225),1.0,6.030051084,pysr_criteria3_smoke_no_measurement_validation
+8,0.02383609,log(exp(x0 * sqrt(x0))) + -1.3965348,0.11584895743149763,log(exp(x0**(3/2))) - 1.3965348,PySRFunction(X=>log(exp(x0**(3/2))) - 1.3965348),1.0,8.02383609,pysr_criteria3_smoke_no_measurement_validation
+9,0.010667226,((log(x0) + -1.2488165) * sqrt(x0)) + x0,0.8040247684220939,sqrt(x0)*(log(x0) - 1.2488165) + x0,PySRFunction(X=>sqrt(x0)*(log(x0) - 1.2488165) + x0),1.0,9.010667226,pysr_criteria3_smoke_no_measurement_validation
+11,0.009428009,square(x0 * 0.29039824) + ((log(x0) * x0) + -0.502198),0.061745555290040485,0.0843311377950976*x0**2 + x0*log(x0) - 0.502198,PySRFunction(X=>0.0843311377950976*x0**2 + x0*log(x0) - 0.502198),1.0,11.009428009,pysr_criteria3_smoke_no_measurement_validation
+12,0.0031033566,((log(x0 - 0.22728057) * (x0 - -0.14292371)) / 0.9640144) + -0.033105794,1.1112006397692615,1.03732890297074*(x0 + 0.14292371)*log(x0 - 0.22728057) - 0.033105794,PySRFunction(X=>1.03732890297074*(x0 + 0.14292371)*log(x0 - 0.22728057) - 0.033105794),1.0,12.0031033566,pysr_criteria3_smoke_no_measurement_validation

@@ -1,0 +1,2 @@
+PolicyID,SensitivityReady,TransformCovarianceReady,PolicyFrozenForPreflight,AllowedForMeasurementValidation,ObservedSensitivity,ObservedTransformCovariance,BlockingIssue,NextAction,ClaimBoundary
+K2_A2_CROSS_COVARIANCE_POLICY_V1,True,True,True,False,rho_grid=-0.9..0.4; includes_zero=True; rows=27,transform_covariance_matches_reference=True; max_abs_diff=1.0018652574217413e-12,,Use declared rho_cross=0 benchmark with mandatory sensitivity grid in preflight reruns.,cross_covariance_policy_no_measurement_validation

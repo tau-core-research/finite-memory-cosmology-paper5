@@ -1,0 +1,2 @@
+ScorecardID,Rows,Authorized,BestAICModel,K2DegenerateWithK1NoMemory,K2Rho4Status,K2Rho4SignStableViolations,Interpretation,ClaimBoundary
+SOURCE_SPLIT_K2_NULL_SCORECARD_V1,8,True,POLY_DEG2_CONTROL,True,STRICT_GATE_WARNING,3,Locked multiplicative K2 is not distinguishable from zero-contrast no-memory K1 on this source-split target.,source_split_preflight_scorecard_no_measurement_validation

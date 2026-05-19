@@ -1,0 +1,2 @@
+StressAuditID,StressComparisons,AllRowsDeltaAIC_V3_minus_K1,AllRowsDeltaAIC_V3_minus_V2,LeaveOneOutFolds,LeaveOneOutV3BeatsK1,LeaveOneOutV3BeatsV2,SubsetFolds,SubsetV3BeatsK1,SubsetV3BeatsV2,MeasurementValidationAllowed,CurrentStatus,StrongestAllowedClaim,ClaimBoundary
+A2_V3_STRESS_TEST_V1,16,-0.06002860887351602,-0.7792800067694259,8,4,7,7,1,2,False,A2_V3_STRESS_SUPPORTIVE_BUT_WEAK,A2 v3 stress test checks whether the K1 advantage survives simple data cuts,a2_v3_stress_test_no_measurement_validation

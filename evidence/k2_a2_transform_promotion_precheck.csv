@@ -1,0 +1,6 @@
+ComponentID,ProductID,Status,FrozenDefinition,Observed,BlockingIssue,AllowedForScorecardRerun,AllowedForMeasurementValidation,ClaimBoundary
+SN_RESIDUAL_POLICY,PANTHEON_PLUS_SH0ES_SN,PASS,r_SN = D_SN * B_SN * (I - 1*w_SN^T) * (mu_obs - mu_CMB_baseline),"sn_rows=1701; L_SN_shape=(8,1701)",,True,False,transform_promotion_precheck_no_measurement_validation
+BAO_RESIDUAL_POLICY,DESI_DR2_BAO_ALL_GAUSSIAN,PASS,r_BAO = log(q_obs / q_CMB_baseline); y_BAO = D_BAO * A_BAO * r_BAO,"bao_rows=13; L_BAO_shape=(8,13)",,True,False,transform_promotion_precheck_no_measurement_validation
+JOINT_SOURCE_SPLIT_POLICY,PANTHEON_PLUS_SH0ES_SN;DESI_DR2_BAO_ALL_GAUSSIAN,PASS,y_split = L_SN*r_SN - L_BAO*r_BAO; C_split from propagated SN/BAO covariance with frozen cross-covariance policy,covariance_verified=True; cross_covariance_policy_frozen=True,,True,False,transform_promotion_precheck_no_measurement_validation
+K1_AND_NULL_POLICY,K1_BASELINE;NULL_COMPARATORS,PASS,score K1/no-memory and registered null comparators in the same y_split space before A2 interpretation,k1_likelihood_native=True; null_policy_frozen=True,,True,False,transform_promotion_precheck_no_measurement_validation
+LOCKED_A2_UNCHANGED,K2_SOURCE_SPLIT_A2_PRIOR_V1,PASS,K2_A2 = 2 * K1 * (1 + 4*x^3); p=3; rho=4; A_tau=2; no K1 refit,k2_lock_ok=True,,True,False,transform_promotion_precheck_no_measurement_validation

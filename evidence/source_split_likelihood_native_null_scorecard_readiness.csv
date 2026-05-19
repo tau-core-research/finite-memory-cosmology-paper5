@@ -1,0 +1,2 @@
+ArtifactID,ScorecardAllowed,WouldWrite,ExternalK1Allowed,ExternalK1BlockingIssue,NextAction,ClaimBoundary
+SOURCE_SPLIT_LIKELIHOOD_NATIVE_NULL_SCORECARD_GUARD,True,evidence/source_split_likelihood_native_null_scorecard.csv,True,nan,Inspect likelihood-native preflight null scorecard; do not treat as measurement validation.,null_scorecard_guard_only_no_measurement_validation

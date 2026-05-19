@@ -1,0 +1,2 @@
+ArtifactID,Rows,RowsWithSNAndBAO,SignStableRows,SignUnstableRows,MeanAbsUncalibratedContrast,MaxBAOAnchorDeltaZ,ReadyForK2Scoring,Status,BlockingIssue,NextAction
+SOURCE_SPLIT_JOINT_PREFLIGHT,9,8,5,4,0.08278699093074915,0.391,False,PREFLIGHT_ONLY_NOT_MEASUREMENT_GATE,different_residual_units;coordinate_native_k1_missing;joint_covariance_missing,"Define a joint source-split residual scale, covariance, and coordinate-native K1 target."

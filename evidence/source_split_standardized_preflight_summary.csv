@@ -1,0 +1,2 @@
+ArtifactID,Rows,RowsWithSNAndBAO,RowsSameSign,RowsOppositeSign,MeanAbsStandardizedContrast,MedianJointStandardizedRSS,MaxJointStandardizedRSS,ReadyForK2Scoring,Status,BlockingIssue,NextAction
+SOURCE_SPLIT_STANDARDIZED_PREFLIGHT,9,8,3,5,2.2234938839612974,2.2133584892619975,3.622195564956797,False,PREFLIGHT_ONLY_NOT_MEASUREMENT_GATE,diagonal_standardization_only;coordinate_native_k1_missing;joint_covariance_missing,Replace diagonal standardization with a joint covariance and export coordinate-native K1.

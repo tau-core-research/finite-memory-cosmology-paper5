@@ -1,0 +1,8 @@
+BaselineExportID,Status,ProductScope,FittedInThisNote,LikelihoodNative,CoordinateNative,AbsorbsGlobalScaleOffset,AllowedForT1Preflight,AllowedForMeasurementGate,BlockingIssue,RequiredNextCheck
+AUDIT_FLAT_LCDM_BAO_V0,available,DESI_DR1;DESI_DR2,False,False,False,False,True,False,not_likelihood_native;not_coordinate_native,Do not use for K2 scoring.
+AUDIT_RD_OFFSET_ABSORBED_V0,planned,DESI_DR1;DESI_DR2,True,False,False,True,True,False,baseline_not_available;not_likelihood_native;not_coordinate_native;baseline_fitted_in_this_note;absorbs_same_data_scale_offset,Use only as sensitivity check and report parameter use.
+PUBLIC_LIKELIHOOD_NATIVE_BAO_BASELINE,required,DESI_DR2,False,True,True,True,False,False,baseline_not_available,Select public likelihood-native source and freeze export procedure.
+DESI_DR2_BASE_DESI_BAO_ALL_IMINUIT_BESTFIT_V0,available,DESI_DR2,False,True,True,True,True,False,absorbs_same_data_scale_offset,Use for BAO baseline preflight; keep measurement gate closed until K2 comparison protocol is registered.
+CMB_ONLY_BASE_PLANCK_ACT_LENSING_IMINUIT_BESTFIT_V0,available,DESI_DR2,False,True,True,False,True,False,,Use as independent BAO baseline preflight; keep measurement gate closed until K2 comparison protocol is registered.
+COORDINATE_NATIVE_BAO_BASELINE,required,DESI_DR2,False,False,True,True,False,False,baseline_not_available;not_likelihood_native,Define coordinate-native diagnostic grid and covariance propagation.
+NULL_COMPARATOR_BAO_BASELINE,required,DESI_DR2,False,True,True,True,False,False,baseline_not_available,Run covariance-aware null comparator benchmark before measurement gate.

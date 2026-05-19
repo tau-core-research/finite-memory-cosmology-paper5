@@ -1,0 +1,2 @@
+RulePreviewID,Rows,StableRows,WarningRows,Rule,AllowedForK2Scoring,BlockingIssue,NextAction,ClaimBoundary
+RF_FAMILY_SIGN_RULE_PREVIEW_V1,8,3,5,stable if all nonzero public reconstruction-family signs agree,False,sign_rule_preview_only;candidate_export_missing;scoring_rule_not_locked,Promote only after a real candidate export exists and the rule is registered for scoring.,sign_rule_preview_only_no_measurement_validation

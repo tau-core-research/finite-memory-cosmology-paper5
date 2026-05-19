@@ -1,0 +1,2 @@
+CovarianceID,Rows,MatrixEntries,RhoSNBAO,LambdaShrink,CorrelationLength,MinEigenvalue,MaxEigenvalue,PositiveDefinite,CoordinateNative,K1Compatible,AllowedForK2Scoring,Status,BlockingIssue,NextAction
+SSCOV_SHRINKAGE_SOURCE_SPLIT,8,64,0.0,0.15,0.25,1.7479466832147477,2.8789388867112304,True,True,True,False,SHRINKAGE_COVARIANCE_POLICY_EXPORTED_NOT_PUBLIC_FULL_COVARIANCE,public_sign_family_missing;not_public_full_covariance,Export public sign-family before any K2/null scorecard; replace with public full covariance when available.

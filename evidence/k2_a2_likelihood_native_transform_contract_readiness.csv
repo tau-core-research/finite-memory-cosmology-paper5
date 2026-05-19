@@ -1,0 +1,2 @@
+ReadinessID,Rows,LockedA2Ready,RequiredNonA2ComponentsReady,AllowedForFullGateScorecard,BlockingComponents,CurrentStatus,PrimaryNextAction,ClaimBoundary
+K2_A2_LIKELIHOOD_NATIVE_TRANSFORM_CONTRACT,7,True,False,False,LNTR_SN_VECTOR;LNTR_BAO_VECTOR;LNTR_SOURCE_SPLIT_VECTOR;LNTR_COVARIANCE;LNTR_K1_BASELINE;LNTR_NULL_POLICY,CONTRACT_DEFINED_FULL_GATE_BLOCKED,"freeze L_SN, L_BAO, C_split cross-covariance policy, K1 baseline, and null policy",a2_likelihood_native_transform_contract_no_measurement_validation

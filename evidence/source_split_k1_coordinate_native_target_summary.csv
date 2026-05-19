@@ -1,0 +1,2 @@
+K1TargetID,Rows,UsableRows,XMapping,NoMemoryDefinition,MeanK1NoMemoryResponse,MeanAbsSourceSplitResponse,CoordinateNative,UsesJointCovariance,SignFamilyExported,AllowedForK2Scoring,Status,BlockingIssue,NextAction
+SSK1_COORDINATE_NATIVE_SOURCE_SPLIT_TARGET,9,8,x_chi_normalized_flat_lcdm_audit,zero_source_split_branch_contrast,0.0,2.2234938839612974,True,False,False,False,K1_CONTROL_EXPORTED_NOT_SCORING_TARGET,joint_covariance_missing;public_sign_family_missing,Export public sign-family and joint covariance before any K2/null scoring.

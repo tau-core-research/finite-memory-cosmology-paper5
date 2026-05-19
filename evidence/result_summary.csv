@@ -1,0 +1,6 @@
+ResultID,SourcePacket,Metric,Value,Interpretation
+R1_BAO_WINDOW,packet_v135,prediction_window_overlap_fraction,1.0000000000,Locked K2 window overlaps the BAO-only diagnostic envelope at all points.
+R2_BAO_BEST,packet_v135,best_curve_overlap_fraction,1.0000000000,Best locked K2 BAO-only curve remains inside the diagnostic envelope.
+R3_SN_SIGN_STABLE,packet_v142,sign_stable_nonviolation_fraction,1.0000000000,All sign-stable SN+BAO points are non-violating under exact sign matching.
+R4_SN_UNSTABLE,packet_v142,sign_unstable_compatibility_fraction,1.0000000000,All sign-unstable SN+BAO points remain envelope-compatible under diagonal residual handling.
+R5_READINESS,packet_v143,paper_readiness,RELEASE_CANDIDATE_METHOD_NOTE,Release-candidate method note / research-program bridge; not a measurement-validation paper.

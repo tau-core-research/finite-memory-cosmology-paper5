@@ -1,0 +1,2 @@
+ArtifactID,OutputPath,Rows,NonzeroRows,MeanAbsK1Response,MeanK1Sigma,AllowedAsPrimaryK1Candidate,SameDataAmplitudeFit,FittedInThisNote,NextAction,ClaimBoundary
+SOURCE_SPLIT_LIKELIHOOD_NATIVE_EXTERNAL_K1_EXPORT,data/k1/source_split_external_k1_response.csv,8,8,0.17046820413894592,0.09682903470313226,True,False,False,Run external K1 validator and promotion gate before any locked K2/null scorecard.,likelihood_native_k1_export_no_measurement_validation

@@ -1,0 +1,2 @@
+QueueID,Tasks,NextTask,BlockedTasks,K2ScoringTask,K2ScoringStatus,ClaimBoundary
+SOURCE_SPLIT_EXPORT_TASK_QUEUE,9,TQ4C_SIGN_RULE_PROMOTION,3,TQ5_LOCKED_K2_SCORECARD,blocked,task_queue_only_no_measurement_validation

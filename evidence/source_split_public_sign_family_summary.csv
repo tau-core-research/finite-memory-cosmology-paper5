@@ -1,0 +1,2 @@
+SignFamilyID,Rows,UsableRows,ReconstructionFamilies,SignStableRule,PublicBranchStableRows,PublicBranchOppositeRows,TemplateStableRows,CoordinateNative,AllowedForK2Scoring,Status,BlockingIssue,NextAction
+SF_PUBLIC_SOURCE_SPLIT_FAMILIES,9,8,SN_standardized_branch;BAO_standardized_branch,public SN and BAO standardized branch signs agree,3,5,5,True,False,PUBLIC_BRANCH_SIGN_FAMILY_PREFLIGHT_NOT_RECONSTRUCTION_FAMILY,reconstruction_families_missing;not_full_public_reconstruction_family,Replace branch-sign preflight with public reconstruction-family export before K2/null scorecard.

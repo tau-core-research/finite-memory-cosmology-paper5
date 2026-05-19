@@ -1,0 +1,10 @@
+CheckID,Requirement,Available,Evidence,BlockingIssue,NextAction
+SS1_PUBLIC_SN_INPUT,Public SN data vector and covariance available,True,PANTHEON_PLUS_SH0ES_SN,,Use only after a source-split diagnostic transform is registered.
+SS2_PUBLIC_BAO_INPUT,Public BAO data vector and covariance available,True,DESI_DR2_BAO_ALL_GAUSSIAN,,"Use as BAO anchor/control, not as a same-data amplitude calibrator."
+SS3_SIGN_FAMILY_PACKET,Current diagnostic packet contains sign-family splits,True,sign_stable=5; sign_unstable=4,,Export the same sign-family logic from public reconstruction families.
+SS4_NULL_COMPARATORS,Fair null comparators are registered,True,LCDM_NO_MEMORY;GENERIC_POLYNOMIAL_SMOOTHING;BACKREACTION_ONLY;DYER_ROEDER_OPTICAL;RECONSTRUCTION_ARTIFACT;SIGN_RANDOMIZED_CONTROL;COORDINATE_REMAP_CONTROL,,"Implement source-split versions of no-memory, optical, and backreaction controls."
+SS5_COORDINATE_NATIVE_K1,Coordinate-native K1/no-memory target selected,True,source_split_k1_target_readiness.csv,,Build a coordinate-native K1 target before K2 measurement scoring.
+SS6_LIKELIHOOD_NATIVE_K1,Likelihood-native K1/no-memory target selected,False,K1_LIKELIHOOD_NATIVE_TARGET,likelihood_native_k1_unavailable,Keep as Phase II target if coordinate-native export is not enough.
+SS7_JOINT_COVARIANCE,Source-split joint covariance selected,True,source_split_covariance_readiness.csv,,Select public joint covariance or declared shrinkage covariance before K2 scoring.
+SS8_PUBLIC_SIGN_FAMILY,Public source-split sign-family export selected,True,sign_family_export_readiness.csv,,Export sign-family table from public source-split reconstruction families before K2 scoring.
+SS9_SCORING_AUTHORIZATION,Source-split K2 measurement scoring authorized,True,requires SS1-SS5 and SS7-SS8 true,,"Start with transform/export work, not K2 scoring."

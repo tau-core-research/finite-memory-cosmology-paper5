@@ -1,0 +1,127 @@
+{
+  "manifest_id": "finite_memory_phase2_public_benchmark_preflight_v1",
+  "status": "preflight_only_no_public_likelihood_ingested",
+  "claim_boundary": "operational MVP and weakening result; not measurement validation",
+  "locked_k2_operator": {
+    "operator_file": "frozen/k2_operator_v1.yaml",
+    "W": "1 + rho*x^3",
+    "p": 3,
+    "rho_bound": "rho <= 4",
+    "post_hoc_kernel_changes_allowed": false
+  },
+  "coordinate_mappings": [
+    "z_normalized",
+    "comoving_distance_normalized",
+    "optical_depth_like",
+    "likelihood_native"
+  ],
+  "covariance_requirements": {
+    "required_for_measurement_validation": true,
+    "accepted_phase2_inputs": [
+      "public_full_covariance",
+      "declared_shrinkage_covariance"
+    ],
+    "current_mvp_only": [
+      "diagonal_proxy",
+      "nearest_neighbor_corr",
+      "exp_corr_z",
+      "exp_corr_x",
+      "constant_offdiag_corr"
+    ]
+  },
+  "null_comparators": [
+    "LCDM_NO_MEMORY",
+    "GENERIC_POLYNOMIAL_SMOOTHING",
+    "BACKREACTION_ONLY",
+    "DYER_ROEDER_OPTICAL",
+    "RECONSTRUCTION_ARTIFACT",
+    "SIGN_RANDOMIZED_CONTROL",
+    "COORDINATE_REMAP_CONTROL"
+  ],
+  "required_products": [
+    {
+      "product_id": "DESI_DR2_BAO_ALL_GAUSSIAN",
+      "required": true,
+      "role": "BAO-only all-tracer Gaussian diagnostic vector and covariance",
+      "data_vector_path": "data/public_ingest/desi_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt",
+      "covariance_path": "data/public_ingest/desi_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt",
+      "candidate_data_url": "https://raw.githubusercontent.com/CobayaSampler/bao_data/master/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt",
+      "candidate_covariance_url": "https://raw.githubusercontent.com/CobayaSampler/bao_data/master/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt",
+      "source_document_url": "https://cobaya.readthedocs.io/en/devel/likelihood_bao.html",
+      "coordinate_mapping": "bao_redshift_or_likelihood_native_required",
+      "null_comparators": [
+        "LCDM_NO_MEMORY",
+        "GENERIC_POLYNOMIAL_SMOOTHING",
+        "BACKREACTION_ONLY"
+      ],
+      "next_action": "Validate DESI DR2 BAO mean/cov file shapes and define diagnostic transform."
+    },
+    {
+      "product_id": "DESI_DR1_BAO_ALL_GAUSSIAN",
+      "required": false,
+      "role": "BAO-only DR1 all-tracer Gaussian diagnostic vector and covariance",
+      "data_vector_path": "data/public_ingest/desi_dr1/desi_2024_gaussian_bao_ALL_GCcomb_mean.txt",
+      "covariance_path": "data/public_ingest/desi_dr1/desi_2024_gaussian_bao_ALL_GCcomb_cov.txt",
+      "candidate_data_url": "https://raw.githubusercontent.com/CobayaSampler/bao_data/master/desi_2024_gaussian_bao_ALL_GCcomb_mean.txt",
+      "candidate_covariance_url": "https://raw.githubusercontent.com/CobayaSampler/bao_data/master/desi_2024_gaussian_bao_ALL_GCcomb_cov.txt",
+      "source_document_url": "https://data.desi.lbl.gov/doc/releases/dr1/vac/bao-cosmo-params/",
+      "coordinate_mapping": "bao_redshift_or_likelihood_native_required",
+      "null_comparators": [
+        "LCDM_NO_MEMORY",
+        "GENERIC_POLYNOMIAL_SMOOTHING",
+        "BACKREACTION_ONLY"
+      ],
+      "next_action": "Keep as local fallback if the DR2 diagnostic transform is not ready."
+    },
+    {
+      "product_id": "PANTHEON_PLUS_SH0ES_SN",
+      "required": true,
+      "role": "SN distance-modulus vector and covariance for SN+BAO benchmark construction",
+      "data_vector_path": "data/public_ingest/pantheon_plus/Pantheon_SH0ES.dat",
+      "covariance_path": "data/public_ingest/pantheon_plus/Pantheon_SH0ES_STAT_SYS.cov",
+      "candidate_data_url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/main/Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES.dat",
+      "candidate_covariance_url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/main/Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES_STAT+SYS.cov",
+      "source_document_url": "https://github.com/PantheonPlusSH0ES/DataRelease",
+      "coordinate_mapping": "sn_redshift_to_likelihood_native_required",
+      "null_comparators": [
+        "LCDM_NO_MEMORY",
+        "GENERIC_POLYNOMIAL_SMOOTHING",
+        "RECONSTRUCTION_ARTIFACT"
+      ],
+      "next_action": "Validate Pantheon+ data/covariance dimensions and define SN+BAO diagnostic transform rather than raw SN likelihood claim."
+    },
+    {
+      "product_id": "LIKELIHOOD_NATIVE_COORDINATE_MAP",
+      "required": true,
+      "role": "coordinate-native diagnostic mapping",
+      "data_vector_path": null,
+      "covariance_path": null,
+      "candidate_data_url": null,
+      "candidate_covariance_url": null,
+      "source_document_url": null,
+      "coordinate_mapping": "likelihood_native",
+      "null_comparators": [
+        "COORDINATE_REMAP_CONTROL"
+      ],
+      "next_action": "Export likelihood-native coordinate definition from the selected public benchmark."
+    },
+    {
+      "product_id": "FULL_OR_SHRINKAGE_COVARIANCE",
+      "required": true,
+      "role": "covariance-aware benchmark",
+      "data_vector_path": null,
+      "covariance_path": null,
+      "candidate_data_url": null,
+      "candidate_covariance_url": null,
+      "source_document_url": null,
+      "coordinate_mapping": null,
+      "null_comparators": [
+        "LCDM_NO_MEMORY",
+        "GENERIC_POLYNOMIAL_SMOOTHING",
+        "BACKREACTION_ONLY",
+        "DYER_ROEDER_OPTICAL"
+      ],
+      "next_action": "Attach public full covariance or declare shrinkage covariance recipe after selecting benchmark products."
+    }
+  ]
+}

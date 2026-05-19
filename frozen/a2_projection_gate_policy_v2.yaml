@@ -1,0 +1,40 @@
+policy_id: "A2_PROJECTION_GATE_POLICY_V2"
+status: "predeclared_rerun_candidate_not_measurement_validation"
+inherits_locked_operator: "K2_LOCKED_CUBIC_V1"
+locked_values:
+  A_tau: 2.0
+  rho: 4.0
+  p: 3
+  W: "1 + 4*x^3"
+forbidden_changes:
+  rho_gt_4: true
+  p_change: true
+  continuous_amplitude_fit: true
+  k1_refit: true
+  target_sign_selection: true
+input_state_variables:
+  - "x_coordinate"
+  - "K1Response"
+  - "SignStableTemplate"
+  - "SNBAOSameSign"
+depth_rules:
+  low_depth_max_x: 0.5
+  high_depth_min_x: 0.75
+projection_rules:
+  low_depth:
+    multiplier: "1.0"
+    reason: "projection memory remains weak at low depth"
+  sign_unstable:
+    multiplier: "1.0"
+    reason: "unstable reconstruction sign is not forced by A2"
+  source_coherent:
+    multiplier: "1.0"
+    reason: "same-direction SN/BAO response is treated as common-mode rather than source-split memory activation"
+  source_anti_coherent_mid_high:
+    multiplier: "2.0 * (1 + 4*x^3)"
+    reason: "opposed SN/BAO response is the declared source-split memory-active channel"
+  k1_null:
+    abs_threshold: 0.001
+    multiplier: "1.0"
+    reason: "near-null K1 does not get sign-inventing amplification"
+claim_boundary: "projection_gated_a2_policy_no_measurement_validation"

@@ -1,0 +1,2 @@
+GateID,Checks,PassedChecks,PreflightScorecardAllowed,MeasurementValidationAllowed,CurrentStatus,NextAction,ClaimBoundary
+K2_A2_PREFLIGHT_SCORING_GATE_V1,5,5,True,False,PREFLIGHT_SCORECARD_ALLOWED_NOT_MEASUREMENT_VALIDATION,Rerun locked A2/K1/null scorecard using frozen preflight transforms and policies.,preflight_scoring_gate_no_measurement_validation

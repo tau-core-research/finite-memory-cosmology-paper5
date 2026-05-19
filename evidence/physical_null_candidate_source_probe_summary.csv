@@ -1,0 +1,2 @@
+SummaryID,TargetsProbed,ProbeCompleted,SourcesWithDataLikeFiles,SourcesWithTexTables,SourcesWithFigures,CalibrationInputsReadyNow,RecommendedNextAction,PrimaryBlockingIssue,Interpretation,ClaimBoundary
+PHYSICAL_NULL_CANDIDATE_SOURCE_PROBE_SUMMARY,3,3,1,2,3,0,begin provisional extraction from highest-priority completed source probe,candidate_values_not_extracted_or_mapped,"source packages are probed for extractability, but no calibration values are ingested yet",physical_null_source_probe_no_measurement_validation

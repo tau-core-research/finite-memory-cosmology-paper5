@@ -1,0 +1,2 @@
+TargetID,Rows,UsableRows,XMapping,ResponseDefinition,MeanAbsResponse,SignStableUsableRows,OppositeSignUsableRows,CoordinateNative,ReadyForK2Scoring,Status,BlockingIssue,NextAction
+SS_TARGET_COORDINATE_NATIVE_V1,9,8,x_chi_normalized_flat_lcdm_audit,SN_standardized_minus_BAO_standardized,2.2234938839612974,5,5,True,False,PREFLIGHT_TARGET_EXPORTED,k1_target_missing;joint_covariance_missing;public_sign_family_missing,"Export coordinate-native K1 target, joint covariance, and public sign-family table."

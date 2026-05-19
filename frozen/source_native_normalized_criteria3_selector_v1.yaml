@@ -1,0 +1,15 @@
+selector_id: SOURCE_NATIVE_NORMALIZED_CRITERIA3_V1
+status: pre_registered_not_measurement_active
+score: loss / loss_constant + lambda_complexity * (complexity - 1) / n_eff
+loss_constant: best finite constant expression loss in the same PySR hall of fame
+n_eff: number of source-native training points used by that route
+lambda_complexity: 1.0
+measurement_validation_allowed: false
+locked_tau_core_flags:
+  change_k2_kernel_allowed: false
+  rho_greater_than_4_allowed: false
+  k1_refit_allowed: false
+  target_sign_gate_allowed: false
+  amplitude_fit_allowed: false
+activation_rule: allowed only for a future pre-registered bootstrap rerun, not retroactive measurement scoring
+claim_boundary: source_native_normalized_criteria3_selector_no_measurement_validation

@@ -1,0 +1,2 @@
+SummaryID,RowsExtracted,BackreactionRows,DyerRoederRows,BenchmarkInputsReadyNow,RowsBlockedForBenchmark,RowsBlockedForMappingOrCovariance,RecommendedNextAction,PrimaryBlockingIssue,Interpretation,ClaimBoundary
+PHYSICAL_NULL_PROVISIONAL_EXTRACTION_SUMMARY,8,1,7,0,8,7,select one optical alpha route and one backreaction extraction route for mapping-readiness checks,mapping_and_covariance_missing,candidate values/routes are recorded for acquisition planning only,provisional_source_extraction_no_measurement_validation

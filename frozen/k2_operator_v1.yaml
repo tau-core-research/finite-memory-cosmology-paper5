@@ -1,0 +1,13 @@
+operator_id: K2_LOCKED_CUBIC_V1
+W: "1 + rho*x^3"
+p: 3
+rho_min: 3.0
+rho_max: 4.0
+paper5_locked_range: [3.0, 4.0]
+rho_default: 4.0
+rho_bound: "rho <= 4"
+coordinate_status: "coordinate-explicit; default x=z/z_max"
+claim_level: "diagnostic proposal, not measurement validation"
+post_hoc_changes_allowed: false
+post_hoc_kernel_changes_allowed: false
+notes: "This config freezes the current method-note operator for gate-engine tests."

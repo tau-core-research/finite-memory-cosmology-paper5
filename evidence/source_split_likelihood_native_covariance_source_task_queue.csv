@@ -1,0 +1,5 @@
+TaskID,Priority,DependsOn,Task,BlocksMeasurementValidation,Status
+COVSRC_1_PROPAGATE_PUBLIC_COVARIANCE,1,,Propagate Pantheon+ and DESI covariance into the likelihood-native source-split vector.,True,PROXY_AVAILABLE_FULL_LIKELIHOOD_PENDING
+COVSRC_2_REGISTER_SYSTEMATIC_FLOOR,2,,Find or declare an independent systematic-floor source for the transformed diagnostic.,True,PENDING
+COVSRC_3_FREEZE_RECONSTRUCTION_FAMILY_SCATTER,3,,Register reconstruction-family scatter rule before any scoring use.,False,PENDING
+COVSRC_4_KEEP_BRANCH_SCATTER_PREFLIGHT,4,,Use branch scatter only as declared preflight benchmark until an independent route exists.,False,ACTIVE_BOUNDARY

@@ -1,0 +1,13 @@
+CheckID,Status,Observed,Requirement,BlockingIssue,ClaimBoundary
+prediction_id_locked,PASS,K2_SOURCE_SPLIT_A2_PRIOR_V1,K2_SOURCE_SPLIT_A2_PRIOR_V1,,locked_prediction_candidate_no_measurement_validation
+kernel_p_locked,PASS,pred={3},p=3,,locked_prediction_candidate_no_measurement_validation
+rho_locked,PASS,pred={4.0},rho=4,,locked_prediction_candidate_no_measurement_validation
+rho_bound_respected,PASS,rho <= 4,rho<=4,,locked_prediction_candidate_no_measurement_validation
+kernel_unchanged,PASS,pred={False},kernel_changed=false,,locked_prediction_candidate_no_measurement_validation
+a_tau_locked,PASS,pred={2.0},A_tau=2,,locked_prediction_candidate_no_measurement_validation
+a_tau_not_fitted,PASS,pred={False},fitted_in_this_note=false,,locked_prediction_candidate_no_measurement_validation
+pointwise_gain_forbidden,PASS,pointwise_gain_allowed=false,pointwise_gain_allowed=false,,locked_prediction_candidate_no_measurement_validation
+k1_refit_forbidden,PASS,refit_allowed=false,K1 refit forbidden,,locked_prediction_candidate_no_measurement_validation
+target_regime_declared,PASS,"['high_depth_memory_active', 'low_depth_baseline_dominated', 'mid_depth_memory_transition']",target regime declared for every row,,locked_prediction_candidate_no_measurement_validation
+claim_boundary_safe,PASS,no_measurement_validation,no measurement validation claim,,locked_prediction_candidate_no_measurement_validation
+overall_lock_status,PASS,11/11 checks passed before overall,all lock checks pass,,locked_prediction_candidate_no_measurement_validation

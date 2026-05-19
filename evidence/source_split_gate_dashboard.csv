@@ -1,0 +1,10 @@
+GateID,GateName,Status,AllowedForK2Scoring,Evidence,BlockingIssue,NextAction
+SS_INPUTS_AND_NULLS,Public inputs and null registry,OPEN,False,SN/BAO inputs and null comparator registry are available,downstream_gates_closed,Use as inputs for transform/export work only.
+SS_TRANSFORM,Coordinate-native source-split transform,available,True,source_split_transform_readiness.csv,nan,Use as coordinate-native source-split transform for preflight K2/null scorecard.
+SS_K1_TARGET,Coordinate-native K1/no-memory target,available,True,available_candidates=5,nan,Use as zero-contrast no-memory K1 target for source-split preflight scorecard.
+SS_JOINT_COVARIANCE,Joint source-split covariance,available,True,available_controls=3,nan,Use as declared shrinkage covariance for source-split preflight scorecard; replace with public full covariance when available.
+SS_SIGN_FAMILY,Public source-split sign-family export,available,True,available_templates=3,nan,Use with explicit warning rows; do not treat warnings as support.
+SS_RECONSTRUCTION_FAMILY_EXPORT,Public reconstruction-family response export,available,True,source_split_reconstruction_family_export_validation.csv,nan,Run source-split K2/null scorecard only if this validation is clean.
+SS_CANDIDATE_PATH_GUARD,Candidate export path guard,CANDIDATE_PRESENT_NEEDS_VALIDATION,True,source_split_candidate_path_guard.csv,nan,Run validate_source_split_reconstruction_family_export.py and downstream gates.
+SS_RECONSTRUCTION_FAMILY_PREVIEW,Non-scoring reconstruction-family response preview,schema_valid,False,source_split_reconstruction_family_response_preview_summary.csv,preview_not_scoring_candidate;family_level_rule_not_locked;covariance_policy_not_promoted,"If accepted, export a real candidate to data/reconstruction_families/source_split_reconstruction_family_responses.csv and rerun validation."
+SS_SIGN_RULE_PROMOTION,Family sign-rule promotion readiness,authorized,True,source_split_sign_rule_promotion_readiness.csv,nan,Register scoring rule before K2/null scorecard.

@@ -1,0 +1,18 @@
+ColumnName,Required,Type,Description,ValidationRule
+ExportID,True,string_or_numeric,Stable identifier for the exported reconstruction-family response table.,nonempty string
+FamilyID,True,string_or_numeric,Public reconstruction-family identifier; at least two families are required.,nonempty string; count distinct FamilyID >= 2
+FamilyType,True,string_or_numeric,"Family class, such as SN_branch, BAO_branch, joint_reconstruction, or backreaction_control.",nonempty string
+SourceProductID,True,string_or_numeric,Public source product or manifest identifier used to derive the response.,nonempty string
+TargetID,True,string_or_numeric,Coordinate-native source-split target identifier.,must match target rows
+GridIndex,True,string_or_numeric,Integer row key matching the coordinate-native target rows.,integer; every usable target GridIndex must appear for every FamilyID
+z_grid,True,string_or_numeric,Target-row redshift.,numeric; must match target row
+x_coordinate,True,string_or_numeric,Coordinate-native depth coordinate used by the source-split target.,numeric; must match target row
+x_mapping,True,string_or_numeric,Coordinate mapping identifier; must match the target-space mapping.,must match target row x_mapping
+ResponseValue,True,string_or_numeric,Family response value in the source-split benchmark space.,finite numeric
+ResponseSigma,True,string_or_numeric,Uncertainty proxy or covariance-derived marginal sigma for the response.,positive finite numeric
+ResponseSign,True,string_or_numeric,"Sign of the response value: -1, 0, or 1.","one of -1, 0, 1 and consistent with ResponseValue"
+CoordinateNative,True,boolean,True only if the response is exported in the coordinate-native target space.,must be true
+UsesPublicSN,True,boolean,True when the family uses public SN input products.,boolean
+UsesPublicBAO,True,boolean,True when the family uses public BAO input products.,boolean
+FittedInThisNote,True,boolean,Must be false for scoring-grade locked benchmark inputs.,must be false
+ClaimBoundary,True,string_or_numeric,"Must state that the export is benchmark input only, not measurement validation.",must not contain discovery or validation claim

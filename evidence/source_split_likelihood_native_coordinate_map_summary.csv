@@ -1,0 +1,2 @@
+ArtifactID,OutputPath,Rows,CoordinateMapID,OmegaM,XMin,XMax,FrozenBeforeK2Scoring,LikelihoodNative,AllowedForK1Export,BlockingIssue,NextAction,ClaimBoundary
+LNK1_LIKELIHOOD_NATIVE_COORDINATE_MAP,data/k1/source_split_likelihood_native_coordinate_map.csv,8,SOURCE_SPLIT_CMB_CHI_COORDINATE_PREFLIGHT_V1,0.31779326,0.3449908242954462,1.0,True,False,False,joint_vector_and_covariance_not_promoted,Promote joint covariance/nuisance policy before K1 export.,coordinate_map_preflight_only_no_measurement_validation

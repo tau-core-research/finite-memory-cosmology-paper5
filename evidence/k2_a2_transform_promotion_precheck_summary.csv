@@ -1,0 +1,2 @@
+ReadinessID,Rows,PassedRows,ScorecardRerunReady,MeasurementValidationAllowed,CurrentStatus,BlockingComponents,NextAction,ClaimBoundary
+K2_A2_TRANSFORM_PROMOTION_PREFLIGHT_V1,5,5,True,False,SCORECARD_RERUN_READY_NO_MEASUREMENT_VALIDATION,,rerun locked A2 scorecard under frozen transform policy; keep measurement-validation language closed,transform_promotion_precheck_no_measurement_validation

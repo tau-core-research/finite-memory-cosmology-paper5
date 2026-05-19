@@ -1,0 +1,6 @@
+ThresholdSet,AdmissiblePowerKernels,Interpretation,Status
+baseline,p=3,cubic is the baseline audit-selected representative,current packet
+relaxed_low_depth,"p=2; p=3",relaxing early-depth invisibility broadens the admissible set,sensitivity result
+strict_low_depth,p=3,cubic remains under stricter low-depth visibility in this simple scan,sensitivity result
+relaxed_endpoint,"p=3; p=4",relaxing endpoint budget allows a more endpoint-concentrated kernel,sensitivity result
+strict_endpoint,none,no simple power kernel remains admissible under this strict endpoint budget,sensitivity warning

@@ -1,0 +1,2 @@
+SmokeTestID,FormulaEngineAlgebraPassed,MaxAbsError,UsesSourceNativeData,AllowedForScoring,MeasurementValidationAllowed,ClaimBoundary
+BACKREACTION_FORMULA_ALGEBRA_SMOKE_TEST,True,0.0,False,False,False,backreaction_formula_engine_no_measurement_validation

@@ -1,0 +1,3 @@
+CandidateID,Rows,MeanResidual,MedianResidual,MedianSigma,AllowedForRerunCandidate,MeasurementValidationAllowed,ClaimBoundary
+SN_RAW_CMB_ONLY_NO_SAME_SAMPLE_OFFSET_V1,1701,-0.18527280762353363,-0.19290879981370068,0.15555966700915763,True,False,residual_candidate_no_measurement_validation
+BAO_LOG_CMB_ONLY_RD_FIXED_V1,13,-0.010903722805860357,-0.005849823364042637,0.012391222789573143,True,False,residual_candidate_no_measurement_validation

@@ -1,0 +1,10 @@
+GridIndex,z_grid,x_current,SignStable,HasSNAndBAO,SNStandardizedResidual,BAOStandardizedResidual,SNSign,BAOSign,SNBAOSameSign,AbsStandardizedContrast,JointStandardizedRSS,DominantBranchByAbsResidual,TensionType,ReadyForK2Scoring,ClaimBoundary
+0,0.51,0.218884,True,True,-2.783324502476582,2.3180607034126988,negative,positive,False,5.101385205889281,3.622195564956797,SN,SOURCE_SPLIT_CONTRAST_SIGN_STABLE,False,preflight_only_no_measurement_validation
+1,0.7375,0.316524,True,True,-3.5097816640421167,0.5329603897984276,negative,positive,False,4.042742053840544,3.550016071279163,SN,SOURCE_SPLIT_CONTRAST_SIGN_STABLE,False,preflight_only_no_measurement_validation
+2,0.965,0.414163,True,True,1.28009254511743,2.3413833478961736,positive,positive,True,1.0612908027787438,2.668466395866868,BAO,SOURCE_SPLIT_ALIGNED_SIGN_STABLE,False,preflight_only_no_measurement_validation
+3,1.1925,0.511803,False,True,1.7820506209377074,1.6608848291522258,positive,positive,True,0.1211657917854815,2.4360301375993867,SN,SOURCE_SPLIT_ALIGNED_SIGN_UNSTABLE,False,preflight_only_no_measurement_validation
+4,1.42,0.609442,True,True,-0.340120582692041,1.3269554052404389,negative,positive,False,1.66707598793248,1.3698513270671349,BAO,SOURCE_SPLIT_CONTRAST_SIGN_STABLE,False,preflight_only_no_measurement_validation
+5,1.6475,0.707082,True,True,-0.0680973079901905,1.3269554052404389,negative,positive,False,1.3950527132306294,1.3287015808120075,BAO,SOURCE_SPLIT_CONTRAST_SIGN_STABLE,False,preflight_only_no_measurement_validation
+6,1.875,0.804721,False,True,-1.0894492411674068,1.3269554052404389,negative,positive,False,2.4164046464078455,1.7168897159040402,BAO,SOURCE_SPLIT_CONTRAST_SIGN_UNSTABLE,False,preflight_only_no_measurement_validation
+7,2.1025,0.902361,False,False,,1.9906714122524336,missing,positive,False,,,missing,MISSING_BRANCH,False,preflight_only_no_measurement_validation
+8,2.33,1.0,False,True,0.0078375424270572,1.9906714122524336,positive,positive,True,1.9828338698253765,1.990686840924608,BAO,SOURCE_SPLIT_ALIGNED_SIGN_UNSTABLE,False,preflight_only_no_measurement_validation

@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "Finite-memory projection corrections as a diagnostic gate for cosmological consistency tests"
+message: "If you use this reproducibility package, please cite the archived release."
+type: software
+authors:
+  - family-names: Olcsak
+    given-names: Jozsef
+repository-code: "https://github.com/tau-core-research/finite-memory-cosmology-paper5"
+date-released: "2026-05-19"
+license: "MIT"
+abstract: "Public reproducibility package for a cautious Paper 5 method note on bounded finite-memory projection corrections, null comparators, and source-native backreaction preflight benchmarks in cosmological consistency diagnostics."

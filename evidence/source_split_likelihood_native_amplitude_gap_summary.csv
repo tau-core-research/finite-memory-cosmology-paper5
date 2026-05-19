@@ -1,0 +1,2 @@
+ArtifactID,Rows,RowsTargetGt5xK2,MeanAbsTarget,MeanAbsK1,MeanAbsK2Rho4,LowDepthRows,LowDepthMeanAbsTarget,LowDepthMeanAbsK2Rho4,Interpretation,NextAction,ClaimBoundary
+SOURCE_SPLIT_LIKELIHOOD_NATIVE_AMPLITUDE_GAP,8,4,2.2234938839612974,0.17046820413894592,0.4831648049861127,2,4.572063629864912,0.27297731740775516,k2_shape_improves_k1_but_amplitude_gap_dominates_low_depth_rows,Do not rescale K1 post hoc; evaluate whether likelihood-native target scale or covariance proxy is appropriate.,amplitude_gap_diagnosis_only_no_measurement_validation

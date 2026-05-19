@@ -1,0 +1,5 @@
+ContractID,StepID,Requirement,Ready,BlockingIssue,NextAction,ClaimBoundary
+PYSR_CRITERIA_SET_3_REPRODUCTION_V1,C3_INPUTS,SN and BAO training inputs plus upstream protocol extract are available,True,,run criteria-set-3 reproduction route,pysr_criteria3_reproduction_contract_no_measurement_validation
+PYSR_CRITERIA_SET_3_REPRODUCTION_V1,C3_RUNTIME,PySR stack and Julia runtime are available,True,,run a small PySR smoke route before long bootstrap,pysr_criteria3_reproduction_contract_no_measurement_validation
+PYSR_CRITERIA_SET_3_REPRODUCTION_V1,C3_SELECTION,Use criteria set 3: minimize Loss + 1.0 * Complexity,True,,export selected expressions and derivatives on shared grid,pysr_criteria3_reproduction_contract_no_measurement_validation
+PYSR_CRITERIA_SET_3_REPRODUCTION_V1,C3_CLAIM_LOCK,"Do not alter K2, rho, p, A_tau, or K1 while running reproduction",True,,keep reproduction outputs separate from measurement language,pysr_criteria3_reproduction_contract_no_measurement_validation

@@ -1,0 +1,3 @@
+ObjectID,Rows,Issues,Status,MeasurementValidationAllowed,ClaimBoundary
+FIXTURE_BOOTSTRAP_SAMPLES,240,,VALID,False,source_native_uncertainty_fixture_no_measurement_validation
+FIXTURE_COVARIANCE,320,,VALID,False,source_native_uncertainty_fixture_no_measurement_validation

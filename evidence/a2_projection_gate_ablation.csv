@@ -1,0 +1,10 @@
+VariantID,Rows,RowsChangedFromV2,Chi2,AIC,MeanAbsResidual,KernelChanged,Rho,P,A_tau,K1Refit,TargetSignUsedForGate,MeasurementValidationAllowed,ClaimBoundary
+V2_BASE,8,0,13.18469595435819,13.18469595435819,1.5422041290230692,False,4.0,3,2.0,False,False,False,a2_projection_gate_ablation_no_measurement_validation
+V1_SCALAR,8,6,15.045105114827487,15.045105114827487,1.8394269606710045,False,4.0,3,2.0,False,False,False,a2_projection_gate_ablation_no_measurement_validation
+NO_LOW_DEPTH_SUPPRESSION,8,2,13.554192224359273,13.554192224359273,1.5583821221976069,False,4.0,3,2.0,False,False,False,a2_projection_gate_ablation_no_measurement_validation
+ALLOW_COMMON_MODE_UNIT,8,1,13.346373214391273,13.346373214391273,1.5484080656356136,False,4.0,3,2.0,False,False,False,a2_projection_gate_ablation_no_measurement_validation
+ALLOW_COMMON_MODE_FULL,8,1,13.728643465935214,13.728643465935214,1.5627475434942761,False,4.0,3,2.0,False,False,False,a2_projection_gate_ablation_no_measurement_validation
+SIGN_UNSTABLE_UNIT,8,2,12.405415947587809,12.405415947587809,1.5411292816771538,False,4.0,3,2.0,False,False,False,a2_projection_gate_ablation_no_measurement_validation
+SIGN_UNSTABLE_FULL,8,2,14.143428803756446,14.143428803756446,1.8027699779786492,False,4.0,3,2.0,False,False,False,a2_projection_gate_ablation_no_measurement_validation
+ANTI_COHERENT_UNIT,8,2,12.563524361444966,12.563524361444966,1.4033055201037294,False,4.0,3,2.0,False,False,False,a2_projection_gate_ablation_no_measurement_validation
+NO_K1_NULL_SUPPRESSION,8,0,13.18469595435819,13.18469595435819,1.5422041290230692,False,4.0,3,2.0,False,False,False,a2_projection_gate_ablation_no_measurement_validation

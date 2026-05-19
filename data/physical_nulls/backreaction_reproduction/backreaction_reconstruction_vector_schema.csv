@@ -1,0 +1,8 @@
+Column,Meaning,RequiredForFormula,CurrentStatus
+z,redshift grid used for source-native reconstruction,True,missing_source_native_grid
+D,D=(1+z)<D_A> on the reconstruction grid,True,missing_source_native_reconstruction
+D_prime,dD/dz on the reconstruction grid,True,missing_source_native_reconstruction
+D_double_prime,d2D/dz2 on the reconstruction grid,True,missing_source_native_reconstruction
+H_D,domain expansion rate reconstruction,True,missing_source_native_reconstruction
+H_D_prime,dH_D/dz on the reconstruction grid,True,missing_source_native_reconstruction
+covariance_or_samples,source-native covariance matrix or bootstrap samples for propagated uncertainty,False,missing_source_native_uncertainty

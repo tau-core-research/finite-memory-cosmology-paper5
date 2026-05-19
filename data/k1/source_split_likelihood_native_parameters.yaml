@@ -1,0 +1,28 @@
+baseline_id: "SOURCE_SPLIT_LIKELIHOOD_NATIVE_CMB_ONLY_BASELINE_V1"
+source_product_ids:
+  - "PANTHEON_PLUS_SH0ES_SN"
+  - "DESI_DR2_BAO_ALL_GAUSSIAN"
+parameter_source: "public_cmb_only_bestfit_preflight"
+parameter_source_file: "data/public_ingest/desi_dr2_bestfit/base_cmb_only/bestfit.minimum.txt"
+comparison_control_source_file: "data/public_ingest/desi_dr2_bestfit/base_desi_bao_all/bestfit.minimum.txt"
+frozen_before_k2_scoring: true
+fitted_in_this_note: false
+same_data_amplitude_fit: false
+likelihood_native: false
+coordinate_native: false
+allowed_for_k1_export_now: false
+required_next_step: "promote baseline prediction vector, coordinate map, and covariance policy before K1 export"
+parameters:
+  H0: 67.060759
+  OmegaM: 0.31779326
+  rd_mpc: 147.30766
+  omega_m_h2: 0.14291625
+  OmegaLambda: 0.68212641
+  sigma8: 0.8095391
+diagnostic_controls:
+  cmb_reported_chi2: 10961.981
+  desi_same_data_reported_chi2_bao: 10.282299
+  desi_same_data_H0: 67.35999952240057
+  desi_same_data_OmegaM: 0.29717936
+  desi_same_data_rd_mpc: 150.75395
+claim_boundary: "frozen_parameter_source_only_no_measurement_validation"

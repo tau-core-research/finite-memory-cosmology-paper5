@@ -1,0 +1,22 @@
+Column,Required,Description
+K1TargetID,True,Stable identifier for the external source-split K1 target.
+SourceTargetID,True,Coordinate-native source-split target id matched row by row.
+GridIndex,True,Integer row key from evidence/source_split_coordinate_native_target.csv.
+z_grid,True,Redshift grid value copied from the source-split target.
+x_coordinate,True,Coordinate-native x value copied from the source-split target.
+x_mapping,True,Coordinate mapping identifier copied from the source-split target.
+K1Response,True,Externally derived nonzero K1/no-memory response value.
+K1Sigma,True,Positive uncertainty scale for K1Response under the declared covariance policy.
+K1SourceID,True,Public source or reproducible model-export identifier.
+ProvenanceType,True,"Allowed examples: external_reconstruction_family_mean, likelihood_native_baseline, independent_public_model_response."
+CoordinateNative,True,Must be true for source-split scoring.
+LikelihoodNative,True,True only if generated in the likelihood-native benchmark; false is allowed for coordinate-native preflight.
+UsesPublicSN,True,Must be true for source-split scoring.
+UsesPublicBAO,True,Must be true for source-split scoring.
+UsesJointCovariance,True,Must be true for source-split scoring.
+SameDataAmplitudeFit,True,Must be false; same-data amplitude rescue is not allowed.
+FittedInThisNote,True,Must be false; this note may not fit K1 to rescue K2.
+AmplitudePolicy,True,Predeclared amplitude/normalization policy.
+Predeclared,True,Must be true; K1 must be frozen before locked K2 scoring.
+AllowedAsPrimaryK1Candidate,True,Set true only if the export is intended as a primary K1 candidate.
+ClaimBoundary,True,Must state no measurement validation from this export alone.

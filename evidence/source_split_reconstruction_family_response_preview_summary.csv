@@ -1,0 +1,2 @@
+PreviewID,Rows,Families,UsableTargetRows,SchemaValid,ValidationIssue,FamilySignStableRows,FamilySignUnstableRows,AllowedForK2Scoring,BlockingIssue,NextAction,ClaimBoundary
+RF_RESPONSE_PREVIEW_V1,16,2,8,True,,3,5,False,preview_not_scoring_candidate;family_level_rule_not_locked;covariance_policy_not_promoted,"If accepted, export a real candidate to data/reconstruction_families/source_split_reconstruction_family_responses.csv and rerun validation.",schema_preview_only_no_measurement_validation

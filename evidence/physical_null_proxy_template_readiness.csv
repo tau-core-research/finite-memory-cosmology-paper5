@@ -1,0 +1,2 @@
+ReadinessID,Templates,RowsPerTemplate,BackreactionTemplateAvailable,DyerRoederOpticalTemplateAvailable,AmplitudePolicyDeclared,ScoringAllowed,MeasurementValidationAllowed,PrimaryBlockingIssue,NextAction,Interpretation,ClaimBoundary
+PHYSICAL_NULL_PROXY_TEMPLATE_READINESS,2,8,True,True,False,False,False,physical_null_amplitude_policy_not_declared,predeclare amplitude policy for physical nulls before adding them to any scorecard,physical null shapes are now available as non-scoring templates only,physical_null_proxy_template_no_measurement_validation

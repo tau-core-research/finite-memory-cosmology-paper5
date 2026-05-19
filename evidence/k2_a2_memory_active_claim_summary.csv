@@ -1,0 +1,2 @@
+SummaryID,AllDepthValidationAllowed,MemoryActivePreflightClaimAllowed,LowDepthTensionAcknowledged,PolynomialControlStillBlocksMeasurementValidation,RecommendedPaperLanguage,NextAction,ClaimBoundary
+K2_A2_MEMORY_ACTIVE_CLAIM_SUMMARY,False,True,True,True,locked memory-active preflight candidate; not measurement validation,run likelihood-native SN/BAO transform benchmark and keep low-depth rows as anchor/tension diagnostics,memory_active_claim_audit_no_measurement_validation

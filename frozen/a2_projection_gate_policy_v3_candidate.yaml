@@ -1,0 +1,30 @@
+policy_id: "A2_PROJECTION_GATE_POLICY_V3_CANDIDATE"
+status: "structural_candidate_from_ablation_not_measurement_validation"
+inherits_locked_operator: "K2_LOCKED_CUBIC_V1"
+derivation_source: "evidence/a2_projection_gate_ablation_summary.csv"
+locked_values:
+  A_tau: 2.0
+  rho: 4.0
+  p: 3
+  W: "1 + 4*x^3"
+forbidden_changes:
+  rho_gt_4: true
+  p_change: true
+  continuous_amplitude_fit: true
+  k1_refit: true
+  target_sign_selection: true
+structural_change_from_v2:
+  sign_unstable:
+    old_multiplier: "1.0"
+    new_multiplier: "1 + 4*x^3"
+    reason: "ablation indicates sign-unstable rows should carry weak/unit memory rather than full suppression or full A_tau amplification"
+unchanged_rules:
+  low_depth: "multiplier 1.0"
+  source_coherent: "multiplier 1.0 unless future independent theory promotes common-mode branch"
+  source_anti_coherent_mid_high: "multiplier 2.0 * (1 + 4*x^3)"
+  k1_null: "multiplier 1.0"
+promotion_requirements:
+  - "run V3 candidate on the same frozen residual-policy route"
+  - "compare against K1, A2 V1, A2 V2, and polynomial controls"
+  - "do not modify rho, p, A_tau, K1, residual policy, or covariance"
+claim_boundary: "a2_projection_gate_v3_candidate_no_measurement_validation"

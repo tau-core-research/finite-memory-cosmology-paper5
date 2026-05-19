@@ -1,0 +1,3 @@
+PolicyID,PolicyRole,CovarianceFormula,SourceUncertainty,CrossRowCorrelationRule,CanSupportMeasurementScoring,RequiredBeforeScoring,ClaimBoundary
+ALPHA_COV_DIAGONAL_PREVIEW_V1,preflight_sensitivity_only,C_ij = sigma_i^2 if i=j else 0,alpha asymmetric errors compressed to mean half-width,none,False,source-native covariance or registered covariance propagation,alpha_covariance_preview_no_measurement_validation
+ALPHA_COV_EXP_X_PREVIEW_V1,preflight_sensitivity_only,C_ij = sigma_i*sigma_j*exp(-abs(x_i-x_j)/0.35),alpha asymmetric errors compressed to mean half-width,fixed exponential in source-split x; not tuned by score,False,source-native covariance or registered covariance propagation,alpha_covariance_preview_no_measurement_validation

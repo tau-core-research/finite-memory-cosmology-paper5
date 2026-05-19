@@ -1,0 +1,2 @@
+HandoffID,Steps,BlockedSteps,CandidatePath,PrimaryBlockingIssue,AllowedForK2ScoringNow,NextAction,ClaimBoundary
+SOURCE_SPLIT_CANDIDATE_EXPORT_HANDOFF_V1,6,0,data/reconstruction_families/source_split_reconstruction_family_responses.csv,,False,Run source-split K2/null scorecard under locked preflight protocol.,candidate_export_handoff_only_no_measurement_validation

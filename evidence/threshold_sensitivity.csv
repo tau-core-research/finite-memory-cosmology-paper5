@@ -1,0 +1,6 @@
+ThresholdSet,LowDepthLimit,EndpointBudget,Interpretation,ExpectedEffect,Status
+baseline,Delta W_p(0.25)<=0.10,endpoint<=0.75,current methodological audit threshold; selects cubic representative,p=3 remains the baseline representative,current packet
+relaxed_low_depth,Delta W_p(0.25)<=0.15,endpoint<=0.75,allows more low-depth visibility,may admit p=2 alongside p=3,sensitivity check
+strict_low_depth,Delta W_p(0.25)<=0.075,endpoint<=0.75,requires stronger low-depth invisibility,keeps later-response kernels only,sensitivity check
+relaxed_endpoint,Delta W_p(0.25)<=0.10,endpoint<=0.85,allows more endpoint concentration,may admit p=4 alongside p=3,sensitivity check
+strict_endpoint,Delta W_p(0.25)<=0.10,endpoint<=0.60,rejects endpoint-heavy kernels more aggressively,may empty the simple power-kernel admissible set,sensitivity check

@@ -1,0 +1,47 @@
+prediction_id: "K2_SOURCE_SPLIT_A2_PRIOR_V1"
+status: "LOCKED_PREDICTION_CANDIDATE"
+claim_level: "diagnostic preflight support only; no measurement validation"
+
+formula: "K2_A2(x) = 2 * K1(x) * (1 + 4*x^3)"
+
+kernel:
+  base_operator_id: "K2_LOCKED_CUBIC_V1"
+  W: "1 + rho*x^3"
+  p: 3
+  rho: 4.0
+  rho_bound: "rho <= 4"
+  kernel_changed: false
+  post_hoc_kernel_changes_allowed: false
+
+projection_gain:
+  A_tau: 2.0
+  origin: "anti-aligned SN/BAO source-split projection prior"
+  fitted_in_this_note: false
+  pointwise_gain_allowed: false
+  diagnostic_high_depth_gain_reference: 2.0810143494478432
+  diagnostic_reference_role: "consistency observation only, not the locked value"
+
+k1_source:
+  file: "data/k1/source_split_external_k1_response.csv"
+  status: "frozen diagnostic baseline"
+  refit_allowed: false
+
+target_regime:
+  primary: "memory-active mid/high depth"
+  strongest: "high_depth"
+  low_depth_status: "baseline-dominated; not valid for gain estimation"
+
+forbidden_changes:
+  - "rho > 4"
+  - "p change"
+  - "K1 refit"
+  - "pointwise A_tau"
+  - "fitted A_tau replacing the locked prior"
+  - "measurement-validation claim from current preflight packet"
+
+required_next_benchmark:
+  - "external reconstruction family"
+  - "new binning or independent diagnostic packet"
+  - "covariance-aware source-split benchmark"
+
+claim_boundary: "locked_prediction_candidate_no_measurement_validation"

@@ -1,0 +1,2 @@
+SummaryID,Checks,PassedChecks,DepthActivationPatternSupported,MeasurementValidationAllowed,CurrentInterpretation,StrongestAllowedClaim,DisallowedClaim,NextAction,ClaimBoundary
+TAU_CORE_DEPTH_ACTIVATION_AUDIT,8,8,True,False,locked_A2_matches_depth_activation_preflight_pattern,Tau Core A2 has memory-active preflight support,measurement validation is not authorized,promote SN/BAO likelihood-native transforms and rerun the same locked A2 tests,tau_core_depth_activation_no_measurement_validation

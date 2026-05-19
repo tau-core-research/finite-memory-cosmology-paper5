@@ -1,0 +1,30 @@
+route_id: PYSR_CRITERIA_SET_3_REPRODUCTION_V1
+status: runtime_available
+claim_boundary: pysr_criteria3_reproduction_contract_no_measurement_validation
+locked_tau_core_flags:
+  change_k2_kernel_allowed: false
+  rho_greater_than_4_allowed: false
+  k1_refit_allowed: false
+  target_sign_gate_allowed: false
+  amplitude_fit_allowed: false
+  measurement_validation_allowed: false
+inputs:
+  sn_distance_proxy: data/physical_nulls/backreaction_reproduction/source_native_training_sn_distance_proxy.csv
+  bao_hd_proxy: data/physical_nulls/backreaction_reproduction/source_native_training_bao_hd_proxy.csv
+  upstream_bao_table_extract: evidence/source_native_symbolic_protocol_bao_table_extract.csv
+  upstream_protocol_extract: evidence/source_native_symbolic_protocol_extract_summary.csv
+targets:
+  sn_route: d_A_proxy and log-distance proxy from public SN training input
+  bao_route: H_D proxy from radial BAO c_over_Hrs table
+  future_required_export: D, D_prime, D_double_prime, H_D, H_D_prime on the shared redshift grid
+criteria_set_3:
+  selector: single expression minimizing Loss + 1.0 * Complexity
+  operator_set: PySR/SymbolicRegression hall-of-fame route
+  manual_hof_rejection: not used in criteria-set-3 MVP
+  bootstrap_target: 200 accepted expressions when runtime budget allows
+required_outputs:
+  - source_native_reconstruction_vector.csv
+  - source_native_selection_metadata.csv
+  - source_native_backreaction_vector.csv
+  - source_native_backreaction_family_covariance.csv
+  - source_native_bootstrap_samples.csv

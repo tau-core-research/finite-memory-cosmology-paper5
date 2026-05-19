@@ -1,0 +1,2 @@
+PolicyID,RequiredNulls,RegisteredRequiredNulls,MissingRequiredNulls,ScorecardGuardAllowed,FullGateNullPolicyFrozen,AllowedForMeasurementValidation,BlockingIssue,NextAction,ClaimBoundary
+K2_A2_FULL_GATE_NULL_POLICY_V1,7,7,,True,True,False,,Use frozen null policy in preflight reruns; keep physical nulls sensitivity-only until calibrated.,full_gate_null_policy_no_measurement_validation

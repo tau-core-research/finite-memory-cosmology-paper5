@@ -1,0 +1,5 @@
+TaskID,Priority,NullID,Task,RequiredOutput,BlocksMeasurementValidation,Status
+PHYSNULL_SRC_1_BACKREACTION_TABLE,1,BACKREACTION_ONLY,Find or reproduce a public backreaction constraint/envelope table over redshift.,data/physical_nulls/backreaction_calibration_source.csv,True,PENDING
+PHYSNULL_SRC_2_OPTICAL_ALPHA_TABLE,2,DYER_ROEDER_OPTICAL,"Find a public Dyer-Roeder alpha(z), clumpiness, lensing, or opacity constraint with uncertainty.",data/physical_nulls/dyer_roeder_optical_calibration_source.csv,True,PENDING
+PHYSNULL_SRC_3_SOURCE_SPLIT_MAPPING,3,BACKREACTION_ONLY;DYER_ROEDER_OPTICAL,Predeclare mapping from each physical-null source into the source-split coordinate vector.,evidence/physical_null_calibration_mapping_policy.csv,True,PENDING
+PHYSNULL_SRC_4_COVARIANCE_POLICY,4,BACKREACTION_ONLY;DYER_ROEDER_OPTICAL,Attach covariance or uncertainty propagation for each calibrated physical-null amplitude.,evidence/physical_null_calibration_covariance_policy.csv,True,PENDING

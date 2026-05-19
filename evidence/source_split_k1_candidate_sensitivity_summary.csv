@@ -1,0 +1,2 @@
+SensitivityID,Rows,Candidates,BestAICModel,BestAICCandidateAllowedAsPrimaryK1,NonzeroCandidateCount,Interpretation,ClaimBoundary
+SOURCE_SPLIT_K1_CANDIDATE_SENSITIVITY_V1,8,4,K1_SN_BRANCH_RESPONSE_AS_K1,False,3,Nonzero K1 candidates are sensitivity controls until provenance is predeclared; do not use as measurement validation.,k1_candidate_sensitivity_only_no_measurement_validation

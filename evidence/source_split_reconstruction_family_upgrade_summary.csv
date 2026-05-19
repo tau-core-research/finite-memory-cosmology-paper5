@@ -1,0 +1,2 @@
+ContractID,Requirements,SatisfiedRequirements,BlockingRequirements,BlockingIssue,NextTask,AllowedForK2Scoring,Status,NextAction
+SOURCE_SPLIT_RECONSTRUCTION_FAMILY_UPGRADE_V1,5,3,2,reconstruction_families_missing;family_level_sign_rule_missing,export_public_reconstruction_family_responses,False,RECONSTRUCTION_FAMILY_UPGRADE_REQUIRED,Export public reconstruction-family signs before source-split K2/null scorecard.

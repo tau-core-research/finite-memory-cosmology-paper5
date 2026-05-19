@@ -1,0 +1,2 @@
+SummaryID,Tasks,PartialReadyTasks,BenchmarkGateOpenTasks,RecommendedFirstTask,RecommendedFirstExtractionID,RecommendedFirstAction,PrimaryBlockingIssue,Interpretation,ClaimBoundary
+PHYSICAL_NULL_MAPPING_TASK_QUEUE_SUMMARY,8,2,0,PNMAP_01,PX_ZKDR_1303_TABLE1_JOINT_ALPHA_PRIOR,define alpha_to_source_split_response transform and propagate uncertainty,transform_and_covariance_missing,"joint optical alpha rows are first mapping candidates, but no task opens measurement scoring",mapping_task_queue_no_measurement_validation

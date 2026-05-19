@@ -1,0 +1,10 @@
+baseline_id: K1_FROZEN_DIAGNOSTIC_BASELINE_V1
+baseline_file: frozen/k1_baseline_v1.csv
+status: frozen_diagnostic_baseline
+fit_status: not_fit_in_this_note
+source: distilled_current_diagnostic_packet
+source_packet: evidence/diagnostic_point_audit.csv
+derivation_note: "Current table values are reconstructed from K2 prediction with rho=4 for reproducibility."
+coordinate_status: "operator-only remapping audits keep this K1 fixed"
+coordinate_native_k1_export: phase_ii_required
+claim_level: "diagnostic baseline provenance, not physical uniqueness"

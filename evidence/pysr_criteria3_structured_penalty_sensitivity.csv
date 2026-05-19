@@ -1,0 +1,9 @@
+Penalty,SelectedEquation,SelectedLoss,SelectedComplexity,SelectedIsConstant,SelectedWeightedMSEOriginal,SelectedPredictionStd,ClaimBoundary
+0.0,((x0 + 0.10858442) + (-0.058773473 / x0)) * log((x0 * 1.0989125) + -0.3808641),0.0026790514,14,False,0.7715048225994042,0.02538316783068688,pysr_criteria3_structured_smoke_no_measurement_validation
+0.001,log(x0 + -0.23902948) * (x0 + 0.17328496),0.00336951,8,False,1.1045952416724338,0.025121665853253646,pysr_criteria3_structured_smoke_no_measurement_validation
+0.01,(x0 * 1.4965818) + -1.7322209,0.012555324,5,False,4.864081623592746,0.02491092971949507,pysr_criteria3_structured_smoke_no_measurement_validation
+0.05,x0 + -1.236754,0.0980421,3,False,29.92278887013855,0.016645217601533754,pysr_criteria3_structured_smoke_no_measurement_validation
+0.1,x0 + -1.236754,0.0980421,3,False,29.92278887013855,0.016645217601533754,pysr_criteria3_structured_smoke_no_measurement_validation
+0.25,log(x0),0.20282188,2,False,69.06585136539987,0.014273344103995033,pysr_criteria3_structured_smoke_no_measurement_validation
+0.5,log(x0),0.20282188,2,False,69.06585136539987,0.014273344103995033,pysr_criteria3_structured_smoke_no_measurement_validation
+1.0,-0.23905218,0.7890149,1,True,245.7639199705603,0.0,pysr_criteria3_structured_smoke_no_measurement_validation

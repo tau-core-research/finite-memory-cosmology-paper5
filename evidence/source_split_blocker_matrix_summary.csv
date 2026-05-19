@@ -1,0 +1,2 @@
+MatrixID,Blockers,K2BlockingRows,PrimaryBlockingIssue,PrimaryNextAction,K2ScoringAuthorized,ClaimBoundary
+SOURCE_SPLIT_BLOCKER_MATRIX_V1,0,0,,K2/null scorecard is authorized under the locked source-split preflight protocol.,True,blocker_matrix_only_no_measurement_validation

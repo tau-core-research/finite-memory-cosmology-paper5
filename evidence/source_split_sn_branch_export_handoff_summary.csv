@@ -1,0 +1,2 @@
+HandoffID,Rows,ReadyRows,MissingRows,CandidateFamilyID,ResponseScale,CandidatePath,AllowedForK2ScoringNow,NextAction,ClaimBoundary
+RFAM_SN_RESIDUAL_BRANCH_HANDOFF_V1,8,8,0,RFAM_SN_RESIDUAL_BRANCH,source_split_standardized_units,data/reconstruction_families/source_split_reconstruction_family_responses.csv,False,"Append these SN rows to the real candidate export together with the BAO branch, then validate.",sn_branch_handoff_only_no_measurement_validation

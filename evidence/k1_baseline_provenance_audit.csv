@@ -1,0 +1,5 @@
+BaselineID,Definition,Source,FittedInThisNote,CoordinateNative,LikelihoodNative,UsedInBenchmark,Risk,RequiredNextCheck
+K1_FROZEN_CURRENT,Frozen diagnostic K1 baseline reconstructed from current packet K2 at rho=4,distilled_current_diagnostic_packet,false,false,false,true,May encode current packet conventions rather than physical baseline,Publish coordinate-native K1 export or direct reconstruction provenance
+K1_NO_MEMORY_PROXY,Frozen K1 used as no-memory comparator,frozen/k1_baseline_v1.csv,false,false,false,true,May be too close to diagnostic target under current distilled packet,Test against public covariance and coordinate-native diagnostic vector
+K1_COORDINATE_NATIVE_TARGET,Future K1 baseline exported in same coordinate system as benchmark,Phase II target,false,true,false,false,Unavailable in current MVP,Generate coordinate-native K1 table from public benchmark
+K1_LIKELIHOOD_NATIVE_TARGET,Future K1 baseline defined on likelihood-native grid,Phase II target,false,true,true,false,Unavailable in current MVP,Generate likelihood-native K1 baseline with public likelihood products

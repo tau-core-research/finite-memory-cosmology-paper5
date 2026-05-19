@@ -1,0 +1,5 @@
+MappingID,Definition,CurrentStatus,Role,Risk,RequiredNextCheck
+z_normalized,x=z/z_max,current frozen diagnostic mapping,reproducible ordering coordinate for the present packet,not a fundamental physical depth coordinate,compare against comoving-distance and likelihood-native mappings
+comoving_distance_normalized,x=chi(z)/chi(z_max),future robustness check,physically motivated distance-ordering coordinate,requires fiducial cosmology and consistent reconstruction convention,rerun point-level envelope audit with frozen chi mapping
+optical_depth_like,foreground/visibility-weighted depth coordinate,future robustness check,tests optical-propagation or visibility-weighted memory depth,requires public opacity or visibility proxy and may be model-dependent,define proxy before residual inspection and compare with z-normalized result
+likelihood_native_index,reconstruction-grid/native likelihood coordinate,Phase II target,avoids ad hoc remapping by using native likelihood/reconstruction ordering,requires public likelihood products or author-supplied reconstruction grids,implement covariance-aware benchmark with frozen native coordinate

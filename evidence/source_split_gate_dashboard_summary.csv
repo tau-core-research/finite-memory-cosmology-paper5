@@ -1,0 +1,2 @@
+DashboardID,Gates,OpenInputGate,K2ScoringAuthorized,ClosedCoreGates,PrimaryNextAction,ClaimBoundary
+SOURCE_SPLIT_GATE_DASHBOARD,9,True,True,SS_RECONSTRUCTION_FAMILY_PREVIEW,"Resolve remaining transform, K1, covariance, and sign-family gates before K2 scoring.",readiness_dashboard_only_no_measurement_validation

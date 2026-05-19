@@ -1,0 +1,2 @@
+SummaryID,Checks,PassedChecks,GeometrySupportsATau2Preflight,UniformAntiAlignmentRequired,MeasurementValidationAllowed,CurrentInterpretation,StrongestAllowedClaim,DisallowedClaim,NextAction,ClaimBoundary
+TAU_CORE_SOURCE_SPLIT_GEOMETRY_AUDIT,9,9,True,False,False,A_tau_2_supported_by_source_split_geometry_plus_depth_activation,A_tau=2 is geometrically supported in memory-active preflight,measurement validation is not authorized,repeat with likelihood-native SN/BAO transforms and public covariance-native source split,source_split_geometry_no_measurement_validation

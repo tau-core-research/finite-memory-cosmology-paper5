@@ -1,0 +1,6 @@
+GateID,CheckID,Status,Observed,BlockingIssue,NextAction,ClaimBoundary
+K2_A2_PREFLIGHT_SCORING_GATE_V1,PUBLIC_INPUTS_AND_LOCKED_A2,PASS,passed_inputs=3/3,,Repair or freeze this preflight component before rerunning the A2 scorecard.,preflight_scoring_gate_no_measurement_validation
+K2_A2_PREFLIGHT_SCORING_GATE_V1,FROZEN_TRANSFORMS_AND_COVARIANCE_REPRODUCTION,PASS,matrices_frozen=True; covariance_reproduced=True; max_abs_diff=1.0018652574217413e-12,,Repair or freeze this preflight component before rerunning the A2 scorecard.,preflight_scoring_gate_no_measurement_validation
+K2_A2_PREFLIGHT_SCORING_GATE_V1,PROMOTED_K1_PREFLIGHT_BASELINE,PASS,k1_allowed=True; decision=likelihood_native_k1_ready_by_promotion_gate,,Repair or freeze this preflight component before rerunning the A2 scorecard.,preflight_scoring_gate_no_measurement_validation
+K2_A2_PREFLIGHT_SCORING_GATE_V1,FROZEN_NULL_POLICY,PASS,null_policy_frozen=True; registered=7/7,,Repair or freeze this preflight component before rerunning the A2 scorecard.,preflight_scoring_gate_no_measurement_validation
+K2_A2_PREFLIGHT_SCORING_GATE_V1,FROZEN_CROSS_COVARIANCE_PREFLIGHT_POLICY,PASS,cross_policy_frozen=True; sensitivity=True,,Repair or freeze this preflight component before rerunning the A2 scorecard.,preflight_scoring_gate_no_measurement_validation

@@ -1,0 +1,2 @@
+CandidatePath,Available,AllowedForPrimaryK1,Rows,UsableTargetRows,NonzeroRows,K1TargetID,ProvenanceType,BlockingIssue,NextAction,ClaimBoundary
+data/k1/source_split_external_k1_response.csv,True,True,8,8,8,SSK1_LIKELIHOOD_NATIVE_CMB_ONLY_RAW_SOURCE_SPLIT_V1,likelihood_native_baseline,,Use as primary K1 only if validation is clean; otherwise keep source-split K2 in preflight status.,external_k1_validation_gate_only_no_measurement_validation

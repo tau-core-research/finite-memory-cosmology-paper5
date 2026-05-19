@@ -1,0 +1,8 @@
+ClaimID,AllowedWording,ForbiddenWording,Status
+C1_FINITE_MEMORY_OPERATOR,"A bounded finite-memory projection operator W(x)=1+rho*x^3 with rho<=4 can be defined from a passive memory-budget argument.","This is the final cosmological law.",ALLOWED_WITH_CAVEAT
+C2_BAO_ONLY_COMPATIBILITY,"The locked K2 critical window is compatible with the BAO-only reconstructed diagnostic envelope.","BAO establishes the operator as physical.",ALLOWED
+C3_SN_BAO_SIGN_STABILITY,"The locked K2 window remains non-violating under a reconstruction-aware sign-stability SN+BAO diagnostic gate.","SN+BAO independently establishes the K2 operator.",ALLOWED_WITH_CAVEAT
+C4_BACKREACTION_CONTEXT,"The diagnostic is organized around backreaction and distance-consistency degeneracy controls.","The current result rules out cosmic backreaction.",CONTEXT_ONLY
+C5_LIKELIHOOD_LIMIT,"Current evidence is diagonal/proxy-level and suitable for diagnostic triage.","A full covariance likelihood has been completed.",BLOCKER
+C6_COORDINATE_LIMIT,"The current x=z/z_max mapping is a frozen operational diagnostic coordinate.","The result is coordinate-invariant or physically final.",BLOCKER
+C7_THRESHOLD_LIMIT,"The low-depth and endpoint thresholds are methodological audit thresholds.","The thresholds are universal constants.",ALLOWED_WITH_CAVEAT

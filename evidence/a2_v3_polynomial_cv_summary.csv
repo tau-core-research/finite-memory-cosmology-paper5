@@ -1,0 +1,15 @@
+ValidationMode,ModelID,Folds,TotalTestN,TotalTestChi2,MeanFoldChi2,MeanAbsResidual,MeasurementValidationAllowed,ClaimBoundary,V3TotalTestChi2,K1TotalTestChi2,V2TotalTestChi2,BestPolyModel,BestPolyTotalTestChi2,DeltaChi2_V3_minus_K1,DeltaChi2_V3_minus_V2,DeltaChi2_V3_minus_BestPoly,V3ImprovesOverK1,V3ImprovesOverV2,V3BeatsBestPoly
+leave_one_out,K1_NO_MEMORY,8,8,13.451337503134189,1.6814171878917736,1.3360532993308118,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+leave_one_out,A2_SCALAR_V1,8,8,17.46460435379611,2.1830755442245136,1.8394269606710045,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+leave_one_out,A2_PROJECTION_GATED_V2,8,8,14.236317817830493,1.7795397272288116,1.5422041290230692,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+leave_one_out,A2_PROJECTION_GATED_V3,8,8,14.442382916318785,1.805297864539848,1.5411292816771538,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+leave_one_out,POLY_DEG2,8,8,36.63166934306096,4.57895866788262,2.708130651045708,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+leave_one_out,POLY_DEG3,8,8,45.01893554064932,5.627366942581165,2.7463848080826074,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+blocked_split,K1_NO_MEMORY,2,4,13.022668682067218,6.511334341033609,2.3015077291496384,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+blocked_split,A2_SCALAR_V1,2,4,13.851422625042854,6.925711312521427,2.374821694534349,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+blocked_split,A2_PROJECTION_GATED_V2,2,4,13.022668682067218,6.511334341033609,2.3015077291496384,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+blocked_split,A2_PROJECTION_GATED_V3,2,4,13.022668682067218,6.511334341033609,2.3015077291496384,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+blocked_split,POLY_DEG2,2,4,129.51571415745312,64.75785707872656,8.029086439840732,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+blocked_split,POLY_DEG3,2,4,13.481143532910384,6.740571766455192,2.664717745728507,False,a2_v3_polynomial_cv_no_measurement_validation,,,,,,,,,,,
+leave_one_out,V3_CV_COMPARISON,8,8,,,,False,a2_v3_polynomial_cv_no_measurement_validation,14.442382916318785,13.451337503134189,14.236317817830493,POLY_DEG2,36.63166934306096,0.9910454131845956,0.2060650984882919,-22.18928642674218,False,False,True
+blocked_split,V3_CV_COMPARISON,2,4,,,,False,a2_v3_polynomial_cv_no_measurement_validation,13.022668682067218,13.022668682067218,13.022668682067218,POLY_DEG3,13.481143532910384,0.0,0.0,-0.4584748508431655,False,False,True

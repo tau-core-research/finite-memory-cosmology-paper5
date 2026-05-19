@@ -1,0 +1,7 @@
+Subset,Rows,OppositeSignRows,OppositeSignFraction,K2MatchesSourceSplitRows,K2MatchesSourceSplitFraction,AntiAlignedAndK2MatchedRows,AntiAlignedAndK2MatchedFraction,MeanAbsSN,MeanAbsBAO,MeanSignedChannelProduct,SupportsATau2Prior,Interpretation,ClaimBoundary
+all_points,8,5,0.625,8,1.0,5,0.625,1.3575942508563166,1.6031033622791595,-0.5421571340022708,False,anti_alignment_not_stable_in_this_subset,source_split_antialignment_preflight_no_measurement_validation
+sign_stable_only,5,4,0.8,5,1.0,4,0.8,1.5962833204636722,1.5692630503176352,-1.1733978650929164,True,anti_alignment_supports_source_split_gain_prior,source_split_antialignment_preflight_no_measurement_validation
+low_depth,2,2,1.0,2,1.0,2,1.0,3.1465530832593496,1.425510546605563,-4.161244878905963,True,anti_alignment_supports_source_split_gain_prior,source_split_antialignment_preflight_no_measurement_validation
+mid_depth,3,1,0.3333333333333333,3,1.0,1,0.3333333333333333,1.1340879162490596,1.776407860762946,1.8352144547879974,False,anti_alignment_not_stable_in_this_subset,source_split_antialignment_preflight_no_measurement_validation
+high_depth,3,2,0.6666666666666666,3,1.0,2,0.6666666666666666,0.3884613638615515,1.5481940742444371,-0.5068035595234109,True,anti_alignment_supports_source_split_gain_prior,source_split_antialignment_preflight_no_measurement_validation
+mid_high_depth,6,3,0.5,6,1.0,3,0.5,0.7612746400553055,1.6623009675036915,0.6642054476322933,False,anti_alignment_not_stable_in_this_subset,source_split_antialignment_preflight_no_measurement_validation

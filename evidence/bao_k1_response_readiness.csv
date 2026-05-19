@@ -1,0 +1,6 @@
+ResponseID,TargetSpace,Status,SourceBaseline,CoordinateNative,LikelihoodNative,FittedInThisNote,AllowedForK2Scoring,BlockingIssue,RequiredNextCheck
+BAO_K1_ZERO_RESIDUAL,BAO log-residual,available,any registered BAO baseline,True,True,False,False,,Use as null comparator only until K2 response amplitude is registered.
+BAO_K1_CONSTANT_OFFSET,BAO log-residual,available,T1 null benchmark,False,False,True,False,not_coordinate_native;not_likelihood_native;response_fitted_in_this_note;same_data_response_risk,Use as diagnostic control only; not a K2 baseline.
+BAO_K1_PUBLIC_BESTFIT_RESIDUAL,BAO log-residual,available,DESI_DR2_BASE_DESI_BAO_ALL_IMINUIT_BESTFIT_V0,True,True,True,False,response_fitted_in_this_note,Use as same-data sensitivity control only.
+BAO_K1_CMB_ONLY_RESIDUAL,BAO log-residual,available,CMB_ONLY_BASE_PLANCK_ACT_LENSING_IMINUIT_BESTFIT_V0,True,True,False,False,,Run null and K2 protocol on the same covariance before any interpretation.
+BAO_K1_LOCKED_RESPONSE_TARGET,BAO log-residual,required,to_be_declared,True,True,False,False,response_not_available,Define amplitude normalization and source before K2 scoring.

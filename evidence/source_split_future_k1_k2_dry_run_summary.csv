@@ -1,0 +1,2 @@
+DryRunID,Rows,CurrentRerunAuthorized,FutureOnlyK1Available,BestAICModel,K1FamilyMeanAIC,K2Rho4AIC,DeltaAICK2Rho4MinusK1,K2Rho4SignStableViolations,Interpretation,ClaimBoundary
+SOURCE_SPLIT_FUTURE_K1_K2_DRY_RUN_V1,8,False,True,POLY_DEG2_CONTROL,25.062371419386807,52.5499794390236,27.487608019636795,2,Future-only diagnostic dry run; current measurement gate remains closed.,future_only_dry_run_no_current_measurement_validation

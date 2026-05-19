@@ -1,0 +1,7 @@
+RegistrationCheckID,Status,Evidence,Interpretation,BlocksMeasurementValidation,ClaimBoundary
+BS_REG_1_ROUTE_DECLARED,PASS,branch-scatter promotion gate allows preflight benchmark,route can be used as declared preflight benchmark,False,branch_scatter_systematic_registration_no_measurement_validation
+BS_REG_2_NOT_FULL_PUBLIC_COVARIANCE,PASS,branch scatter is explicitly not public full covariance,claim level is capped at preflight bridge,True,branch_scatter_systematic_registration_no_measurement_validation
+BS_REG_3_TWO_BRANCH_COVERAGE,PASS,rows with at least two branches=8/8,branch scatter is available across the current scoring grid,False,branch_scatter_systematic_registration_no_measurement_validation
+BS_REG_4_K2_ROUTE_COMPETITIVE,PASS,K2 best branch-scatter routes=5; route summary competitive=5,locked A2 remains competitive under branch-scatter route variants,False,branch_scatter_systematic_registration_no_measurement_validation
+BS_REG_5_NO_POST_HOC_KERNEL_CHANGE,PASS,uses locked K2_A2 = 2*K1*(1+4*x^3); no rho>4; no K1 refit,route does not change the finite-memory prediction,False,branch_scatter_systematic_registration_no_measurement_validation
+BS_REG_6_INDEPENDENT_SYSTEMATIC_PENDING,WARNING,branch scatter is not yet independently calibrated as systematic floor,stronger interpretation requires independent systematic or public full covariance,True,branch_scatter_systematic_registration_no_measurement_validation

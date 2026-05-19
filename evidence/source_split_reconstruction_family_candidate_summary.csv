@@ -1,0 +1,2 @@
+PlanID,CandidateFamilies,CandidateInputsWithPublicSN,CandidateInputsWithPublicBAO,CoordinateNativeCandidates,AllowedForK2ScoringNow,PrimaryNextAction,ClaimBoundary
+SOURCE_SPLIT_RECONSTRUCTION_FAMILY_CANDIDATE_PLAN_V1,5,2,2,3,0,Export SN and BAO residual branches into the reconstruction-family response schema.,candidate_plan_only_no_measurement_validation

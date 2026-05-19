@@ -1,0 +1,2 @@
+AuditID,Rows,ZeroK1Rows,RowsWhereK2EqualsK1,RowsWithFiniteMemoryLeverage,MaxAbsFiniteMemoryLeverageRho4,Conclusion,NextAction,ClaimBoundary
+SOURCE_SPLIT_K1_DEGENERACY_AUDIT_V1,8,8,8,0,0.0,multiplicative_k2_degenerate_with_zero_k1,Define an externally derived nonzero K1 response target before treating source-split K2 as a distinct measurement benchmark.,degeneracy_audit_only_no_measurement_validation

@@ -1,0 +1,2 @@
+CandidatePath,Available,AllowedForK2Scoring,FamilyCount,UsableTargetRows,BlockingIssue,NextAction,ClaimBoundary
+data/reconstruction_families/source_split_reconstruction_family_responses.csv,True,True,2,8,,Run source-split K2/null scorecard only if this validation is clean.,validation_gate_only_no_measurement_validation

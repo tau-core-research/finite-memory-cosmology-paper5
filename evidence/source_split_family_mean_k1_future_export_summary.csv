@@ -1,0 +1,2 @@
+ExportID,CandidatePath,Rows,NonzeroRows,MeanAbsK1Response,MeanK1Sigma,AllowedForCurrentRerun,AllowedForFutureRerun,AllowedAsPrimaryK1Candidate,BlockingIssue,NextAction,ClaimBoundary
+SOURCE_SPLIT_FAMILY_MEAN_K1_FUTURE_EXPORT_V1,data/k1/source_split_external_k1_response.csv,8,8,0.9367627784351423,0.7071067811865476,False,True,False,future_only_export_not_current_primary_k1;policy_declared_after_current_scorecard,Use only after explicit future rerun pre-registration; current K2 scorecard remains closed.,future_only_family_mean_k1_no_measurement_validation

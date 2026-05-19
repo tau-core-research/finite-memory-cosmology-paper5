@@ -1,0 +1,2 @@
+ArtifactID,Rows,RowsWithSNAndBAO,SignStableRowsWithSNAndBAO,SignStableOppositeSignRows,SignUnstableRowsWithSNAndBAO,SignUnstableOppositeSignRows,MeanAbsContrastSignStable,MeanAbsContrastSignUnstable,DominantBranchCounts,Status,BlockingIssue,NextAction
+SOURCE_SPLIT_SIGN_TENSION_AUDIT,9,8,5,4,3,1,2.6535093527343356,1.5068014360062343,BAO:5|SN:3,PREFLIGHT_SOURCE_SPLIT_WARNING,diagonal_standardization_only;coordinate_native_k1_missing;joint_covariance_missing,Build joint covariance and coordinate-native K1 before using sign tension for K2 scoring.

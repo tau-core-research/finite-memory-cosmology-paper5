@@ -1,0 +1,18 @@
+selector_id: SOURCE_NATIVE_D_BRANCH_DERIVATIVE_REGULARIZED_SELECTOR_V1
+base_selector: SOURCE_NATIVE_NORMALIZED_CRITERIA3_V1
+score: normalized_criteria3_score + lambda_regularization * low_depth_curvature_excess
+low_depth_curvature_metric: median_low_depth(abs(D_double_prime) / max(abs(D_prime),
+  epsilon))
+low_depth_z_max: 0.8
+curvature_budget: 1.0
+lambda_regularization: 1.0
+epsilon: 1.0e-12
+uses_k2: false
+uses_k1: false
+uses_target_sign: false
+uses_amplitude_fit: false
+allows_rho_greater_than_4: false
+post_hoc_kernel_changes_allowed: false
+measurement_validation_allowed: false
+intended_use: D-branch smoke governance before source-native full bootstrap
+claim_boundary: d_branch_derivative_regularized_selector_no_measurement_validation

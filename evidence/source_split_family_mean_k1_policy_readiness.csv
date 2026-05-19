@@ -1,0 +1,2 @@
+GateID,FamilyExportAvailable,FamilyCount,UsableRows,PolicyCount,AllowedPolicyCount,EqualWeightNonzeroRows,MeanAbsEqualWeightResponse,CurrentExternalK1ExportAllowed,BlockingIssue,NextAction,ClaimBoundary
+SOURCE_SPLIT_FAMILY_MEAN_K1_POLICY_V1,True,2,8,4,0,8,0.9367627784351423,False,no_family_mean_policy_was_frozen_before_current_k2_scorecard,"Select and freeze a family-mean policy for a future rerun, or use a likelihood-native joint baseline.",family_mean_policy_only_no_measurement_validation
