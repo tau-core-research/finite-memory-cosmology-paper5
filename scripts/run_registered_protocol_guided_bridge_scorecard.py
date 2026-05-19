@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Score registered-protocol-guided local reproduction families against locked K2."""
+"""Score predeclared-protocol-guided local reproduction families against locked K2."""
 
 from __future__ import annotations
 

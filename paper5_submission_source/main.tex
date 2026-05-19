@@ -4,23 +4,16 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{needspace}
 \title{Finite-memory projection corrections as a diagnostic gate for cosmological consistency tests}
 \author{Jozsef Olcsak}
 \date{2026-05-19}
 \begin{document}
 \maketitle
 
-\begin{abstract}
-This is a cautious method-note packet. It defines a locked finite-memory
-projection operator and a reproducible diagnostic gate for current cosmological
-consistency packets. It does not claim a discovery, measurement validation, or
-proof of a background theory.
-\end{abstract}
 
-\section*{Finite-Memory Projection Corrections In Cosmological Consistency Diagnostics}
 
-Working manuscript draft. Current claim level: theory-method diagnostic.
-
+\Needspace{10\baselineskip}
 \subsection*{Abstract}
 
 We introduce a bounded finite-memory projection operator for diagnostic
@@ -37,6 +30,7 @@ keeps this tension classified as non-violating without widening the K2 window.
 The result motivates a future full-likelihood comparison while preserving
 explicit claim boundaries.
 
+\Needspace{10\baselineskip}
 \subsection*{1. Introduction}
 
 Modern cosmological consistency tests increasingly distinguish background
@@ -74,6 +68,7 @@ cubic kernel from a small power-kernel family. Third, we state a sign-stability
 policy for interpreting reconstructed diagnostic points whose median sign is
 method-sensitive.
 
+\Needspace{10\baselineskip}
 \subsection*{2. Relation To Existing Diagnostic Ideas}
 
 The present construction is closest in spirit to a consistency diagnostic, not
@@ -105,6 +100,7 @@ cubic formula by itself. The stronger contribution is the combination of a
 bounded response window, a predeclared admissibility rule, and a
 reconstruction-stability-aware interpretation policy.
 
+\Needspace{10\baselineskip}
 \subsection*{3. Effective Diagnostic Module}
 
 Only the effective module needed for this note is used. We assume that an
@@ -151,6 +147,7 @@ with diagnostic envelopes.
 \caption{Locked finite-memory operator. The shaded band is the predeclared $\rho\in[3,4]$ window inside the passive bound $\rho\leq4$; the low-depth guard shows why the response remains weak near the origin.}
 \end{figure}
 
+\Needspace{16\baselineskip}
 \subsubsection*{Robustness And Coordinate Dependence}
 
 The present note is coordinate-explicit. Its numerical tables use
@@ -177,6 +174,7 @@ using the reconstruction grid or likelihood coordinate directly, is the Phase II
 target. Until such mappings are implemented, the method note should be read as
 a coordinate-explicit diagnostic proposal only.
 
+\Needspace{16\baselineskip}
 \subsubsection*{K1 Baseline Provenance}
 
 The baseline shape $K_1(x)$ is a frozen diagnostic baseline imported from the
@@ -202,6 +200,7 @@ These restrictions make the paper weaker than a full theory paper, but stronger
 as a falsifiable method note. A reader can reject or test the effective module
 without needing to adjudicate any larger research program.
 
+\Needspace{10\baselineskip}
 \subsection*{4. Passive Memory Bound}
 
 The passive memory-budget condition requires the accumulated tail response not
@@ -241,6 +240,7 @@ comparison requires $\rho > 4$ in order to remain compatible with the target
 envelope, the locked passive operator is not supported in its present form. The
 model is not then rescued by expanding the allowed amplitude range.
 
+\Needspace{10\baselineskip}
 \subsection*{5. Kernel-Shape Selection}
 
 The cubic kernel is selected from the power-kernel family
@@ -335,6 +335,7 @@ baseline representative selected by the current audit thresholds. Relaxing or
 tightening those thresholds can broaden, shift, or empty the admissible simple
 power-kernel set.
 
+\Needspace{10\baselineskip}
 \subsection*{6. Diagnostic Targets And Gate Policy}
 
 The targets used here are reconstructed diagnostic envelopes rather than direct
@@ -379,6 +380,7 @@ question: whether the prediction violates a sign that is stable across
 reconstruction choices. Only the second question is used as a paper-level
 diagnostic violation/non-violation rule here.
 
+\Needspace{10\baselineskip}
 \subsection*{7. Source-Split Interpretation}
 
 The BAO-only and SN+BAO diagnostics are not interchangeable. BAO-only
@@ -405,6 +407,7 @@ paper-level statement is therefore deliberately asymmetric: the point remains a
 warning, but not a locked diagnostic violation under the envelope and
 normalized-residual gate.
 
+\Needspace{10\baselineskip}
 \subsection*{8. Results}
 
 The minimal result summary is:
@@ -488,6 +491,7 @@ four of the nine SN+BAO points are sign-unstable. The table supports the narrow
 claim that the locked K2 response does not violate the current diagnostic gate;
 it does not support a direct measurement claim.
 
+\Needspace{10\baselineskip}
 \subsection*{9. Measurement Gate Preflight Status}
 
 The measurement-gate scaffold is operational, but it remains a preflight
@@ -496,6 +500,9 @@ is to keep the finite-memory projection hypothesis testable: the K2 operator is
 locked before scoring, null comparators are registered in advance, and stronger
 claims remain blocked until covariance-aware public benchmarks and calibrated
 physical nulls are available.
+
+\Needspace{16\baselineskip}
+\subsubsection*{9.1 Preflight Status}
 
 The current implementation shows five relevant facts. First, the BAO-only
 diagnostic envelope remains compatible with the locked K2 window under the
@@ -506,9 +513,12 @@ produces an envelope-tension warning, although bounded rho values within the
 allowed rho <= 4 range can recover non-violating status in that diagnostic
 stress test. Fourth, K1/no-memory remains competitive, and in some diagonal or
 public-proxy scorecards it is stronger than fixed K2. Fifth, several
-source-split and registered-protocol-guided preflight routes favor locked K2 over
+source-split and predeclared-protocol-guided preflight routes favor locked K2 over
 local reproduction-family and backreaction-proxy controls, but these are not
 likelihood-native measurement validations.
+
+\Needspace{16\baselineskip}
+\subsubsection*{9.2 Coordinate Robustness}
 
 \begin{figure}[htbp]
 \centering
@@ -516,11 +526,17 @@ likelihood-native measurement validations.
 \caption{Coordinate robustness audit. Most mappings remain non-violating under the current gate, while the chi-normalized operator-only remap produces the localized coordinate warning that remains a Phase II target.}
 \end{figure}
 
+\Needspace{16\baselineskip}
+\subsubsection*{9.3 Null Comparators}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{figures/fig4_null_scorecard.pdf}
-\caption{Null-comparator preflight scorecard. The chart reports proxy information-criterion scores across the current mappings; it is a benchmark diagnostic, not a measurement-validation result.}
+\caption{Null-comparator preflight scorecard. The chart reports proxy information-criterion scores across the current mappings; it is a benchmark diagnostic, not a measurement-validation result. These proxy scores are route-dependent and do not constitute likelihood-level model selection.}
 \end{figure}
+
+\Needspace{16\baselineskip}
+\subsubsection*{9.4 Gate Closure Conditions}
 
 Thus the measurement gate is useful precisely because it does not promote the
 current result too far. The present package supports a disciplined diagnostic
@@ -537,10 +553,11 @@ claim. The gate remains closed until the following objects are available:
 \end{itemize}
 
 The detailed implementation log, including source-split export guards,
-covariance registries, registered-protocol-guided reproduction families, and
+covariance registries, predeclared-protocol-guided reproduction families, and
 backreaction preflight audits, is retained in the public repository as
 docs/measurement\_gate\_audit\_log.md.
 
+\Needspace{10\baselineskip}
 \subsection*{10. Robustness And Falsification Criteria}
 
 The current evidence is deliberately weaker than a full likelihood. For that
@@ -568,6 +585,7 @@ operator is useful only if it remains constrained. If it must be repeatedly
 relaxed to follow each new diagnostic reconstruction, it loses the main
 advantage of being predeclared.
 
+\Needspace{10\baselineskip}
 \subsection*{11. Expected Significance}
 
 The main significance of the construction is not that it establishes a new
@@ -586,6 +604,7 @@ method-level modified-gravity phenomenology. The higher-impact route requires
 a later full covariance or shrinkage-covariance likelihood comparison with
 direct public likelihood products.
 
+\Needspace{10\baselineskip}
 \subsection*{12. Limitations}
 
 This manuscript is a theory-method diagnostic note. It does not claim:
@@ -610,6 +629,7 @@ The current manuscript should therefore be read as a bridge from a compact
 diagnostic construction to a public, testable effective module, while leaving
 the stronger likelihood comparison for a later release.
 
+\Needspace{10\baselineskip}
 \subsection*{13. Phase II Roadmap}
 
 The next technical step is to replace the diagonal/envelope diagnostic with a
@@ -646,6 +666,7 @@ The Phase II work package should therefore include:
 \caption{Measurement-gate preflight workflow. The current repository implements the left-hand preflight stages; the covariance-aware benchmark and falsification criteria remain the required route to stronger empirical claims.}
 \end{figure}
 
+\Needspace{10\baselineskip}
 \subsection*{14. Conclusion}
 
 We have defined a finite-memory projection correction as a bounded diagnostic
@@ -668,6 +689,7 @@ measurement-validation claim. Its next meaningful test is a covariance-aware
 likelihood comparison against public likelihood data and predeclared null
 comparators.
 
+\Needspace{10\baselineskip}
 \subsection*{15. Data And Code Availability}
 
 The public Paper 5 repository is hosted at
@@ -715,6 +737,7 @@ python studies/finite_memory_cosmology_paper5_v01/make_paper5_submission_source_
 python -m pytest -q
 \end{verbatim}
 
+\Needspace{10\baselineskip}
 \subsection*{References}
 
 [1] A. Heinesen and T. Clifton, "Observational Tests for Distinguishing Classes

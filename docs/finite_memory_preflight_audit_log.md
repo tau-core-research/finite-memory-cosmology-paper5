@@ -852,7 +852,7 @@ Status: preflight support packet; no measurement-validation claim.
 - Status: PASS
 - Role: registered_protocol_guided_dominance_boundary
 - Evidence: `evidence/registered_protocol_guided_dominance_summary.csv`
-- Finding: locked K2 remains more competitive than the registered-protocol-guided local families in the current preflight benchmark; route-family cases=6/6; rows=48/48; stable rows=30/30; zones=18/18; median DeltaChi2 K2-family=-32.390056966471235.
+- Finding: locked K2 remains more competitive than the predeclared-protocol-guided local families in the current preflight benchmark; route-family cases=6/6; rows=48/48; stable rows=30/30; zones=18/18; median DeltaChi2 K2-family=-32.390056966471235.
 
 ### BACKREACTION_ROUTE_ADJUDICATION
 

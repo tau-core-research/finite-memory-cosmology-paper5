@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Row and zone dominance audit for registered-protocol-guided families."""
+"""Row and zone dominance audit for predeclared-protocol-guided families."""
 
 from __future__ import annotations
 
@@ -130,7 +130,7 @@ def main() -> None:
                 and int(zone["DominanceStatus"].eq("K2_ZONE_BETTER_THAN_FAMILY").sum()) == len(zone)
                 else "REGISTERED_PROTOCOL_GUIDED_FAMILIES_HAVE_LOCAL_ADVANTAGES",
                 "StrongestAllowedClaim": (
-                    "locked K2 remains more competitive than the registered-protocol-guided local families in the current preflight benchmark"
+                    "locked K2 remains more competitive than the predeclared-protocol-guided local families in the current preflight benchmark"
                 ),
                 "PrimaryResidualRisk": (
                     "manual protocol-selection details and branch-specific DESI/eBOSS exports remain unavailable"

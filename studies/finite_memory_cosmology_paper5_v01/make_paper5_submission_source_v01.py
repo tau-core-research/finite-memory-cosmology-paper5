@@ -105,6 +105,9 @@ def markdown_to_tex(markdown: str) -> str:
     while idx < len(source_lines):
         raw = source_lines[idx]
         line = raw.rstrip()
+        if line.strip() == "Working manuscript draft. Current claim level: theory-method diagnostic.":
+            idx += 1
+            continue
         if line.strip() == "$$":
             if in_math:
                 lines.append(r"\]")
@@ -169,10 +172,13 @@ def markdown_to_tex(markdown: str) -> str:
             idx += 1
             continue
         if line.startswith("# "):
-            lines.append(r"\section*{" + inline_to_tex(line[2:].strip()) + "}")
+            idx += 1
+            continue
         elif line.startswith("## "):
+            lines.append(r"\Needspace{10\baselineskip}")
             lines.append(r"\subsection*{" + inline_to_tex(line[3:].strip()) + "}")
         elif line.startswith("### "):
+            lines.append(r"\Needspace{16\baselineskip}")
             lines.append(r"\subsubsection*{" + inline_to_tex(line[4:].strip()) + "}")
         else:
             lines.append(inline_to_tex(line))
@@ -193,18 +199,12 @@ def build_main_tex() -> None:
 \usepackage{{amsmath}}
 \usepackage{{amssymb}}
 \usepackage{{graphicx}}
+\usepackage{{needspace}}
 \title{{Finite-memory projection corrections as a diagnostic gate for cosmological consistency tests}}
 \author{{Jozsef Olcsak}}
 \date{{2026-05-19}}
 \begin{{document}}
 \maketitle
-
-\begin{{abstract}}
-This is a cautious method-note packet. It defines a locked finite-memory
-projection operator and a reproducible diagnostic gate for current cosmological
-consistency packets. It does not claim a discovery, measurement validation, or
-proof of a background theory.
-\end{{abstract}}
 
 {body}
 

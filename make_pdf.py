@@ -3,14 +3,31 @@
 
 from __future__ import annotations
 
+import os
 import re
+import shutil
+import subprocess
+import sys
 from pathlib import Path
 
-from reportlab.lib import colors
-from reportlab.lib.pagesizes import letter
-from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-from reportlab.lib.units import inch
-from reportlab.platypus import Paragraph, Preformatted, SimpleDocTemplate, Spacer, Table, TableStyle
+try:
+    from reportlab.lib import colors
+    from reportlab.lib.pagesizes import letter
+    from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+    from reportlab.lib.units import inch
+    from reportlab.platypus import Paragraph, Preformatted, SimpleDocTemplate, Spacer, Table, TableStyle
+except ModuleNotFoundError:
+    colors = None
+    letter = None
+    ParagraphStyle = None
+    getSampleStyleSheet = None
+    inch = None
+    Paragraph = None
+    Preformatted = None
+    SimpleDocTemplate = None
+    Spacer = None
+    Table = None
+    TableStyle = None
 
 
 ROOT = Path(__file__).resolve().parent
@@ -140,6 +157,11 @@ def parse_table(lines: list[str], idx: int, style_map: dict[str, ParagraphStyle]
 
 
 def render() -> None:
+    if SimpleDocTemplate is None:
+        raise RuntimeError(
+            "ReportLab is required for PAPER5_REPORTLAB_ONLY fallback rendering; "
+            "install reportlab or run with tectonic available."
+        )
     s = styles()
     story = []
     lines = SOURCE.read_text(encoding="utf-8").splitlines()
@@ -230,4 +252,8 @@ def render() -> None:
 
 
 if __name__ == "__main__":
-    render()
+    submission_builder = ROOT / "studies" / "finite_memory_cosmology_paper5_v01" / "make_paper5_submission_source_v01.py"
+    if shutil.which("tectonic") and not os.environ.get("PAPER5_REPORTLAB_ONLY"):
+        subprocess.run([sys.executable, str(submission_builder)], cwd=ROOT, check=True)
+    else:
+        render()

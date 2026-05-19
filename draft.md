@@ -428,6 +428,8 @@ locked before scoring, null comparators are registered in advance, and stronger
 claims remain blocked until covariance-aware public benchmarks and calibrated
 physical nulls are available.
 
+### 9.1 Preflight Status
+
 The current implementation shows five relevant facts. First, the BAO-only
 diagnostic envelope remains compatible with the locked K2 window under the
 current reconstruction-level packet. Second, the SN+BAO comparison contains a
@@ -437,13 +439,19 @@ produces an envelope-tension warning, although bounded rho values within the
 allowed rho <= 4 range can recover non-violating status in that diagnostic
 stress test. Fourth, K1/no-memory remains competitive, and in some diagonal or
 public-proxy scorecards it is stronger than fixed K2. Fifth, several
-source-split and registered-protocol-guided preflight routes favor locked K2 over
+source-split and predeclared-protocol-guided preflight routes favor locked K2 over
 local reproduction-family and backreaction-proxy controls, but these are not
 likelihood-native measurement validations.
 
+### 9.2 Coordinate Robustness
+
 ![Coordinate robustness audit. Most mappings remain non-violating under the current gate, while the chi-normalized operator-only remap produces the localized coordinate warning that remains a Phase II target.](figures/fig3_coordinate_robustness.pdf)
 
-![Null-comparator preflight scorecard. The chart reports proxy information-criterion scores across the current mappings; it is a benchmark diagnostic, not a measurement-validation result.](figures/fig4_null_scorecard.pdf)
+### 9.3 Null Comparators
+
+![Null-comparator preflight scorecard. The chart reports proxy information-criterion scores across the current mappings; it is a benchmark diagnostic, not a measurement-validation result. These proxy scores are route-dependent and do not constitute likelihood-level model selection.](figures/fig4_null_scorecard.pdf)
+
+### 9.4 Gate Closure Conditions
 
 Thus the measurement gate is useful precisely because it does not promote the
 current result too far. The present package supports a disciplined diagnostic
@@ -460,7 +468,7 @@ claim. The gate remains closed until the following objects are available:
   changed after scoring.
 
 The detailed implementation log, including source-split export guards,
-covariance registries, registered-protocol-guided reproduction families, and
+covariance registries, predeclared-protocol-guided reproduction families, and
 backreaction preflight audits, is retained in the public repository as
 `docs/measurement_gate_audit_log.md`.
 

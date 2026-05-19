@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build registered-protocol-guided local reproduction families.
+"""Build predeclared-protocol-guided local reproduction families.
 
 The family taxonomy follows the published symbolic-reconstruction protocol,
 but the numerical exports are local reproductions from the existing 200
@@ -337,7 +337,7 @@ def main() -> None:
                     "manual hall-of-fame decisions and branch-specific source exports remain unavailable"
                 ),
                 "NextAction": (
-                    "score registered-protocol-guided families against locked K2 and separately implement DESI/eBOSS branch-specific reruns"
+                    "score predeclared-protocol-guided families against locked K2 and separately implement DESI/eBOSS branch-specific reruns"
                 ),
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
