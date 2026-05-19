@@ -24,8 +24,8 @@ Working manuscript draft. Current claim level: theory-method diagnostic.
 
 We introduce a bounded finite-memory projection operator for diagnostic
 cosmological consistency tests. The operator is formulated as an effective
-projection response over normalized depth, \$W(x)=1+\textbackslash{}rho x\textasciicircum{}3\$, with a passive
-memory-budget bound \$\textbackslash{}rho \textbackslash{}leq 4\$. The construction is not presented as a complete
+projection response over normalized depth, $W(x)=1+\rho x^3$, with a passive
+memory-budget bound $\rho \leq 4$. The construction is not presented as a complete
 cosmological model or a direct measurement claim. It is instead a disciplined
 diagnostic module for comparing projected response shapes against
 backreaction-aware distance consistency reconstructions. In a BAO-only
@@ -110,18 +110,18 @@ Only the effective module needed for this note is used. We assume that an
 observed consistency residual can be represented as a projected response over a
 normalized depth coordinate,
 
-\$\$
-0 \textbackslash{}leq x \textbackslash{}leq 1 .
-\$\$
+\[
+0 \leq x \leq 1 .
+\]
 
 The variable x should be read operationally: it orders the accumulated
 projected response along the diagnostic light-path/reconstruction depth. In the
 point-level diagnostic table below, the public packet uses the frozen
 operational mapping
 
-\$\$
-x = z/z\_\{\textbackslash{}max\}
-\$\$
+\[
+x = z/z_{\max}
+\]
 
 over the tested SN+BAO redshift grid. This is a redshift-ordered diagnostic
 coordinate, not a final physical identification of x with redshift and not a
@@ -130,15 +130,15 @@ new cosmological observable.
 The finite-memory correction is a multiplicative response operator acting on a
 baseline projected shape:
 
-\$\$
-K\_2(x) = W(x)K\_1(x).
-\$\$
+\[
+K_2(x) = W(x)K_1(x).
+\]
 
 This note studies the locked K2 form
 
-\$\$
-W(x) = 1 + \textbackslash{}rho x\textasciicircum{}3 .
-\$\$
+\[
+W(x) = 1 + \rho x^3 .
+\]
 
 The form is intentionally simple. Its purpose is to test whether a bounded,
 delayed, monotone memory response can be made reproducible before comparison
@@ -148,9 +148,9 @@ with diagnostic envelopes.
 
 The present note is coordinate-explicit. Its numerical tables use
 
-\$\$
-x = z/z\_\{\textbackslash{}max\}
-\$\$
+\[
+x = z/z_{\max}
+\]
 
 as the current frozen operational diagnostic mapping. This choice is useful
 because it is simple, reproducible, and tied directly to the public redshift
@@ -159,11 +159,11 @@ description of cosmological depth.
 
 Two natural robustness mappings are left for the next stage:
 
-\$\$
-x = \textbackslash{}chi(z)/\textbackslash{}chi(z\_\{\textbackslash{}max\}),
-\$\$
+\[
+x = \chi(z)/\chi(z_{\max}),
+\]
 
-where \$\textbackslash{}chi\$ is a comoving-distance coordinate under a frozen reference
+where $\chi$ is a comoving-distance coordinate under a frozen reference
 cosmology, and an optical-depth-like coordinate in which the depth variable is
 weighted by foreground or visibility information. A likelihood-native mapping,
 using the reconstruction grid or likelihood coordinate directly, is the Phase II
@@ -172,21 +172,21 @@ a coordinate-explicit diagnostic proposal only.
 
 \subsubsection*{K1 Baseline Provenance}
 
-The baseline shape \$K\_1(x)\$ is a frozen diagnostic baseline imported from the
+The baseline shape $K_1(x)$ is a frozen diagnostic baseline imported from the
 distilled reconstruction packet. It is not fitted in this note. The comparison
 is organized around whether the locked multiplicative memory factor can keep
 the projected K2 response inside the reconstructed diagnostic envelope under
 the predeclared amplitude and shape rules.
 
 The present manuscript therefore tests the finite-memory multiplier on top of a
-fixed diagnostic baseline. It does not establish that \$K\_1(x)\$ is unique,
+fixed diagnostic baseline. It does not establish that $K_1(x)$ is unique,
 physically final, or likelihood-preferred.
 
 Several assumptions are therefore intentionally modest:
 
-\noindent $\bullet$ the coordinate \$x\$ is a diagnostic ordering variable, not a new directly\\
+\noindent $\bullet$ the coordinate $x$ is a diagnostic ordering variable, not a new directly\\
   measured cosmological coordinate;
-\noindent $\bullet$ the operator \$W(x)\$ is an effective response, not a complete field equation;\\
+\noindent $\bullet$ the operator $W(x)$ is an effective response, not a complete field equation;\\
 \noindent $\bullet$ the reconstructed envelopes are treated as diagnostic targets, not as final\\
   likelihood surfaces;
 \noindent $\bullet$ the public module does not require the reader to accept any broader\\
@@ -201,23 +201,23 @@ without needing to adjudicate any larger research program.
 The passive memory-budget condition requires the accumulated tail response not
 to exceed the unit local response budget. For the cubic operator,
 
-\$\$
-E\_\{\textbackslash{}mathrm\{tail\}\} = \textbackslash{}int\_0\textasciicircum{}1 \textbackslash{}rho x\textasciicircum{}3\textbackslash{},dx = \textbackslash{}frac\{\textbackslash{}rho\}\{4\}.
-\$\$
+\[
+E_{\mathrm{tail}} = \int_0^1 \rho x^3\,dx = \frac{\rho}{4}.
+\]
 
 The unit baseline budget is
 
-\$\$
-E\_0 = \textbackslash{}int\_0\textasciicircum{}1 1\textbackslash{},dx = 1.
-\$\$
+\[
+E_0 = \int_0^1 1\,dx = 1.
+\]
 
 Passivity requires
 
-\$\$
-E\_\{\textbackslash{}mathrm\{tail\}\} \textbackslash{}leq E\_0,\textbackslash{}qquad
-\textbackslash{}frac\{\textbackslash{}rho\}\{4\} \textbackslash{}leq 1,\textbackslash{}qquad
-\textbackslash{}rho \textbackslash{}leq 4 .
-\$\$
+\[
+E_{\mathrm{tail}} \leq E_0,\qquad
+\frac{\rho}{4} \leq 1,\qquad
+\rho \leq 4 .
+\]
 
 This is the key discipline of the construction: the memory depth is bounded
 before the diagnostic comparison. The bound is not chosen by looking for the
@@ -231,7 +231,7 @@ deeper model. For this paper, passivity is simply a guard against an
 uncontrolled late-depth amplification.
 
 This bound also gives an immediate falsification handle. If a diagnostic
-comparison requires \$\textbackslash{}rho > 4\$ in order to remain compatible with the target
+comparison requires $\rho > 4$ in order to remain compatible with the target
 envelope, the locked passive operator is not supported in its present form. The
 model is not then rescued by expanding the allowed amplitude range.
 
@@ -239,27 +239,27 @@ model is not then rescued by expanding the allowed amplitude range.
 
 The cubic kernel is selected from the power-kernel family
 
-\$\$
-W\_p(x) = 1 + \textbackslash{}rho x\textasciicircum{}p .
-\$\$
+\[
+W_p(x) = 1 + \rho x^p .
+\]
 
 For this family, the passive memory rule generalizes to
 
-\$\$
-\textbackslash{}int\_0\textasciicircum{}1 \textbackslash{}rho x\textasciicircum{}p\textbackslash{},dx \textbackslash{}leq \textbackslash{}int\_0\textasciicircum{}1 1\textbackslash{},dx,\textbackslash{}qquad
-\textbackslash{}frac\{\textbackslash{}rho\}\{p+1\} \textbackslash{}leq 1,\textbackslash{}qquad
-\textbackslash{}rho \textbackslash{}leq p+1 .
-\$\$
+\[
+\int_0^1 \rho x^p\,dx \leq \int_0^1 1\,dx,\qquad
+\frac{\rho}{p+1} \leq 1,\qquad
+\rho \leq p+1 .
+\]
 
 Two additional effective-operator rules select the usable shape:
 
-\$\$
-\textbackslash{}Delta W\_p(0.25) = (p+1)0.25\textasciicircum{}p \textbackslash{}leq 0.10 ,
-\$\$
+\[
+\Delta W_p(0.25) = (p+1)0.25^p \leq 0.10 ,
+\]
 
-\$\$
-\textbackslash{}int\_\{0.75\}\textasciicircum{}\{1\} (p+1)x\textasciicircum{}p\textbackslash{},dx \textbackslash{}leq 0.75 .
-\$\$
+\[
+\int_{0.75}^{1} (p+1)x^p\,dx \leq 0.75 .
+\]
 
 The first rule rejects kernels that disturb the already locked low-depth
 response too early. The second rejects kernels whose memory budget collapses
@@ -269,11 +269,11 @@ The cubic p=3 case is the remaining admissible power-kernel representative.
 
 The locked diagnostic window is therefore
 
-\$\$
-W(x) = 1 + \textbackslash{}rho x\textasciicircum{}3,\textbackslash{}qquad
-\textbackslash{}eta \textbackslash{}in [0.25,0.50],\textbackslash{}qquad
-\textbackslash{}rho \textbackslash{}in [3.00,4.00].
-\$\$
+\[
+W(x) = 1 + \rho x^3,\qquad
+\eta \in [0.25,0.50],\qquad
+\rho \in [3.00,4.00].
+\]
 
 The two shape rules encode a compromise. A linear or quadratic memory term
 becomes visible too early and risks contaminating the low-depth regime where
@@ -299,11 +299,11 @@ The current threshold-sensitivity policy is summarized as follows:
 
 | Threshold set | Low-depth limit | Endpoint budget | Admissible simple kernels | Interpretation |
 |---|---|---|---|---|
-| baseline | \$\textbackslash{}Delta W\_p(0.25)\textbackslash{}leq 0.10\$ | endpoint \$\textbackslash{}leq 0.75\$ | \$p=3\$ | cubic is the current audit-selected representative |
-| relaxed low-depth | \$\textbackslash{}Delta W\_p(0.25)\textbackslash{}leq 0.15\$ | endpoint \$\textbackslash{}leq 0.75\$ | \$p=2,3\$ | more low-depth visibility broadens the set |
-| strict low-depth | \$\textbackslash{}Delta W\_p(0.25)\textbackslash{}leq 0.075\$ | endpoint \$\textbackslash{}leq 0.75\$ | \$p=3\$ | cubic remains in this simple scan |
-| relaxed endpoint | \$\textbackslash{}Delta W\_p(0.25)\textbackslash{}leq 0.10\$ | endpoint \$\textbackslash{}leq 0.85\$ | \$p=3,4\$ | endpoint relaxation admits a later kernel |
-| strict endpoint | \$\textbackslash{}Delta W\_p(0.25)\textbackslash{}leq 0.10\$ | endpoint \$\textbackslash{}leq 0.60\$ | none | the simple power-kernel family can be emptied |
+| baseline | $\Delta W_p(0.25)\leq 0.10$ | endpoint $\leq 0.75$ | $p=3$ | cubic is the current audit-selected representative |
+| relaxed low-depth | $\Delta W_p(0.25)\leq 0.15$ | endpoint $\leq 0.75$ | $p=2,3$ | more low-depth visibility broadens the set |
+| strict low-depth | $\Delta W_p(0.25)\leq 0.075$ | endpoint $\leq 0.75$ | $p=3$ | cubic remains in this simple scan |
+| relaxed endpoint | $\Delta W_p(0.25)\leq 0.10$ | endpoint $\leq 0.85$ | $p=3,4$ | endpoint relaxation admits a later kernel |
+| strict endpoint | $\Delta W_p(0.25)\leq 0.10$ | endpoint $\leq 0.60$ | none | the simple power-kernel family can be emptied |
 
 This means the cubic kernel is not a fundamental cosmological law. It is the
 baseline representative selected by the current audit thresholds. Relaxing or
@@ -322,21 +322,21 @@ sign-unstable reconstructed point -> envelope / diagonal residual gate
 controls and extrapolations       -> stress diagnostics only
 \end{verbatim}
 
-Operationally, let \$y\_i\$ denote the reconstructed diagnostic median at the
-tested point \$i\$, and let \$[L\_i,U\_i]\$ denote the corresponding reconstructed
-diagnostic envelope. A locked prediction \$\textbackslash{}hat y\_i\$ is envelope-compatible
+Operationally, let $y_i$ denote the reconstructed diagnostic median at the
+tested point $i$, and let $[L_i,U_i]$ denote the corresponding reconstructed
+diagnostic envelope. A locked prediction $\hat y_i$ is envelope-compatible
 when
 
-\$\$
-L\_i \textbackslash{}leq \textbackslash{}hat y\_i \textbackslash{}leq U\_i .
-\$\$
+\[
+L_i \leq \hat y_i \leq U_i .
+\]
 
-If a diagonal diagnostic width \$\textbackslash{}sigma\_i\$ is available, the normalized residual
+If a diagonal diagnostic width $\sigma_i$ is available, the normalized residual
 gate is
 
-\$\$
-\textbackslash{}left|\textbackslash{}hat y\_i-y\_i\textbackslash{}right|/\textbackslash{}sigma\_i \textbackslash{}leq 1 .
-\$\$
+\[
+\left|\hat y_i-y_i\right|/\sigma_i \leq 1 .
+\]
 
 A reconstructed point is sign-stable only when the relevant method/degree
 families agree on the sign of the diagnostic median. If the reconstruction
@@ -411,7 +411,7 @@ claim level: theory-method diagnostic, not measurement validation
 
 The point-level SN+BAO audit makes the gate policy more explicit. The source
 for all rows is the no-degree-4 robust SN+BAO envelope, and the x column uses
-the provisional mapping \$x=z/z\_\{\textbackslash{}max\}\$ over this grid.
+the provisional mapping $x=z/z_{\max}$ over this grid.
 
 | z | x | median | envelope | K2 | signs all/no4/d2 | stable? | residual/sigma | decision |
 |---:|---:|---:|---|---:|---|---|---:|---|
@@ -483,7 +483,7 @@ The diagnostic would fail in its present form if:
 \noindent $\bullet$ the BAO-only envelope overlap disappeared under the same locked K2 window;\\
 \noindent $\bullet$ sign-stable SN+BAO points required the opposite sign from the locked\\
   prediction;
-\noindent $\bullet$ compatibility required \$\textbackslash{}rho > 4\$ or a different kernel power chosen after\\
+\noindent $\bullet$ compatibility required $\rho > 4$ or a different kernel power chosen after\\
   seeing the envelope;
 \noindent $\bullet$ the localized SN+BAO warning became sign-stable under a stronger\\
   reconstruction audit;
@@ -549,7 +549,7 @@ The next technical step is to replace the diagonal/envelope diagnostic with a
 likelihood-level comparison. At minimum, this requires public likelihood or
 data products, a covariance or shrinkage-covariance prescription, and a frozen
 mapping from the reconstructed observable to the finite-memory diagnostic
-coordinate \$x\$.
+coordinate $x$.
 
 A useful future workflow is:
 
@@ -577,8 +577,8 @@ The Phase II work package should therefore include:
 
 We have defined a finite-memory projection correction as a bounded diagnostic
 operator rather than as a complete cosmological model. The locked cubic form
-\$W(x)=1+\textbackslash{}rho x\textasciicircum{}3\$ follows from a passive memory budget and a simple
-shape-selection audit over power kernels. With \$\textbackslash{}rho \textbackslash{}leq 4\$, the operator gives
+$W(x)=1+\rho x^3$ follows from a passive memory budget and a simple
+shape-selection audit over power kernels. With $\rho \leq 4$, the operator gives
 a compact K2 diagnostic window that can be compared against reconstructed
 cosmological consistency envelopes without fitting the memory depth after the
 fact.
@@ -604,25 +604,25 @@ input packets, audit summaries, and the arXiv-style source archive.
 
 The most important repository paths are:
 
-\noindent $\bullet$ `paper5\_submission\_source/`: paper-facing draft, LaTeX facsimile, and PDF;\\
-\noindent $\bullet$ `src/fmc/`: scoring, covariance, coordinate, operator, and backreaction\\
+\noindent $\bullet$ paper5\_submission\_source/: paper-facing draft, LaTeX facsimile, and PDF;\\
+\noindent $\bullet$ src/fmc/: scoring, covariance, coordinate, operator, and backreaction\\
   helper code;
-\noindent $\bullet$ `scripts/`: executable reproduction and audit scripts;\\
-\noindent $\bullet$ `data/`: derived public-input and local reproduction packets;\\
-\noindent $\bullet$ `evidence/`: compact CSV outputs used by the manuscript and audit gates;\\
-\noindent $\bullet$ `docs/measurement\_gate\_audit\_log.md`: detailed implementation/audit log moved\\
+\noindent $\bullet$ scripts/: executable reproduction and audit scripts;\\
+\noindent $\bullet$ data/: derived public-input and local reproduction packets;\\
+\noindent $\bullet$ evidence/: compact CSV outputs used by the manuscript and audit gates;\\
+\noindent $\bullet$ docs/measurement\_gate\_audit\_log.md: detailed implementation/audit log moved\\
   out of the main paper;
-\noindent $\bullet$ `frozen/`: locked operator and configuration artifacts;\\
-\noindent $\bullet$ `tests/`: public reproducibility checks.\\
+\noindent $\bullet$ frozen/: locked operator and configuration artifacts;\\
+\noindent $\bullet$ tests/: public reproducibility checks.\\
 
 The key manuscript-facing outputs are:
 
-\noindent $\bullet$ `evidence/gate\_results\_current.csv`;\\
-\noindent $\bullet$ `evidence/tau\_core\_a2\_preflight\_proof\_packet\_summary.csv`;\\
-\noindent $\bullet$ `evidence/author\_protocol\_guided\_dominance\_summary.csv`;\\
-\noindent $\bullet$ `evidence/source\_native\_reproduction\_family\_dominance\_summary.csv`;\\
-\noindent $\bullet$ `finite\_memory\_projection\_corrections.pdf`;\\
-\noindent $\bullet$ `arxiv\_submission\_source.zip`.\\
+\noindent $\bullet$ evidence/gate\_results\_current.csv;\\
+\noindent $\bullet$ evidence/tau\_core\_a2\_preflight\_proof\_packet\_summary.csv;\\
+\noindent $\bullet$ evidence/author\_protocol\_guided\_dominance\_summary.csv;\\
+\noindent $\bullet$ evidence/source\_native\_reproduction\_family\_dominance\_summary.csv;\\
+\noindent $\bullet$ finite\_memory\_projection\_corrections.pdf;\\
+\noindent $\bullet$ arxiv\_submission\_source.zip.\\
 
 The current comparison should be treated as reconstruction-level diagnostic
 preflight. Raw survey data and unpublished author derivative exports are not
