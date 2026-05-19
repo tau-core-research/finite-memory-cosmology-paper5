@@ -677,6 +677,11 @@ The public Paper 5 repository is hosted at
 contains the manuscript source, rendered PDF, reproducibility scripts, derived
 input packets, audit summaries, and the arXiv-style source archive.
 
+The full Paper 5 reproducibility package is archived at
+`https://doi.org/10.5281/zenodo.20285912`. The archive includes the release
+source, compiled PDF, arXiv-style source packet, derived diagnostic tables, and
+the scripts needed to regenerate the current package.
+
 The most important repository paths are:
 
 - `paper5_submission_source/`: paper-facing draft, LaTeX facsimile, and PDF;

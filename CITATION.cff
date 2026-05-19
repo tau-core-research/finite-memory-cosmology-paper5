@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: Olcsak
     given-names: Jozsef
+doi: "10.5281/zenodo.20285912"
 repository-code: "https://github.com/tau-core-research/finite-memory-cosmology-paper5"
 date-released: "2026-05-19"
 license: "MIT"

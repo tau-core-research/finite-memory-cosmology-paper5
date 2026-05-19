@@ -4,6 +4,8 @@ This repository is the public reproducibility package for Paper 5:
 
 **Finite-memory projection corrections as a diagnostic gate for cosmological consistency tests**
 
+Archived reproducibility package DOI: [10.5281/zenodo.20285912](https://doi.org/10.5281/zenodo.20285912)
+
 The manuscript is a cautious method-note and benchmark-preflight package. It
 defines a locked finite-memory projection operator, reproduces the current
 diagnostic packet, builds null comparators, and records the public-data and
