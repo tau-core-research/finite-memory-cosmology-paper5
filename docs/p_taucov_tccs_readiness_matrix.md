@@ -20,7 +20,8 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 |---|---|
 | protocol/gates | ready |
 | source registry | ready, but object-blocking sources remain |
-| orientation anchor | spec ready, no anchor frozen |
+| orientation anchor | spec ready |
+| `J_tau` candidate | frozen, target-blind, no scoring |
 | TCCS object | not constructed |
 | scoring | not authorized |
 | survival claim | not authorized |
@@ -30,7 +31,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 The next legitimate Tau-specific step is not scoring. It is:
 
 ```text
-freeze target-blind J_tau and assemble Pi_perp/P_morph/L_B_red without score access
+assemble Pi_perp/P_morph/L_B_red around frozen J_tau without score access
 ```
 
 Only after that can a pre-score object-construction validator decide whether a TCCS object exists at all.

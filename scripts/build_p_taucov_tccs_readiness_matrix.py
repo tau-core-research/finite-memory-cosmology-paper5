@@ -15,6 +15,7 @@ DOCS = ROOT / "docs"
 PROTOCOL_SUMMARY = EVIDENCE / "p_taucov_tccs_protocol_summary.csv"
 SOURCE_SUMMARY = EVIDENCE / "p_taucov_tccs_source_registry_summary.csv"
 ANCHOR_SUMMARY = EVIDENCE / "p_taucov_tccs_orientation_anchor_summary.csv"
+JTAU_SUMMARY = EVIDENCE / "p_taucov_tccs_jtau_anchor_candidate_summary.csv"
 
 OUT_MATRIX = EVIDENCE / "p_taucov_tccs_readiness_matrix.csv"
 OUT_SUMMARY = EVIDENCE / "p_taucov_tccs_readiness_summary.csv"
@@ -65,9 +66,21 @@ def main() -> int:
             "SourceArtifact": str(ANCHOR_SUMMARY.relative_to(ROOT)),
             "LayerStatus": read_status(ANCHOR_SUMMARY),
             "Ready": True,
-            "BlocksObjectConstruction": True,
+            "BlocksObjectConstruction": False,
             "BlocksScoring": True,
-            "Reason": "anchor classes are specified, but no target-blind anchor is frozen",
+            "Reason": "anchor classes are specified; a separate J_tau candidate freeze is now available",
+            "ClaimBoundary": CLAIM_BOUNDARY,
+        },
+        {
+            "ProtocolID": PROTOCOL_ID,
+            "FreezeID": FREEZE_ID,
+            "LayerID": "TCCS_JTAU_ANCHOR_CANDIDATE",
+            "SourceArtifact": str(JTAU_SUMMARY.relative_to(ROOT)),
+            "LayerStatus": read_status(JTAU_SUMMARY),
+            "Ready": True,
+            "BlocksObjectConstruction": False,
+            "BlocksScoring": True,
+            "Reason": "target-blind skew orientation anchor candidate is frozen, but object construction still needs Pi_perp/P_morph/L_B_red assembly",
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
     ]
@@ -88,7 +101,7 @@ def main() -> int:
                 "ScoringAuthorized": not scoring_blocked,
                 "SurvivalClaimAuthorized": False,
                 "TauCoreValidationClaimAuthorized": False,
-                "NextRequiredGate": "freeze target-blind J_tau and assemble Pi_perp/P_morph/L_B_red without score access",
+                "NextRequiredGate": "assemble Pi_perp/P_morph/L_B_red around frozen J_tau without score access",
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
         ]
@@ -117,7 +130,8 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 |---|---|
 | protocol/gates | ready |
 | source registry | ready, but object-blocking sources remain |
-| orientation anchor | spec ready, no anchor frozen |
+| orientation anchor | spec ready |
+| `J_tau` candidate | frozen, target-blind, no scoring |
 | TCCS object | not constructed |
 | scoring | not authorized |
 | survival claim | not authorized |
@@ -127,7 +141,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 The next legitimate Tau-specific step is not scoring. It is:
 
 ```text
-freeze target-blind J_tau and assemble Pi_perp/P_morph/L_B_red without score access
+assemble Pi_perp/P_morph/L_B_red around frozen J_tau without score access
 ```
 
 Only after that can a pre-score object-construction validator decide whether a TCCS object exists at all.
