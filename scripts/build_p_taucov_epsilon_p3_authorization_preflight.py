@@ -2,8 +2,8 @@
 """Build epsilon-P3 P-TauCov final authorization preflight.
 
 This preflight is intentionally conservative: it records which gates are ready
-and blocks empirical scoring until a scorecard script and observed-residual
-input contract are frozen.
+and blocks empirical scoring until the remaining coordinate-bridge and final
+authorization gates are frozen.
 """
 
 from __future__ import annotations
@@ -26,10 +26,12 @@ CHECKLIST = ROOT / "evidence/p_taucov_epsilon_p3_authorization_preflight_checkli
 FREEZE = ROOT / "evidence/p_taucov_epsilon_p3_freeze_manifest.yaml"
 BRANCH = ROOT / "evidence/p_taucov_epsilon_p3_branch_support_freeze.yaml"
 POLICY = ROOT / "evidence/p_taucov_epsilon_p3_scoring_policy_freeze.yaml"
+SCORECARD = ROOT / "evidence/p_taucov_epsilon_p3_scorecard_script_freeze.yaml"
+OBSERVED = ROOT / "evidence/p_taucov_epsilon_p3_observed_input_contract.yaml"
 
 PROTOCOL_ID = "P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1"
 PREFLIGHT_ID = "P_TAUCOV_EPSILON_P3_AUTHORIZATION_PREFLIGHT_v1"
-CLAIM_BOUNDARY = "epsilon_p3_authorization_preflight_blocks_scoring_until_scorecard_and_input_contract"
+CLAIM_BOUNDARY = "epsilon_p3_authorization_preflight_blocks_scoring_until_coordinate_bridge_and_final_auth"
 
 
 def file_sha256(path: Path) -> str:
@@ -45,7 +47,7 @@ def yaml_read(path: Path) -> dict:
 
 
 def main() -> int:
-    required_inputs = [FREEZE, BRANCH, POLICY]
+    required_inputs = [FREEZE, BRANCH, POLICY, SCORECARD, OBSERVED]
     missing = [path for path in required_inputs if not path.exists()]
     if missing:
         raise FileNotFoundError("Missing preflight inputs: " + ", ".join(str(p.relative_to(ROOT)) for p in missing))
@@ -53,13 +55,16 @@ def main() -> int:
     freeze = yaml_read(FREEZE)
     branch = yaml_read(BRANCH)
     policy = yaml_read(POLICY)
+    scorecard = yaml_read(SCORECARD)
+    observed = yaml_read(OBSERVED)
 
     checks = [
         ("epsilon_p3_candidate_frozen", freeze.get("CandidateFrozen") is True, True, "epsilon-P3 specificity candidate frozen"),
         ("branch_support_frozen", branch.get("Status") == "FROZEN_BRANCH_SUPPORT_NO_SCORING", True, "branch support frozen from delta_C_Tau only"),
         ("scoring_policies_frozen", policy.get("Status") == "SCORING_POLICIES_FROZEN_NO_AUTHORIZATION", True, "fold/null/covariance/df/gate policies frozen"),
-        ("scorecard_script_frozen", False, True, "missing frozen scorecard script hash"),
-        ("observed_residual_input_contract_frozen", False, True, "missing observed S_obs / residual-covariance input contract"),
+        ("scorecard_script_frozen", scorecard.get("Status") == "SCORECARD_SCRIPT_FROZEN_NO_SCORING_AUTHORIZATION", True, "frozen scorecard script hash exists"),
+        ("observed_residual_input_contract_frozen", observed.get("Status") == "BLOCKED_COORDINATE_SPACE_MISMATCH", True, "observed input contract exists and records shape blocker"),
+        ("coordinate_bridge_frozen", False, True, "missing target-blind Tau-coordinate to empirical family-clock bridge"),
         ("final_authorization_manifest_ready", False, True, "this preflight is not final authorization"),
     ]
     checklist = pd.DataFrame(
@@ -85,6 +90,8 @@ def main() -> int:
         "epsilon_p3_freeze": str(FREEZE.relative_to(ROOT)),
         "branch_support": str(BRANCH.relative_to(ROOT)),
         "scoring_policy": str(POLICY.relative_to(ROOT)),
+        "scorecard_script_freeze": str(SCORECARD.relative_to(ROOT)),
+        "observed_input_contract": str(OBSERVED.relative_to(ROOT)),
         "checklist": str(CHECKLIST.relative_to(ROOT)),
     }
     manifest = {
@@ -115,7 +122,7 @@ def main() -> int:
                 "ChecksPassed": f"{manifest['ChecksPassed']}/{manifest['ChecksTotal']}",
                 "OpenRequiredChecks": open_required,
                 "PTauCovScoringAuthorized": False,
-                "NextStep": "freeze_scorecard_script_and_observed_residual_input_contract",
+                "NextStep": "freeze_target_blind_coordinate_bridge_then_final_authorization_manifest",
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
         ]
@@ -151,14 +158,15 @@ The theoretical/protocol side is now much cleaner than before:
 - branch support is frozen from `delta_C_tau` only;
 - fold/null/covariance/df/survival policies are frozen.
 
-However, empirical scoring remains blocked until the scorecard script and the
-observed residual/covariance input contract are frozen by hash.
+However, empirical scoring remains blocked until a target-blind coordinate
+bridge maps the frozen Tau-coordinate support into the empirical family-clock
+space without using target residuals or P5C gain patterns.
 
 Allowed statement:
 
 ```text
 P-TauCov epsilon-P3 has passed pre-scoring protocol readiness up to the
-scorecard/input-contract gate.
+coordinate-bridge/final-authorization gate.
 ```
 
 Forbidden statement:

@@ -8,16 +8,15 @@ authorized.
 ## Result
 
 ```text
-ChecksPassed: 3/6
-OpenRequiredChecks: 3
+ChecksPassed: 5/7
+OpenRequiredChecks: 2
 PTauCovScoringAuthorized: false
 ```
 
 Blocking items:
 
 ```text
-scorecard_script_frozen
-observed_residual_input_contract_frozen
+coordinate_bridge_frozen
 final_authorization_manifest_ready
 ```
 
@@ -29,14 +28,15 @@ The theoretical/protocol side is now much cleaner than before:
 - branch support is frozen from `delta_C_tau` only;
 - fold/null/covariance/df/survival policies are frozen.
 
-However, empirical scoring remains blocked until the scorecard script and the
-observed residual/covariance input contract are frozen by hash.
+However, empirical scoring remains blocked until a target-blind coordinate
+bridge maps the frozen Tau-coordinate support into the empirical family-clock
+space without using target residuals or P5C gain patterns.
 
 Allowed statement:
 
 ```text
 P-TauCov epsilon-P3 has passed pre-scoring protocol readiness up to the
-scorecard/input-contract gate.
+coordinate-bridge/final-authorization gate.
 ```
 
 Forbidden statement:

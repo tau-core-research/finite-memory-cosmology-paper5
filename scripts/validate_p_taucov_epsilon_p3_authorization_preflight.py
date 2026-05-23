@@ -64,8 +64,10 @@ def main() -> int:
     add("scoring_not_authorized", manifest.get("PTauCovScoringAuthorized") is False)
     add("summary_scoring_not_authorized", not bool_from_csv(summary["PTauCovScoringAuthorized"]))
     add("has_open_required_checks", int(manifest.get("OpenRequiredChecks", 0)) >= 1)
-    add("blocks_scorecard_script", "scorecard_script_frozen" in manifest.get("BlockingItems", []))
-    add("blocks_input_contract", "observed_residual_input_contract_frozen" in manifest.get("BlockingItems", []))
+    add("scorecard_script_no_longer_blocks", "scorecard_script_frozen" not in manifest.get("BlockingItems", []))
+    add("input_contract_no_longer_blocks", "observed_residual_input_contract_frozen" not in manifest.get("BlockingItems", []))
+    add("blocks_coordinate_bridge", "coordinate_bridge_frozen" in manifest.get("BlockingItems", []))
+    add("blocks_final_authorization", "final_authorization_manifest_ready" in manifest.get("BlockingItems", []))
     add("checklist_has_passes_and_blocks", checklist["Passed"].map(bool_from_csv).any() and (~checklist["Passed"].map(bool_from_csv)).any())
     add("all_rows_no_scoring", not checklist["PTauCovScoringAuthorized"].map(bool_from_csv).any())
 
@@ -83,8 +85,8 @@ def main() -> int:
 
     for phrase in [
         "BLOCKED_NO_SCORING_AUTHORIZATION",
-        "scorecard script",
-        "observed residual/covariance input contract",
+        "coordinate\nbridge",
+        "family-clock",
         "Forbidden statement",
     ]:
         add(f"doc_contains_{phrase[:40]}", phrase in text)
