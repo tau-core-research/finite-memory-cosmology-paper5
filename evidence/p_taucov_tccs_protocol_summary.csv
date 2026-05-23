@@ -1,0 +1,2 @@
+ProtocolID,FreezeID,Status,ShortName,LongName,FormalObject,Gates,ObjectConstructed,ScoringAuthorized,SurvivalClaimAuthorized,TauCoreValidationClaimAuthorized,MeasurementValidationAllowed,ClaimBoundary
+P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1,P_TAUCOV_TCCS_PROTOCOL_v1,P_TAUCOV_TCCS_PROTOCOL_DEFINED_NO_OBJECT_NO_SCORING,TCCS,Tau Commutator Curvature Signature,"T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_bal)",10,False,False,False,False,False,tccs_protocol_defined_no_object_no_scoring
