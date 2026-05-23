@@ -13,6 +13,7 @@ FIREWALL = ROOT / "evidence/p_taucov_parent_action_scoring_firewall_summary.csv"
 SCORECARD_FREEZE = ROOT / "evidence/p_taucov_parent_action_scorecard_script_freeze_summary.csv"
 FOLD_POLICY = ROOT / "evidence/p_taucov_parent_action_fold_policy_summary.csv"
 NULL_COMPARATORS = ROOT / "evidence/p_taucov_parent_action_null_comparators_summary.csv"
+SURVIVAL_KILL = ROOT / "evidence/p_taucov_parent_action_survival_kill_gates_summary.csv"
 OUT = ROOT / "evidence/p_taucov_parent_action_freeze_plan.csv"
 SUMMARY = ROOT / "evidence/p_taucov_parent_action_freeze_plan_summary.csv"
 DOC = ROOT / "docs/p_taucov_parent_action_freeze_plan.md"
@@ -37,6 +38,10 @@ def main() -> int:
     if NULL_COMPARATORS.exists():
         null_comparators = pd.read_csv(NULL_COMPARATORS).iloc[0]
         null_comparators_frozen = str(null_comparators["Status"]) == "P_TAUCOV_PARENT_ACTION_NULL_COMPARATORS_FROZEN_NO_SCORING"
+    survival_kill_frozen = False
+    if SURVIVAL_KILL.exists():
+        survival_kill = pd.read_csv(SURVIVAL_KILL).iloc[0]
+        survival_kill_frozen = str(survival_kill["Status"]) == "P_TAUCOV_PARENT_ACTION_SURVIVAL_KILL_GATES_FROZEN_NO_SCORING"
     rows = [
         (
             "FREEZE_01_PRIMARY_SCORECARD_SCRIPT",
@@ -60,7 +65,7 @@ def main() -> int:
             "FREEZE_04_SURVIVAL_KILL_GATES",
             "evidence/p_taucov_parent_action_survival_kill_gates.csv",
             "must define success/failure before scorecard execution",
-            False,
+            survival_kill_frozen,
         ),
         (
             "FREEZE_05_DF_COVARIANCE_POLICY",
