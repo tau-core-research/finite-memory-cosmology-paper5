@@ -4,7 +4,7 @@ Freeze ID: `P_TAUCOV_REDUCED_JACOBIAN_CURRENT_BLOCKER_ROLLUP_v1`
 
 Status:
 
-`P_TAUCOV_REDUCED_JACOBIAN_CURRENT_BLOCKERS_REDUCED_STILL_BLOCKED_NO_SCORING`
+`P_TAUCOV_REDUCED_JACOBIAN_CURRENT_BLOCKERS_CLEAR_NO_SCORING`
 
 ## Purpose
 
@@ -20,7 +20,7 @@ parent-forcing and projected morphology derivative audits. It does not build
 | `L_B_red` | `COMPUTABLE_IN_CURRENT_BRANCH_ROW` | `False` | `docs/p_taucov_branch_equation_completion_audit.md` |
 | `D_Phi_F_B` | `RESOLVED_AS_MEDIATED_CHAIN` | `False` | `docs/p_taucov_mediated_parent_forcing_chain_audit.md` |
 | `D_B_M_proj` | `STRICT_LINEAR_PROVIDED` | `False` | `docs/p_taucov_projected_morphology_derivative_audit.md` |
-| `DynamicalStability` | `RESPONSE_ENERGY_SPLIT_PASS_FULL_DYNAMICS_OPEN` | `True` | `docs/p_taucov_response_energy_split_packet.md` |
+| `DynamicalStability` | `LINEAR_ASSEMBLY_READY_PHYSICAL_STABILITY_OPEN` | `False` | `docs/p_taucov_dynamical_stability_status_reconciliation.md` |
 | `CovarianceMap` | `DECLARED_TARGET_BLIND_PSD_LIFT` | `False` | `docs/p_taucov_covariance_map_declaration.md` |
 
 ## Current Meaning
@@ -33,12 +33,13 @@ D_B_M_proj -> strict-linear provided as P0 A_B
 L_B_red -> computable in the current branch row
 CovarianceMap -> target-blind PSD lift declared
 ReferenceState -> operational reference/domain frozen
+DynamicalStability -> linear assembly-ready, physical stability open
 ```
 
 The remaining primary blockers are:
 
 ```text
-DynamicalStability
+
 ```
 
 ## Claim Boundary

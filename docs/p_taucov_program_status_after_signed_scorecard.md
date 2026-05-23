@@ -38,7 +38,8 @@ has not been scored; it is a pre-score structural audit.
 | Response/energy split | pass, full dynamical stability open | no scoring |
 | Projected morphology derivative | strict-linear pass | no scoring |
 | Reference-state reconciliation | operational reference frozen; physical stability open | no scoring |
-| Reduced-Jacobian current blocker rollup | 1 blocker remains | no scoring |
+| Dynamical-stability reconciliation | linear assembly-ready; nonlinear/UV open | no scoring |
+| Reduced-Jacobian current blocker rollup | source-assembly blockers clear | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -163,3 +164,6 @@ The current reduced-Jacobian blocker rollup is recorded in
 
 The reference-state status reconciliation is recorded in
 [`p_taucov_reference_state_status_reconciliation.md`](p_taucov_reference_state_status_reconciliation.md).
+
+The dynamical-stability reconciliation is recorded in
+[`p_taucov_dynamical_stability_status_reconciliation.md`](p_taucov_dynamical_stability_status_reconciliation.md).

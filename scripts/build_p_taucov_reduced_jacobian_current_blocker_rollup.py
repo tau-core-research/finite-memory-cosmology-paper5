@@ -18,6 +18,7 @@ RESPONSE_ENERGY = EVIDENCE / "p_taucov_response_energy_split_summary.csv"
 REFERENCE = EVIDENCE / "p_taucov_reference_state_candidate_spec_summary.csv"
 COVARIANCE_MAP = EVIDENCE / "p_taucov_covariance_map_summary.csv"
 REFERENCE_RECONCILIATION = EVIDENCE / "p_taucov_reference_state_status_reconciliation_summary.csv"
+DYNAMICAL_RECONCILIATION = EVIDENCE / "p_taucov_dynamical_stability_status_reconciliation_summary.csv"
 
 OUT = EVIDENCE / "p_taucov_reduced_jacobian_current_blocker_rollup.csv"
 OUT_SUMMARY = EVIDENCE / "p_taucov_reduced_jacobian_current_blocker_rollup_summary.csv"
@@ -44,6 +45,12 @@ def main() -> int:
     covariance_map_status = status(COVARIANCE_MAP)
     reference_reconciliation = pd.read_csv(REFERENCE_RECONCILIATION).iloc[0] if REFERENCE_RECONCILIATION.exists() else None
     operational_reference_frozen = bool(reference_reconciliation["OperationalReferenceFrozen"]) if reference_reconciliation is not None else False
+    dynamical_reconciliation = pd.read_csv(DYNAMICAL_RECONCILIATION).iloc[0] if DYNAMICAL_RECONCILIATION.exists() else None
+    stability_assembly_ready = (
+        not bool(dynamical_reconciliation["ReducedJacobianAssemblyBlockedByStability"])
+        if dynamical_reconciliation is not None
+        else False
+    )
 
     rows = [
         {
@@ -76,10 +83,10 @@ def main() -> int:
         },
         {
             "ObjectID": "DynamicalStability",
-            "CurrentStatus": "RESPONSE_ENERGY_SPLIT_PASS_FULL_DYNAMICS_OPEN",
-            "Evidence": "docs/p_taucov_response_energy_split_packet.md",
-            "StillBlocksReducedJacian": True,
-            "Reason": "response/energy split resolves interpretation but not full dynamical stability",
+            "CurrentStatus": "LINEAR_ASSEMBLY_READY_PHYSICAL_STABILITY_OPEN",
+            "Evidence": "docs/p_taucov_dynamical_stability_status_reconciliation.md",
+            "StillBlocksReducedJacian": not stability_assembly_ready,
+            "Reason": "linear dynamics supports assembly; nonlinear stability and UV completion remain physical-claim blockers",
         },
         {
             "ObjectID": "CovarianceMap",
@@ -127,6 +134,7 @@ def main() -> int:
                 "ReferenceStatus": reference_status,
                 "CovarianceMapStatus": covariance_map_status,
                 "OperationalReferenceFrozen": operational_reference_frozen,
+                "DynamicalStabilityAssemblyReady": stability_assembly_ready,
                 "RemainingPrimaryBlockers": ";".join(
                     df.loc[df["StillBlocksReducedJacobian"].astype(bool), "ObjectID"].astype(str)
                 ),
@@ -173,6 +181,7 @@ D_B_M_proj -> strict-linear provided as P0 A_B
 L_B_red -> computable in the current branch row
 CovarianceMap -> target-blind PSD lift declared
 ReferenceState -> operational reference/domain frozen
+DynamicalStability -> linear assembly-ready, physical stability open
 ```
 
 The remaining primary blockers are:

@@ -45,7 +45,8 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | response/energy split | pass, full dynamical stability still open, no scoring |
 | projected morphology derivative | strict-linear pass, no scoring |
 | reference-state reconciliation | operational reference frozen; physical stability open, no scoring |
-| reduced-Jacobian current blocker rollup | `DynamicalStability` remains, no scoring |
+| dynamical-stability reconciliation | linear assembly-ready; nonlinear/UV open, no scoring |
+| reduced-Jacobian current blocker rollup | source-assembly blockers clear, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -178,6 +179,10 @@ The current reduced-Jacobian blocker rollup is:
 The reference-state reconciliation is:
 
 [`p_taucov_reference_state_status_reconciliation.md`](p_taucov_reference_state_status_reconciliation.md)
+
+The dynamical-stability reconciliation is:
+
+[`p_taucov_dynamical_stability_status_reconciliation.md`](p_taucov_dynamical_stability_status_reconciliation.md)
 
 ## Claim Boundary
 
