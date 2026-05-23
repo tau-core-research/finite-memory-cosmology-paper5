@@ -30,7 +30,7 @@ def main() -> int:
         add("status_blocked", str(summary["Status"]) == "P_TAUCOV_SIGNED_RESPONSE_PROTOCOL_DECLARED_BLOCKED_NO_SCORING")
         add("signed_required", bool(table.loc[table["RuleID"].eq("SR-01_SIGNED_MAP_REQUIRED"), "Satisfied"].iloc[0]) is True)
         add("no_rescue_rule", bool(table.loc[table["RuleID"].eq("SR-05_NO_SURVIVAL_RESCUE"), "Satisfied"].iloc[0]) is True)
-        add("missing_statistic_freeze", bool(table.loc[table["RuleID"].eq("SR-02_STATISTIC"), "Satisfied"].iloc[0]) is False)
+        add("statistic_freeze_present", bool(table.loc[table["RuleID"].eq("SR-02_STATISTIC"), "Satisfied"].iloc[0]) is True)
         add("scoring_not_authorized", bool(summary["ScoringAuthorized"]) is False)
         add("survival_not_authorized", bool(summary["SurvivalClaimAuthorized"]) is False)
         add("measurement_not_allowed", bool(summary["MeasurementValidationAllowed"]) is False)
