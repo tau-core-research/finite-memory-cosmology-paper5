@@ -42,6 +42,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | branch-equation completion gate | required, no object, no scoring |
 | branch-equation completion audit | partial completion; mediated forcing required, no scoring |
 | mediated parent-forcing chain | pass, active stability still open, no scoring |
+| response/energy split | pass, full dynamical stability still open, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -158,6 +159,10 @@ The first branch-equation audit is:
 The mediated parent-forcing chain audit is:
 
 [`p_taucov_mediated_parent_forcing_chain_audit.md`](p_taucov_mediated_parent_forcing_chain_audit.md)
+
+The response/energy split packet is:
+
+[`p_taucov_response_energy_split_packet.md`](p_taucov_response_energy_split_packet.md)
 
 ## Claim Boundary
 

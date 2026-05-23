@@ -61,6 +61,14 @@ This resolves the branch-forcing route only at the algebraic, target-blind
 scaffold level. It does not prove active stability, does not construct
 `D_B M_proj`, and does not authorize empirical scoring.
 
+The stability interpretation is handled by the response/energy split packet:
+
+[`p_taucov_response_energy_split_packet.md`](p_taucov_response_energy_split_packet.md)
+
+That packet supports the interpretation that the active witness is a signed
+effective response operator rather than the microscopic positive energy
+Hessian itself. Full dynamical stability remains open.
+
 ## Claim Boundary
 
 Allowed statement:

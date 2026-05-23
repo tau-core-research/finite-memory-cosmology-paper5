@@ -35,6 +35,7 @@ has not been scored; it is a pre-score structural audit.
 | Reduced branch-Jacobian source spec | blocked by 4 source objects | no object, no scoring |
 | Branch-equation completion audit | partial completion; mediated forcing required | no object, no scoring |
 | Mediated parent-forcing chain | pass, stability open | no object, no scoring |
+| Response/energy split | pass, full dynamical stability open | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -147,3 +148,6 @@ The first branch-equation completion audit is recorded in
 
 The mediated parent-forcing chain audit is recorded in
 [`p_taucov_mediated_parent_forcing_chain_audit.md`](p_taucov_mediated_parent_forcing_chain_audit.md).
+
+The response/energy split packet is recorded in
+[`p_taucov_response_energy_split_packet.md`](p_taucov_response_energy_split_packet.md).
