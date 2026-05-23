@@ -73,17 +73,23 @@ Result:
 P_TAUCOV_REDUCED_BRANCH_JACOBIAN_SOURCE_SPEC_BLOCKED_NO_OBJECT_NO_SCORING
 ```
 
-`Q_range` is frozen and available, but the Jacobian remains blocked by:
+`Q_range` is frozen and available. `P_red` is partially resolved by the
+full-action-domain packet and is no longer a primary blocker.
+
+The Jacobian remains blocked by:
 
 ```text
 L_B_red
 D_Phi_F_B
 D_B_M_proj
-P_red
 ReferenceState
 ```
 
 This is now the active theory-side blocker list.
+
+Blocker-resolution audit:
+
+[`p_taucov_reduced_branch_jacobian_blocker_resolution.md`](p_taucov_reduced_branch_jacobian_blocker_resolution.md)
 
 ## Claim Boundary
 
