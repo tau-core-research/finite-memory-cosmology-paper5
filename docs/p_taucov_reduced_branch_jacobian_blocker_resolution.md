@@ -46,6 +46,10 @@ The next dependency-ordered gate is the reference state:
 
 [`p_taucov_reference_state_resolution_gate.md`](p_taucov_reference_state_resolution_gate.md)
 
+The first reference-state candidate spec is:
+
+[`p_taucov_reference_state_candidate_spec.md`](p_taucov_reference_state_candidate_spec.md)
+
 ## Claim Boundary
 
 Allowed statement:

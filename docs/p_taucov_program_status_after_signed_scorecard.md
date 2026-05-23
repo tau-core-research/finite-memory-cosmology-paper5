@@ -133,3 +133,9 @@ The blocker-resolution audit is recorded in
 
 The next dependency-ordered gate is recorded in
 [`p_taucov_reference_state_resolution_gate.md`](p_taucov_reference_state_resolution_gate.md).
+
+The reference-state candidate spec is recorded in
+[`p_taucov_reference_state_candidate_spec.md`](p_taucov_reference_state_candidate_spec.md).
+
+The next branch-equation completion gate is recorded in
+[`p_taucov_branch_equation_completion_gate.md`](p_taucov_branch_equation_completion_gate.md).

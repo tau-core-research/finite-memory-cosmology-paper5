@@ -58,7 +58,7 @@ Therefore the reference state remains unresolved.
 
 ## Next Artifact
 
-The next no-scoring artifact should be:
+The candidate-spec artifact has now been created:
 
 ```text
 docs/p_taucov_reference_state_candidate_spec.md
@@ -66,8 +66,25 @@ scripts/build_p_taucov_reference_state_candidate_spec.py
 scripts/validate_p_taucov_reference_state_candidate_spec.py
 ```
 
-It should define possible target-blind reference-state routes. It should not
-solve `F_B` unless a concrete branch equation is already declared.
+See:
+
+[`p_taucov_reference_state_candidate_spec.md`](p_taucov_reference_state_candidate_spec.md)
+
+Result:
+
+```text
+P_TAUCOV_REFERENCE_STATE_CANDIDATE_SPEC_DEFINED_BLOCKED_NO_SCORING
+```
+
+The current primary candidate is:
+
+```text
+Phi0=0; P0=0; B0=0
+```
+
+because it is stationary in the active scaffold. It is not yet a frozen
+reference state because full stability and the full branch equation `F_B` are
+not yet available.
 
 ## Claim Boundary
 

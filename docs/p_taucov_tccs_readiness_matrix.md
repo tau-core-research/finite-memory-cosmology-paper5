@@ -38,6 +38,8 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | reduced branch-Jacobian source spec | blocked by 4 source objects, no scoring |
 | reduced branch-Jacobian blocker resolution | `P_red` partially resolved, no scoring |
 | reference-state resolution gate | required, no object, no scoring |
+| reference-state candidate spec | active scaffold origin candidate, blocked, no scoring |
+| branch-equation completion gate | required, no object, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -138,6 +140,14 @@ The blocker-resolution audit is:
 The next dependency-ordered gate is:
 
 [`p_taucov_reference_state_resolution_gate.md`](p_taucov_reference_state_resolution_gate.md)
+
+The reference-state candidate spec is:
+
+[`p_taucov_reference_state_candidate_spec.md`](p_taucov_reference_state_candidate_spec.md)
+
+The next branch-equation gate is:
+
+[`p_taucov_branch_equation_completion_gate.md`](p_taucov_branch_equation_completion_gate.md)
 
 ## Claim Boundary
 
