@@ -1,0 +1,21 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PacketID: P_TAUCOV_P2_PROJECTION_FORK_OPERATOR_v1
+PacketType: projection_response_operator
+Route: epsilon_P_projection_response
+ConstructionRule: target_blind_parent_projection_morphology_fork
+Reason: P1 passed basic nonzero checks but failed null separation because its covariance
+  response was too diagonal/null-like.
+OperatorFile: data/p_taucov/linear/P2_projection_fork_operator.csv
+CoordinateBasisFile: data/p_taucov/linear/coordinate_basis.csv
+PRedFile: data/p_taucov/linear/p_red.csv
+Normalization: unit_frobenius_norm
+P2OperatorFrozen: true
+MetricEvaluationAuthorized: false
+PTauCovScoringAuthorized: false
+OutcomeInformationUsed: false
+ResidualInformationUsed: false
+ScoreInformationUsed: false
+P5CV3OutcomeUsed: false
+PostScoringLocalizationUsed: false
+GeneratedUTC: '2026-05-23T16:01:45+00:00'
+ClaimBoundary: p2_projection_fork_operator_frozen_no_model_packet_no_scoring
