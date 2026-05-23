@@ -1,0 +1,19 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PacketID: P_TAUCOV_ORIGIN_SCALE_VALUES_PACKET_v1_MINIMAL_UNIT_CONVENTION
+PacketType: origin_scale_values
+ValuePolicy: minimal_target_blind_unit_coordinate_convention
+CoordinateBasisPacketAuthorized: false
+ReferenceDomainSelectable: false
+MetricEvaluationAuthorized: false
+PTauCovScoringAuthorized: false
+OutcomeInformationUsed: false
+ResidualInformationUsed: false
+ScoreInformationUsed: false
+PostScoringLocalizationUsed: false
+SourceFiles:
+- data/p_taucov/templates/coordinate_basis_skeleton.csv
+- evidence/p_taucov_origin_scale_rule_freeze.csv
+ValueFile: data/p_taucov/linear/origin_scale_values.csv
+SHA256: 2085e87c92ae4b71900cace5d0f4d545f2bc539d726a3566cd5605f0cfb6a53a
+GeneratedUTC: '2026-05-23T15:17:51+00:00'
+ClaimBoundary: minimal_origin_scale_values_only_no_coordinate_basis_packet
