@@ -8,7 +8,7 @@ fields remain partial.
 
 ## Blocking Fields
 
-`COVARIANCE_MAP;REFERENCE_BACKGROUND;S_REST`
+`COVARIANCE_MAP;REFERENCE_BACKGROUND_STABILITY;S_REST`
 
 ## Key Numbers
 

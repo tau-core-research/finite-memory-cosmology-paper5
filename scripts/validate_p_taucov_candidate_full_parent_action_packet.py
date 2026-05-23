@@ -18,7 +18,7 @@ OUT = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_validation.c
 AUDIT_ID = "P_TAUCOV_CANDIDATE_FULL_PARENT_ACTION_PACKET_VALIDATION"
 EXPECTED_BLOCKERS = {
     "COVARIANCE_MAP",
-    "REFERENCE_BACKGROUND",
+    "REFERENCE_BACKGROUND_STABILITY",
     "S_REST",
 }
 

@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SCAFFOLD = ROOT / "evidence/p_taucov_minimal_global_parent_action_scaffold_summary.csv"
 GATE = ROOT / "evidence/p_taucov_full_parent_action_embedding_gate.csv"
 DOMAIN_SUMMARY = ROOT / "evidence/p_taucov_full_action_domain_null_gauge_summary.csv"
+BACKGROUND_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stationarity_summary.csv"
 OUT_PACKET = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet.csv"
 OUT_GATES = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_gates.csv"
 OUT_SUMMARY = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_summary.csv"
@@ -28,6 +29,10 @@ def main() -> int:
     if DOMAIN_SUMMARY.exists():
         domain_summary = pd.read_csv(DOMAIN_SUMMARY).iloc[0]
         domain_declared = str(domain_summary["Status"]).endswith("PASS_NO_SCORING")
+    background_stationary = False
+    if BACKGROUND_SUMMARY.exists():
+        background_summary = pd.read_csv(BACKGROUND_SUMMARY).iloc[0]
+        background_stationary = bool(background_summary["ReferenceBackgroundStationary"])
     fields = [
         (
             "PARENT_DOMAIN",
@@ -42,7 +47,11 @@ def main() -> int:
             "declared" if domain_declared else "partial",
         ),
         ("REDUCED_BRANCH_DOMAIN", "branch coordinate B with reduced metric coefficient -1/2", "declared"),
-        ("REFERENCE_BACKGROUND", "local stationary point around Phi=0 P=0 B=0", "partial"),
+        (
+            "REFERENCE_BACKGROUND_STABILITY",
+            "Phi=P=B=0 is stationary; full stability remains deferred to S_rest",
+            "partial",
+        ),
         ("ACTIVE_SECTOR", "integral dmu_tau[-1/2 B^2 - 2PB - P Phi]", "declared"),
         ("S_REST", "all non-witness sectors held inactive; no microscopic dynamics declared", "partial"),
         ("COVARIANCE_MAP", "inherited empirical bridge/covariance map; full independent D_M C not declared", "partial"),
@@ -74,7 +83,7 @@ def main() -> int:
         "EMB-G1": "PARENT_DOMAIN" in declared,
         "EMB-G2": {"MEASURE_DMU_TAU", "NORMALIZATION"}.issubset(declared),
         "EMB-G3": {"NULL_GAUGE_MODES", "REDUCED_BRANCH_DOMAIN"}.issubset(declared),
-        "EMB-G4": "REFERENCE_BACKGROUND" in declared,
+        "EMB-G4": False,
         "EMB-G5": str(scaffold["Status"]).endswith("PASS_NO_SCORING") and float(scaffold["MaxAbsHessianMinusWitness"]) < 1e-12,
         "EMB-G6": "S_REST" in declared,
         "EMB-G7": "COVARIANCE_MAP" in declared,
@@ -84,7 +93,7 @@ def main() -> int:
         "EMB-G1": 0.0 if "PARENT_DOMAIN" in partial else 1.0,
         "EMB-G2": 1.0,
         "EMB-G3": 0.0 if "NULL_GAUGE_MODES" in partial else 1.0,
-        "EMB-G4": 0.0 if "REFERENCE_BACKGROUND" in partial else 1.0,
+        "EMB-G4": 0.5 if background_stationary else 0.0,
         "EMB-G5": float(scaffold["MaxAbsHessianMinusWitness"]),
         "EMB-G6": 0.0 if "S_REST" in partial else 1.0,
         "EMB-G7": 0.0 if "COVARIANCE_MAP" in partial else 1.0,
