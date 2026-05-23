@@ -11,6 +11,8 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 LOCAL_MAP = ROOT / "evidence/p_taucov_branch_localized_map_summary.csv"
 STATISTIC = ROOT / "evidence/p_taucov_signed_response_statistic_summary.csv"
+NULL_POLICY = ROOT / "evidence/p_taucov_signed_response_null_policy_summary.csv"
+AGGREGATION_POLICY = ROOT / "evidence/p_taucov_signed_response_aggregation_policy_summary.csv"
 OUT = ROOT / "evidence/p_taucov_signed_response_protocol.csv"
 SUMMARY = ROOT / "evidence/p_taucov_signed_response_protocol_summary.csv"
 DOC = ROOT / "docs/p_taucov_signed_response_protocol.md"
@@ -27,11 +29,19 @@ def main() -> int:
     if STATISTIC.exists():
         statistic = pd.read_csv(STATISTIC).iloc[0]
         statistic_frozen = str(statistic["Status"]) == "P_TAUCOV_SIGNED_RESPONSE_STATISTIC_FROZEN_NO_SCORING"
+    null_policy_frozen = False
+    if NULL_POLICY.exists():
+        null_policy = pd.read_csv(NULL_POLICY).iloc[0]
+        null_policy_frozen = str(null_policy["Status"]) == "P_TAUCOV_SIGNED_RESPONSE_NULL_POLICY_FROZEN_NO_SCORING"
+    aggregation_policy_frozen = False
+    if AGGREGATION_POLICY.exists():
+        aggregation_policy = pd.read_csv(AGGREGATION_POLICY).iloc[0]
+        aggregation_policy_frozen = str(aggregation_policy["Status"]) == "P_TAUCOV_SIGNED_RESPONSE_AGGREGATION_POLICY_FROZEN_NO_SCORING"
     rows = [
         ("SR-01_SIGNED_MAP_REQUIRED", "localized map is signed/non-PSD, so covariance-survival scoring is forbidden", signed_required),
         ("SR-02_STATISTIC", "predeclare contrast S=trace((rr^T/sigma^2-I)K_signed) on held-out folds", statistic_frozen),
-        ("SR-03_NULLS", "signed random, sign-flip, support-shuffle, morphology-null, and projection-null controls required", False),
-        ("SR-04_AGGREGATION", "family and clock blocked rank/sign aggregation required", False),
+        ("SR-03_NULLS", "signed random, sign-flip, support-shuffle, morphology-null, and projection-null controls required", null_policy_frozen),
+        ("SR-04_AGGREGATION", "family and clock blocked rank/sign aggregation required", aggregation_policy_frozen),
         ("SR-05_NO_SURVIVAL_RESCUE", "signed diagnostic cannot rescue failed PSD primary score", True),
     ]
     table = pd.DataFrame(
@@ -51,7 +61,12 @@ def main() -> int:
         ]
     )
     table.to_csv(OUT, index=False)
-    status = "P_TAUCOV_SIGNED_RESPONSE_PROTOCOL_DECLARED_BLOCKED_NO_SCORING"
+    complete = bool(table["Satisfied"].all())
+    status = (
+        "P_TAUCOV_SIGNED_RESPONSE_PROTOCOL_FROZEN_READY_FOR_MANIFEST_NO_SCORING"
+        if complete
+        else "P_TAUCOV_SIGNED_RESPONSE_PROTOCOL_DECLARED_BLOCKED_NO_SCORING"
+    )
     pd.DataFrame(
         [
             {
