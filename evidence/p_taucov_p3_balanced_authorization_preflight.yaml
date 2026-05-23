@@ -1,11 +1,10 @@
 ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
 PreflightID: P_TAUCOV_P3_BALANCED_AUTHORIZATION_PREFLIGHT_v1
-Status: BLOCKED_NO_SCORING_AUTHORIZATION
+Status: READY_FOR_FINAL_AUTHORIZATION_NO_SCORING
 ChecksTotal: 5
-ChecksPassed: 3
-OpenRequiredChecks: 2
+ChecksPassed: 4
+OpenRequiredChecks: 1
 BlockingItems:
-- p3_balanced_scorecard_script_frozen
 - final_authorization_manifest_ready
 PTauCovScoringAuthorized: false
 InputFiles:
@@ -17,6 +16,6 @@ InputSHA256:
   p3_balanced_final_manifest: 7b48a070548081715e3b40e4f8426827bdd66705fd33d625dcf43f7ddad2dca2
   p3_balanced_structural_null_audit: 3c1272a3bb5610b87d6d7ab208ed26f227705b5f07a9927b7141d36d0bcbadfa
   p3_balanced_scoring_policy: f178d8f6b154ab630fbc5fd49427a8f2b42d09ce6e8d350e3292b58a03baf51f
-  checklist: 31a96c41967b0d24f89ca49701f7a394d6ae2c6c08256c4cff69d7c6eb90ce15
-GeneratedUTC: '2026-05-23T19:15:20+00:00'
+  checklist: 139f7db18a4d6e1bdea023c4b9823f74b0781da5284bad588ed151ea13cdb93e
+GeneratedUTC: '2026-05-23T19:19:35+00:00'
 ClaimBoundary: p3_balanced_authorization_preflight_no_scoring

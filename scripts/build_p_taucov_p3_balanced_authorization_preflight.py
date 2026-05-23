@@ -46,6 +46,13 @@ def csv_status(path: Path) -> str:
     return str(df.iloc[0]["Status"]) if "Status" in df.columns else "NO_STATUS_COLUMN"
 
 
+def yaml_status(path: Path) -> str:
+    if not path.exists():
+        return "MISSING"
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return str(data.get("Status", "NO_STATUS_FIELD"))
+
+
 def main() -> int:
     expected = {
         "p3_balanced_final_manifest": "P_TAUCOV_P3_BALANCED_OBJECT_FROZEN_NO_SCORING_AUTHORIZATION",
@@ -74,8 +81,8 @@ def main() -> int:
             "PreflightID": PREFLIGHT_ID,
             "CheckID": "p3_balanced_scorecard_script_frozen",
             "Expected": "P_TAUCOV_P3_BALANCED_SCORECARD_SCRIPT_FROZEN_NO_SCORING",
-            "Observed": "PRESENT" if SCRIPT_FREEZE.exists() else "MISSING",
-            "Passed": False,
+            "Observed": yaml_status(SCRIPT_FREEZE),
+            "Passed": yaml_status(SCRIPT_FREEZE) == "P_TAUCOV_P3_BALANCED_SCORECARD_SCRIPT_FROZEN_NO_SCORING",
             "Required": True,
             "PTauCovScoringAuthorized": False,
             "ClaimBoundary": CLAIM_BOUNDARY,
@@ -128,7 +135,7 @@ def main() -> int:
                 "ChecksPassed": f"{manifest['ChecksPassed']}/{manifest['ChecksTotal']}",
                 "OpenRequiredChecks": open_required,
                 "PTauCovScoringAuthorized": False,
-                "NextStep": "freeze_p3_balanced_scorecard_script_then_final_authorization_manifest",
+                "NextStep": "build_p3_balanced_final_authorization_manifest_or_stop_before_scoring",
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
         ]
@@ -158,15 +165,15 @@ Blocking items:
 
 ## Interpretation
 
-The P3 balanced object, structural null audit, and scoring policy are frozen.
-Empirical scoring remains blocked until the scorecard script itself is frozen
-and a separate final authorization manifest is created.
+The P3 balanced object, structural null audit, scoring policy, and scorecard
+script are frozen. Empirical scoring remains blocked until a separate final
+authorization manifest is created.
 
 ## Claim Boundary
 
 Allowed statement:
 
-> P3 balanced is ready up to the scorecard-script/final-authorization gate.
+> P3 balanced is ready up to the final-authorization gate.
 
 Forbidden statement:
 

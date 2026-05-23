@@ -48,10 +48,10 @@ def main() -> int:
     hash_lines = [line.strip().split(maxsplit=1) for line in SHA.read_text(encoding="utf-8").splitlines() if line.strip()]
     hash_map = {path: digest for digest, path in hash_lines}
 
-    add(rows, "status_blocked_until_script", manifest.get("Status") == "BLOCKED_NO_SCORING_AUTHORIZATION")
+    add(rows, "status_blocked_until_final_auth", manifest.get("Status") == "READY_FOR_FINAL_AUTHORIZATION_NO_SCORING")
     add(rows, "scoring_not_authorized", manifest.get("PTauCovScoringAuthorized") is False)
     add(rows, "summary_scoring_not_authorized", str(summary["PTauCovScoringAuthorized"]).lower() == "false")
-    add(rows, "blocks_scorecard_script", "p3_balanced_scorecard_script_frozen" in manifest.get("BlockingItems", []))
+    add(rows, "scorecard_script_no_longer_blocks", "p3_balanced_scorecard_script_frozen" not in manifest.get("BlockingItems", []))
     add(rows, "blocks_final_authorization", "final_authorization_manifest_ready" in manifest.get("BlockingItems", []))
     add(rows, "base_inputs_passed", bool(checklist[~checklist["CheckID"].isin(["p3_balanced_scorecard_script_frozen", "final_authorization_manifest_ready"])]["Passed"].astype(bool).all()))
     add(rows, "all_rows_no_scoring", not checklist["PTauCovScoringAuthorized"].astype(bool).any())
@@ -63,7 +63,7 @@ def main() -> int:
         add(rows, f"input_exists_{key}", path.exists())
         if path.exists():
             add(rows, f"input_hash_{key}", manifest.get("InputSHA256", {}).get(key) == sha256(path))
-    add(rows, "doc_mentions_script_freeze", "scorecard script itself is frozen" in doc)
+    add(rows, "doc_mentions_script_frozen", "scorecard\nscript are frozen" in doc)
     add(rows, "doc_mentions_forbidden_scoring_claim", "has been scored" in doc)
 
     out = pd.DataFrame(rows)

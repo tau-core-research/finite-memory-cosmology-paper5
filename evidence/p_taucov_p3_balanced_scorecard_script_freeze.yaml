@@ -1,0 +1,9 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+FreezeID: P_TAUCOV_P3_BALANCED_SCORECARD_SCRIPT_FREEZE_v1
+Status: P_TAUCOV_P3_BALANCED_SCORECARD_SCRIPT_FROZEN_NO_SCORING
+ScorecardScript: scripts/run_p_taucov_p3_balanced_scorecard.py
+ScorecardSHA256: 3c857bd0659be5cb1dee0c796df7c11d13b75955ccb12f6b583ff90df8c01829
+ScriptRequiresFinalAuthorization: true
+P3BalancedScoringAuthorized: false
+GeneratedUTC: '2026-05-23T19:18:08+00:00'
+ClaimBoundary: p3_balanced_scorecard_script_frozen_no_scoring_authorization
