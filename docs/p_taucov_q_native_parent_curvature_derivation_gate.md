@@ -33,6 +33,18 @@ Let:
 Q_clean = Pi_bal Pi_perp Pi_bal
 ```
 
+After the minimal branch-response preflight, this must be refined into two
+objects:
+
+```text
+Q_clean = non-idempotent cleaner / positive compression
+Q_range = orthogonal projector onto range(Q_clean)
+```
+
+See:
+
+[`p_taucov_q_range_projector_refinement.md`](p_taucov_q_range_projector_refinement.md)
+
 The next admissible parent-curvature candidate must be generated as:
 
 ```text
@@ -42,10 +54,10 @@ K_Q = Q_clean R_parent Q_clean
 where `R_parent` is not selected from target residual behavior. It must come
 from a declared parent-side structure.
 
-The stronger target is:
+The stronger target is therefore:
 
 ```text
-Q_clean K_Q Q_clean = K_Q
+Q_range K_Q Q_range = K_Q
 ```
 
 up to numerical tolerance.

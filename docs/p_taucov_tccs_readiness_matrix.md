@@ -31,6 +31,8 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | common-clean-subspace support audit | no passing candidate, no scoring |
 | Q-native parent-curvature gate | defined, no object, no scoring |
 | Q-native route registry | four routes defined, no object, no scoring |
+| minimal Q-native branch-response preflight | failed, no scoring |
+| Q-range projector refinement | required, no object, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -103,6 +105,14 @@ The next derivation gate is:
 The route registry is:
 
 [`p_taucov_q_native_route_registry.md`](p_taucov_q_native_route_registry.md)
+
+The minimal branch-response preflight is:
+
+[`p_taucov_q_native_branch_response_curvature_preflight.md`](p_taucov_q_native_branch_response_curvature_preflight.md)
+
+The next mathematical refinement is:
+
+[`p_taucov_q_range_projector_refinement.md`](p_taucov_q_range_projector_refinement.md)
 
 ## Claim Boundary
 

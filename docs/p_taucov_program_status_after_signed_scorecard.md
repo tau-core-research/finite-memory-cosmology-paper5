@@ -28,6 +28,8 @@ has not been scored; it is a pre-score structural audit.
 | Q-native parent-curvature gate | defined | no object, no scoring |
 | Q-native route registry | four routes defined | no object, no scoring |
 | Q-native route priority | branch-response curvature recommended | no object, no scoring |
+| Minimal Q-native branch-response preflight | failed | no scoring |
+| Q-range projector refinement | required | no object, no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -107,3 +109,9 @@ The route registry is recorded in
 
 The route priority note is recorded in
 [`p_taucov_q_native_route_priority_note.md`](p_taucov_q_native_route_priority_note.md).
+
+The minimal branch-response preflight is recorded in
+[`p_taucov_q_native_branch_response_curvature_preflight.md`](p_taucov_q_native_branch_response_curvature_preflight.md).
+
+The Q-range refinement is recorded in
+[`p_taucov_q_range_projector_refinement.md`](p_taucov_q_range_projector_refinement.md).
