@@ -1,0 +1,59 @@
+protocol_id: P5C_BSTAR_COVARIANCE_OPERATOR_KERNEL_PROTOCOL_v1
+kernel_id: K_BSTAR_P5C_v3_RESIDUAL_COMPLEX_ORIENTATION
+signed_orientation_sha256: 1a242c2d677d042dbd7722f3e1542712c96c357975daac970c094b564d27a1a4
+psd_projection_sha256: 5c96dd9ceb6a758d990ddeccdbd4b53a797d1531f527af36f895379c40ec7ad7
+null_kernels_sha256: f390937751d8ca1d38a1ce33c5c9e81ed824dcddcf0fd480125ffe3f1d6c3d75
+script_sha256: 14a6e0a48b405d84e6823aab510b928e24086b69dd01780c04ee353300e6cd42
+config:
+  sector_rule: clock_index_0_3_protected_4_7_active_8_11_null
+  family_phase_rule: omega_f_2pi_f_over_3_sorted_family_order
+  clock_phase_rule: theta_k_2pi_k_over_12
+  branch_signs:
+    REGISTERED_HD_CRITERIA_1_SIMPLE_PROXY: 1.0
+    REGISTERED_HD_CRITERIA_2_LOW_LOSS_PROXY: -1.0
+    REGISTERED_HD_CRITERIA_3_LOSS_COMPLEXITY: 1.0
+  sector_weights:
+    protected: 1.0
+    active: 0.85
+    'null': 0.2
+  h_parent_real:
+  - - 1.0
+    - -0.55
+    - 0.0
+  - - -0.55
+    - 0.35
+    - -0.25
+  - - 0.0
+    - -0.25
+    - 0.05
+  h_parent_imag:
+  - - 0.0
+    - 0.45
+    - -0.2
+  - - -0.45
+    - 0.0
+    - 0.35
+  - - 0.2
+    - -0.35
+    - 0.0
+  signed_preprocess:
+    symmetrize: true
+    remove_diagonal: true
+    remove_identity_component: true
+    remove_family_dummy_components: true
+    normalize: frobenius_unit_norm
+  psd_projection: positive_spectral_part_then_frobenius_unit_norm
+  random_smooth_null_count: 64
+  pre_score_thresholds:
+    wrong_clock_abs_corr: 0.5
+    phase_shift_abs_corr: 0.5
+    family_permuted_abs_corr: 0.5
+    random_smooth_psd_median_abs_corr: 0.6
+    diagonal_energy_share: 0.1
+    max_family_block_energy_share: 0.2
+    max_family_gain_capacity: 0.4
+pre_score_status: FREEZE_READY
+scoring_authorized_by_this_artifact: false
+target_residual_used: false
+score_used: false
+claim_boundary: p5c_kernel_v3_prescore_orientation_artifact_no_scoring_authorization

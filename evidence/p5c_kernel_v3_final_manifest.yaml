@@ -1,0 +1,61 @@
+protocol_id: P5C_BSTAR_COVARIANCE_OPERATOR_KERNEL_PROTOCOL_v1
+audit_id: P5C_KERNEL_V3_FINAL_SCORING_AUTHORIZATION
+status: P5C_KERNEL_V3_SCORING_AUTHORIZED
+scoring_authorized: true
+primary:
+  kernel_id: K_BSTAR_P5C_v3_RESIDUAL_COMPLEX_ORIENTATION_PSD_PROJECTION
+  mode: PSD_COVARIANCE_DEFORMATION
+  survival_claim_allowed: true
+diagnostic:
+  kernel_id: K_BSTAR_P5C_v3_RESIDUAL_COMPLEX_ORIENTATION
+  mode: SIGNED_OPERATOR_CONTRAST_DIAGNOSTIC_ONLY
+  survival_claim_allowed: false
+required_conditions:
+  ProtocolID: P5C_BSTAR_COVARIANCE_OPERATOR_KERNEL_PROTOCOL_v1
+  AuditID: P5C_KERNEL_V3_FINAL_SCORING_AUTHORIZATION
+  Status: P5C_KERNEL_V3_SCORING_AUTHORIZED
+  ScoringAuthorized: true
+  PrimaryKernelID: K_BSTAR_P5C_v3_RESIDUAL_COMPLEX_ORIENTATION_PSD_PROJECTION
+  PrimaryMode: PSD_COVARIANCE_DEFORMATION
+  DiagnosticKernelID: K_BSTAR_P5C_v3_RESIDUAL_COMPLEX_ORIENTATION
+  DiagnosticMode: SIGNED_OPERATOR_CONTRAST_DIAGNOSTIC_ONLY
+  DiagnosticSurvivalClaimAllowed: false
+  KernelFreezeValid: true
+  ScoringModeFreezeValid: true
+  FoldsUnchanged: true
+  NullsUnchanged: true
+  CovariancePolicyUnchanged: true
+  DFPolicyUnchanged: true
+  SurvivalKillGatesUnchanged: true
+  TargetResidualUsedInFreeze: false
+  ScoreUsedInFreeze: false
+  PrimaryModeSwitchAfterScoringAllowed: false
+  SecondaryPromotionAllowed: false
+  ClaimBoundary: p5c_kernel_v3_final_manifest_authorizes_scoring_not_survival
+hashes:
+  kernel_manifest: 8c8905d2de67f88d041a303cf984392ced7df8302b739506435e001f59192eda
+  kernel_summary: 68a435e11950e753fd173f49d65b5f9743c097531701af5b096cfe9d408bf009
+  primary_psd_kernel: 5c96dd9ceb6a758d990ddeccdbd4b53a797d1531f527af36f895379c40ec7ad7
+  diagnostic_signed_kernel: 1a242c2d677d042dbd7722f3e1542712c96c357975daac970c094b564d27a1a4
+  null_kernels: f390937751d8ca1d38a1ce33c5c9e81ed824dcddcf0fd480125ffe3f1d6c3d75
+  kernel_sha256: f3b98b7cfe4ca6463ec8778dc165dd9c8f4157875c6add099c69ce75b1cf66d9
+  scoring_mode_freeze: ffe7239c8fde0974ec8236f588b4578b62820e502655696d83e9e56bb7c68929
+  scoring_mode_manifest: 107b7272d9537ce334f16b54cb612880b3e4cc2b256430a680aa453e7c8733be
+  scoring_mode_validation: 2f009f073dbdd52f54ac9552df1b85d46e38ebe2c2e5c114bf3442260be7230e
+  fold_design: eb51047df0dcdbc4a1d3c56425e597257db0756e65c6264ae5840e3c03a95fd0
+  null_comparators: 76b3f78ce7eb4143f5e7db0d70992b611ebfb9e99248f19ff81e488a63b2bfeb
+  covariance_treatment: 985d4ec07887831ad93a41990a710035948138142df297b65aa0a8cd0a2639d5
+  df_policy: 019a2dbca306f75b2877840f8455cf631ca3fea019b7bfad1e444700fe2711f6
+  survival_gates: 8a08bf264daa3538215b5fd1b52afc9694ab6c697f30c1e1e48c53a2fa262f6c
+  kill_conditions: 9fdbd3d98f90ecd0337c770c09293e1f4357e63209e5771c994a000ca3b024d6
+  scorecard_script: 35cde9f50c46321dd53ce75e6c303d83fcb0f0e941d5c658ee6addd5ccb920a4
+  base_scorecard_script: 767f8f9cb26845eb53d922fdd387d7176903f528c3d8de64757365860d3a28b9
+  build_kernel_script: 14a6e0a48b405d84e6823aab510b928e24086b69dd01780c04ee353300e6cd42
+  freeze_scoring_mode_script: f97627f7b3afec62b8707142e1e978b67debd3d187ae8df856a00ae39fcbcf3d
+forbidden:
+- secondary diagnostic promoted to survival
+- primary mode switched after scoring
+- PSD/signed comparison used after scoring to choose the final claim
+- target residual or score used in kernel/scoring-mode selection
+next_allowed_command: python3 scripts/run_p5c_kernel_covariance_scorecard_v3.py
+claim_boundary: p5c_kernel_v3_final_manifest_authorizes_scoring_not_survival
