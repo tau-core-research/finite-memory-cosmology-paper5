@@ -12,7 +12,7 @@ parent-action P-TauCov scorecard can be authorized.
 - `FREEZE_03_NULL_COMPARATORS` -> `evidence/p_taucov_parent_action_null_comparators.csv` (done)
 - `FREEZE_04_SURVIVAL_KILL_GATES` -> `evidence/p_taucov_parent_action_survival_kill_gates.csv` (done)
 - `FREEZE_05_DF_COVARIANCE_POLICY` -> `evidence/p_taucov_parent_action_df_covariance_policy.csv` (done)
-- `FREEZE_06_FINAL_MANIFEST` -> `evidence/p_taucov_parent_action_final_manifest.yaml` (open)
+- `FREEZE_06_FINAL_MANIFEST` -> `evidence/p_taucov_parent_action_final_manifest.yaml` (done)
 
 ## Boundary
 
