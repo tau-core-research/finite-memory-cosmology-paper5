@@ -113,13 +113,33 @@ Forbidden statement:
 This specification already produces a Tau-specific covariance signal.
 ```
 
-## 8. Next Valid Step
+## 8. Strictly Linear Candidate Is Not Yet Frozen
+
+The strictly linear candidate is useful as the minimal reference model, but it
+must not be frozen automatically. A purely linear branch-response model may be
+too generic: it can behave like a broad covariance backreaction template rather
+than a Tau-specific branch/projection signature.
+
+Required intermediate gate:
+
+```text
+P_TAUCOV_LINEAR_SPECIFICITY_AUDIT
+```
+
+This audit must be target-blind. It must ask whether the strictly linear
+candidate produces a branch/projection/covariance signature that is more
+specific than generic linear covariance response families before any
+`delta_C_Tau` score is run.
+
+## 9. Next Valid Step
 
 The next valid step is one of:
 
 ```text
-freeze concrete matrices/operators for the strictly linear candidate;
-or reject this candidate specification and document why it is too weak.
+run P_TAUCOV_LINEAR_SPECIFICITY_AUDIT;
+if it passes, freeze concrete matrices/operators for the strictly linear candidate;
+if it fails, reject the strictly linear candidate as too generic and consider a
+predeclared minimal nonzero backreaction/projection term.
 ```
 
 Only a frozen concrete model can produce a hashed `delta_C_Tau` artifact.
