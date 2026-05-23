@@ -23,7 +23,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | orientation anchor | spec ready |
 | `J_tau` candidate | frozen, target-blind, no scoring |
 | operator assembly | ready for object-construction preflight |
-| TCCS object | not constructed |
+| TCCS object preflight | failed structurally, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -32,7 +32,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 The next legitimate Tau-specific step is not scoring. It is:
 
 ```text
-run TCCS object-construction preflight without scoring
+derive parent Hessian component whose commutator survives Pi_perp before any scoring
 ```
 
 Only after that can a pre-score object-construction validator decide whether a TCCS object exists at all.

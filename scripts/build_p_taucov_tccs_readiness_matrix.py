@@ -17,6 +17,8 @@ SOURCE_SUMMARY = EVIDENCE / "p_taucov_tccs_source_registry_summary.csv"
 ANCHOR_SUMMARY = EVIDENCE / "p_taucov_tccs_orientation_anchor_summary.csv"
 JTAU_SUMMARY = EVIDENCE / "p_taucov_tccs_jtau_anchor_candidate_summary.csv"
 ASSEMBLY_SUMMARY = EVIDENCE / "p_taucov_tccs_operator_assembly_preflight_summary.csv"
+OBJECT_SUMMARY = EVIDENCE / "p_taucov_tccs_object_preflight_summary.csv"
+OBJECT_INTERPRETATION = EVIDENCE / "p_taucov_tccs_object_preflight_interpretation.csv"
 
 OUT_MATRIX = EVIDENCE / "p_taucov_tccs_readiness_matrix.csv"
 OUT_SUMMARY = EVIDENCE / "p_taucov_tccs_readiness_summary.csv"
@@ -57,7 +59,7 @@ def main() -> int:
             "Ready": True,
             "BlocksObjectConstruction": True,
             "BlocksScoring": True,
-            "Reason": "source registry identifies missing J_tau and incomplete Pi_perp/operator freeze",
+            "Reason": "source registry is preflight-ready, but the later object preflight is negative",
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
         {
@@ -96,6 +98,30 @@ def main() -> int:
             "Reason": "operator assembly preflight is valid and ready for TCCS object-construction preflight; scoring remains blocked",
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
+        {
+            "ProtocolID": PROTOCOL_ID,
+            "FreezeID": FREEZE_ID,
+            "LayerID": "TCCS_OBJECT_PREFLIGHT",
+            "SourceArtifact": str(OBJECT_SUMMARY.relative_to(ROOT)),
+            "LayerStatus": read_status(OBJECT_SUMMARY),
+            "Ready": True,
+            "BlocksObjectConstruction": True,
+            "BlocksScoring": True,
+            "Reason": "object preflight ran and failed structurally: raw commutator nonzero but projection-orthogonal balanced object collapses",
+            "ClaimBoundary": CLAIM_BOUNDARY,
+        },
+        {
+            "ProtocolID": PROTOCOL_ID,
+            "FreezeID": FREEZE_ID,
+            "LayerID": "TCCS_OBJECT_PREFLIGHT_INTERPRETATION",
+            "SourceArtifact": str(OBJECT_INTERPRETATION.relative_to(ROOT)),
+            "LayerStatus": read_status(OBJECT_INTERPRETATION),
+            "Ready": True,
+            "BlocksObjectConstruction": True,
+            "BlocksScoring": True,
+            "Reason": "negative interpretation forbids scoring current TCCS object",
+            "ClaimBoundary": CLAIM_BOUNDARY,
+        },
     ]
     matrix = pd.DataFrame(rows)
     matrix.to_csv(OUT_MATRIX, index=False)
@@ -114,7 +140,7 @@ def main() -> int:
                 "ScoringAuthorized": not scoring_blocked,
                 "SurvivalClaimAuthorized": False,
                 "TauCoreValidationClaimAuthorized": False,
-                "NextRequiredGate": "run TCCS object-construction preflight without scoring",
+                "NextRequiredGate": "derive parent Hessian component whose commutator survives Pi_perp before any scoring",
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
         ]
@@ -146,7 +172,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | orientation anchor | spec ready |
 | `J_tau` candidate | frozen, target-blind, no scoring |
 | operator assembly | ready for object-construction preflight |
-| TCCS object | not constructed |
+| TCCS object preflight | failed structurally, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -155,7 +181,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 The next legitimate Tau-specific step is not scoring. It is:
 
 ```text
-run TCCS object-construction preflight without scoring
+derive parent Hessian component whose commutator survives Pi_perp before any scoring
 ```
 
 Only after that can a pre-score object-construction validator decide whether a TCCS object exists at all.
