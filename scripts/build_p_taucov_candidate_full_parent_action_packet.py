@@ -14,6 +14,7 @@ GATE = ROOT / "evidence/p_taucov_full_parent_action_embedding_gate.csv"
 DOMAIN_SUMMARY = ROOT / "evidence/p_taucov_full_action_domain_null_gauge_summary.csv"
 BACKGROUND_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stationarity_summary.csv"
 BACKGROUND_STABILITY_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stability_summary.csv"
+RESPONSE_ENERGY_SUMMARY = ROOT / "evidence/p_taucov_response_energy_split_summary.csv"
 S_REST_SUMMARY = ROOT / "evidence/p_taucov_s_rest_no_leakage_summary.csv"
 OUT_PACKET = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet.csv"
 OUT_GATES = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_gates.csv"
@@ -39,6 +40,10 @@ def main() -> int:
     if BACKGROUND_STABILITY_SUMMARY.exists():
         background_stability_summary = pd.read_csv(BACKGROUND_STABILITY_SUMMARY).iloc[0]
         background_stability_status = str(background_stability_summary["Status"])
+    response_energy_declared = False
+    if RESPONSE_ENERGY_SUMMARY.exists():
+        response_energy_summary = pd.read_csv(RESPONSE_ENERGY_SUMMARY).iloc[0]
+        response_energy_declared = str(response_energy_summary["Status"]).endswith("PASS_NO_SCORING")
     s_rest_declared = False
     if S_REST_SUMMARY.exists():
         s_rest_summary = pd.read_csv(S_REST_SUMMARY).iloc[0]
@@ -60,6 +65,16 @@ def main() -> int:
         (
             "REFERENCE_BACKGROUND_STABILITY",
             f"Phi=P=B=0 is stationary; active Hessian stability diagnostic status: {background_stability_status}",
+            "declared" if background_stationary and response_energy_declared else "partial",
+        ),
+        (
+            "RESPONSE_ENERGY_SPLIT",
+            "active witness interpreted as reduced response operator, not microscopic energy Hessian",
+            "declared" if response_energy_declared else "partial",
+        ),
+        (
+            "FULL_DYNAMICAL_STABILITY",
+            "kinetic/symplectic or reduced-constraint stability theorem not yet supplied",
             "partial",
         ),
         ("ACTIVE_SECTOR", "integral dmu_tau[-1/2 B^2 - 2PB - P Phi]", "declared"),
@@ -97,7 +112,7 @@ def main() -> int:
         "EMB-G1": "PARENT_DOMAIN" in declared,
         "EMB-G2": {"MEASURE_DMU_TAU", "NORMALIZATION"}.issubset(declared),
         "EMB-G3": {"NULL_GAUGE_MODES", "REDUCED_BRANCH_DOMAIN"}.issubset(declared),
-        "EMB-G4": False,
+        "EMB-G4": background_stationary and response_energy_declared,
         "EMB-G5": str(scaffold["Status"]).endswith("PASS_NO_SCORING") and float(scaffold["MaxAbsHessianMinusWitness"]) < 1e-12,
         "EMB-G6": "S_REST" in declared,
         "EMB-G7": "COVARIANCE_MAP" in declared,
@@ -107,7 +122,7 @@ def main() -> int:
         "EMB-G1": 0.0 if "PARENT_DOMAIN" in partial else 1.0,
         "EMB-G2": 1.0,
         "EMB-G3": 0.0 if "NULL_GAUGE_MODES" in partial else 1.0,
-        "EMB-G4": 0.5 if background_stationary else 0.0,
+        "EMB-G4": 1.0 if background_stationary and response_energy_declared else 0.5 if background_stationary else 0.0,
         "EMB-G5": float(scaffold["MaxAbsHessianMinusWitness"]),
         "EMB-G6": 0.0 if "S_REST" in partial else 1.0,
         "EMB-G7": 0.0 if "COVARIANCE_MAP" in partial else 1.0,

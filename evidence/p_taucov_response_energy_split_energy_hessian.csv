@@ -1,0 +1,2 @@
+ProtocolID,FreezeID,Coordinate,EnergyHessianDiagonal,EnergyEigenvalue,UsesTargetResiduals,UsesScoreOutcome,ScoringAuthorized,ClaimBoundary
+P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1,P_TAUCOV_RESPONSE_ENERGY_SPLIT_PACKET_v1,B_physical,1.0,1.0,False,False,False,response_energy_split_no_scoring

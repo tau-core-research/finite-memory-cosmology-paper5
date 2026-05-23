@@ -8,12 +8,12 @@ fields remain partial.
 
 ## Blocking Fields
 
-`COVARIANCE_MAP;REFERENCE_BACKGROUND_STABILITY`
+`COVARIANCE_MAP;FULL_DYNAMICAL_STABILITY`
 
 ## Key Numbers
 
-- gates passed: `6/8`
-- declared fields: `8`
+- gates passed: `7/8`
+- declared fields: `10`
 - partial fields: `2`
 
 ## Claim Boundary
