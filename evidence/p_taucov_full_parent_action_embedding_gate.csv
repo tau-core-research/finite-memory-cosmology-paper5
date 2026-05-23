@@ -1,0 +1,9 @@
+GateID,GateName,Requirement,ScoringAuthorizedByGate,ClaimBoundary
+EMB-G1,PARENT_DOMAIN_DECLARED,Compact-cell or continuum configuration space must be declared,False,full_parent_action_embedding_gate_no_scoring
+EMB-G2,MEASURE_AND_NORMALIZATION_DECLARED,dmu_tau and normalization convention must be declared,False,full_parent_action_embedding_gate_no_scoring
+EMB-G3,NULL_GAUGE_AND_REDUCED_DOMAIN_DECLARED,Null/gauge modes and reduced branch domain must be declared,False,full_parent_action_embedding_gate_no_scoring
+EMB-G4,STABLE_REFERENCE_BACKGROUND_DECLARED,Stable reference background Psi_0 or stationary state must be declared,False,full_parent_action_embedding_gate_no_scoring
+EMB-G5,ACTIVE_HESSIAN_PRESERVED,Embedding must preserve active-sector Hessian,False,full_parent_action_embedding_gate_no_scoring
+EMB-G6,NO_FORBIDDEN_REST_SECTOR_LEAKAGE,S_rest must not reintroduce P2 Phi2 M target or score terms into witness sector,False,full_parent_action_embedding_gate_no_scoring
+EMB-G7,COVARIANCE_MAP_DECLARED_INDEPENDENTLY,D_M C must be declared independently of empirical score outcomes,False,full_parent_action_embedding_gate_no_scoring
+EMB-G8,NO_TARGET_OR_SCORE_INPUTS,No target residuals OOS scores alpha behavior or dominant-family identity may be used,False,full_parent_action_embedding_gate_no_scoring
