@@ -1,0 +1,19 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PacketID: P_TAUCOV_COORDINATE_BASIS_PACKET_v1_MINIMAL_UNIT_CONVENTION
+PacketType: coordinate_basis
+CoordinateBasisFrozen: true
+ReferenceDomainSelectable: true
+LinearPacketAuthorized: false
+MetricEvaluationAuthorized: false
+PTauCovScoringAuthorized: false
+OutcomeInformationUsed: false
+ResidualInformationUsed: false
+ScoreInformationUsed: false
+PostScoringLocalizationUsed: false
+SourceFiles:
+- data/p_taucov/templates/coordinate_basis_skeleton.csv
+- data/p_taucov/linear/origin_scale_values.csv
+BasisFile: data/p_taucov/linear/coordinate_basis.csv
+SHA256: b8da37731250751c1ad0d7052f7f71343766b909b7d5ad3df0b617984999fcfc
+GeneratedUTC: '2026-05-23T15:19:51+00:00'
+ClaimBoundary: coordinate_basis_frozen_no_matrices_no_scores
