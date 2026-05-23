@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FIREWALL = ROOT / "evidence/p_taucov_parent_action_scoring_firewall_summary.csv"
 SCORECARD_FREEZE = ROOT / "evidence/p_taucov_parent_action_scorecard_script_freeze_summary.csv"
 FOLD_POLICY = ROOT / "evidence/p_taucov_parent_action_fold_policy_summary.csv"
+NULL_COMPARATORS = ROOT / "evidence/p_taucov_parent_action_null_comparators_summary.csv"
 OUT = ROOT / "evidence/p_taucov_parent_action_freeze_plan.csv"
 SUMMARY = ROOT / "evidence/p_taucov_parent_action_freeze_plan_summary.csv"
 DOC = ROOT / "docs/p_taucov_parent_action_freeze_plan.md"
@@ -32,6 +33,10 @@ def main() -> int:
     if FOLD_POLICY.exists():
         fold_policy = pd.read_csv(FOLD_POLICY).iloc[0]
         fold_policy_frozen = str(fold_policy["Status"]) == "P_TAUCOV_PARENT_ACTION_FOLD_POLICY_FROZEN_NO_SCORING"
+    null_comparators_frozen = False
+    if NULL_COMPARATORS.exists():
+        null_comparators = pd.read_csv(NULL_COMPARATORS).iloc[0]
+        null_comparators_frozen = str(null_comparators["Status"]) == "P_TAUCOV_PARENT_ACTION_NULL_COMPARATORS_FROZEN_NO_SCORING"
     rows = [
         (
             "FREEZE_01_PRIMARY_SCORECARD_SCRIPT",
@@ -49,7 +54,7 @@ def main() -> int:
             "FREEZE_03_NULL_COMPARATORS",
             "evidence/p_taucov_parent_action_null_comparators.csv",
             "must include outside-branch, shuffled, morphology-null, projection-null, and generic baseline controls",
-            False,
+            null_comparators_frozen,
         ),
         (
             "FREEZE_04_SURVIVAL_KILL_GATES",
