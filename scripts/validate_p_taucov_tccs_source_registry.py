@@ -15,7 +15,7 @@ DOC = ROOT / "docs/p_taucov_tccs_source_registry.md"
 OUT = ROOT / "evidence/p_taucov_tccs_source_registry_validation.csv"
 
 AUDIT_ID = "P_TAUCOV_TCCS_SOURCE_REGISTRY_VALIDATION"
-EXPECTED_STATUS = "P_TAUCOV_TCCS_SOURCE_REGISTRY_READY_OBJECT_BLOCKED"
+EXPECTED_STATUS = "P_TAUCOV_TCCS_SOURCE_REGISTRY_READY_FOR_OBJECT_PREFLIGHT_NO_SCORING"
 REQUIRED_COMPONENTS = {"L_B_red", "P_morph", "Pi_perp", "Pi_bal", "J_tau", "TCCS_OBJECT"}
 
 
@@ -47,11 +47,12 @@ def main() -> int:
 
     add(rows, "status_expected", str(summary["Status"]) == EXPECTED_STATUS)
     add(rows, "all_required_components_present", REQUIRED_COMPONENTS.issubset(components))
-    add(rows, "j_tau_marked_missing", bool(registry[registry["ComponentID"].eq("J_tau")]["SourceExists"].iloc[0]) is False)
-    add(rows, "tccs_object_blocked", "BLOCKED" in str(registry[registry["ComponentID"].eq("TCCS_OBJECT")]["SourceStatus"].iloc[0]))
+    add(rows, "j_tau_marked_available", bool(registry[registry["ComponentID"].eq("J_tau")]["SourceExists"].iloc[0]) == True)
+    add(rows, "tccs_object_preflight_ready", "PREFLIGHT_READY" in str(registry[registry["ComponentID"].eq("TCCS_OBJECT")]["SourceStatus"].iloc[0]))
     add(rows, "scoring_not_authorized_registry", not bool(registry["ScoringAuthorized"].any()))
     add(rows, "scoring_not_authorized_summary", bool(summary["ScoringAuthorized"]) is False)
     add(rows, "object_not_constructed", bool(summary["ObjectConstructed"]) is False)
+    add(rows, "object_preflight_authorized", bool(summary["ObjectConstructionPreflightAuthorized"]) == True)
     add(rows, "survival_not_authorized", bool(summary["SurvivalClaimAuthorized"]) is False)
     add(rows, "tau_validation_not_authorized", bool(summary["TauCoreValidationClaimAuthorized"]) is False)
     add(rows, "doc_mentions_previous_projection_failure", "projection-null" in doc and "previous parent-Hessian commutator" in doc)

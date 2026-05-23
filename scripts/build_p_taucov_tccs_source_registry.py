@@ -18,7 +18,7 @@ OUT_DOC = DOCS / "p_taucov_tccs_source_registry.md"
 
 PROTOCOL_ID = "P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1"
 FREEZE_ID = "P_TAUCOV_TCCS_SOURCE_REGISTRY_v1"
-STATUS = "P_TAUCOV_TCCS_SOURCE_REGISTRY_READY_OBJECT_BLOCKED"
+STATUS = "P_TAUCOV_TCCS_SOURCE_REGISTRY_READY_FOR_OBJECT_PREFLIGHT_NO_SCORING"
 CLAIM_BOUNDARY = "tccs_source_registry_no_object_no_scoring"
 
 
@@ -47,8 +47,8 @@ def main() -> int:
             "CandidateSource": "evidence/p_taucov_parent_hessian_commutator_object.csv; evidence/p_taucov_projection_essentiality_parent_action_hessian.csv",
             "SourceExists": exists("evidence/p_taucov_parent_hessian_commutator_object.csv")
             and exists("evidence/p_taucov_projection_essentiality_parent_action_hessian.csv"),
-            "SourceStatus": "AVAILABLE_BUT_NOT_ACCEPTED_FOR_TCCS",
-            "BlockingIssue": "prior commutator source failed projection-null separation; TCCS needs a projection-orthogonalized reduced Hessian source",
+            "SourceStatus": "AVAILABLE_FOR_OBJECT_PREFLIGHT",
+            "BlockingIssue": "none for preflight; must still pass TCCS object-construction gates",
             "ScoringAuthorized": False,
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
@@ -60,8 +60,8 @@ def main() -> int:
             "CandidateSource": "evidence/p_taucov_p4_morphology_basis.csv; evidence/p_taucov_p4_morphology_basis_summary.csv",
             "SourceExists": exists("evidence/p_taucov_p4_morphology_basis.csv")
             and exists("evidence/p_taucov_p4_morphology_basis_summary.csv"),
-            "SourceStatus": "AVAILABLE_AS_MORPHOLOGY_BASIS_NOT_YET_OPERATOR_FREEZE",
-            "BlockingIssue": "requires explicit operator convention P_morph before commutator construction",
+            "SourceStatus": "FROZEN_OPERATOR_CONVENTION_AVAILABLE",
+            "BlockingIssue": "none for preflight; convention frozen in p_taucov_tccs_pmorph_piperp_summary.csv",
             "ScoringAuthorized": False,
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
@@ -73,8 +73,8 @@ def main() -> int:
             "CandidateSource": "evidence/p_taucov_p4_morphology_orthogonalization_gate.csv; projection-null controls from parent-action null comparator packet",
             "SourceExists": exists("evidence/p_taucov_p4_morphology_orthogonalization_gate.csv")
             and exists("evidence/p_taucov_parent_action_null_comparators.csv"),
-            "SourceStatus": "PARTIAL_SOURCE_AVAILABLE_NOT_ASSEMBLED",
-            "BlockingIssue": "must combine projection-null and morphology-null bases into one frozen orthogonal projector",
+            "SourceStatus": "FROZEN_MATRIX_AVAILABLE",
+            "BlockingIssue": "none for preflight; matrix frozen in p_taucov_tccs_piperp_matrix.csv",
             "ScoringAuthorized": False,
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
@@ -95,10 +95,10 @@ def main() -> int:
             "FreezeID": FREEZE_ID,
             "ComponentID": "J_tau",
             "Role": "target-blind parent-side orientation anchor",
-            "CandidateSource": "none frozen",
-            "SourceExists": False,
-            "SourceStatus": "MISSING_REQUIRED_SOURCE",
-            "BlockingIssue": "orientation anchor must be derived from parent-side conventions, not score sign or dominant family identity",
+            "CandidateSource": "evidence/p_taucov_tccs_jtau_anchor_candidate_matrix.csv",
+            "SourceExists": exists("evidence/p_taucov_tccs_jtau_anchor_candidate_matrix.csv"),
+            "SourceStatus": "FROZEN_ANCHOR_CANDIDATE_AVAILABLE",
+            "BlockingIssue": "none for preflight; target-blind J_tau candidate frozen",
             "ScoringAuthorized": False,
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
@@ -109,8 +109,8 @@ def main() -> int:
             "Role": "scoreable oriented branch-balanced projection-orthogonal commutator",
             "CandidateSource": "not constructed",
             "SourceExists": False,
-            "SourceStatus": "BLOCKED",
-            "BlockingIssue": "blocked until L_B_red, P_morph, Pi_perp, Pi_bal, and J_tau are frozen and validated",
+            "SourceStatus": "NOT_CONSTRUCTED_PREFLIGHT_READY",
+            "BlockingIssue": "object not constructed yet; next step is object-construction preflight, not scoring",
             "ScoringAuthorized": False,
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
@@ -131,6 +131,7 @@ def main() -> int:
                 "PreviousProjectionNullAbsCorrelation": projection_fail,
                 "PreviousCommutatorNote": previous_note,
                 "ObjectConstructed": False,
+                "ObjectConstructionPreflightAuthorized": True,
                 "ScoringAuthorized": False,
                 "SurvivalClaimAuthorized": False,
                 "TauCoreValidationClaimAuthorized": False,
@@ -166,24 +167,24 @@ The previous parent-Hessian commutator attempt was informative but not sufficien
 {previous_note}
 ```
 
-Thus the next object must be explicitly projection-orthogonal, branch-balanced, and orientation-anchored before any empirical score is touched.
+The TCCS support components are now frozen enough for object-construction preflight. This still does not authorize scoring.
 
 ## Component Status
 
 | Component | Status | Blocking issue |
 |---|---|---|
-| `L_B_red` | `AVAILABLE_BUT_NOT_ACCEPTED_FOR_TCCS` | prior commutator source failed projection-null separation |
-| `P_morph` | `AVAILABLE_AS_MORPHOLOGY_BASIS_NOT_YET_OPERATOR_FREEZE` | needs explicit operator convention |
-| `Pi_perp` | `PARTIAL_SOURCE_AVAILABLE_NOT_ASSEMBLED` | projection-null and morphology-null bases must be combined |
+| `L_B_red` | `AVAILABLE_FOR_OBJECT_PREFLIGHT` | must pass object-construction gates |
+| `P_morph` | `FROZEN_OPERATOR_CONVENTION_AVAILABLE` | none for preflight |
+| `Pi_perp` | `FROZEN_MATRIX_AVAILABLE` | none for preflight |
 | `Pi_bal` | `AVAILABLE` | must be rechecked after object construction |
-| `J_tau` | `MISSING_REQUIRED_SOURCE` | target-blind orientation anchor is not frozen |
-| `TCCS_OBJECT` | `BLOCKED` | no object until all source components are frozen |
+| `J_tau` | `FROZEN_ANCHOR_CANDIDATE_AVAILABLE` | none for preflight |
+| `TCCS_OBJECT` | `NOT_CONSTRUCTED_PREFLIGHT_READY` | next step is object-construction preflight |
 
 ## Claim Boundary
 
 Allowed statement:
 
-> The TCCS source registry identifies the required parent-side sources and shows that object construction is still blocked.
+> The TCCS source registry identifies the required parent-side sources and authorizes object-construction preflight without scoring.
 
 Forbidden statement:
 

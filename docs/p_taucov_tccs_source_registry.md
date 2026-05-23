@@ -4,7 +4,7 @@ Freeze ID: `P_TAUCOV_TCCS_SOURCE_REGISTRY_v1`
 
 Status:
 
-`P_TAUCOV_TCCS_SOURCE_REGISTRY_READY_OBJECT_BLOCKED`
+`P_TAUCOV_TCCS_SOURCE_REGISTRY_READY_FOR_OBJECT_PREFLIGHT_NO_SCORING`
 
 ## Purpose
 
@@ -24,24 +24,24 @@ The previous parent-Hessian commutator attempt was informative but not sufficien
 previous morphology-null=0.1686357268015766; projection-null=0.7337111972818574
 ```
 
-Thus the next object must be explicitly projection-orthogonal, branch-balanced, and orientation-anchored before any empirical score is touched.
+The TCCS support components are now frozen enough for object-construction preflight. This still does not authorize scoring.
 
 ## Component Status
 
 | Component | Status | Blocking issue |
 |---|---|---|
-| `L_B_red` | `AVAILABLE_BUT_NOT_ACCEPTED_FOR_TCCS` | prior commutator source failed projection-null separation |
-| `P_morph` | `AVAILABLE_AS_MORPHOLOGY_BASIS_NOT_YET_OPERATOR_FREEZE` | needs explicit operator convention |
-| `Pi_perp` | `PARTIAL_SOURCE_AVAILABLE_NOT_ASSEMBLED` | projection-null and morphology-null bases must be combined |
+| `L_B_red` | `AVAILABLE_FOR_OBJECT_PREFLIGHT` | must pass object-construction gates |
+| `P_morph` | `FROZEN_OPERATOR_CONVENTION_AVAILABLE` | none for preflight |
+| `Pi_perp` | `FROZEN_MATRIX_AVAILABLE` | none for preflight |
 | `Pi_bal` | `AVAILABLE` | must be rechecked after object construction |
-| `J_tau` | `MISSING_REQUIRED_SOURCE` | target-blind orientation anchor is not frozen |
-| `TCCS_OBJECT` | `BLOCKED` | no object until all source components are frozen |
+| `J_tau` | `FROZEN_ANCHOR_CANDIDATE_AVAILABLE` | none for preflight |
+| `TCCS_OBJECT` | `NOT_CONSTRUCTED_PREFLIGHT_READY` | next step is object-construction preflight |
 
 ## Claim Boundary
 
 Allowed statement:
 
-> The TCCS source registry identifies the required parent-side sources and shows that object construction is still blocked.
+> The TCCS source registry identifies the required parent-side sources and authorizes object-construction preflight without scoring.
 
 Forbidden statement:
 

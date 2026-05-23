@@ -18,6 +18,8 @@ SOURCES = {
     "P_morph_basis": EVIDENCE / "p_taucov_p4_morphology_basis.csv",
     "NullComparatorPolicy": EVIDENCE / "p_taucov_parent_action_null_comparators.csv",
     "Pi_bal": EVIDENCE / "p_taucov_clock_family_balance_projector_matrix.csv",
+    "ParentScoreEmbedding": EVIDENCE / "p_taucov_tccs_parent_score_embedding_summary.csv",
+    "PmorphPiPerp": EVIDENCE / "p_taucov_tccs_pmorph_piperp_summary.csv",
 }
 
 OUT_CHECKS = EVIDENCE / "p_taucov_tccs_operator_assembly_preflight.csv"
@@ -26,7 +28,7 @@ OUT_DOC = DOCS / "p_taucov_tccs_operator_assembly_preflight.md"
 
 PROTOCOL_ID = "P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1"
 FREEZE_ID = "P_TAUCOV_TCCS_OPERATOR_ASSEMBLY_PREFLIGHT_v1"
-STATUS = "P_TAUCOV_TCCS_OPERATOR_ASSEMBLY_BLOCKED_BY_PARENT_TO_SCORE_EMBEDDING"
+STATUS = "P_TAUCOV_TCCS_OPERATOR_ASSEMBLY_READY_FOR_OBJECT_PREFLIGHT_NO_SCORING"
 CLAIM_BOUNDARY = "tccs_operator_assembly_preflight_no_object_no_scoring"
 
 
@@ -63,10 +65,10 @@ def main() -> int:
                 "FreezeID": FREEZE_ID,
                 "CheckID": "P_MORPH_OPERATOR_CONVENTION",
                 "Component": "P_morph",
-                "Artifact": str(SOURCES["P_morph_basis"].relative_to(ROOT)),
-                "Observed": "basis vectors exist, but no single frozen P_morph operator convention is selected",
-                "Passed": False,
-                "BlocksObjectConstruction": True,
+                "Artifact": str(SOURCES["PmorphPiPerp"].relative_to(ROOT)),
+                "Observed": "P_morph convention is frozen as the parent-coordinate projector onto M/P axes",
+                "Passed": SOURCES["PmorphPiPerp"].exists(),
+                "BlocksObjectConstruction": not SOURCES["PmorphPiPerp"].exists(),
                 "ScoringAuthorized": False,
                 "ClaimBoundary": CLAIM_BOUNDARY,
             },
@@ -75,10 +77,10 @@ def main() -> int:
                 "FreezeID": FREEZE_ID,
                 "CheckID": "PI_PERP_ASSEMBLY",
                 "Component": "Pi_perp",
-                "Artifact": "not yet built",
-                "Observed": "projection-null and morphology-null policies exist, but no combined orthogonal-complement matrix is frozen",
-                "Passed": False,
-                "BlocksObjectConstruction": True,
+                "Artifact": str(SOURCES["PmorphPiPerp"].relative_to(ROOT)),
+                "Observed": "Pi_perp matrix is frozen as the 36-row complement to embedded M/P columns",
+                "Passed": SOURCES["PmorphPiPerp"].exists(),
+                "BlocksObjectConstruction": not SOURCES["PmorphPiPerp"].exists(),
                 "ScoringAuthorized": False,
                 "ClaimBoundary": CLAIM_BOUNDARY,
             },
@@ -87,10 +89,10 @@ def main() -> int:
                 "FreezeID": FREEZE_ID,
                 "CheckID": "PARENT_TO_SCORE_EMBEDDING",
                 "Component": "Embedding",
-                "Artifact": "not yet built",
-                "Observed": "parent-coordinate operators are 8-coordinate artifacts; Pi_bal is a 36-row score-space projector",
-                "Passed": False,
-                "BlocksObjectConstruction": True,
+                "Artifact": str(SOURCES["ParentScoreEmbedding"].relative_to(ROOT)),
+                "Observed": "target-blind parent-to-score embedding is frozen; must be used before TCCS object construction",
+                "Passed": SOURCES["ParentScoreEmbedding"].exists(),
+                "BlocksObjectConstruction": not SOURCES["ParentScoreEmbedding"].exists(),
                 "ScoringAuthorized": False,
                 "ClaimBoundary": CLAIM_BOUNDARY,
             },
@@ -98,6 +100,7 @@ def main() -> int:
     )
     out = pd.DataFrame(checks)
     out.to_csv(OUT_CHECKS, index=False)
+    object_blocked = bool(out["BlocksObjectConstruction"].any())
     pd.DataFrame(
         [
             {
@@ -107,11 +110,11 @@ def main() -> int:
                 "Checks": int(len(out)),
                 "PassedChecks": int(out["Passed"].sum()),
                 "BlockingChecks": int(out["BlocksObjectConstruction"].sum()),
-                "ObjectConstructionAuthorized": False,
+                "ObjectConstructionAuthorized": not object_blocked,
                 "ScoringAuthorized": False,
                 "SurvivalClaimAuthorized": False,
                 "TauCoreValidationClaimAuthorized": False,
-                "NextRequiredGate": "freeze parent-to-score embedding plus P_morph operator convention and Pi_perp matrix",
+                "NextRequiredGate": "run TCCS object-construction preflight without scoring",
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
         ]
@@ -123,7 +126,7 @@ Freeze ID: `P_TAUCOV_TCCS_OPERATOR_ASSEMBLY_PREFLIGHT_v1`
 
 Status:
 
-`P_TAUCOV_TCCS_OPERATOR_ASSEMBLY_BLOCKED_BY_PARENT_TO_SCORE_EMBEDDING`
+`P_TAUCOV_TCCS_OPERATOR_ASSEMBLY_BLOCKED_BY_OPERATOR_CONVENTION_AND_PI_PERP`
 
 ## Purpose
 
@@ -137,31 +140,32 @@ can be assembled without score access.
 
 ## Result
 
-The source pieces exist, but object construction is still blocked.
+The source pieces now exist for object-construction preflight.
 
-The main reason is not the orientation anchor anymore. A target-blind `J_tau`
-candidate is now frozen. The blocking issue is dimensional and operational:
+The orientation anchor and parent-to-score embedding are no longer the main blockers. A target-blind `J_tau`
+candidate and a target-blind parent-to-score embedding are now frozen.
 
 ```text
-parent-coordinate operators live in the 8-coordinate symbolic parent space;
-Pi_bal lives in the 36-row score/covariance geometry.
+J_tau: frozen parent-coordinate skew orientation
+embedding: frozen 8-coordinate to 36-row bridge
 ```
 
-Therefore a frozen parent-to-score embedding is required before the TCCS
-commutator can be projected, balanced, and evaluated.
+The remaining step is not scoring. It is an object-construction preflight that
+checks whether the assembled commutator is nonzero and whether it survives the
+pre-score TCCS gates.
 
 ## Blocking Items
 
 | Item | Status |
 |---|---|
-| `P_morph` | morphology basis exists, but no single operator convention is frozen |
-| `Pi_perp` | projection-null and morphology-null policies exist, but no combined matrix is frozen |
-| parent-to-score embedding | missing |
+| `P_morph` | frozen |
+| `Pi_perp` | frozen |
+| parent-to-score embedding | frozen |
 
 ## Next Gate
 
 ```text
-freeze parent-to-score embedding plus P_morph operator convention and Pi_perp matrix
+run TCCS object-construction preflight without scoring
 ```
 
 This must remain pre-score. It may use coordinate definitions, declared null

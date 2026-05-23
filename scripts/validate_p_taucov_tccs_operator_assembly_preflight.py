@@ -15,8 +15,7 @@ DOC = ROOT / "docs/p_taucov_tccs_operator_assembly_preflight.md"
 OUT = ROOT / "evidence/p_taucov_tccs_operator_assembly_preflight_validation.csv"
 
 AUDIT_ID = "P_TAUCOV_TCCS_OPERATOR_ASSEMBLY_PREFLIGHT_VALIDATION"
-EXPECTED_STATUS = "P_TAUCOV_TCCS_OPERATOR_ASSEMBLY_BLOCKED_BY_PARENT_TO_SCORE_EMBEDDING"
-REQUIRED_BLOCKERS = {"P_MORPH_OPERATOR_CONVENTION", "PI_PERP_ASSEMBLY", "PARENT_TO_SCORE_EMBEDDING"}
+EXPECTED_STATUS = "P_TAUCOV_TCCS_OPERATOR_ASSEMBLY_READY_FOR_OBJECT_PREFLIGHT_NO_SCORING"
 
 
 def add(rows: list[dict], check_id: str, passed: bool) -> None:
@@ -44,15 +43,14 @@ def main() -> int:
     summary = pd.read_csv(SUMMARY).iloc[0]
     doc = DOC.read_text(encoding="utf-8")
 
-    blockers = set(checks.loc[checks["BlocksObjectConstruction"].astype(bool), "CheckID"].astype(str))
     add(rows, "status_expected", str(summary["Status"]) == EXPECTED_STATUS)
-    add(rows, "required_blockers_present", REQUIRED_BLOCKERS.issubset(blockers))
-    add(rows, "object_construction_not_authorized", bool(summary["ObjectConstructionAuthorized"]) is False)
+    add(rows, "no_object_construction_blockers", not bool(checks["BlocksObjectConstruction"].any()))
+    add(rows, "object_construction_authorized", bool(summary["ObjectConstructionAuthorized"]) is True)
     add(rows, "scoring_not_authorized_checks", not bool(checks["ScoringAuthorized"].any()))
     add(rows, "scoring_not_authorized_summary", bool(summary["ScoringAuthorized"]) is False)
     add(rows, "survival_not_authorized", bool(summary["SurvivalClaimAuthorized"]) is False)
     add(rows, "tau_validation_not_authorized", bool(summary["TauCoreValidationClaimAuthorized"]) is False)
-    add(rows, "doc_mentions_embedding_block", "parent-to-score embedding" in doc)
+    add(rows, "doc_mentions_object_preflight_next", "object-construction preflight" in doc)
     add(rows, "doc_forbids_signal_claim", "shown to carry a Tau signal" in doc)
 
     out = pd.DataFrame(rows)
