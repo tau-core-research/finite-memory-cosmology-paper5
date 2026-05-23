@@ -16,6 +16,7 @@ BACKGROUND_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stationarity
 BACKGROUND_STABILITY_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stability_summary.csv"
 RESPONSE_ENERGY_SUMMARY = ROOT / "evidence/p_taucov_response_energy_split_summary.csv"
 COVARIANCE_MAP_SUMMARY = ROOT / "evidence/p_taucov_covariance_map_summary.csv"
+LINEAR_STABILITY_SUMMARY = ROOT / "evidence/p_taucov_linear_dynamical_stability_summary.csv"
 S_REST_SUMMARY = ROOT / "evidence/p_taucov_s_rest_no_leakage_summary.csv"
 OUT_PACKET = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet.csv"
 OUT_GATES = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_gates.csv"
@@ -49,6 +50,10 @@ def main() -> int:
     if COVARIANCE_MAP_SUMMARY.exists():
         covariance_map_summary = pd.read_csv(COVARIANCE_MAP_SUMMARY).iloc[0]
         covariance_map_declared = str(covariance_map_summary["Status"]).endswith("PASS_NO_SCORING")
+    linear_stability_declared = False
+    if LINEAR_STABILITY_SUMMARY.exists():
+        linear_stability_summary = pd.read_csv(LINEAR_STABILITY_SUMMARY).iloc[0]
+        linear_stability_declared = str(linear_stability_summary["Status"]).endswith("PASS_NO_SCORING")
     s_rest_declared = False
     if S_REST_SUMMARY.exists():
         s_rest_summary = pd.read_csv(S_REST_SUMMARY).iloc[0]
@@ -79,8 +84,8 @@ def main() -> int:
         ),
         (
             "FULL_DYNAMICAL_STABILITY",
-            "kinetic/symplectic or reduced-constraint stability theorem not yet supplied",
-            "partial",
+            "minimal linear branch dynamics supplied; nonlinear stability and UV completion remain outside this packet",
+            "declared" if linear_stability_declared else "partial",
         ),
         ("ACTIVE_SECTOR", "integral dmu_tau[-1/2 B^2 - 2PB - P Phi]", "declared"),
         (
@@ -176,6 +181,17 @@ def main() -> int:
         ]
     )
     summary.to_csv(OUT_SUMMARY, index=False)
+    blocking_text = ";".join(sorted(partial)) if partial else "NONE"
+    status_sentence = (
+        "This packet embeds the minimal active scaffold in a fuller parent-action candidate."
+        if not partial
+        else "This packet attempts to embed the minimal active scaffold in a fuller parent-action candidate. It is intentionally blocked while required fields remain partial."
+    )
+    allowed_sentence = (
+        "Allowed: a candidate full-action packet has been drafted with all embedding gates declared."
+        if not partial
+        else "Allowed: a candidate full-action packet has been drafted and its blocking fields are explicit."
+    )
     DOC.write_text(
         "\n".join(
             [
@@ -183,13 +199,11 @@ def main() -> int:
                 "",
                 f"Status: `{status}`.",
                 "",
-                "This packet attempts to embed the minimal active scaffold in a fuller",
-                "parent-action candidate. It is intentionally blocked while required",
-                "fields remain partial.",
+                status_sentence,
                 "",
                 "## Blocking Fields",
                 "",
-                f"`{';'.join(sorted(partial))}`",
+                f"`{blocking_text}`",
                 "",
                 "## Key Numbers",
                 "",
@@ -199,8 +213,7 @@ def main() -> int:
                 "",
                 "## Claim Boundary",
                 "",
-                "Allowed: a candidate full-action packet has been drafted and its",
-                "blocking fields are explicit.",
+                allowed_sentence,
                 "",
                 "Forbidden: this is not a full Tau Core action, not a covariance",
                 "scorecard, and not measurement validation.",

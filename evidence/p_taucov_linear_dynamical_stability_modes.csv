@@ -1,0 +1,2 @@
+ProtocolID,FreezeID,ModeID,KineticEigenvalue,StiffnessEigenvalue,OmegaSquared,Omega,BoundedLinearMode,UsesTargetResiduals,UsesScoreOutcome,ScoringAuthorized,ClaimBoundary
+P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1,P_TAUCOV_LINEAR_DYNAMICAL_STABILITY_PACKET_v1,B_branch_fluctuation,1.0,1.0,1.0,1.0,True,False,False,False,linear_dynamical_stability_no_scoring

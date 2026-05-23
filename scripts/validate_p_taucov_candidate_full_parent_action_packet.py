@@ -16,9 +16,7 @@ DOC = ROOT / "docs/p_taucov_candidate_full_parent_action_packet.md"
 OUT = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_validation.csv"
 
 AUDIT_ID = "P_TAUCOV_CANDIDATE_FULL_PARENT_ACTION_PACKET_VALIDATION"
-EXPECTED_BLOCKERS = {
-    "FULL_DYNAMICAL_STABILITY",
-}
+EXPECTED_BLOCKERS: set[str] = set()
 
 
 def main() -> int:
@@ -43,9 +41,10 @@ def main() -> int:
         gates = pd.read_csv(GATES)
         summary = pd.read_csv(SUMMARY).iloc[0]
         doc = DOC.read_text(encoding="utf-8")
-        blockers = set(str(summary["BlockingFields"]).split(";"))
-        add("status_blocked_no_scoring", str(summary["Status"]).endswith("BLOCKED_NO_SCORING"))
-        add("blocked_by_failed_gate_or_partial_field", int((~gates["Passed"]).sum()) > 0 or bool(blockers))
+        blocker_text = "" if pd.isna(summary["BlockingFields"]) else str(summary["BlockingFields"])
+        blockers = set() if blocker_text == "" else set(blocker_text.split(";"))
+        add("status_pass_no_scoring", str(summary["Status"]).endswith("PASS_NO_SCORING"))
+        add("no_failed_embedding_gates", int((~gates["Passed"]).sum()) == 0)
         add("expected_blockers", blockers == EXPECTED_BLOCKERS)
         add("gates_match_summary", int(gates["Passed"].sum()) == int(summary["GatesPassed"]))
         add("partial_fields_match_summary", int(packet["DeclarationStatus"].eq("partial").sum()) == int(summary["PartialFields"]))
