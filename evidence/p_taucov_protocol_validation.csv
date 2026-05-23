@@ -1,0 +1,30 @@
+AuditID,CheckID,Passed,Required,Status
+P_TAUCOV_PROTOCOL_VALIDATION,doc_exists,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,gate_registry_exists,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,control_registry_exists,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,status_boundary_exists,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_P_TAUCOV_BRANCH_LOCALIZED_COVARI,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_T_{\tau},True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_\delta C_{\tau},True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_W_branch or Omega_branch,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,"doc_contains_W_{\rm branch}(i,j)",True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_S_{\tau},True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_outside-branch,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_shuffled,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_morphology-null,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_projection-null,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_generic covariance baselines,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_This document is a protocol and ,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_P5C v3 remains:,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_anomaly candidate only,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_not a full Tau Core validation,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,doc_contains_V4KernelAuthorized: false unless,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,ten_gates_declared,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,all_gates_required_before_scoring,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,outside_branch_control_declared,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,shuffled_control_declared,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,morphology_null_declared,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,projection_null_declared,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,generic_family_permuted_declared,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,v4_not_authorized,True,True,PASS
+P_TAUCOV_PROTOCOL_VALIDATION,p5c_v3_anomaly_only,True,True,PASS

@@ -1,0 +1,11 @@
+GateID,GateName,Requirement,RequiredBeforeScoring,FailureMeaning,ClaimBoundary
+G1,TAU_DERIVED_DELTA_C,delta C_Tau generated from T_tau without target residuals or P5C v3 gains,True,Protocol is post-hoc morphology fitting,p_taucov_protocol_no_scoring_authorization
+G2,BRANCH_SUPPORT_FROM_DELTA_C,W_branch or Omega_branch derived only from delta C_Tau,True,Branch support is outcome-selected,p_taucov_protocol_no_scoring_authorization
+G3,INSIDE_BRANCH_ALIGNMENT,held-out inside-branch S_Tau positive,True,No branch-localized covariance alignment,p_taucov_protocol_no_scoring_authorization
+G4,BEATS_OUTSIDE_BRANCH,inside branch beats complement,True,Effect is not branch-localized,p_taucov_protocol_no_scoring_authorization
+G5,BEATS_SHUFFLED_SUPPORT,inside branch beats shuffled support null,True,Support pattern is not Tau-specific,p_taucov_protocol_no_scoring_authorization
+G6,BEATS_MORPHOLOGY_NULL,T_tau beats morphology-null response,True,Generic morphology explains effect,p_taucov_protocol_no_scoring_authorization
+G7,BEATS_PROJECTION_NULL,T_tau beats projection-null response,True,Projection map does not matter,p_taucov_protocol_no_scoring_authorization
+G8,BEATS_GENERIC_BASELINES,T_tau beats strongest generic covariance baseline,True,Generic covariance structure explains effect,p_taucov_protocol_no_scoring_authorization
+G9,NO_UNDECLARED_SINGLE_FOLD_DOMINANCE,no single fold supplies more than 60 percent positive gain unless predicted by delta C_Tau,True,Localization is not predeclared,p_taucov_protocol_no_scoring_authorization
+G10,SIGNED_DIAGNOSTIC_NOT_PROMOTED,signed diagnostic cannot become survival claim,True,Secondary diagnostic promotion invalidates claim,p_taucov_protocol_no_scoring_authorization
