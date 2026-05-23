@@ -13,6 +13,7 @@ SCAFFOLD = ROOT / "evidence/p_taucov_minimal_global_parent_action_scaffold_summa
 GATE = ROOT / "evidence/p_taucov_full_parent_action_embedding_gate.csv"
 DOMAIN_SUMMARY = ROOT / "evidence/p_taucov_full_action_domain_null_gauge_summary.csv"
 BACKGROUND_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stationarity_summary.csv"
+BACKGROUND_STABILITY_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stability_summary.csv"
 S_REST_SUMMARY = ROOT / "evidence/p_taucov_s_rest_no_leakage_summary.csv"
 OUT_PACKET = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet.csv"
 OUT_GATES = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_gates.csv"
@@ -31,9 +32,13 @@ def main() -> int:
         domain_summary = pd.read_csv(DOMAIN_SUMMARY).iloc[0]
         domain_declared = str(domain_summary["Status"]).endswith("PASS_NO_SCORING")
     background_stationary = False
+    background_stability_status = "not_diagnosed"
     if BACKGROUND_SUMMARY.exists():
         background_summary = pd.read_csv(BACKGROUND_SUMMARY).iloc[0]
         background_stationary = bool(background_summary["ReferenceBackgroundStationary"])
+    if BACKGROUND_STABILITY_SUMMARY.exists():
+        background_stability_summary = pd.read_csv(BACKGROUND_STABILITY_SUMMARY).iloc[0]
+        background_stability_status = str(background_stability_summary["Status"])
     s_rest_declared = False
     if S_REST_SUMMARY.exists():
         s_rest_summary = pd.read_csv(S_REST_SUMMARY).iloc[0]
@@ -54,7 +59,7 @@ def main() -> int:
         ("REDUCED_BRANCH_DOMAIN", "branch coordinate B with reduced metric coefficient -1/2", "declared"),
         (
             "REFERENCE_BACKGROUND_STABILITY",
-            "Phi=P=B=0 is stationary; full stability remains deferred to S_rest",
+            f"Phi=P=B=0 is stationary; active Hessian stability diagnostic status: {background_stability_status}",
             "partial",
         ),
         ("ACTIVE_SECTOR", "integral dmu_tau[-1/2 B^2 - 2PB - P Phi]", "declared"),
