@@ -1,0 +1,21 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PacketID: P_TAUCOV_P3_CORE_MIXING_OPERATOR_v1
+PacketType: projection_response_operator
+Route: epsilon_P_projection_response
+ConstructionRule: target_blind_core_mixing_over_four_tau_side_axes
+Reason: P2 fixed null separation but failed support entropy because its covariance
+  response remained too narrowly localized.
+OperatorFile: data/p_taucov/linear/P3_core_mixing_operator.csv
+CoordinateBasisFile: data/p_taucov/linear/coordinate_basis.csv
+PRedFile: data/p_taucov/linear/p_red.csv
+Normalization: unit_frobenius_norm
+P3OperatorFrozen: true
+MetricEvaluationAuthorized: false
+PTauCovScoringAuthorized: false
+OutcomeInformationUsed: false
+ResidualInformationUsed: false
+ScoreInformationUsed: false
+P5CV3OutcomeUsed: false
+PostScoringLocalizationUsed: false
+GeneratedUTC: '2026-05-23T16:14:30+00:00'
+ClaimBoundary: p3_core_mixing_operator_frozen_no_model_packet_no_scoring

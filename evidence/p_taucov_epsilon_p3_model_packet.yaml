@@ -1,0 +1,45 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PacketID: P_TAUCOV_EPSILON_P3_MODEL_PACKET_v1_CORE_MIXING
+PacketType: epsilon_p3_model_packet
+ModelFamily: epsilon_P_core_mixing_response
+lambda_B: 0
+epsilon_P: 1
+EpsilonPAmplitudePolicy: unit_amplitude_because_P3_has_unit_frobenius_norm
+ProjectionMap: P_epsilon = P0 + epsilon_P * P3
+ParentP2Status: FAIL_EPSILON_P2_NOT_SPECIFIC
+P3OperatorStatus: operator_valid_all_structural_metrics_passed
+EpsilonP3ModelPacketFrozen: true
+LinearSpecificityAuditAuthorized: true
+MetricEvaluationAuthorized: true
+PTauCovScoringAuthorized: false
+OutcomeInformationUsed: false
+ResidualInformationUsed: false
+ScoreInformationUsed: false
+P5CV3OutcomeUsed: false
+PostScoringLocalizationUsed: false
+ClaimBoundary: epsilon_p3_model_packet_authorizes_specificity_metrics_only_no_scoring
+InputFiles:
+  coordinate_basis: data/p_taucov/linear/coordinate_basis.csv
+  p_red: data/p_taucov/linear/p_red.csv
+  L0_B: data/p_taucov/linear/L0_B.csv
+  R_B: data/p_taucov/linear/R_B.csv
+  A_Phi: data/p_taucov/linear/A_Phi.csv
+  A_B: data/p_taucov/linear/A_B.csv
+  P0: data/p_taucov/linear/P0.csv
+  P3: data/p_taucov/linear/P3_core_mixing_operator.csv
+  p2_prescore: evidence/p_taucov_epsilon_p2_specificity_prescore_summary.csv
+  p3_manifest: evidence/p_taucov_p3_core_mixing_operator_manifest.yaml
+  p3_metrics: evidence/p_taucov_p3_core_mixing_operator_metrics.csv
+InputSHA256:
+  coordinate_basis: b8da37731250751c1ad0d7052f7f71343766b909b7d5ad3df0b617984999fcfc
+  p_red: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  L0_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  R_B: d123dbacd41cbadc1b18de09c2df9d6729de352b793decbb7b0727015421c557
+  A_Phi: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  A_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  P0: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  P3: 8d8a3de8a55ae0eec1537bd5c6c9bef0105e3384adbcbad2e3949916c223ea95
+  p2_prescore: 55f810551334de8393c873dff61ab45c7e6d6e312bf2108d3ed77cac0761d066
+  p3_manifest: 4a13678d3d63de65e6b7ff8bb019b7ffc8055cd861eec34c7a5dc61bf7b63b40
+  p3_metrics: caa4a3eb058e9afab02296ef551e22486a9168b76a001d6795684377e4ab7bf2
+GeneratedUTC: '2026-05-23T16:14:30+00:00'
