@@ -37,6 +37,7 @@ has not been scored; it is a pre-score structural audit.
 | Mediated parent-forcing chain | pass, stability open | no object, no scoring |
 | Response/energy split | pass, full dynamical stability open | no scoring |
 | Projected morphology derivative | strict-linear pass | no scoring |
+| Reduced-Jacobian current blocker rollup | 3 blockers remain | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -155,3 +156,6 @@ The response/energy split packet is recorded in
 
 The strict-linear projected morphology derivative audit is recorded in
 [`p_taucov_projected_morphology_derivative_audit.md`](p_taucov_projected_morphology_derivative_audit.md).
+
+The current reduced-Jacobian blocker rollup is recorded in
+[`p_taucov_reduced_jacobian_current_blocker_rollup.md`](p_taucov_reduced_jacobian_current_blocker_rollup.md).

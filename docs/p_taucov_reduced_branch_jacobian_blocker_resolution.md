@@ -74,6 +74,13 @@ It computes `D_B_M_proj = P0 A_B` from frozen linear inputs and resolves the
 `D_B_M_proj` source blocker at strict-linear readout level. It does not provide
 a physical morphology model and does not authorize scoring.
 
+The current blocker rollup is:
+
+[`p_taucov_reduced_jacobian_current_blocker_rollup.md`](p_taucov_reduced_jacobian_current_blocker_rollup.md)
+
+It records the remaining primary blockers as `ReferenceState`,
+`DynamicalStability`, and `CovarianceMap`.
+
 ## Claim Boundary
 
 Allowed statement:
