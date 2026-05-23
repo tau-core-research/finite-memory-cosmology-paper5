@@ -16,6 +16,7 @@ MEDIATED = EVIDENCE / "p_taucov_mediated_parent_forcing_chain_summary.csv"
 DBM = EVIDENCE / "p_taucov_projected_morphology_derivative_summary.csv"
 RESPONSE_ENERGY = EVIDENCE / "p_taucov_response_energy_split_summary.csv"
 REFERENCE = EVIDENCE / "p_taucov_reference_state_candidate_spec_summary.csv"
+COVARIANCE_MAP = EVIDENCE / "p_taucov_covariance_map_summary.csv"
 
 OUT = EVIDENCE / "p_taucov_reduced_jacobian_current_blocker_rollup.csv"
 OUT_SUMMARY = EVIDENCE / "p_taucov_reduced_jacobian_current_blocker_rollup_summary.csv"
@@ -39,6 +40,7 @@ def main() -> int:
     dbm_status = status(DBM)
     response_energy_status = status(RESPONSE_ENERGY)
     reference_status = status(REFERENCE)
+    covariance_map_status = status(COVARIANCE_MAP)
 
     rows = [
         {
@@ -78,10 +80,10 @@ def main() -> int:
         },
         {
             "ObjectID": "CovarianceMap",
-            "CurrentStatus": "NOT_PROVIDED",
-            "Evidence": "docs/p_taucov_delta_c_tau_source_schema.md",
-            "StillBlocksReducedJacian": True,
-            "Reason": "D_M C and complete delta_C_Tau generation remain absent",
+            "CurrentStatus": "DECLARED_TARGET_BLIND_PSD_LIFT",
+            "Evidence": "docs/p_taucov_covariance_map_declaration.md",
+            "StillBlocksReducedJacian": False,
+            "Reason": "D_M C map is declared and validated; complete delta_C_Tau generation remains a later assembly step",
         },
     ]
     # Keep misspelled compatibility column out of the public artifact.
@@ -120,6 +122,7 @@ def main() -> int:
                 "ProjectedMorphologyDerivativeStatus": dbm_status,
                 "ResponseEnergyStatus": response_energy_status,
                 "ReferenceStatus": reference_status,
+                "CovarianceMapStatus": covariance_map_status,
                 "RemainingPrimaryBlockers": ";".join(
                     df.loc[df["StillBlocksReducedJacobian"].astype(bool), "ObjectID"].astype(str)
                 ),
@@ -164,6 +167,7 @@ The previous source blockers have narrowed:
 D_Phi_F_B -> resolved as mediated Phi -> P_morph -> B chain
 D_B_M_proj -> strict-linear provided as P0 A_B
 L_B_red -> computable in the current branch row
+CovarianceMap -> target-blind PSD lift declared
 ```
 
 The remaining primary blockers are:

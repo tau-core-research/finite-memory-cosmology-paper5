@@ -44,7 +44,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | mediated parent-forcing chain | pass, active stability still open, no scoring |
 | response/energy split | pass, full dynamical stability still open, no scoring |
 | projected morphology derivative | strict-linear pass, no scoring |
-| reduced-Jacobian current blocker rollup | `ReferenceState`, `DynamicalStability`, `CovarianceMap` remain, no scoring |
+| reduced-Jacobian current blocker rollup | `ReferenceState`, `DynamicalStability` remain, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 

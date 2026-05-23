@@ -20,7 +20,7 @@ provided.
 | `ProjectionMorphologyMap` | projected map `P_morph(Phi,B)` | `NOT_PROVIDED` |
 | `ProjectedMorphologyDerivativePhi` | `D_Phi M_proj` | `NOT_PROVIDED` |
 | `ProjectedMorphologyDerivativeB` | `D_B M_proj` | `STRICT_LINEAR_PROVIDED` |
-| `CovarianceFunctionalDerivative` | `D_M C` | `NOT_PROVIDED` |
+| `CovarianceFunctionalDerivative` | `D_M C` | `TARGET_BLIND_PSD_LIFT_DECLARED` |
 | `ObservableCoordinateIndex` | frozen matrix row/column basis | `NOT_PROVIDED` |
 | `NormalizationPolicy` | response normalization before support extraction | `NOT_PROVIDED` |
 | `LeakageExclusionAudit` | proof no target residual or v3 outcome enters | `NOT_PROVIDED` |
@@ -48,6 +48,13 @@ The strict-linear projected morphology derivative audit is available at:
 
 It provides `D_B M_proj = P0 A_B` as a target-blind readout derivative. This
 does not yet provide a physical morphology model or a complete covariance map.
+
+The target-blind covariance map declaration is available at:
+
+[`p_taucov_covariance_map_declaration.md`](p_taucov_covariance_map_declaration.md)
+
+It declares `D_M C[T] = TT^T / ||TT^T||_F` as the PSD covariance lift. This
+does not yet generate a complete `delta_C_Tau` artifact or authorize scoring.
 
 ## Next Valid Step
 

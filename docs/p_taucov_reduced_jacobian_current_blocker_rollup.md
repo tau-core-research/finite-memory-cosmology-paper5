@@ -21,7 +21,7 @@ parent-forcing and projected morphology derivative audits. It does not build
 | `D_Phi_F_B` | `RESOLVED_AS_MEDIATED_CHAIN` | `False` | `docs/p_taucov_mediated_parent_forcing_chain_audit.md` |
 | `D_B_M_proj` | `STRICT_LINEAR_PROVIDED` | `False` | `docs/p_taucov_projected_morphology_derivative_audit.md` |
 | `DynamicalStability` | `RESPONSE_ENERGY_SPLIT_PASS_FULL_DYNAMICS_OPEN` | `True` | `docs/p_taucov_response_energy_split_packet.md` |
-| `CovarianceMap` | `NOT_PROVIDED` | `True` | `docs/p_taucov_delta_c_tau_source_schema.md` |
+| `CovarianceMap` | `DECLARED_TARGET_BLIND_PSD_LIFT` | `False` | `docs/p_taucov_covariance_map_declaration.md` |
 
 ## Current Meaning
 
@@ -31,12 +31,13 @@ The previous source blockers have narrowed:
 D_Phi_F_B -> resolved as mediated Phi -> P_morph -> B chain
 D_B_M_proj -> strict-linear provided as P0 A_B
 L_B_red -> computable in the current branch row
+CovarianceMap -> target-blind PSD lift declared
 ```
 
 The remaining primary blockers are:
 
 ```text
-ReferenceState;DynamicalStability;CovarianceMap
+ReferenceState;DynamicalStability
 ```
 
 ## Claim Boundary
