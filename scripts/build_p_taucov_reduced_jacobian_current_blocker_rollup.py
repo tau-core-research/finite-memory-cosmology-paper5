@@ -17,6 +17,7 @@ DBM = EVIDENCE / "p_taucov_projected_morphology_derivative_summary.csv"
 RESPONSE_ENERGY = EVIDENCE / "p_taucov_response_energy_split_summary.csv"
 REFERENCE = EVIDENCE / "p_taucov_reference_state_candidate_spec_summary.csv"
 COVARIANCE_MAP = EVIDENCE / "p_taucov_covariance_map_summary.csv"
+REFERENCE_RECONCILIATION = EVIDENCE / "p_taucov_reference_state_status_reconciliation_summary.csv"
 
 OUT = EVIDENCE / "p_taucov_reduced_jacobian_current_blocker_rollup.csv"
 OUT_SUMMARY = EVIDENCE / "p_taucov_reduced_jacobian_current_blocker_rollup_summary.csv"
@@ -41,14 +42,16 @@ def main() -> int:
     response_energy_status = status(RESPONSE_ENERGY)
     reference_status = status(REFERENCE)
     covariance_map_status = status(COVARIANCE_MAP)
+    reference_reconciliation = pd.read_csv(REFERENCE_RECONCILIATION).iloc[0] if REFERENCE_RECONCILIATION.exists() else None
+    operational_reference_frozen = bool(reference_reconciliation["OperationalReferenceFrozen"]) if reference_reconciliation is not None else False
 
     rows = [
         {
             "ObjectID": "ReferenceState",
-            "CurrentStatus": "CANDIDATE_SPECIFIED_NOT_FROZEN",
-            "Evidence": "docs/p_taucov_reference_state_candidate_spec.md",
-            "StillBlocksReducedJacobian": True,
-            "Reason": "full reference state and physical stability are not frozen",
+            "CurrentStatus": "OPERATIONAL_REFERENCE_DOMAIN_FROZEN",
+            "Evidence": "docs/p_taucov_reference_state_status_reconciliation.md",
+            "StillBlocksReducedJacobian": not operational_reference_frozen,
+            "Reason": "operational reference/domain is frozen; physical stability remains a separate blocker",
         },
         {
             "ObjectID": "L_B_red",
@@ -123,6 +126,7 @@ def main() -> int:
                 "ResponseEnergyStatus": response_energy_status,
                 "ReferenceStatus": reference_status,
                 "CovarianceMapStatus": covariance_map_status,
+                "OperationalReferenceFrozen": operational_reference_frozen,
                 "RemainingPrimaryBlockers": ";".join(
                     df.loc[df["StillBlocksReducedJacobian"].astype(bool), "ObjectID"].astype(str)
                 ),
@@ -168,6 +172,7 @@ D_Phi_F_B -> resolved as mediated Phi -> P_morph -> B chain
 D_B_M_proj -> strict-linear provided as P0 A_B
 L_B_red -> computable in the current branch row
 CovarianceMap -> target-blind PSD lift declared
+ReferenceState -> operational reference/domain frozen
 ```
 
 The remaining primary blockers are:

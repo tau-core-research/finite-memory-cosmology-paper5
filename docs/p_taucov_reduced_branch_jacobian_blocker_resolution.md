@@ -78,10 +78,11 @@ The current blocker rollup is:
 
 [`p_taucov_reduced_jacobian_current_blocker_rollup.md`](p_taucov_reduced_jacobian_current_blocker_rollup.md)
 
-It records the remaining primary blockers as `ReferenceState` and
-`DynamicalStability`. The covariance-map declaration is now available as a
-target-blind PSD lift, though complete `delta_C_Tau` assembly is still a later
-step.
+It records the remaining primary blocker as `DynamicalStability`. The
+operational reference/domain package is frozen, and the covariance-map
+declaration is now available as a target-blind PSD lift. Complete
+`delta_C_Tau` assembly remains a later step, and physical validation remains
+forbidden.
 
 ## Claim Boundary
 

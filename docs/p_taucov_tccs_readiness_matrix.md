@@ -44,7 +44,8 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | mediated parent-forcing chain | pass, active stability still open, no scoring |
 | response/energy split | pass, full dynamical stability still open, no scoring |
 | projected morphology derivative | strict-linear pass, no scoring |
-| reduced-Jacobian current blocker rollup | `ReferenceState`, `DynamicalStability` remain, no scoring |
+| reference-state reconciliation | operational reference frozen; physical stability open, no scoring |
+| reduced-Jacobian current blocker rollup | `DynamicalStability` remains, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -173,6 +174,10 @@ The projected morphology derivative audit is:
 The current reduced-Jacobian blocker rollup is:
 
 [`p_taucov_reduced_jacobian_current_blocker_rollup.md`](p_taucov_reduced_jacobian_current_blocker_rollup.md)
+
+The reference-state reconciliation is:
+
+[`p_taucov_reference_state_status_reconciliation.md`](p_taucov_reference_state_status_reconciliation.md)
 
 ## Claim Boundary
 

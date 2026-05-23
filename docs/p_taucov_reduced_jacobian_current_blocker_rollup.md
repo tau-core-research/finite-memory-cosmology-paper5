@@ -16,7 +16,7 @@ parent-forcing and projected morphology derivative audits. It does not build
 
 | Object | Current status | Still blocks | Evidence |
 |---|---|---:|---|
-| `ReferenceState` | `CANDIDATE_SPECIFIED_NOT_FROZEN` | `True` | `docs/p_taucov_reference_state_candidate_spec.md` |
+| `ReferenceState` | `OPERATIONAL_REFERENCE_DOMAIN_FROZEN` | `False` | `docs/p_taucov_reference_state_status_reconciliation.md` |
 | `L_B_red` | `COMPUTABLE_IN_CURRENT_BRANCH_ROW` | `False` | `docs/p_taucov_branch_equation_completion_audit.md` |
 | `D_Phi_F_B` | `RESOLVED_AS_MEDIATED_CHAIN` | `False` | `docs/p_taucov_mediated_parent_forcing_chain_audit.md` |
 | `D_B_M_proj` | `STRICT_LINEAR_PROVIDED` | `False` | `docs/p_taucov_projected_morphology_derivative_audit.md` |
@@ -32,12 +32,13 @@ D_Phi_F_B -> resolved as mediated Phi -> P_morph -> B chain
 D_B_M_proj -> strict-linear provided as P0 A_B
 L_B_red -> computable in the current branch row
 CovarianceMap -> target-blind PSD lift declared
+ReferenceState -> operational reference/domain frozen
 ```
 
 The remaining primary blockers are:
 
 ```text
-ReferenceState;DynamicalStability
+DynamicalStability
 ```
 
 ## Claim Boundary
