@@ -1,0 +1,7 @@
+GateID,GateName,Requirement,Threshold,ScoringAuthorizedByGate,ClaimBoundary
+HC-G1,NONZERO_MORPHOLOGY_ORTHOGONAL_PARENT_TERM,Commutator or Hessian-cross residual must remain nonzero after morphology projection,nonzero,False,parent_hessian_commutator_route_no_scoring
+HC-G2,LOW_MORPHOLOGY_NULL_CORRELATION,Morphology-null correlation must be below frozen threshold,<0.75,False,parent_hessian_commutator_route_no_scoring
+HC-G3,LOW_PROJECTION_NULL_CORRELATION,Projection-null correlation must be below frozen threshold,<0.60,False,parent_hessian_commutator_route_no_scoring
+HC-G4,LOW_SHUFFLED_SUPPORT_CORRELATION,Shuffled-support correlation must be below frozen threshold,<0.60,False,parent_hessian_commutator_route_no_scoring
+HC-G5,NO_PRE_SCORE_FAMILY_CLOCK_DOMINANCE,No family or clock block may dominate pre-score energy,<=0.60,False,parent_hessian_commutator_route_no_scoring
+HC-G6,NO_TARGET_OR_SCORE_INPUTS,Construction may not use target residuals scores alpha behavior or dominant-family identity,required,False,parent_hessian_commutator_route_no_scoring
