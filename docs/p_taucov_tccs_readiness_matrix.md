@@ -47,6 +47,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | reference-state reconciliation | operational reference frozen; physical stability open, no scoring |
 | dynamical-stability reconciliation | linear assembly-ready; nonlinear/UV open, no scoring |
 | reduced-Jacobian current blocker rollup | source-assembly blockers clear, no scoring |
+| reduced-Jacobian assembly | strict branch-only `delta_C_Tau` candidate assembled, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -183,6 +184,10 @@ The reference-state reconciliation is:
 The dynamical-stability reconciliation is:
 
 [`p_taucov_dynamical_stability_status_reconciliation.md`](p_taucov_dynamical_stability_status_reconciliation.md)
+
+The reduced-Jacobian assembly is:
+
+[`p_taucov_reduced_jacobian_assembly.md`](p_taucov_reduced_jacobian_assembly.md)
 
 ## Claim Boundary
 

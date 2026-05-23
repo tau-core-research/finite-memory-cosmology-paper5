@@ -56,6 +56,13 @@ The target-blind covariance map declaration is available at:
 It declares `D_M C[T] = TT^T / ||TT^T||_F` as the PSD covariance lift. This
 does not yet generate a complete `delta_C_Tau` artifact or authorize scoring.
 
+The first conservative `delta_C_Tau` candidate is available at:
+
+[`p_taucov_reduced_jacobian_assembly.md`](p_taucov_reduced_jacobian_assembly.md)
+
+It is strict branch-only and no-scoring. It is an assembly artifact, not a
+survival result.
+
 ## Next Valid Step
 
 Provide a concrete, target-blind Tau-response input packet with:

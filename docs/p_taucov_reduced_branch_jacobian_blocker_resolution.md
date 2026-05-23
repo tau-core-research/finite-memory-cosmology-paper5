@@ -88,6 +88,14 @@ The dynamical-stability reconciliation is:
 
 [`p_taucov_dynamical_stability_status_reconciliation.md`](p_taucov_dynamical_stability_status_reconciliation.md)
 
+The first conservative reduced-Jacobian assembly artifact is:
+
+[`p_taucov_reduced_jacobian_assembly.md`](p_taucov_reduced_jacobian_assembly.md)
+
+It assembles a strict branch-only no-scoring `J_response` and PSD-lift
+`delta_C_Tau` candidate after applying the full-action reduced projector. This
+does not authorize scoring.
+
 ## Claim Boundary
 
 Allowed statement:

@@ -40,6 +40,7 @@ has not been scored; it is a pre-score structural audit.
 | Reference-state reconciliation | operational reference frozen; physical stability open | no scoring |
 | Dynamical-stability reconciliation | linear assembly-ready; nonlinear/UV open | no scoring |
 | Reduced-Jacobian current blocker rollup | source-assembly blockers clear | no scoring |
+| Reduced-Jacobian assembly | strict branch-only `delta_C_Tau` candidate assembled | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -167,3 +168,6 @@ The reference-state status reconciliation is recorded in
 
 The dynamical-stability reconciliation is recorded in
 [`p_taucov_dynamical_stability_status_reconciliation.md`](p_taucov_dynamical_stability_status_reconciliation.md).
+
+The first conservative reduced-Jacobian assembly is recorded in
+[`p_taucov_reduced_jacobian_assembly.md`](p_taucov_reduced_jacobian_assembly.md).
