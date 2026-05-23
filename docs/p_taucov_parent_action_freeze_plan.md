@@ -7,12 +7,12 @@ parent-action P-TauCov scorecard can be authorized.
 
 ## Freeze Steps
 
-- `FREEZE_01_PRIMARY_SCORECARD_SCRIPT` -> `scripts/run_p_taucov_parent_action_scorecard.py`
-- `FREEZE_02_FOLD_POLICY` -> `evidence/p_taucov_parent_action_fold_policy.csv`
-- `FREEZE_03_NULL_COMPARATORS` -> `evidence/p_taucov_parent_action_null_comparators.csv`
-- `FREEZE_04_SURVIVAL_KILL_GATES` -> `evidence/p_taucov_parent_action_survival_kill_gates.csv`
-- `FREEZE_05_DF_COVARIANCE_POLICY` -> `evidence/p_taucov_parent_action_df_covariance_policy.csv`
-- `FREEZE_06_FINAL_MANIFEST` -> `evidence/p_taucov_parent_action_final_manifest.yaml`
+- `FREEZE_01_PRIMARY_SCORECARD_SCRIPT` -> `scripts/run_p_taucov_parent_action_scorecard.py` (done)
+- `FREEZE_02_FOLD_POLICY` -> `evidence/p_taucov_parent_action_fold_policy.csv` (open)
+- `FREEZE_03_NULL_COMPARATORS` -> `evidence/p_taucov_parent_action_null_comparators.csv` (open)
+- `FREEZE_04_SURVIVAL_KILL_GATES` -> `evidence/p_taucov_parent_action_survival_kill_gates.csv` (open)
+- `FREEZE_05_DF_COVARIANCE_POLICY` -> `evidence/p_taucov_parent_action_df_covariance_policy.csv` (open)
+- `FREEZE_06_FINAL_MANIFEST` -> `evidence/p_taucov_parent_action_final_manifest.yaml` (open)
 
 ## Boundary
 

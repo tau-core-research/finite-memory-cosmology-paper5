@@ -10,6 +10,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 FIREWALL = ROOT / "evidence/p_taucov_parent_action_scoring_firewall_summary.csv"
+SCORECARD_FREEZE = ROOT / "evidence/p_taucov_parent_action_scorecard_script_freeze_summary.csv"
 OUT = ROOT / "evidence/p_taucov_parent_action_freeze_plan.csv"
 SUMMARY = ROOT / "evidence/p_taucov_parent_action_freeze_plan_summary.csv"
 DOC = ROOT / "docs/p_taucov_parent_action_freeze_plan.md"
@@ -22,36 +23,46 @@ CLAIM_BOUNDARY = "parent_action_freeze_plan_no_scoring"
 def main() -> int:
     firewall = pd.read_csv(FIREWALL).iloc[0]
     firewall_valid = str(firewall["Status"]) == "P_TAUCOV_PARENT_ACTION_SCORING_BLOCKED_FREEZE_REQUIRED"
+    scorecard_frozen = False
+    if SCORECARD_FREEZE.exists():
+        scorecard = pd.read_csv(SCORECARD_FREEZE).iloc[0]
+        scorecard_frozen = str(scorecard["Status"]) == "P_TAUCOV_PARENT_ACTION_SCORECARD_SCRIPT_FROZEN_NO_SCORING"
     rows = [
         (
             "FREEZE_01_PRIMARY_SCORECARD_SCRIPT",
             "scripts/run_p_taucov_parent_action_scorecard.py",
             "must be written, hashed, and validated without reading target score outcomes",
+            scorecard_frozen,
         ),
         (
             "FREEZE_02_FOLD_POLICY",
             "evidence/p_taucov_parent_action_fold_policy.csv",
             "must declare folds, blocked aggregations, and leave-family/clock logic",
+            False,
         ),
         (
             "FREEZE_03_NULL_COMPARATORS",
             "evidence/p_taucov_parent_action_null_comparators.csv",
             "must include outside-branch, shuffled, morphology-null, projection-null, and generic baseline controls",
+            False,
         ),
         (
             "FREEZE_04_SURVIVAL_KILL_GATES",
             "evidence/p_taucov_parent_action_survival_kill_gates.csv",
             "must define success/failure before scorecard execution",
+            False,
         ),
         (
             "FREEZE_05_DF_COVARIANCE_POLICY",
             "evidence/p_taucov_parent_action_df_covariance_policy.csv",
             "must define df=1 or other declared df, alpha bounds, PSD policy, and regularization",
+            False,
         ),
         (
             "FREEZE_06_FINAL_MANIFEST",
             "evidence/p_taucov_parent_action_final_manifest.yaml",
             "must hash all inputs and explicitly authorize exactly one scorecard scope",
+            False,
         ),
     ]
     plan = pd.DataFrame(
@@ -62,13 +73,13 @@ def main() -> int:
                 "FreezeStep": step,
                 "ExpectedArtifact": artifact,
                 "Requirement": requirement,
-                "Completed": False,
+                "Completed": bool(completed),
                 "UsesTargetResiduals": False,
                 "UsesScoreOutcome": False,
                 "ScoringAuthorized": False,
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
-            for step, artifact, requirement in rows
+            for step, artifact, requirement, completed in rows
         ]
     )
     plan.to_csv(OUT, index=False)
@@ -100,7 +111,7 @@ def main() -> int:
                 "",
                 "## Freeze Steps",
                 "",
-                *[f"- `{step}` -> `{artifact}`" for step, artifact, _ in rows],
+                *[f"- `{step}` -> `{artifact}` ({'done' if completed else 'open'})" for step, artifact, _, completed in rows],
                 "",
                 "## Boundary",
                 "",
