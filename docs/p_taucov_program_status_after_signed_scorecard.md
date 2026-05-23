@@ -36,6 +36,7 @@ has not been scored; it is a pre-score structural audit.
 | Branch-equation completion audit | partial completion; mediated forcing required | no object, no scoring |
 | Mediated parent-forcing chain | pass, stability open | no object, no scoring |
 | Response/energy split | pass, full dynamical stability open | no scoring |
+| Projected morphology derivative | strict-linear pass | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -151,3 +152,6 @@ The mediated parent-forcing chain audit is recorded in
 
 The response/energy split packet is recorded in
 [`p_taucov_response_energy_split_packet.md`](p_taucov_response_energy_split_packet.md).
+
+The strict-linear projected morphology derivative audit is recorded in
+[`p_taucov_projected_morphology_derivative_audit.md`](p_taucov_projected_morphology_derivative_audit.md).

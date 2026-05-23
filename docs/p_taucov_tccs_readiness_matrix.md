@@ -43,6 +43,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | branch-equation completion audit | partial completion; mediated forcing required, no scoring |
 | mediated parent-forcing chain | pass, active stability still open, no scoring |
 | response/energy split | pass, full dynamical stability still open, no scoring |
+| projected morphology derivative | strict-linear pass, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -163,6 +164,10 @@ The mediated parent-forcing chain audit is:
 The response/energy split packet is:
 
 [`p_taucov_response_energy_split_packet.md`](p_taucov_response_energy_split_packet.md)
+
+The projected morphology derivative audit is:
+
+[`p_taucov_projected_morphology_derivative_audit.md`](p_taucov_projected_morphology_derivative_audit.md)
 
 ## Claim Boundary
 

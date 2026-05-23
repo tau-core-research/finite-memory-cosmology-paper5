@@ -19,7 +19,7 @@ provided.
 | `ParentMorphologyMap` | parent morphology `M_parent(Phi,B)` | `NOT_PROVIDED` |
 | `ProjectionMorphologyMap` | projected map `P_morph(Phi,B)` | `NOT_PROVIDED` |
 | `ProjectedMorphologyDerivativePhi` | `D_Phi M_proj` | `NOT_PROVIDED` |
-| `ProjectedMorphologyDerivativeB` | `D_B M_proj` | `NOT_PROVIDED` |
+| `ProjectedMorphologyDerivativeB` | `D_B M_proj` | `STRICT_LINEAR_PROVIDED` |
 | `CovarianceFunctionalDerivative` | `D_M C` | `NOT_PROVIDED` |
 | `ObservableCoordinateIndex` | frozen matrix row/column basis | `NOT_PROVIDED` |
 | `NormalizationPolicy` | response normalization before support extraction | `NOT_PROVIDED` |
@@ -39,6 +39,15 @@ V4KernelAuthorized: false
 This is a useful negative state. It prevents the program from converting the
 P5C v3 local anomaly into a Tau claim without first supplying the missing
 Tau-side response machinery.
+
+## Partial Update
+
+The strict-linear projected morphology derivative audit is available at:
+
+[`p_taucov_projected_morphology_derivative_audit.md`](p_taucov_projected_morphology_derivative_audit.md)
+
+It provides `D_B M_proj = P0 A_B` as a target-blind readout derivative. This
+does not yet provide a physical morphology model or a complete covariance map.
 
 ## Next Valid Step
 

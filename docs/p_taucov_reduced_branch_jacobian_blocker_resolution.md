@@ -66,6 +66,14 @@ It shows that the current scaffold has a nonzero target-blind path
 `Phi -> P_morph -> B`. This resolves the forcing route at algebraic scaffold
 level, but active stability and `D_B_M_proj` remain open.
 
+The strict-linear projected morphology derivative audit is:
+
+[`p_taucov_projected_morphology_derivative_audit.md`](p_taucov_projected_morphology_derivative_audit.md)
+
+It computes `D_B_M_proj = P0 A_B` from frozen linear inputs and resolves the
+`D_B_M_proj` source blocker at strict-linear readout level. It does not provide
+a physical morphology model and does not authorize scoring.
+
 ## Claim Boundary
 
 Allowed statement:
