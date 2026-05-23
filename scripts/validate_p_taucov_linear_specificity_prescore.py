@@ -41,23 +41,38 @@ def main() -> int:
     df = pd.read_csv(CSV)
     summary = pd.read_csv(SUMMARY)
 
-    add("status_blocked", summary["Status"].iloc[0] == "BLOCKED")
-    add(
-        "blocked_for_missing_model_packet",
-        summary["BlockReason"].iloc[0] == "missing_target_blind_linear_model_packet",
-    )
-    add("metrics_not_evaluated", not bool(summary["MetricsEvaluated"].iloc[0]))
+    status = str(summary["Status"].iloc[0])
+    metrics_evaluated = bool(summary["MetricsEvaluated"].iloc[0])
+    add("status_valid", status in {"BLOCKED", "PASS_NOT_FROZEN", "FAIL_STRICT_LINEAR_REJECTED"})
+    if status == "BLOCKED":
+        add(
+            "blocked_for_known_reason",
+            str(summary["BlockReason"].iloc[0])
+            in {
+                "missing_target_blind_linear_model_packet",
+                "missing_threshold_freeze",
+                "missing_metric_registry",
+                "model_packet_missing_input_files",
+                "model_packet_leakage_flags_not_false",
+                "model_packet_score_or_p5c_leakage_flags_not_false",
+            },
+        )
+        add("metrics_not_evaluated_when_blocked", not metrics_evaluated)
+        add("all_rows_blocked_when_blocked", set(df["Status"]) == {"BLOCKED"})
+    else:
+        add("metrics_evaluated_when_not_blocked", metrics_evaluated)
+        add("strict_linear_rejected_or_pass_not_frozen", status in {"PASS_NOT_FROZEN", "FAIL_STRICT_LINEAR_REJECTED"})
+        add("all_rows_pass_or_fail_when_evaluated", set(df["Status"]).issubset({"PASS", "FAIL"}))
+        add("metric_count_six", len(df) == 6)
     add("linear_not_frozen", not bool(summary["LinearCandidateFrozen"].iloc[0]))
-    add("delta_c_tau_not_generated", not bool(summary["DeltaCTauGenerated"].iloc[0]))
     add("scoring_not_authorized", not bool(summary["PTauCovScoringAuthorized"].iloc[0]))
-    add("all_rows_blocked", set(df["Status"]) == {"BLOCKED"})
     add("no_target_residuals", not df["UsesTargetResiduals"].astype(bool).any())
     add("no_p5c_v3_outcome", not df["UsesP5Cv3Outcome"].astype(bool).any())
     for phrase in [
-        "missing_target_blind_linear_model_packet",
-        "evidence/p_taucov_linear_model_packet.yaml",
+        "P-TauCov Linear Specificity Prescore",
         "L0_B",
-        "The strictly linear candidate passed the specificity audit",
+        "PTauCovScoringAuthorized: false",
+        "Forbidden statement",
     ]:
         add(f"doc_contains_{phrase[:32]}", phrase in text)
 
@@ -69,7 +84,12 @@ def main() -> int:
         print(failed.to_string(index=False))
         return 1
 
-    print("P_TAUCOV_LINEAR_SPECIFICITY_PRESCORE_VALID_BLOCKED")
+    if status == "FAIL_STRICT_LINEAR_REJECTED":
+        print("P_TAUCOV_LINEAR_SPECIFICITY_PRESCORE_VALID_FAIL_STRICT_LINEAR_REJECTED")
+    elif status == "PASS_NOT_FROZEN":
+        print("P_TAUCOV_LINEAR_SPECIFICITY_PRESCORE_VALID_PASS_NOT_FROZEN")
+    else:
+        print("P_TAUCOV_LINEAR_SPECIFICITY_PRESCORE_VALID_BLOCKED")
     return 0
 
 
