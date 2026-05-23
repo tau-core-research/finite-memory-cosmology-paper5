@@ -22,7 +22,7 @@ OUT_SUMMARY = EVIDENCE / "p_taucov_linear_model_packet_schema_summary.csv"
 
 PROTOCOL_ID = "P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1"
 SCHEMA_ID = "P_TAUCOV_LINEAR_MODEL_PACKET_SCHEMA_v1"
-CLAIM_BOUNDARY = "linear_model_packet_schema_no_packet_no_metric_evaluation"
+CLAIM_BOUNDARY = "linear_model_packet_schema_tracks_packet_presence_no_scoring"
 
 ROWS = [
     ("L0_B", "matrix", "linear branch relaxation operator", "data/p_taucov/linear/L0_B.csv"),
@@ -71,10 +71,10 @@ def main() -> int:
                 "PresentObjects": present,
                 "MissingObjects": len(df) - present,
                 "PacketReady": present == len(df),
-                "MetricEvaluationAuthorized": False,
-                "LinearCandidateFrozen": False,
+                "MetricEvaluationAuthorized": present == len(df),
+                "LinearCandidateFrozen": present == len(df),
                 "PTauCovScoringAuthorized": False,
-                "NextStep": "create_target_blind_packet_files_and_hash_manifest",
+                "NextStep": "run_linear_specificity_audit" if present == len(df) else "create_target_blind_packet_files_and_hash_manifest",
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
         ]
@@ -84,12 +84,12 @@ def main() -> int:
     OUT_DOC.write_text(
         """# P-TauCov Linear Model Packet Schema
 
-Status: packet schema / no packet / no metric evaluation / no scoring
+Status: packet schema / tracks packet-file presence / no scoring
 authorization.
 
 The prescore evaluator requires a concrete target-blind linear model packet
 before it can evaluate the linear specificity metrics. This schema defines the
-required files. It does not create or approve the packet.
+required files. It does not by itself create scoring authorization.
 
 ## Required Packet Files
 
@@ -130,7 +130,8 @@ The required target-blind linear model packet schema is declared.
 Forbidden statement:
 
 ```text
-The linear model packet exists or passes the specificity audit.
+The linear model packet has passed the specificity audit or produced a
+P-TauCov score.
 ```
 """,
         encoding="utf-8",

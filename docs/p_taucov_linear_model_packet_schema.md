@@ -1,11 +1,11 @@
 # P-TauCov Linear Model Packet Schema
 
-Status: packet schema / no packet / no metric evaluation / no scoring
+Status: packet schema / tracks packet-file presence / no scoring
 authorization.
 
 The prescore evaluator requires a concrete target-blind linear model packet
 before it can evaluate the linear specificity metrics. This schema defines the
-required files. It does not create or approve the packet.
+required files. It does not by itself create scoring authorization.
 
 ## Required Packet Files
 
@@ -46,5 +46,6 @@ The required target-blind linear model packet schema is declared.
 Forbidden statement:
 
 ```text
-The linear model packet exists or passes the specificity audit.
+The linear model packet has passed the specificity audit or produced a
+P-TauCov score.
 ```

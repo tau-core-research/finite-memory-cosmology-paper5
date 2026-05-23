@@ -57,9 +57,10 @@ def main() -> int:
     add("required_objects_present", REQUIRED_OBJECTS.issubset(set(df["ObjectID"])))
     add("all_required_before_metric_evaluation", df["RequiredBeforeMetricEvaluation"].astype(bool).all())
     add("no_scoring_authorized", not df["ScoringAuthorized"].astype(bool).any())
-    add("packet_not_ready_expected", not bool(summary["PacketReady"].iloc[0]))
-    add("metric_evaluation_not_authorized", not bool(summary["MetricEvaluationAuthorized"].iloc[0]))
-    add("linear_not_frozen", not bool(summary["LinearCandidateFrozen"].iloc[0]))
+    packet_files_present = df["PresentNow"].astype(bool).all()
+    add("packet_ready_matches_file_presence", bool(summary["PacketReady"].iloc[0]) == packet_files_present)
+    add("metric_evaluation_matches_file_presence", bool(summary["MetricEvaluationAuthorized"].iloc[0]) == packet_files_present)
+    add("linear_frozen_matches_file_presence", bool(summary["LinearCandidateFrozen"].iloc[0]) == packet_files_present)
     add("p_taucov_scoring_not_authorized", not bool(summary["PTauCovScoringAuthorized"].iloc[0]))
     for phrase in [
         "data/p_taucov/linear/L0_B.csv",
@@ -67,7 +68,7 @@ def main() -> int:
         "lambda_B: 0",
         "epsilon_P: 0",
         "uses_target_residuals: false",
-        "The linear model packet exists or passes the specificity audit",
+        "P-TauCov score",
     ]:
         add(f"doc_contains_{phrase[:32]}", phrase in text)
 
@@ -79,7 +80,10 @@ def main() -> int:
         print(failed.to_string(index=False))
         return 1
 
-    print("P_TAUCOV_LINEAR_MODEL_PACKET_SCHEMA_VALID_PACKET_MISSING")
+    if packet_files_present:
+        print("P_TAUCOV_LINEAR_MODEL_PACKET_SCHEMA_VALID_PACKET_PRESENT_NO_SCORING")
+    else:
+        print("P_TAUCOV_LINEAR_MODEL_PACKET_SCHEMA_VALID_PACKET_MISSING")
     return 0
 
 

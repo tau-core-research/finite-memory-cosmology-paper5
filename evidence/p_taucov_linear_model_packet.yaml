@@ -1,0 +1,63 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PacketID: P_TAUCOV_LINEAR_MODEL_PACKET_v1_MINIMAL_BASELINE
+PacketType: linear_model_packet
+ModelFamily: strict_linear_minimal_baseline
+lambda_B: 0
+epsilon_P: 0
+LinearModelPacketFrozen: true
+LinearSpecificityAuditAuthorized: true
+MetricEvaluationAuthorized: true
+PTauCovScoringAuthorized: false
+OutcomeInformationUsed: false
+ResidualInformationUsed: false
+ScoreInformationUsed: false
+P5CV3OutcomeUsed: false
+PostScoringLocalizationUsed: false
+ClaimBoundary: target_blind_linear_model_packet_authorizes_specificity_metrics_only_no_scoring
+InputFiles:
+  coordinate_basis: data/p_taucov/linear/coordinate_basis.csv
+  phi_0: data/p_taucov/linear/phi_0.csv
+  p_null: data/p_taucov/linear/p_null.csv
+  p_gauge: data/p_taucov/linear/p_gauge.csv
+  p_forbidden: data/p_taucov/linear/p_forbidden.csv
+  p_red: data/p_taucov/linear/p_red.csv
+  K_B: data/p_taucov/linear/source/K_B.csv
+  Gamma_B: data/p_taucov/linear/source/Gamma_B.csv
+  D_Phi_K_B: data/p_taucov/linear/source/D_Phi_K_B.csv
+  D_Phi_J_B: data/p_taucov/linear/source/D_Phi_J_B.csv
+  G_Phi: data/p_taucov/linear/source/G_Phi.csv
+  G_B: data/p_taucov/linear/source/G_B.csv
+  P0_SOURCE: data/p_taucov/linear/source/P0_source.csv
+  L0_B: data/p_taucov/linear/L0_B.csv
+  R_B: data/p_taucov/linear/R_B.csv
+  A_Phi: data/p_taucov/linear/A_Phi.csv
+  A_B: data/p_taucov/linear/A_B.csv
+  P0: data/p_taucov/linear/P0.csv
+  coordinate_basis_manifest: evidence/p_taucov_coordinate_basis_manifest.yaml
+  reference_domain_manifest: evidence/p_taucov_reference_domain_manifest.yaml
+  linear_source_manifest: evidence/p_taucov_linear_source_manifest.yaml
+  linear_object_manifest: evidence/p_taucov_linear_object_derivation_manifest.yaml
+InputSHA256:
+  coordinate_basis: b8da37731250751c1ad0d7052f7f71343766b909b7d5ad3df0b617984999fcfc
+  phi_0: 5b8805989a456ae85258c3a5740ad31d13a088bf81d50c0bc78c6f1259937c0a
+  p_null: 09cbb318a3f01d7ba327d0c87c1e85cfd4050fc6147f2974780104c3170a8d11
+  p_gauge: b1594c6f823ea18db52e668dc63da8da700b8ba128b5c6a11afc798950366849
+  p_forbidden: 09cbb318a3f01d7ba327d0c87c1e85cfd4050fc6147f2974780104c3170a8d11
+  p_red: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  K_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  Gamma_B: 09cbb318a3f01d7ba327d0c87c1e85cfd4050fc6147f2974780104c3170a8d11
+  D_Phi_K_B: 09cbb318a3f01d7ba327d0c87c1e85cfd4050fc6147f2974780104c3170a8d11
+  D_Phi_J_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  G_Phi: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  G_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  P0_SOURCE: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  L0_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  R_B: d123dbacd41cbadc1b18de09c2df9d6729de352b793decbb7b0727015421c557
+  A_Phi: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  A_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  P0: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  coordinate_basis_manifest: 99acce770202e16361b596577f45f80f0a1d4de49173e32872eeda9043b73cba
+  reference_domain_manifest: d83bf2088b6b378d25b1456b0c2994d3b5c8780dda682e2d610b66a4d34b216c
+  linear_source_manifest: bd89a4e0678a72ff3f463e4479acb08efe15dfca89ca41b47911c15b487d5214
+  linear_object_manifest: af3ba7e5a4849fd53f5a70f626ddfba6ddfcaa3059b429e33230858d30fd0398
+GeneratedUTC: '2026-05-23T15:43:25+00:00'
