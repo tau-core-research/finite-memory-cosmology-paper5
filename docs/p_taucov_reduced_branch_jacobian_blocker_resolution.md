@@ -50,6 +50,14 @@ The first reference-state candidate spec is:
 
 [`p_taucov_reference_state_candidate_spec.md`](p_taucov_reference_state_candidate_spec.md)
 
+The first branch-equation completion audit is:
+
+[`p_taucov_branch_equation_completion_audit.md`](p_taucov_branch_equation_completion_audit.md)
+
+It narrows the blocker further: `L_B_red` is computable in the current
+one-dimensional branch row, but `D_Phi_F_B` remains blocked unless the
+projection-mediated parent-forcing chain is made explicit.
+
 ## Claim Boundary
 
 Allowed statement:

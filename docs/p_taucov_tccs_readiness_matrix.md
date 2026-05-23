@@ -40,6 +40,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | reference-state resolution gate | required, no object, no scoring |
 | reference-state candidate spec | active scaffold origin candidate, blocked, no scoring |
 | branch-equation completion gate | required, no object, no scoring |
+| branch-equation completion audit | partial completion; mediated forcing required, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -148,6 +149,10 @@ The reference-state candidate spec is:
 The next branch-equation gate is:
 
 [`p_taucov_branch_equation_completion_gate.md`](p_taucov_branch_equation_completion_gate.md)
+
+The first branch-equation audit is:
+
+[`p_taucov_branch_equation_completion_audit.md`](p_taucov_branch_equation_completion_audit.md)
 
 ## Claim Boundary
 

@@ -66,6 +66,18 @@ The active part alone gives a stationary origin, but it is not enough to prove
 full stability. The missing `S_rest` must supply the stabilizing completion
 without becoming an empirical fit term.
 
+## First Audit
+
+The first target-blind audit of this route is recorded in:
+
+[`p_taucov_branch_equation_completion_audit.md`](p_taucov_branch_equation_completion_audit.md)
+
+It finds a partial completion: `F_B` and `L_B_red` are computable from the
+existing action scaffold, but the direct `D_Phi F_B` forcing is zero in the
+current branch row. The remaining task is therefore to declare a projection-
+mediated parent-forcing chain or derive a nonzero direct forcing term from the
+parent action.
+
 ## Claim Boundary
 
 Allowed statement:

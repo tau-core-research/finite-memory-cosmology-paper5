@@ -33,6 +33,7 @@ has not been scored; it is a pre-score structural audit.
 | Q-range branch-response retest | failed | no scoring |
 | Reduced branch-Jacobian requirement | required | no object, no scoring |
 | Reduced branch-Jacobian source spec | blocked by 4 source objects | no object, no scoring |
+| Branch-equation completion audit | partial completion; mediated forcing required | no object, no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -139,3 +140,6 @@ The reference-state candidate spec is recorded in
 
 The next branch-equation completion gate is recorded in
 [`p_taucov_branch_equation_completion_gate.md`](p_taucov_branch_equation_completion_gate.md).
+
+The first branch-equation completion audit is recorded in
+[`p_taucov_branch_equation_completion_audit.md`](p_taucov_branch_equation_completion_audit.md).
