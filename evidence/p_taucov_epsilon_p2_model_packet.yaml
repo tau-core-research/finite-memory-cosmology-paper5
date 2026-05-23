@@ -1,0 +1,45 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PacketID: P_TAUCOV_EPSILON_P2_MODEL_PACKET_v1_PROJECTION_FORK
+PacketType: epsilon_p2_model_packet
+ModelFamily: epsilon_P_projection_fork_response
+lambda_B: 0
+epsilon_P: 1
+EpsilonPAmplitudePolicy: unit_amplitude_because_P2_has_unit_frobenius_norm
+ProjectionMap: P_epsilon = P0 + epsilon_P * P2
+ParentP1Status: FAIL_EPSILON_P_NOT_SPECIFIC
+P2OperatorStatus: operator_valid_with_support_entropy_caveat
+EpsilonP2ModelPacketFrozen: true
+LinearSpecificityAuditAuthorized: true
+MetricEvaluationAuthorized: true
+PTauCovScoringAuthorized: false
+OutcomeInformationUsed: false
+ResidualInformationUsed: false
+ScoreInformationUsed: false
+P5CV3OutcomeUsed: false
+PostScoringLocalizationUsed: false
+ClaimBoundary: epsilon_p2_model_packet_authorizes_specificity_metrics_only_no_scoring
+InputFiles:
+  coordinate_basis: data/p_taucov/linear/coordinate_basis.csv
+  p_red: data/p_taucov/linear/p_red.csv
+  L0_B: data/p_taucov/linear/L0_B.csv
+  R_B: data/p_taucov/linear/R_B.csv
+  A_Phi: data/p_taucov/linear/A_Phi.csv
+  A_B: data/p_taucov/linear/A_B.csv
+  P0: data/p_taucov/linear/P0.csv
+  P2: data/p_taucov/linear/P2_projection_fork_operator.csv
+  p1_prescore: evidence/p_taucov_epsilon_p_specificity_prescore_summary.csv
+  p2_manifest: evidence/p_taucov_p2_projection_fork_operator_manifest.yaml
+  p2_metrics: evidence/p_taucov_p2_projection_fork_operator_metrics.csv
+InputSHA256:
+  coordinate_basis: b8da37731250751c1ad0d7052f7f71343766b909b7d5ad3df0b617984999fcfc
+  p_red: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  L0_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  R_B: d123dbacd41cbadc1b18de09c2df9d6729de352b793decbb7b0727015421c557
+  A_Phi: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  A_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  P0: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  P2: 58ae1d950d465f0ecabd0d3f355327e00f5911c07daa7e41d39592337340889f
+  p1_prescore: d5e35ffa9a21b905088a30332471c7bc306c83beb5e4205ddf3c8bd4713c38c2
+  p2_manifest: c389344eceee7dc51e9cd1328e84612f1c515732e31b9985eb476d10b0c9bb6a
+  p2_metrics: d1cfeff6801ff984a6fe8eec432203cba5fd78624b8ec066bd30df31a67a7f3c
+GeneratedUTC: '2026-05-23T16:05:17+00:00'
