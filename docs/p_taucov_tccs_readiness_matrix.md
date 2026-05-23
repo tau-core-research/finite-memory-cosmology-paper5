@@ -48,6 +48,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | dynamical-stability reconciliation | linear assembly-ready; nonlinear/UV open, no scoring |
 | reduced-Jacobian current blocker rollup | source-assembly blockers clear, no scoring |
 | reduced-Jacobian assembly | strict branch-only `delta_C_Tau` candidate assembled, no scoring |
+| reduced-Jacobian specificity preflight | strict branch-only candidate fails, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -188,6 +189,10 @@ The dynamical-stability reconciliation is:
 The reduced-Jacobian assembly is:
 
 [`p_taucov_reduced_jacobian_assembly.md`](p_taucov_reduced_jacobian_assembly.md)
+
+The reduced-Jacobian specificity preflight is:
+
+[`p_taucov_reduced_jacobian_specificity_preflight.md`](p_taucov_reduced_jacobian_specificity_preflight.md)
 
 ## Claim Boundary
 

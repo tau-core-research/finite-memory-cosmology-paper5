@@ -63,6 +63,14 @@ The first conservative `delta_C_Tau` candidate is available at:
 It is strict branch-only and no-scoring. It is an assembly artifact, not a
 survival result.
 
+The first specificity preflight is available at:
+
+[`p_taucov_reduced_jacobian_specificity_preflight.md`](p_taucov_reduced_jacobian_specificity_preflight.md)
+
+It blocks scoring for the strict branch-only candidate. A future candidate must
+include target-blind morphology/projection channel structure before scoring can
+be reconsidered.
+
 ## Next Valid Step
 
 Provide a concrete, target-blind Tau-response input packet with:

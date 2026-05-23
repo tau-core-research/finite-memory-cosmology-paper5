@@ -60,3 +60,13 @@ Forbidden statement:
 
 > This artifact authorizes scoring, establishes survival, or validates Tau
 > Core.
+
+## Specificity Follow-Up
+
+The first specificity preflight is:
+
+[`p_taucov_reduced_jacobian_specificity_preflight.md`](p_taucov_reduced_jacobian_specificity_preflight.md)
+
+It rejects this strict branch-only candidate before scoring because the
+candidate is diagonal, low-rank, commuting with `P_morph`, and lacks explicit
+morphology/projection channel energy.

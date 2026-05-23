@@ -41,6 +41,7 @@ has not been scored; it is a pre-score structural audit.
 | Dynamical-stability reconciliation | linear assembly-ready; nonlinear/UV open | no scoring |
 | Reduced-Jacobian current blocker rollup | source-assembly blockers clear | no scoring |
 | Reduced-Jacobian assembly | strict branch-only `delta_C_Tau` candidate assembled | no scoring |
+| Reduced-Jacobian specificity preflight | strict branch-only candidate fails | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -171,3 +172,6 @@ The dynamical-stability reconciliation is recorded in
 
 The first conservative reduced-Jacobian assembly is recorded in
 [`p_taucov_reduced_jacobian_assembly.md`](p_taucov_reduced_jacobian_assembly.md).
+
+The reduced-Jacobian specificity preflight is recorded in
+[`p_taucov_reduced_jacobian_specificity_preflight.md`](p_taucov_reduced_jacobian_specificity_preflight.md).
