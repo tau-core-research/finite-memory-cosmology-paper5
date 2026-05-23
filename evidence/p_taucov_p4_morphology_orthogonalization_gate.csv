@@ -1,0 +1,7 @@
+GateID,GateName,Requirement,Threshold,ScoringAuthorizedByGate,ClaimBoundary
+P4-G1,NONZERO_TAU_RESIDUAL_AFTER_MORPHOLOGY_PROJECTION,Residual Tau component must remain nonzero after frozen morphology projection,nonzero,False,p4_design_gate_no_scoring_authorization
+P4-G2,LOW_CORRELATION_WITH_MORPHOLOGY_NULL,Primary-vs-morphology-null kernel correlation must be below the frozen threshold,<0.75,False,p4_design_gate_no_scoring_authorization
+P4-G3,SUPPORT_ENTROPY_NOT_NARROWER_THAN_P3,Branch support entropy must be at least as broad as P3,>=P3,False,p4_design_gate_no_scoring_authorization
+P4-G4,NO_PRE_SCORE_FAMILY_CLOCK_ENERGY_DOMINANCE,No family or clock block may carry more than frozen pre-score energy share,<=0.60,False,p4_design_gate_no_scoring_authorization
+P4-G5,LOW_PROJECTION_AND_SHUFFLED_NULL_CORRELATION,Projection-null and shuffled-support correlations must remain below threshold,<0.60,False,p4_design_gate_no_scoring_authorization
+P4-G6,FROZEN_BASIS_AND_HASHES_BEFORE_SCORECARD,All basis choices thresholds and hashes must be frozen before scoring,required,False,p4_design_gate_no_scoring_authorization
