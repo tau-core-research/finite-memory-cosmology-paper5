@@ -4,7 +4,7 @@ Freeze ID: `P_TAUCOV_DOMAIN_COMPATIBILITY_REFINEMENT_v1`
 
 Status:
 
-`P_TAUCOV_DOMAIN_COMPATIBILITY_REFINEMENT_REQUIRED_NO_SCORING`
+`P_TAUCOV_DOMAIN_COMPATIBILITY_REFINEMENT_AUDITED_CLEANERS_COMPATIBLE_NO_SCORING`
 
 ## Motivation
 
@@ -29,7 +29,7 @@ parent inner product / metric / self-adjoint domain
 -> score-space covariance object
 ```
 
-The current failure mode is:
+The original failure mode was:
 
 ```text
 nonzero transfer-curvature
@@ -37,8 +37,37 @@ nonzero transfer-curvature
 -> large projection leakage after the full construction
 ```
 
-This means the present `Pi_perp` and `Pi_bal` definitions are not yet known to be
-compatible operations in the same parent geometry.
+This initially left open whether `Pi_perp` and `Pi_bal` were themselves
+incompatible operations. The follow-up audit now checks that directly.
+
+## Follow-Up Audit Result
+
+The frozen cleaner pair passes the target-blind compatibility audit:
+
+[`p_taucov_domain_compatibility_audit.md`](p_taucov_domain_compatibility_audit.md)
+
+Key metrics:
+
+| Quantity | Value |
+|---|---:|
+| relative cleaner commutator norm | `0.012555596849346958` |
+| relative order-difference norm | `0.011250508343623337` |
+| rank `Pi_perp` | `34` |
+| rank `Pi_bal` | `31` |
+| rank common cleaner `Pi_bal Pi_perp Pi_bal` | `31` |
+| passed gates | `7 / 7` |
+
+This changes the interpretation. The transfer-curvature preflight did not fail
+because the two cleaning operators are globally incompatible. It failed because
+the current `K_curv` object has too little energy in the common clean subspace
+and too much leakage after the full construction.
+
+In short:
+
+```text
+cleaning geometry: acceptable at score-space level
+current transfer-curvature object: not aligned with the clean Tau subspace
+```
 
 ## Required Condition
 
@@ -46,19 +75,26 @@ A future Tau-specific covariance object must satisfy one of two conditions.
 
 ### Route A: Compatible Cleaning Operators
 
-`Pi_perp` and `Pi_bal` are derived from the same parent metric or
-self-adjoint-domain structure, and the cleaned curvature remains nonzero:
+`Pi_perp` and `Pi_bal` remain derived from the same parent metric or
+self-adjoint-domain structure, and the candidate curvature has real support in
+their common clean subspace:
 
 ```text
 norm(Pi_bal Pi_perp K_curv Pi_perp Pi_bal) / norm(K_curv) >= frozen threshold
 ```
 
-with low projection leakage.
+with low projection leakage. The cleaner-pair audit suggests this route remains
+open; the missing ingredient is a better parent-side curvature object, not a
+new arbitrary cleaner.
+
+The next protocol-level expression of this requirement is:
+
+[`p_taucov_common_clean_subspace_support_protocol.md`](p_taucov_common_clean_subspace_support_protocol.md)
 
 ### Route B: Non-Commutation As Observable
 
-If `Pi_perp` and `Pi_bal` do not commute, their non-commutation must be declared
-as the observable itself before scoring:
+If a future parent geometry produces materially non-commuting cleaners, their
+non-commutation must be declared as the observable itself before scoring:
 
 ```text
 [Pi_bal, Pi_perp] K_curv
@@ -74,12 +110,14 @@ shuffle, and generic smooth baselines.
 
 Do not treat projection cleaning and branch balancing as arbitrary sequential
 post-processing operations chosen after seeing which version scores better.
+Also do not blame the current transfer-curvature failure on cleaner
+incompatibility: the dedicated audit says the cleaner pair is acceptable.
 
 ## Claim Boundary
 
 Allowed statement:
 
-> The TCCS failures sharpen the P-TauCov theory by requiring a common parent-domain rule for projection orthogonality and branch balance.
+> The TCCS failures sharpen the P-TauCov theory: the frozen cleaners are mutually compatible, so the next object must place genuine parent curvature into their common clean subspace.
 
 Forbidden statement:
 

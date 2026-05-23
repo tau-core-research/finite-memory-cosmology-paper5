@@ -23,6 +23,7 @@ has not been scored; it is a pre-score structural audit.
 | Signed-response alignment | `31.70572026946584` | positive raw alignment, but fail |
 | TCCS double-sided commutator | exact no-go | blocked before scoring |
 | TCCS transfer-curvature | retained norm `0.0012660320646664862` | failed pre-score object gate |
+| Cleaner domain compatibility | `7 / 7` gates | pass, no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -35,7 +36,9 @@ MaxPositiveFamilyShare = 0.998171886220409
 The TCCS route sharpened the theory rather than producing a scoreable object.
 The double-sided commutator is algebraically zero after exact complement
 projection, and the no-go-corrected transfer-curvature object becomes too weak
-and leaky after branch/perp cleaning.
+and leaky after branch/perp cleaning. A follow-up cleaner audit shows that the
+cleaners themselves are compatible, so the failure is now localized to the
+candidate curvature object rather than to the branch/perp cleaner pair.
 
 ## Scientific Meaning
 
@@ -45,9 +48,8 @@ Tau-specific empirical signal.
 
 The program did not fail methodologically. The tested candidates failed
 scientifically, and the TCCS failures identify a sharper theoretical
-requirement: projection orthogonality and branch balance must be derived from a
-common parent domain or explicitly replaced by a frozen non-commutation
-observable.
+requirement: the next candidate must put parent curvature into the already
+available common clean subspace.
 
 ## Current Best Claim
 
@@ -59,7 +61,7 @@ Allowed:
 
 - the protocol machinery is reproducible and disciplined;
 - the tested minimal PSD and signed candidates are non-survivors;
-- the TCCS route currently blocks scoring but motivates a domain-compatibility refinement;
+- the TCCS route currently blocks scoring but motivates a common-clean-subspace refinement;
 - future candidates must be more constrained before scoring.
 
 Forbidden:
@@ -79,8 +81,11 @@ would need:
 1. off-diagonal-only or diagonal-orthogonal signed support;
 2. held-out branch-support rule;
 3. family-balance constraint frozen before scoring;
-4. projection orthogonality and branch balance derived from the same parent domain;
+4. non-negligible support in the common `Pi_bal Pi_perp Pi_bal` clean subspace;
 5. the same null and aggregation discipline retained.
 
 The current theory refinement is recorded in
 [`p_taucov_domain_compatibility_refinement.md`](p_taucov_domain_compatibility_refinement.md).
+
+The next no-scoring protocol gate is recorded in
+[`p_taucov_common_clean_subspace_support_protocol.md`](p_taucov_common_clean_subspace_support_protocol.md).

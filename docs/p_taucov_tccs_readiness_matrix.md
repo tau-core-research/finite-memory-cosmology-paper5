@@ -27,6 +27,8 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | commutator no-go theorem | proven |
 | transfer-curvature protocol | defined, no scoring |
 | transfer-curvature preflight | failed structurally, no scoring |
+| domain-compatibility audit | cleaners compatible, no scoring |
+| common-clean-subspace support protocol | defined, no object, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -53,12 +55,32 @@ nonzero transfer-curvature exists
 -> no empirical scoring is authorized
 ```
 
+## Domain-Compatibility Update
+
+The follow-up cleaner audit passed:
+
+[`p_taucov_domain_compatibility_audit.md`](p_taucov_domain_compatibility_audit.md)
+
+Therefore the transfer-curvature failure should not be interpreted as a simple
+incompatibility between `Pi_perp` and `Pi_bal`. The cleaner pair is acceptable
+at score-space level. The current `K_curv` candidate fails because it does not
+place enough energy into the common clean subspace.
+
 ## Next Gate
 
-The next legitimate Tau-specific step is not scoring. It is to determine whether
-the balance projection and the projection-orthogonal complement can be defined
-from a common parent metric or common self-adjoint domain. Without that common
-domain, balance can reintroduce projection leakage and destroy the object.
+The next legitimate Tau-specific step is not scoring. It is to derive a
+parent-side curvature object whose support is already aligned with the common
+clean subspace:
+
+```text
+range(K_tau) intersects range(Pi_bal Pi_perp Pi_bal) with non-negligible norm
+```
+
+Only after that pre-score object exists can a scoring manifest be considered.
+
+Protocol:
+
+[`p_taucov_common_clean_subspace_support_protocol.md`](p_taucov_common_clean_subspace_support_protocol.md)
 
 ## Claim Boundary
 

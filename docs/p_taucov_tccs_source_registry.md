@@ -40,7 +40,7 @@ cleanliness gate. This still does not authorize scoring.
 | `J_tau` | `FROZEN_ANCHOR_CANDIDATE_AVAILABLE` | none for preflight |
 | `TCCS_OBJECT` | `PREFLIGHT_FAILED_NO_SCORING` | double-sided object collapses after `Pi_perp`/`Pi_bal` |
 | `TCCS_TRANSFER_CURVATURE` | `PREFLIGHT_FAILED_NO_SCORING` | nonzero raw curvature, but weak retained norm and high leakage |
-| `DOMAIN_COMPATIBILITY` | `REQUIRED_NEXT_THEORY_GATE` | common metric/domain needed for `Pi_perp` and `Pi_bal` |
+| `DOMAIN_COMPATIBILITY` | `AUDIT_PASSED_NO_SCORING` | cleaners compatible; object support remains the blocker |
 
 ## Theory Feedback
 
@@ -48,11 +48,12 @@ The source registry now identifies a parent-theory requirement rather than a
 missing data source:
 
 ```text
-Pi_perp and Pi_bal must be derived from the same parent metric/domain
+the next curvature object must live in the common Pi_bal Pi_perp Pi_bal subspace
 ```
 
-or their non-commutation must be declared as a frozen observable before any
-empirical score is inspected.
+The cleaner pair itself passes the compatibility audit. Therefore the current
+blocker is not a missing cleaner, but a missing parent-side curvature source
+whose support survives those cleaners.
 
 Detailed refinement:
 
