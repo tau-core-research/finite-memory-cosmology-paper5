@@ -1,0 +1,20 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PacketID: P_TAUCOV_LINEAR_OBJECT_PACKET_v1_MINIMAL_BASELINE
+PacketType: linear_objects
+SourcePolicy: derived_from_minimal_target_blind_linear_source_packet
+LinearObjectsFrozen: true
+LinearModelPacketReady: true
+MetricEvaluationAuthorized: false
+PTauCovScoringAuthorized: false
+OutcomeInformationUsed: false
+ResidualInformationUsed: false
+ScoreInformationUsed: false
+PostScoringLocalizationUsed: false
+ObjectFiles:
+  L0_B: data/p_taucov/linear/L0_B.csv
+  R_B: data/p_taucov/linear/R_B.csv
+  A_Phi: data/p_taucov/linear/A_Phi.csv
+  A_B: data/p_taucov/linear/A_B.csv
+  P0: data/p_taucov/linear/P0.csv
+GeneratedUTC: '2026-05-23T15:39:41+00:00'
+ClaimBoundary: linear_objects_frozen_no_metrics_no_scores

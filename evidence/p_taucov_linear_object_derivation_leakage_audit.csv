@@ -1,0 +1,6 @@
+AuditID,CheckID,Passed,Required,Evidence
+P_TAUCOV_LINEAR_OBJECT_LEAKAGE_AUDIT,outcome_information_used,True,True,manifest OutcomeInformationUsed=false
+P_TAUCOV_LINEAR_OBJECT_LEAKAGE_AUDIT,residual_information_used,True,True,manifest ResidualInformationUsed=false
+P_TAUCOV_LINEAR_OBJECT_LEAKAGE_AUDIT,score_information_used,True,True,manifest ScoreInformationUsed=false
+P_TAUCOV_LINEAR_OBJECT_LEAKAGE_AUDIT,post_scoring_localization_used,True,True,manifest PostScoringLocalizationUsed=false
+P_TAUCOV_LINEAR_OBJECT_LEAKAGE_AUDIT,objects_derived_from_frozen_sources,True,True,L0_B=K_B+Gamma_B; R_B=-D_Phi_J_B; A_Phi=G_Phi; A_B=G_B; P0=P0_SOURCE
