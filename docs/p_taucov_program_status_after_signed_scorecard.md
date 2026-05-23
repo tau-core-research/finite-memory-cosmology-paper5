@@ -25,6 +25,9 @@ has not been scored; it is a pre-score structural audit.
 | TCCS transfer-curvature | retained norm `0.0012660320646664862` | failed pre-score object gate |
 | Cleaner domain compatibility | `7 / 7` gates | pass, no scoring |
 | Common-clean-subspace support | `0 / 5` candidates pass | no scoring |
+| Q-native parent-curvature gate | defined | no object, no scoring |
+| Q-native route registry | four routes defined | no object, no scoring |
+| Q-native route priority | branch-response curvature recommended | no object, no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -95,3 +98,12 @@ The next no-scoring protocol gate is recorded in
 
 The first support audit is recorded in
 [`p_taucov_common_clean_subspace_support_audit.md`](p_taucov_common_clean_subspace_support_audit.md).
+
+The next derivation gate is recorded in
+[`p_taucov_q_native_parent_curvature_derivation_gate.md`](p_taucov_q_native_parent_curvature_derivation_gate.md).
+
+The route registry is recorded in
+[`p_taucov_q_native_route_registry.md`](p_taucov_q_native_route_registry.md).
+
+The route priority note is recorded in
+[`p_taucov_q_native_route_priority_note.md`](p_taucov_q_native_route_priority_note.md).

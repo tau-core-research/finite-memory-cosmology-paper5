@@ -106,6 +106,10 @@ The next theoretical task is therefore to derive a new parent-side curvature
 source whose range is native to `Q_clean`, rather than projecting an old object
 into `Q_clean` after construction.
 
+The next derivation gate is:
+
+[`p_taucov_q_native_parent_curvature_derivation_gate.md`](p_taucov_q_native_parent_curvature_derivation_gate.md)
+
 ## Forbidden Move
 
 Do not build another scorecard until a candidate passes common-clean-subspace

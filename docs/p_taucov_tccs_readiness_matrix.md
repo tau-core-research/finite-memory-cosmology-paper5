@@ -29,6 +29,8 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | transfer-curvature preflight | failed structurally, no scoring |
 | domain-compatibility audit | cleaners compatible, no scoring |
 | common-clean-subspace support audit | no passing candidate, no scoring |
+| Q-native parent-curvature gate | defined, no object, no scoring |
+| Q-native route registry | four routes defined, no object, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -93,6 +95,14 @@ TCCS_TRANSFER_CURVATURE support_retention = 0.00836108135986166
 ```
 
 This is below the preflight threshold and blocks scoring.
+
+The next derivation gate is:
+
+[`p_taucov_q_native_parent_curvature_derivation_gate.md`](p_taucov_q_native_parent_curvature_derivation_gate.md)
+
+The route registry is:
+
+[`p_taucov_q_native_route_registry.md`](p_taucov_q_native_route_registry.md)
 
 ## Claim Boundary
 
