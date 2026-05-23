@@ -32,6 +32,7 @@ has not been scored; it is a pre-score structural audit.
 | Q-range projector freeze | passed | no object, no scoring |
 | Q-range branch-response retest | failed | no scoring |
 | Reduced branch-Jacobian requirement | required | no object, no scoring |
+| Reduced branch-Jacobian source spec | blocked by 5 source objects | no object, no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -123,3 +124,6 @@ The Q-range branch-response retest is recorded in
 
 The reduced branch-Jacobian requirement is recorded in
 [`p_taucov_reduced_branch_jacobian_requirement.md`](p_taucov_reduced_branch_jacobian_requirement.md).
+
+The reduced branch-Jacobian source spec is recorded in
+[`p_taucov_reduced_branch_jacobian_source_spec.md`](p_taucov_reduced_branch_jacobian_source_spec.md).
