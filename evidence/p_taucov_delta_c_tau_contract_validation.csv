@@ -1,0 +1,21 @@
+AuditID,CheckID,Passed,Required,Status
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_exists,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,csv_exists,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,yaml_exists,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,required_items_present,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,all_required_before_scoring,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,no_scoring_authorized,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_B = B_*(\Phi),True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_\delta B_*,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,"doc_contains_M_{\rm proj}(\Phi,B)",True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_T_{\tau},True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_\delta C_{\tau},True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_Allowed Inputs,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_Forbidden Inputs,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_held-out residuals,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_P5C v3 family-localized gain pat,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_does not authorize scoring,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,doc_contains_branch-support freeze,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,branch_support_not_authorized,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,delta_c_tau_artifact_absent,True,True,PASS
+P_TAUCOV_DELTA_C_TAU_CONTRACT_VALIDATION,scoring_not_authorized_yaml,True,True,PASS

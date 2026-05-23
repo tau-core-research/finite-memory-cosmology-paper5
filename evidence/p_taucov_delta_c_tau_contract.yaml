@@ -1,0 +1,72 @@
+protocol_id: "P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1"
+contract_id: "P_TAUCOV_DELTA_C_TAU_CONSTRUCTION_CONTRACT_v1"
+claim_boundary: "delta_c_tau_contract_no_scoring_authorization_no_empirical_claim"
+scoring_authorized: false
+branch_support_authorized: false
+delta_c_tau_artifact_present: false
+rows:
+  - item: "ProtocolID"
+    requirement: "P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1"
+    status: "DECLARED"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "ContractID"
+    requirement: "P_TAUCOV_DELTA_C_TAU_CONSTRUCTION_CONTRACT_v1"
+    status: "CONTRACT_ONLY"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "BranchEquation"
+    requirement: "B_equals_B_star_of_Phi_and_delta_B_star_equals_minus_inverse_LBred_DPhi_FB_deltaPhi"
+    status: "REQUIRED"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "ProjectedMorphology"
+    requirement: "M_proj_equals_P_morph_M_parent"
+    status: "REQUIRED"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "TauMorphologyResponse"
+    requirement: "T_tau_equals_DPhi_Mproj_minus_DB_Mproj_inverse_LBred_DPhi_FB"
+    status: "REQUIRED"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "CovarianceResponse"
+    requirement: "delta_C_Tau_equals_D_M_C_of_T_tau_deltaPhi"
+    status: "REQUIRED"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "AdmissibleInputs"
+    requirement: "Phi_grid_B_star_rule_LBred_DPhi_FB_P_morph_M_parent_D_M_C"
+    status: "MUST_BE_FROZEN"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "ForbiddenTargets"
+    requirement: "held_out_residuals_v3_gain_pattern_dominant_family_oos_deltaNLL_signed_diagnostic"
+    status: "HARD_BLOCK"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "OutputMatrix"
+    requirement: "delta_C_Tau_square_symmetric_indexed_on_frozen_observable_coordinates"
+    status: "FUTURE_REQUIRED"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "OutputNormalization"
+    requirement: "frobenius_norm_or_trace_norm_frozen_before_branch_support"
+    status: "MUST_BE_FROZEN"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "LeakageAudit"
+    requirement: "prove_no_target_residual_or_v3_outcome_inputs_used"
+    status: "REQUIRED"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "BranchSupportAuthorization"
+    requirement: "forbidden_until_concrete_delta_C_Tau_hash_and_normalization_are_frozen"
+    status: "NOT_AUTHORIZED"
+    required_before_scoring: true
+    scoring_authorized: false
+  - item: "PTauCovScoringAuthorization"
+    requirement: "forbidden_by_this_contract"
+    status: "NOT_AUTHORIZED"
+    required_before_scoring: true
+    scoring_authorized: false
