@@ -37,6 +37,50 @@ K_curv = Pi_perp [H,P] P [H,P]^T Pi_perp
 The PSD form may become a reviewer-friendly covariance-deformation candidate
 only after pre-score gates pass and a separate scoring manifest is frozen.
 
+## Theoretical Refinement From The Preflight
+
+The transfer-curvature route fixes the algebraic no-go of the double-sided
+commutator, but it exposes a deeper parent-structure requirement.
+
+The current construction uses:
+
+```text
+Pi_perp
+```
+
+to remove projection/morphology directions, and:
+
+```text
+Pi_bal
+```
+
+to suppress family-localized artifacts.
+
+The preflight shows that these two operations cannot be treated as independent
+clean-up steps. A Tau-specific object requires a common parent metric, common
+inner product, or common self-adjoint domain in which both the projection
+orthogonal complement and the branch-balanced subspace are compatible.
+
+Otherwise the following failure mode is possible:
+
+```text
+nonzero parent transfer-curvature
+-> balance projection retains almost no clean norm
+-> projection leakage reappears after the balance step
+-> no scoreable Tau object exists
+```
+
+Therefore the next theoretical refinement is not a new scorecard. It is a
+domain-compatibility condition:
+
+```text
+Pi_bal Pi_perp K_curv Pi_perp Pi_bal
+```
+
+must be defined in a parent geometry where balance and projection orthogonality
+commute sufficiently, or where their non-commutation is itself part of the
+declared Tau observable.
+
 ## Forbidden Move
 
 Do not return to:

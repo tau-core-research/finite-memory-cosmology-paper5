@@ -4,7 +4,7 @@ Freeze ID: `P_TAUCOV_TCCS_SOURCE_REGISTRY_v1`
 
 Status:
 
-`P_TAUCOV_TCCS_SOURCE_REGISTRY_READY_FOR_OBJECT_PREFLIGHT_NO_SCORING`
+`P_TAUCOV_TCCS_SOURCE_REGISTRY_OBJECT_PREFLIGHT_COMPLETE_NO_SCORING`
 
 ## Purpose
 
@@ -24,7 +24,10 @@ The previous parent-Hessian commutator attempt was informative but not sufficien
 previous morphology-null=0.1686357268015766; projection-null=0.7337111972818574
 ```
 
-The TCCS support components are now frozen enough for object-construction preflight. This still does not authorize scoring.
+The TCCS support components were frozen enough for object-construction
+preflight. The original double-sided object failed structurally, and the
+no-go-corrected transfer-curvature object also failed the full branch/perp
+cleanliness gate. This still does not authorize scoring.
 
 ## Component Status
 
@@ -33,9 +36,27 @@ The TCCS support components are now frozen enough for object-construction prefli
 | `L_B_red` | `AVAILABLE_FOR_OBJECT_PREFLIGHT` | must pass object-construction gates |
 | `P_morph` | `FROZEN_OPERATOR_CONVENTION_AVAILABLE` | none for preflight |
 | `Pi_perp` | `FROZEN_MATRIX_AVAILABLE` | none for preflight |
-| `Pi_bal` | `AVAILABLE` | must be rechecked after object construction |
+| `Pi_bal` | `AVAILABLE_BUT_DOMAIN_COMPATIBILITY_REQUIRED` | must be co-defined with `Pi_perp` in a common parent domain |
 | `J_tau` | `FROZEN_ANCHOR_CANDIDATE_AVAILABLE` | none for preflight |
-| `TCCS_OBJECT` | `NOT_CONSTRUCTED_PREFLIGHT_READY` | next step is object-construction preflight |
+| `TCCS_OBJECT` | `PREFLIGHT_FAILED_NO_SCORING` | double-sided object collapses after `Pi_perp`/`Pi_bal` |
+| `TCCS_TRANSFER_CURVATURE` | `PREFLIGHT_FAILED_NO_SCORING` | nonzero raw curvature, but weak retained norm and high leakage |
+| `DOMAIN_COMPATIBILITY` | `REQUIRED_NEXT_THEORY_GATE` | common metric/domain needed for `Pi_perp` and `Pi_bal` |
+
+## Theory Feedback
+
+The source registry now identifies a parent-theory requirement rather than a
+missing data source:
+
+```text
+Pi_perp and Pi_bal must be derived from the same parent metric/domain
+```
+
+or their non-commutation must be declared as a frozen observable before any
+empirical score is inspected.
+
+Detailed refinement:
+
+[`p_taucov_domain_compatibility_refinement.md`](p_taucov_domain_compatibility_refinement.md)
 
 ## Claim Boundary
 
@@ -45,4 +66,4 @@ Allowed statement:
 
 Forbidden statement:
 
-> A TCCS object has been built, score-authorized, or shown to carry a Tau signal.
+> A TCCS object has been score-authorized or shown to carry a Tau signal.

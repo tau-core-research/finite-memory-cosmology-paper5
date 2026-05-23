@@ -4,7 +4,7 @@ Freeze ID: `P_TAUCOV_TCCS_READINESS_MATRIX_v1`
 
 Status:
 
-`P_TAUCOV_TCCS_READY_AS_PROTOCOL_OBJECT_BLOCKED_NO_SCORING`
+`P_TAUCOV_TCCS_TRANSFER_CURVATURE_PREFLIGHT_FAIL_NO_SCORING`
 
 ## Current State
 
@@ -26,24 +26,45 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | TCCS object preflight | failed structurally, no scoring |
 | commutator no-go theorem | proven |
 | transfer-curvature protocol | defined, no scoring |
+| transfer-curvature preflight | failed structurally, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
-## Next Gate
+## Latest Gate Result
 
-The next legitimate Tau-specific step is not scoring. It is:
+The no-go-corrected transfer-curvature object was tested at pre-score level:
 
 ```text
-build transfer-curvature object preflight from `K_curv` without scoring
+T_transfer = Pi_perp [H,P] P
+K_curv = Pi_perp [H,P] P [H,P]^T Pi_perp
 ```
 
-Only after that can a pre-score object-construction validator decide whether a TCCS object exists at all.
+The raw transfer and curvature norms are nonzero, so the corrected object class
+is not algebraically empty. However, the branch-balanced retained norm is only
+`0.0012660320646664862`, and the post-balance projection-leakage norm is
+`0.9531846889181036`. Therefore the current construction does not provide a
+scoreable Tau-specific object.
+
+Interpretation:
+
+```text
+nonzero transfer-curvature exists
+-> branch/perp-clean Tau-specific object does not survive the current gates
+-> no empirical scoring is authorized
+```
+
+## Next Gate
+
+The next legitimate Tau-specific step is not scoring. It is to determine whether
+the balance projection and the projection-orthogonal complement can be defined
+from a common parent metric or common self-adjoint domain. Without that common
+domain, balance can reintroduce projection leakage and destroy the object.
 
 ## Claim Boundary
 
 Allowed statement:
 
-> The TCCS route is now a defined protocol with a source/readiness audit.
+> The TCCS route has produced a useful negative structural result: the naive double-sided commutator is algebraically blocked, and the corrected transfer-curvature form is nonzero but not clean enough to score under the current branch/perp gates.
 
 Forbidden statement:
 

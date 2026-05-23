@@ -45,5 +45,13 @@ Forbidden statement:
 ## Next Step
 
 ```text
-do_not_score_current_tccs; derive a parent Hessian component whose commutator survives Pi_perp before any empirical scoring
+do_not_score_current_tccs; derive a parent-domain-compatible object whose
+projection-orthogonal and branch-balanced forms are co-defined before scoring
 ```
+
+The transfer-curvature follow-up confirms that the issue is not only the
+double-sided commutator no-go. A nonzero transfer object can exist and still
+fail once branch balance and projection orthogonality are applied. Therefore
+the next theoretical gate is domain compatibility:
+
+[`p_taucov_domain_compatibility_refinement.md`](p_taucov_domain_compatibility_refinement.md)
