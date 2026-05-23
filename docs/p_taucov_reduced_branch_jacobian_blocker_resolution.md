@@ -96,6 +96,43 @@ It assembles a strict branch-only no-scoring `J_response` and PSD-lift
 `delta_C_Tau` candidate after applying the full-action reduced projector. This
 does not authorize scoring.
 
+The strict branch-only specificity preflight is:
+
+[`p_taucov_reduced_jacobian_specificity_preflight.md`](p_taucov_reduced_jacobian_specificity_preflight.md)
+
+It rejects that first assembly before scoring because the candidate is
+diagonal-only, low-support, and has no explicit morphology/projection channel.
+
+The next admissible projection/morphology coupling gate is:
+
+[`p_taucov_projection_morphology_coupling_gate.md`](p_taucov_projection_morphology_coupling_gate.md)
+
+It requires a future candidate to include a target-blind `D_P M_proj` or
+equivalent projection derivative while keeping direct `M_parent` support
+forbidden in the reduced object.
+
+The first `D_P M_proj` source derivative spec is:
+
+[`p_taucov_d_p_mproj_source_spec.md`](p_taucov_d_p_mproj_source_spec.md)
+
+It freezes a minimal active branch/projection coupling source. This resolves
+the next derivative placeholder at source-spec level only; a new assembled
+candidate and object-specific preflight are still required before scoring.
+
+The first projection-coupled assembly is:
+
+[`p_taucov_projection_coupled_jacobian_assembly.md`](p_taucov_projection_coupled_jacobian_assembly.md)
+
+The corresponding specificity preflight is:
+
+[`p_taucov_projection_coupled_specificity_preflight.md`](p_taucov_projection_coupled_specificity_preflight.md)
+
+It confirms the projection channel is present, but rejects the object before
+scoring because the PSD lift is still diagonal-dominated and low-rank. The next
+blocker is no longer simply missing `D_P M_proj`; it is missing a broader
+parent-side curvature/operator source that can distribute support without
+target-derived tuning.
+
 ## Claim Boundary
 
 Allowed statement:

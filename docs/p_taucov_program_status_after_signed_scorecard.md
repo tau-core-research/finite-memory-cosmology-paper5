@@ -42,6 +42,10 @@ has not been scored; it is a pre-score structural audit.
 | Reduced-Jacobian current blocker rollup | source-assembly blockers clear | no scoring |
 | Reduced-Jacobian assembly | strict branch-only `delta_C_Tau` candidate assembled | no scoring |
 | Reduced-Jacobian specificity preflight | strict branch-only candidate fails | no scoring |
+| Projection/morphology coupling gate | next admissible route frozen | no object, no scoring |
+| `D_P M_proj` source spec | minimal active branch/projection derivative frozen | no object, no scoring |
+| Projection-coupled Jacobian assembly | active projection channel included | no scoring |
+| Projection-coupled specificity preflight | projection channel fixed, but diagonal/rank gates fail | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -175,3 +179,25 @@ The first conservative reduced-Jacobian assembly is recorded in
 
 The reduced-Jacobian specificity preflight is recorded in
 [`p_taucov_reduced_jacobian_specificity_preflight.md`](p_taucov_reduced_jacobian_specificity_preflight.md).
+
+The projection/morphology coupling gate is recorded in
+[`p_taucov_projection_morphology_coupling_gate.md`](p_taucov_projection_morphology_coupling_gate.md).
+It freezes the next admissible route after the strict branch-only failure:
+future candidates must include target-blind projection/morphology coupling,
+must avoid direct forbidden `M_parent` leakage, and must still pass an
+object-specific preflight before any scoring.
+
+The first `D_P M_proj` source spec is recorded in
+[`p_taucov_d_p_mproj_source_spec.md`](p_taucov_d_p_mproj_source_spec.md).
+It freezes a minimal symmetric active coupling between
+`TEMPLATE_B_BRANCH_RESPONSE` and `TEMPLATE_P_MORPH_PROJECTION`; it is a source
+derivative only, not a new covariance candidate.
+
+The first projection-coupled Jacobian assembly is recorded in
+[`p_taucov_projection_coupled_jacobian_assembly.md`](p_taucov_projection_coupled_jacobian_assembly.md).
+It adds the frozen projection derivative to the reduced-Jacobian assembly.
+
+The projection-coupled specificity preflight is recorded in
+[`p_taucov_projection_coupled_specificity_preflight.md`](p_taucov_projection_coupled_specificity_preflight.md).
+It shows that the projection channel is now present, but the PSD-lifted
+candidate remains too diagonal-dominated and low-rank for scoring.

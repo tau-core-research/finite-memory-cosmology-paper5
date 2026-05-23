@@ -71,13 +71,50 @@ It blocks scoring for the strict branch-only candidate. A future candidate must
 include target-blind morphology/projection channel structure before scoring can
 be reconsidered.
 
+The projection/morphology coupling gate is available at:
+
+[`p_taucov_projection_morphology_coupling_gate.md`](p_taucov_projection_morphology_coupling_gate.md)
+
+It makes that requirement explicit. The next admissible route must declare a
+target-blind `D_P M_proj` or equivalent projection derivative, must use the
+active `TEMPLATE_P_MORPH_PROJECTION` channel, and must not leak direct forbidden
+`TEMPLATE_M_PARENT_MORPHOLOGY` support into the reduced object. This is a gate
+only; it constructs no new `delta_C_Tau` object and authorizes no scoring.
+
+The first source derivative spec is available at:
+
+[`p_taucov_d_p_mproj_source_spec.md`](p_taucov_d_p_mproj_source_spec.md)
+
+It freezes the minimal target-blind active `B-P` coupling source:
+
+```text
+D_P M_proj(B, P) = (|B><P| + |P><B|) / sqrt(2)
+```
+
+This closes the immediate `D_P M_proj` source placeholder for the next assembly
+attempt, but still does not construct a scoreable `delta_C_Tau` object.
+
+The first projection-coupled assembly is available at:
+
+[`p_taucov_projection_coupled_jacobian_assembly.md`](p_taucov_projection_coupled_jacobian_assembly.md)
+
+Its specificity preflight is available at:
+
+[`p_taucov_projection_coupled_specificity_preflight.md`](p_taucov_projection_coupled_specificity_preflight.md)
+
+This preflight fixes the previous missing-projection-channel failure, but it
+still blocks scoring because the PSD-lifted candidate is diagonal-dominated and
+low-rank. The next valid route must therefore add a broader parent-side
+curvature/operator source, not merely the minimal active `B-P` derivative.
+
 ## Next Valid Step
 
 Provide a concrete, target-blind Tau-response input packet with:
 
 ```text
 F_B, L_B^red, branch-domain policy,
-P_morph, M_parent, D_M C,
+P_morph, frozen D_P M_proj source derivative,
+broader parent-side curvature/operator source, D_M C,
 observable coordinate index,
 normalization policy,
 leakage exclusion audit.
