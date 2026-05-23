@@ -13,6 +13,7 @@ SCAFFOLD = ROOT / "evidence/p_taucov_minimal_global_parent_action_scaffold_summa
 GATE = ROOT / "evidence/p_taucov_full_parent_action_embedding_gate.csv"
 DOMAIN_SUMMARY = ROOT / "evidence/p_taucov_full_action_domain_null_gauge_summary.csv"
 BACKGROUND_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stationarity_summary.csv"
+S_REST_SUMMARY = ROOT / "evidence/p_taucov_s_rest_no_leakage_summary.csv"
 OUT_PACKET = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet.csv"
 OUT_GATES = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_gates.csv"
 OUT_SUMMARY = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_summary.csv"
@@ -33,6 +34,10 @@ def main() -> int:
     if BACKGROUND_SUMMARY.exists():
         background_summary = pd.read_csv(BACKGROUND_SUMMARY).iloc[0]
         background_stationary = bool(background_summary["ReferenceBackgroundStationary"])
+    s_rest_declared = False
+    if S_REST_SUMMARY.exists():
+        s_rest_summary = pd.read_csv(S_REST_SUMMARY).iloc[0]
+        s_rest_declared = str(s_rest_summary["Status"]).endswith("PASS_NO_SCORING")
     fields = [
         (
             "PARENT_DOMAIN",
@@ -53,7 +58,11 @@ def main() -> int:
             "partial",
         ),
         ("ACTIVE_SECTOR", "integral dmu_tau[-1/2 B^2 - 2PB - P Phi]", "declared"),
-        ("S_REST", "all non-witness sectors held inactive; no microscopic dynamics declared", "partial"),
+        (
+            "S_REST",
+            "positive no-leakage quadratic complement on inactive gauge/forbidden coordinates",
+            "declared" if s_rest_declared else "partial",
+        ),
         ("COVARIANCE_MAP", "inherited empirical bridge/covariance map; full independent D_M C not declared", "partial"),
         ("FORBIDDEN_INPUTS", "target residuals scores alpha behavior dominant-family identity excluded", "declared"),
     ]
