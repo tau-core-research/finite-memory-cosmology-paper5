@@ -1,0 +1,25 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+AuthorizationID: P_TAUCOV_P3_BALANCED_FINAL_AUTHORIZATION_v1
+Status: P_TAUCOV_P3_BALANCED_SCORECARD_AUTHORIZED_NO_SURVIVAL_CLAIM
+P3BalancedScoringAuthorized: true
+AuthorizedScorecard: scripts/run_p_taucov_p3_balanced_scorecard.py
+AuthorizedScope: p3_balanced_signed_alignment_scorecard_only
+SurvivalClaimAuthorized: false
+CovarianceSurvivalClaimAuthorized: false
+TauCoreValidationClaimAuthorized: false
+MeasurementValidationAuthorized: false
+Reason: all frozen P3 balanced gates are closed except the final authorization gate
+InputFiles:
+  preflight: evidence/p_taucov_p3_balanced_authorization_preflight.yaml
+  scorecard_script_freeze: evidence/p_taucov_p3_balanced_scorecard_script_freeze.yaml
+  scoring_policy: evidence/p_taucov_p3_balanced_scoring_policy.yaml
+  object_manifest: evidence/p_taucov_p3_balanced_final_manifest.yaml
+  structural_null_audit: evidence/p_taucov_p3_balanced_structural_null_audit_summary.csv
+InputSHA256:
+  preflight: 8bd0e4ff5af3f05e089d8ee3ab5c272b2bf24d15c1bb69e1560af3edd9242b02
+  scorecard_script_freeze: 9fa6391e1b2a98ac7b6cfff3604a6e5799722c1514b3a25547a9753d4912f9ce
+  scoring_policy: bf3ac22816b51d63011c071a1c6adf04abaa6dd7aa434578f37aa2082ec462b9
+  object_manifest: 3b7659dee3830b430d82af77089bbb4672dd689863703d03f484fd5512fce57e
+  structural_null_audit: 3c1272a3bb5610b87d6d7ab208ed26f227705b5f07a9927b7141d36d0bcbadfa
+GeneratedUTC: '2026-05-23T19:21:56+00:00'
+ClaimBoundary: p3_balanced_scorecard_authorized_no_survival_claim
