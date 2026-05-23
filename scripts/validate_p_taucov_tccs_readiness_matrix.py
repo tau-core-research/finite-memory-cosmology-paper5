@@ -52,6 +52,7 @@ def main() -> int:
     add(rows, "source_registry_blocks_object", bool(matrix[matrix["LayerID"].eq("TCCS_SOURCE_REGISTRY")]["BlocksObjectConstruction"].iloc[0]) is True)
     add(rows, "jtau_anchor_layer_present", bool(matrix["LayerID"].eq("TCCS_JTAU_ANCHOR_CANDIDATE").any()))
     add(rows, "orientation_anchor_no_longer_blocks_object_by_itself", bool(matrix[matrix["LayerID"].eq("TCCS_ORIENTATION_ANCHOR")]["BlocksObjectConstruction"].iloc[0]) is False)
+    add(rows, "operator_assembly_preflight_blocks_object", bool(matrix[matrix["LayerID"].eq("TCCS_OPERATOR_ASSEMBLY_PREFLIGHT")]["BlocksObjectConstruction"].iloc[0]) is True)
     add(rows, "doc_says_not_scoring", "not scoring" in doc and "not authorized" in doc)
     add(rows, "doc_forbids_empirical_tau_signal", "empirical Tau signal" in doc)
 

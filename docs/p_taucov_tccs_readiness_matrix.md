@@ -22,6 +22,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | source registry | ready, but object-blocking sources remain |
 | orientation anchor | spec ready |
 | `J_tau` candidate | frozen, target-blind, no scoring |
+| operator assembly | blocked by parent-to-score embedding |
 | TCCS object | not constructed |
 | scoring | not authorized |
 | survival claim | not authorized |

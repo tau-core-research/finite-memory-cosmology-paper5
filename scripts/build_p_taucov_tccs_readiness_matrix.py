@@ -16,6 +16,7 @@ PROTOCOL_SUMMARY = EVIDENCE / "p_taucov_tccs_protocol_summary.csv"
 SOURCE_SUMMARY = EVIDENCE / "p_taucov_tccs_source_registry_summary.csv"
 ANCHOR_SUMMARY = EVIDENCE / "p_taucov_tccs_orientation_anchor_summary.csv"
 JTAU_SUMMARY = EVIDENCE / "p_taucov_tccs_jtau_anchor_candidate_summary.csv"
+ASSEMBLY_SUMMARY = EVIDENCE / "p_taucov_tccs_operator_assembly_preflight_summary.csv"
 
 OUT_MATRIX = EVIDENCE / "p_taucov_tccs_readiness_matrix.csv"
 OUT_SUMMARY = EVIDENCE / "p_taucov_tccs_readiness_summary.csv"
@@ -83,6 +84,18 @@ def main() -> int:
             "Reason": "target-blind skew orientation anchor candidate is frozen, but object construction still needs Pi_perp/P_morph/L_B_red assembly",
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
+        {
+            "ProtocolID": PROTOCOL_ID,
+            "FreezeID": FREEZE_ID,
+            "LayerID": "TCCS_OPERATOR_ASSEMBLY_PREFLIGHT",
+            "SourceArtifact": str(ASSEMBLY_SUMMARY.relative_to(ROOT)),
+            "LayerStatus": read_status(ASSEMBLY_SUMMARY),
+            "Ready": True,
+            "BlocksObjectConstruction": True,
+            "BlocksScoring": True,
+            "Reason": "operator assembly preflight is valid but blocks object construction until parent-to-score embedding, P_morph convention, and Pi_perp are frozen",
+            "ClaimBoundary": CLAIM_BOUNDARY,
+        },
     ]
     matrix = pd.DataFrame(rows)
     matrix.to_csv(OUT_MATRIX, index=False)
@@ -132,6 +145,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | source registry | ready, but object-blocking sources remain |
 | orientation anchor | spec ready |
 | `J_tau` candidate | frozen, target-blind, no scoring |
+| operator assembly | blocked by parent-to-score embedding |
 | TCCS object | not constructed |
 | scoring | not authorized |
 | survival claim | not authorized |
