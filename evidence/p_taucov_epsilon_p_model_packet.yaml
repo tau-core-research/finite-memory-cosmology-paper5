@@ -1,0 +1,46 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PacketID: P_TAUCOV_EPSILON_P_MODEL_PACKET_v1_MINIMAL_P1
+PacketType: epsilon_p_model_packet
+ModelFamily: epsilon_P_minimal_projection_response
+lambda_B: 0
+epsilon_P: 1
+EpsilonPAmplitudePolicy: unit_amplitude_because_P1_has_unit_frobenius_norm
+ProjectionMap: P_epsilon = P0 + epsilon_P * P1
+StrictLinearParentStatus: FAIL_STRICT_LINEAR_REJECTED
+EpsilonPModelPacketFrozen: true
+LinearSpecificityAuditAuthorized: true
+MetricEvaluationAuthorized: true
+PTauCovScoringAuthorized: false
+OutcomeInformationUsed: false
+ResidualInformationUsed: false
+ScoreInformationUsed: false
+P5CV3OutcomeUsed: false
+PostScoringLocalizationUsed: false
+ClaimBoundary: epsilon_p_model_packet_authorizes_specificity_metrics_only_no_scoring
+InputFiles:
+  coordinate_basis: data/p_taucov/linear/coordinate_basis.csv
+  p_red: data/p_taucov/linear/p_red.csv
+  L0_B: data/p_taucov/linear/L0_B.csv
+  R_B: data/p_taucov/linear/R_B.csv
+  A_Phi: data/p_taucov/linear/A_Phi.csv
+  A_B: data/p_taucov/linear/A_B.csv
+  P0: data/p_taucov/linear/P0.csv
+  P1: data/p_taucov/linear/P1_projection_response_operator.csv
+  strict_linear_packet: evidence/p_taucov_linear_model_packet.yaml
+  strict_linear_prescore: evidence/p_taucov_linear_specificity_prescore_summary.csv
+  minimal_nonzero_route_freeze: evidence/p_taucov_minimal_nonzero_route_freeze_summary.csv
+  p1_manifest: evidence/p_taucov_p1_projection_response_operator_manifest.yaml
+InputSHA256:
+  coordinate_basis: b8da37731250751c1ad0d7052f7f71343766b909b7d5ad3df0b617984999fcfc
+  p_red: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  L0_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  R_B: d123dbacd41cbadc1b18de09c2df9d6729de352b793decbb7b0727015421c557
+  A_Phi: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  A_B: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  P0: 42d6085570d9f0424cfbda2f777e13e9977d984e2d5d34b0696aa5f6e6849c20
+  P1: 37ceb30839bd95c09d430ab4ff2af65ddbfb1fc2ee2b46a9eb4f4b61ce4f4ac9
+  strict_linear_packet: 7440eda50fa9234e11fe8fc2f39c04374f5df462f0c461fd7821a404c9da8da5
+  strict_linear_prescore: de299b46e5bc203691635ef4b6d2be02677eb17543aac7cf4233a1b29c143be9
+  minimal_nonzero_route_freeze: a8c17bf637820d08a5964dea3dcfc85ad9c8857a1f1de2b643d04ad31c866976
+  p1_manifest: fe193b1bf3b36d56bb25888cde07c1b9475ac7a19c3ab4ecc697a5f11dff6686
+GeneratedUTC: '2026-05-23T15:55:48+00:00'
