@@ -66,7 +66,7 @@ def main() -> int:
     add("has_open_required_checks", int(manifest.get("OpenRequiredChecks", 0)) >= 1)
     add("scorecard_script_no_longer_blocks", "scorecard_script_frozen" not in manifest.get("BlockingItems", []))
     add("input_contract_no_longer_blocks", "observed_residual_input_contract_frozen" not in manifest.get("BlockingItems", []))
-    add("blocks_coordinate_bridge", "coordinate_bridge_frozen" in manifest.get("BlockingItems", []))
+    add("coordinate_bridge_no_longer_blocks", "coordinate_bridge_frozen" not in manifest.get("BlockingItems", []))
     add("blocks_final_authorization", "final_authorization_manifest_ready" in manifest.get("BlockingItems", []))
     add("checklist_has_passes_and_blocks", checklist["Passed"].map(bool_from_csv).any() and (~checklist["Passed"].map(bool_from_csv)).any())
     add("all_rows_no_scoring", not checklist["PTauCovScoringAuthorized"].map(bool_from_csv).any())

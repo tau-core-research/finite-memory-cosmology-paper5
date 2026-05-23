@@ -1,0 +1,22 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+AuthorizationID: P_TAUCOV_EPSILON_P3_FINAL_AUTHORIZATION_v1
+Status: PRIMARY_BRIDGE_SCORECARD_AUTHORIZED_NO_SURVIVAL_CLAIM
+PTauCovScoringAuthorized: true
+AuthorizedScorecard: scripts/run_p_taucov_epsilon_p3_alignment_scorecard.py
+AuthorizedScope: primary_bridge_projected_covariance_scorecard_only
+SurvivalClaimAuthorized: false
+MeasurementValidationAuthorized: false
+NullSurvivalSuiteAuthorized: false
+Reason: all preflight gates are closed except the final authorization gate
+InputFiles:
+  preflight: evidence/p_taucov_epsilon_p3_authorization_preflight.yaml
+  scorecard_script_freeze: evidence/p_taucov_epsilon_p3_scorecard_script_freeze.yaml
+  coordinate_bridge: evidence/p_taucov_epsilon_p3_coordinate_bridge.yaml
+  scoring_policy: evidence/p_taucov_epsilon_p3_scoring_policy_freeze.yaml
+InputSHA256:
+  preflight: 0fef0f77b6949b21681559bd06444a9ef0f5a147d1f1f13c3b0d0a725784b573
+  scorecard_script_freeze: 2c667ac28fd2b9a5b3294747b7ec5ac42b17505e829f07530b33540da44d292e
+  coordinate_bridge: a4910c08ccc3fc0792a0de30424d752a019bf010934caed2c6c6aaab39641a72
+  scoring_policy: b38c749cd8e313eba792a7fbdccc0192bc59b48825e963b26592d4e78beb4c06
+GeneratedUTC: '2026-05-23T16:35:35+00:00'
+ClaimBoundary: epsilon_p3_primary_bridge_score_authorized_no_survival_claim

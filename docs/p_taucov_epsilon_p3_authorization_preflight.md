@@ -8,15 +8,14 @@ authorized.
 ## Result
 
 ```text
-ChecksPassed: 5/7
-OpenRequiredChecks: 2
+ChecksPassed: 6/7
+OpenRequiredChecks: 1
 PTauCovScoringAuthorized: false
 ```
 
 Blocking items:
 
 ```text
-coordinate_bridge_frozen
 final_authorization_manifest_ready
 ```
 

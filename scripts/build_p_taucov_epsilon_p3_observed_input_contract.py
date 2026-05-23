@@ -14,6 +14,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 BRANCH = ROOT / "evidence/p_taucov_epsilon_p3_branch_support_weights.csv"
 P5C_ROWS = ROOT / "evidence/p5c_kernel_covariance_oos_scorecard_v3.csv"
+BRIDGE = ROOT / "evidence/p_taucov_epsilon_p3_coordinate_bridge.yaml"
 DOC = ROOT / "docs/p_taucov_epsilon_p3_observed_input_contract.md"
 MANIFEST = ROOT / "evidence/p_taucov_epsilon_p3_observed_input_contract.yaml"
 SHA256 = ROOT / "evidence/p_taucov_epsilon_p3_observed_input_contract.sha256"
@@ -42,7 +43,8 @@ def main() -> int:
     tau_dimension = len(tau_ids)
     p5c_rows = pd.read_csv(P5C_ROWS) if P5C_ROWS.exists() else pd.DataFrame()
     p5c_dimension = int(len(p5c_rows)) if not p5c_rows.empty else 0
-    status = "BLOCKED_COORDINATE_SPACE_MISMATCH"
+    bridge_ready = BRIDGE.exists()
+    status = "BRIDGE_READY_CONTRACT_NO_SCORING" if bridge_ready else "BLOCKED_COORDINATE_SPACE_MISMATCH"
 
     schema = pd.DataFrame(
         [
@@ -68,8 +70,12 @@ def main() -> int:
         "RequiredCoordinateSpace": "P-TauCov Tau-coordinate basis",
         "RequiredDimension": tau_dimension,
         "AvailableP5Cv3ScorecardRows": p5c_dimension,
-        "ShapeCompatibility": False,
-        "Reason": "P3 branch support lives in 8-dimensional Tau-coordinate space, while available P5C empirical covariance rows live in family-clock scorecard space.",
+        "ShapeCompatibility": bool(bridge_ready),
+        "Reason": (
+            "target-blind coordinate bridge is frozen; scorecard may project Tau-coordinate delta_C_tau into family-clock space after final authorization"
+            if bridge_ready
+            else "P3 branch support lives in 8-dimensional Tau-coordinate space, while available P5C empirical covariance rows live in family-clock scorecard space."
+        ),
         "RequiredBridge": "freeze_target_blind_coordinate_bridge_from_tau_coordinate_space_to_empirical_family_clock_space",
         "PTauCovScoringAuthorized": False,
         "GeneratedUTC": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
@@ -88,7 +94,7 @@ def main() -> int:
                 "Status": status,
                 "RequiredDimension": tau_dimension,
                 "AvailableP5Cv3ScorecardRows": p5c_dimension,
-                "ShapeCompatibility": False,
+                "ShapeCompatibility": bool(bridge_ready),
                 "PTauCovScoringAuthorized": False,
                 "NextStep": manifest["RequiredBridge"],
                 "ClaimBoundary": CLAIM_BOUNDARY,
@@ -118,13 +124,12 @@ The coordinate IDs must match the frozen P-TauCov Tau-coordinate support.
 ```text
 RequiredDimension: {tau_dimension}
 AvailableP5Cv3ScorecardRows: {p5c_dimension}
-ShapeCompatibility: false
+ShapeCompatibility: {str(bool(bridge_ready)).lower()}
 ```
 
-The current P3 branch support is defined in Tau-coordinate space. The available
-P5C empirical covariance artifacts are in family-clock scorecard space. A
-target-blind bridge from Tau-coordinate space to empirical family-clock space
-must be frozen before empirical scoring can be authorized.
+The P3 branch support is defined in Tau-coordinate space. Empirical scoring
+requires the frozen target-blind coordinate bridge before the scorecard can
+project the Tau-side response into family-clock space.
 
 Forbidden statement:
 

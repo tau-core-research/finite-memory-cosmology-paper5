@@ -2,8 +2,8 @@ ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
 FreezeID: P_TAUCOV_EPSILON_P3_SCORECARD_SCRIPT_FREEZE_v1
 Status: SCORECARD_SCRIPT_FROZEN_NO_SCORING_AUTHORIZATION
 ScorecardScript: scripts/run_p_taucov_epsilon_p3_alignment_scorecard.py
-ScorecardSHA256: e3cd5a12f0073338663a1a262c0ed87dfa1d9c8a284763676ac000bcf4d8e117
+ScorecardSHA256: 01bc2aa166ddf9f60dd9b7a030d7e3fc8e43b6665bb58ac6662e7ca166289fde
 ScriptRequiresFinalAuthorization: true
 PTauCovScoringAuthorized: false
-GeneratedUTC: '2026-05-23T16:25:35+00:00'
+GeneratedUTC: '2026-05-23T16:33:13+00:00'
 ClaimBoundary: epsilon_p3_scorecard_script_frozen_no_scoring_authorization

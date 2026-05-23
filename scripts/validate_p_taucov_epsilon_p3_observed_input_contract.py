@@ -53,15 +53,15 @@ def main() -> int:
     hash_lines = [line.strip().split(maxsplit=1) for line in SHA256.read_text(encoding="utf-8").splitlines() if line.strip()]
     hash_map = {path: digest for digest, path in hash_lines}
 
-    add("status_shape_blocked", manifest.get("Status") == "BLOCKED_COORDINATE_SPACE_MISMATCH")
-    add("shape_compat_false", manifest.get("ShapeCompatibility") is False)
-    add("summary_shape_compat_false", not bool_from_csv(summary["ShapeCompatibility"]))
+    add("status_valid", manifest.get("Status") in {"BLOCKED_COORDINATE_SPACE_MISMATCH", "BRIDGE_READY_CONTRACT_NO_SCORING"})
+    add("shape_compat_matches_status", bool(manifest.get("ShapeCompatibility")) == (manifest.get("Status") == "BRIDGE_READY_CONTRACT_NO_SCORING"))
+    add("summary_shape_compat_matches", bool_from_csv(summary["ShapeCompatibility"]) == bool(manifest.get("ShapeCompatibility")))
     add("scoring_not_authorized", manifest.get("PTauCovScoringAuthorized") is False)
     add("required_bridge_declared", "coordinate_bridge" in str(manifest.get("RequiredBridge", "")))
     add("schema_has_required_fields", {"RowCoordinate", "ColumnCoordinate", "ObservedWhitenedCovarianceResidual"}.issubset(set(schema["Field"].astype(str))))
     add("sha_schema", hash_map.get(str(SCHEMA.relative_to(ROOT))) == file_sha256(SCHEMA))
     add("sha_manifest", hash_map.get(str(MANIFEST.relative_to(ROOT))) == file_sha256(MANIFEST))
-    for phrase in ["BLOCKED_COORDINATE_SPACE_MISMATCH", "ShapeCompatibility: false", "target-blind bridge", "authorizes P-TauCov scoring"]:
+    for phrase in [str(manifest.get("Status")), f"ShapeCompatibility: {str(bool(manifest.get('ShapeCompatibility'))).lower()}", "target-blind coordinate bridge", "authorizes P-TauCov scoring"]:
         add(f"doc_contains_{phrase[:40]}", phrase in text)
 
     out = pd.DataFrame(records)
@@ -71,7 +71,7 @@ def main() -> int:
         print("P_TAUCOV_EPSILON_P3_OBSERVED_INPUT_CONTRACT_INVALID")
         print(failed.to_string(index=False))
         return 1
-    print("P_TAUCOV_EPSILON_P3_OBSERVED_INPUT_CONTRACT_VALID_SHAPE_BLOCKED")
+    print(f"P_TAUCOV_EPSILON_P3_OBSERVED_INPUT_CONTRACT_VALID_{manifest.get('Status')}")
     return 0
 
 

@@ -1,14 +1,14 @@
 ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
 ContractID: P_TAUCOV_EPSILON_P3_OBSERVED_INPUT_CONTRACT_v1
-Status: BLOCKED_COORDINATE_SPACE_MISMATCH
+Status: BRIDGE_READY_CONTRACT_NO_SCORING
 RequiredObservedMatrix: evidence/p_taucov_epsilon_p3_observed_input_matrix.csv
 RequiredCoordinateSpace: P-TauCov Tau-coordinate basis
 RequiredDimension: 8
 AvailableP5Cv3ScorecardRows: 17
-ShapeCompatibility: false
-Reason: P3 branch support lives in 8-dimensional Tau-coordinate space, while available
-  P5C empirical covariance rows live in family-clock scorecard space.
+ShapeCompatibility: true
+Reason: target-blind coordinate bridge is frozen; scorecard may project Tau-coordinate
+  delta_C_tau into family-clock space after final authorization
 RequiredBridge: freeze_target_blind_coordinate_bridge_from_tau_coordinate_space_to_empirical_family_clock_space
 PTauCovScoringAuthorized: false
-GeneratedUTC: '2026-05-23T16:26:03+00:00'
+GeneratedUTC: '2026-05-23T16:33:54+00:00'
 ClaimBoundary: epsilon_p3_observed_input_contract_shape_blocked_no_scoring

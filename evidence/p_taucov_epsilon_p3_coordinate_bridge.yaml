@@ -1,0 +1,23 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+FreezeID: P_TAUCOV_EPSILON_P3_COORDINATE_BRIDGE_v1
+Status: FROZEN_COORDINATE_BRIDGE_NO_SCORING
+BridgeFile: evidence/p_taucov_epsilon_p3_coordinate_bridge.csv
+SummaryFile: evidence/p_taucov_epsilon_p3_coordinate_bridge_summary.csv
+BridgeRule: metadata_only_family_sign_clock_sector_phase_features_from_frozen_p5c_v3_manifest
+EmpiricalRows: 36
+TauCoordinates: 8
+ActiveBridgeColumns: 4
+BridgeRank: 4
+TargetResidualsUsed: false
+P5CV3OutcomeUsed: false
+PTauCovScoringAuthorized: false
+InputFiles:
+  coordinate_basis: data/p_taucov/linear/coordinate_basis.csv
+  p5c_target_rows: data/physical_nulls/backreaction_reproduction/registered_protocol_guided_reproduction_backreaction_vector.csv
+  p5c_v3_manifest: evidence/p5c_bstar_kernel_v3_manifest.yaml
+InputSHA256:
+  coordinate_basis: b8da37731250751c1ad0d7052f7f71343766b909b7d5ad3df0b617984999fcfc
+  p5c_target_rows: 8dc9906b319e82519c34df4d038848c005d9e87f5b020e86b153033f535b4a43
+  p5c_v3_manifest: 8c8905d2de67f88d041a303cf984392ced7df8302b739506435e001f59192eda
+GeneratedUTC: '2026-05-23T16:33:12+00:00'
+ClaimBoundary: epsilon_p3_coordinate_bridge_frozen_no_empirical_scoring

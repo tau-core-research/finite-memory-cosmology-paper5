@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run epsilon-P3 P-TauCov alignment scorecard after final authorization.
+"""Run epsilon-P3 P-TauCov bridge-projected covariance scorecard after final authorization.
 
 This script is intentionally inert until a final authorization manifest exists
 and explicitly sets `PTauCovScoringAuthorized: true`.
@@ -16,9 +16,11 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 AUTH = ROOT / "evidence/p_taucov_epsilon_p3_final_authorization.yaml"
-BRANCH = ROOT / "evidence/p_taucov_epsilon_p3_branch_support_freeze.csv"
-OBSERVED = ROOT / "evidence/p_taucov_epsilon_p3_observed_input_matrix.csv"
+BRANCH_WEIGHTS = ROOT / "evidence/p_taucov_epsilon_p3_branch_support_weights.csv"
+BRIDGE = ROOT / "evidence/p_taucov_epsilon_p3_coordinate_bridge.csv"
+P5C_V0 = ROOT / "scripts/run_p5c_kernel_covariance_scorecard_v0.py"
 OUT = ROOT / "evidence/p_taucov_epsilon_p3_alignment_scorecard.csv"
+OOS = ROOT / "evidence/p_taucov_epsilon_p3_alignment_oos_scorecard.csv"
 SUMMARY = ROOT / "evidence/p_taucov_epsilon_p3_alignment_scorecard_summary.csv"
 
 PROTOCOL_ID = "P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1"
@@ -45,64 +47,66 @@ def matrix_from_long(path: Path, value_col: str) -> tuple[list[str], np.ndarray]
     return ids, mat
 
 
-def frobenius_alignment(a: np.ndarray, b: np.ndarray, mask: np.ndarray) -> float:
-    a_m = a * mask
-    b_m = b * mask
-    denom = float(np.linalg.norm(a_m, ord="fro") * np.linalg.norm(b_m, ord="fro"))
-    if denom == 0.0:
-        return float("nan")
-    return float(np.sum(a_m * b_m) / denom)
+def load_bridge(tau_ids: list[str]) -> tuple[list[str], np.ndarray]:
+    df = pd.read_csv(BRIDGE)
+    row_ids = df[["EmpiricalIndex", "EmpiricalRowID"]].drop_duplicates().sort_values("EmpiricalIndex")["EmpiricalRowID"].astype(str).tolist()
+    row_idx = {rid: i for i, rid in enumerate(row_ids)}
+    tau_idx = {cid: i for i, cid in enumerate(tau_ids)}
+    bridge = np.zeros((len(row_ids), len(tau_ids)), dtype=float)
+    for row in df.itertuples(index=False):
+        if str(row.TauCoordinate) in tau_idx:
+            bridge[row_idx[str(row.EmpiricalRowID)], tau_idx[str(row.TauCoordinate)]] = float(row.BridgeValue)
+    return row_ids, bridge
 
 
 def main() -> int:
     load_authorization()
-    branch_ids, branch_delta = matrix_from_long(BRANCH, "DeltaCTau")
-    observed_ids, observed = matrix_from_long(OBSERVED, "ObservedWhitenedCovarianceResidual")
-    if branch_ids != observed_ids:
-        raise RuntimeError("Observed input coordinate IDs do not match frozen branch support IDs.")
+    tau_ids, delta_tau = matrix_from_long(BRANCH_WEIGHTS, "DeltaCTau")
+    empirical_ids, bridge = load_bridge(tau_ids)
+    kernel = bridge @ delta_tau @ bridge.T
+    fro = float(np.linalg.norm(kernel, ord="fro"))
+    if fro == 0.0:
+        raise RuntimeError("Bridge-projected epsilon-P3 kernel has zero Frobenius norm.")
+    kernel = kernel / fro
 
-    branch = pd.read_csv(BRANCH)
-    omega = np.zeros_like(branch_delta, dtype=float)
-    idx = {cid: i for i, cid in enumerate(branch_ids)}
-    for row in branch.itertuples(index=False):
-        omega[idx[str(row.RowCoordinate)], idx[str(row.ColumnCoordinate)]] = 1.0
-    outside = 1.0 - omega
-    np.fill_diagonal(outside, 0.0)
+    import importlib.util
 
-    inside_alignment = frobenius_alignment(observed, branch_delta, omega)
-    outside_alignment = frobenius_alignment(observed, branch_delta, outside)
-    rows = pd.DataFrame(
-        [
-            {
-                "ProtocolID": PROTOCOL_ID,
-                "AuditID": AUDIT_ID,
-                "StatisticID": "INSIDE_BRANCH_ALIGNMENT",
-                "Value": inside_alignment,
-                "ClaimBoundary": CLAIM_BOUNDARY,
-            },
-            {
-                "ProtocolID": PROTOCOL_ID,
-                "AuditID": AUDIT_ID,
-                "StatisticID": "OUTSIDE_BRANCH_ALIGNMENT",
-                "Value": outside_alignment,
-                "ClaimBoundary": CLAIM_BOUNDARY,
-            },
-        ]
-    )
-    rows.to_csv(OUT, index=False)
+    spec = importlib.util.spec_from_file_location("p5c_v0", P5C_V0)
+    if spec is None or spec.loader is None:
+        raise RuntimeError("Could not load P5C v0 scorecard module.")
+    p5c_v0 = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(p5c_v0)
+    p5c_v0.AUDIT_ID = AUDIT_ID
+    p5c_v0.PROTOCOL_ID = PROTOCOL_ID
+    p5c_v0.KERNEL_ID = "P_TAUCOV_EPSILON_P3_BRIDGE_PROJECTED_KERNEL"
+    p5c_v0.CLAIM_BOUNDARY = CLAIM_BOUNDARY
+    data_rows = p5c_v0.load_rows()
+    expected_ids = data_rows["RowID"].astype(str).tolist()
+    if empirical_ids != expected_ids:
+        raise RuntimeError("Coordinate bridge empirical row order does not match P5C scorecard row order.")
+
+    in_sample, oos = p5c_v0.score_all(data_rows, kernel, p5c_v0.KERNEL_ID)
+    in_sample.to_csv(OUT, index=False)
+    oos.to_csv(OOS, index=False)
+    primary = oos[oos["PrimaryOOS"]]
     pd.DataFrame(
         [
             {
                 "ProtocolID": PROTOCOL_ID,
                 "AuditID": AUDIT_ID,
-                "InsideAlignment": inside_alignment,
-                "OutsideAlignment": outside_alignment,
+                "KernelID": p5c_v0.KERNEL_ID,
+                "Rows": len(data_rows),
+                "TauCoordinates": len(tau_ids),
+                "BridgeRows": len(empirical_ids),
+                "KernelFrobeniusNormBeforeNormalization": fro,
+                "InSampleDeltaNLL_BaselineMinusKernel": float(in_sample["DeltaNLL_BaselineMinusKernel"].iloc[0]),
+                "PrimaryOOSDeltaNLL_BaselineMinusKernel": float(primary["DeltaNLL_BaselineMinusKernel"].sum()),
                 "PTauCovScoringAuthorized": True,
                 "ClaimBoundary": CLAIM_BOUNDARY,
-            }
+            },
         ]
     ).to_csv(SUMMARY, index=False)
-    print("P_TAUCOV_EPSILON_P3_ALIGNMENT_SCORECARD_COMPLETE")
+    print("P_TAUCOV_EPSILON_P3_BRIDGE_PROJECTED_SCORECARD_COMPLETE")
     return 0
 
 

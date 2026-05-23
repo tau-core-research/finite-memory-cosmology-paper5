@@ -2,11 +2,10 @@ ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
 PreflightID: P_TAUCOV_EPSILON_P3_AUTHORIZATION_PREFLIGHT_v1
 Status: BLOCKED_NO_SCORING_AUTHORIZATION
 ChecksTotal: 7
-ChecksPassed: 5
-OpenRequiredChecks: 2
+ChecksPassed: 6
+OpenRequiredChecks: 1
 PTauCovScoringAuthorized: false
 BlockingItems:
-- coordinate_bridge_frozen
 - final_authorization_manifest_ready
 InputFiles:
   epsilon_p3_freeze: evidence/p_taucov_epsilon_p3_freeze_manifest.yaml
@@ -14,13 +13,15 @@ InputFiles:
   scoring_policy: evidence/p_taucov_epsilon_p3_scoring_policy_freeze.yaml
   scorecard_script_freeze: evidence/p_taucov_epsilon_p3_scorecard_script_freeze.yaml
   observed_input_contract: evidence/p_taucov_epsilon_p3_observed_input_contract.yaml
+  coordinate_bridge: evidence/p_taucov_epsilon_p3_coordinate_bridge.yaml
   checklist: evidence/p_taucov_epsilon_p3_authorization_preflight_checklist.csv
 InputSHA256:
   epsilon_p3_freeze: 7a18e05a1efaed47836c8e46d3f95784fe99526078671ec769b0a87033c70943
   branch_support: a9ef28f573999a28d43fbd90fa28951421f4dc4164b7efbbdf9430581c27ac32
   scoring_policy: b38c749cd8e313eba792a7fbdccc0192bc59b48825e963b26592d4e78beb4c06
-  scorecard_script_freeze: aacc8ec152c97e0ec0dc380d0510893e6f7502dbd3293dc025cf8f2b891bd87a
-  observed_input_contract: b4d36aeb4a6d0019d89a7356167652c11a66a7e4e03be1172774de325537d9a2
-  checklist: 460055927f0049cfa35fd0fb85d00c22bf18f1a50ecac057264964e095bcac32
-GeneratedUTC: '2026-05-23T16:27:49+00:00'
+  scorecard_script_freeze: 2c667ac28fd2b9a5b3294747b7ec5ac42b17505e829f07530b33540da44d292e
+  observed_input_contract: 6f1676bbed52524708747a2b9f6e872397e2e10bf20293c1bd769abf6bb8424f
+  coordinate_bridge: a4910c08ccc3fc0792a0de30424d752a019bf010934caed2c6c6aaab39641a72
+  checklist: f11f1d37a13ed389a337c273715422bcd8f54ec29fe134851f76313ac586b3e9
+GeneratedUTC: '2026-05-23T16:34:23+00:00'
 ClaimBoundary: epsilon_p3_authorization_preflight_blocks_scoring_until_coordinate_bridge_and_final_auth

@@ -6,7 +6,7 @@ The scorecard script is frozen by hash:
 
 ```text
 Script: scripts/run_p_taucov_epsilon_p3_alignment_scorecard.py
-SHA256: e3cd5a12f0073338663a1a262c0ed87dfa1d9c8a284763676ac000bcf4d8e117
+SHA256: 01bc2aa166ddf9f60dd9b7a030d7e3fc8e43b6665bb58ac6662e7ca166289fde
 ```
 
 The script is inert unless a final authorization manifest explicitly sets:
