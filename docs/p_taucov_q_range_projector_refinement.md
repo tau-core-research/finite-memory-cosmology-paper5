@@ -4,7 +4,7 @@ Freeze ID: `P_TAUCOV_Q_RANGE_PROJECTOR_REFINEMENT_v1`
 
 Status:
 
-`P_TAUCOV_Q_RANGE_PROJECTOR_REFINEMENT_REQUIRED_NO_OBJECT_NO_SCORING`
+`P_TAUCOV_Q_RANGE_PROJECTOR_FREEZE_PASS_NO_SCORING`
 
 ## Motivation
 
@@ -41,6 +41,52 @@ where `U_active` are eigenvectors of the symmetric common cleaner with
 eigenvalues above a frozen numerical threshold.
 
 The threshold must be declared before object construction.
+
+## Freeze Result
+
+The range projector has now been frozen:
+
+[`p_taucov_q_range_projector_freeze.md`](p_taucov_q_range_projector_freeze.md)
+
+Result:
+
+```text
+P_TAUCOV_Q_RANGE_PROJECTOR_FREEZE_PASS_NO_SCORING
+```
+
+Key metrics:
+
+| Quantity | Value |
+|---|---:|
+| active rank | `31` |
+| min active eigenvalue | `0.09143894881209928` |
+| max inactive eigenvalue | `1.0608030265852466e-15` |
+| idempotence error | `5.154299882972685e-15` |
+
+This is a stable separation between the clean-subspace range and the numerical
+null complement.
+
+## Branch-Response Retest
+
+The minimal branch-response contrast was retested with `Q_range`:
+
+[`p_taucov_q_range_branch_response_preflight.md`](p_taucov_q_range_branch_response_preflight.md)
+
+Result:
+
+```text
+P_TAUCOV_Q_RANGE_BRANCH_RESPONSE_PREFLIGHT_FAIL_NO_SCORING
+```
+
+Key number:
+
+```text
+QRangeRetention = 9.11401163254385e-16
+```
+
+Thus the previous failure was not merely a consequence of using non-idempotent
+`Q_clean`. The simple `B - Phi` contrast is almost entirely outside the frozen
+clean subspace.
 
 ## Why This Matters
 

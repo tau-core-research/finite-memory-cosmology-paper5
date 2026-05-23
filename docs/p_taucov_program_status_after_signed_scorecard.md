@@ -29,7 +29,9 @@ has not been scored; it is a pre-score structural audit.
 | Q-native route registry | four routes defined | no object, no scoring |
 | Q-native route priority | branch-response curvature recommended | no object, no scoring |
 | Minimal Q-native branch-response preflight | failed | no scoring |
-| Q-range projector refinement | required | no object, no scoring |
+| Q-range projector freeze | passed | no object, no scoring |
+| Q-range branch-response retest | failed | no scoring |
+| Reduced branch-Jacobian requirement | required | no object, no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -113,5 +115,11 @@ The route priority note is recorded in
 The minimal branch-response preflight is recorded in
 [`p_taucov_q_native_branch_response_curvature_preflight.md`](p_taucov_q_native_branch_response_curvature_preflight.md).
 
-The Q-range refinement is recorded in
-[`p_taucov_q_range_projector_refinement.md`](p_taucov_q_range_projector_refinement.md).
+The Q-range projector freeze is recorded in
+[`p_taucov_q_range_projector_freeze.md`](p_taucov_q_range_projector_freeze.md).
+
+The Q-range branch-response retest is recorded in
+[`p_taucov_q_range_branch_response_preflight.md`](p_taucov_q_range_branch_response_preflight.md).
+
+The reduced branch-Jacobian requirement is recorded in
+[`p_taucov_reduced_branch_jacobian_requirement.md`](p_taucov_reduced_branch_jacobian_requirement.md).

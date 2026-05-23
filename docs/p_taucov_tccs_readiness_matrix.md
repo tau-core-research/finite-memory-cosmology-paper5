@@ -32,7 +32,9 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | Q-native parent-curvature gate | defined, no object, no scoring |
 | Q-native route registry | four routes defined, no object, no scoring |
 | minimal Q-native branch-response preflight | failed, no scoring |
-| Q-range projector refinement | required, no object, no scoring |
+| Q-range projector freeze | passed, no object, no scoring |
+| Q-range branch-response retest | failed, no scoring |
+| reduced branch-Jacobian requirement | required, no object, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -110,9 +112,17 @@ The minimal branch-response preflight is:
 
 [`p_taucov_q_native_branch_response_curvature_preflight.md`](p_taucov_q_native_branch_response_curvature_preflight.md)
 
-The next mathematical refinement is:
+The frozen range projector is:
 
-[`p_taucov_q_range_projector_refinement.md`](p_taucov_q_range_projector_refinement.md)
+[`p_taucov_q_range_projector_freeze.md`](p_taucov_q_range_projector_freeze.md)
+
+The Q-range branch-response retest is:
+
+[`p_taucov_q_range_branch_response_preflight.md`](p_taucov_q_range_branch_response_preflight.md)
+
+The next required source-level object is:
+
+[`p_taucov_reduced_branch_jacobian_requirement.md`](p_taucov_reduced_branch_jacobian_requirement.md)
 
 ## Claim Boundary
 

@@ -86,9 +86,40 @@ J_response = Q_range D_B M_proj (L_B^red)^(-1) D_Phi F_B
 rather than a bare coordinate difference.
 
 Here `Q_range` denotes the orthogonal projector onto the range of the common
-cleaner. The preflight also shows that using `Q_clean` directly as if it were
-an exact projector is too crude; the next gate must explicitly freeze the
-spectral range projector of `Q_clean`.
+cleaner. This projector is now frozen here:
+
+[`p_taucov_q_range_projector_freeze.md`](p_taucov_q_range_projector_freeze.md)
+
+Therefore the next branch-response preflight should test `Q_range` membership,
+not repeated `Q_clean` closure.
+
+## Q-Range Retest
+
+The minimal branch-response contrast was retested with the frozen `Q_range`
+projector:
+
+[`p_taucov_q_range_branch_response_preflight.md`](p_taucov_q_range_branch_response_preflight.md)
+
+Result:
+
+```text
+P_TAUCOV_Q_RANGE_BRANCH_RESPONSE_PREFLIGHT_FAIL_NO_SCORING
+```
+
+The decisive number is:
+
+```text
+QRangeRetention = 9.11401163254385e-16
+```
+
+Therefore the simple coordinate contrast:
+
+```text
+B_BRANCH_RESPONSE - PHI_PARENT_SOURCE
+```
+
+is not a viable Q-native branch-response object. The next branch-response
+candidate must derive a real reduced Jacobian, not a coordinate difference.
 
 ## Pre-Score Gates
 

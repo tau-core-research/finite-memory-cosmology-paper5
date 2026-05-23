@@ -45,6 +45,10 @@ See:
 
 [`p_taucov_q_range_projector_refinement.md`](p_taucov_q_range_projector_refinement.md)
 
+The frozen projector artifact is:
+
+[`p_taucov_q_range_projector_freeze.md`](p_taucov_q_range_projector_freeze.md)
+
 The next admissible parent-curvature candidate must be generated as:
 
 ```text
@@ -136,7 +140,7 @@ Before any scoring manifest is allowed, the Q-native candidate must pass:
 |---|---|
 | QN-G1 | parent source declared before scoring |
 | QN-G2 | `K_Q` nonzero |
-| QN-G3 | `norm(Q_clean K_Q Q_clean - K_Q) / norm(K_Q) <= 1e-10` |
+| QN-G3 | `norm(Q_range K_Q Q_range - K_Q) / norm(K_Q) <= 1e-10` |
 | QN-G4 | support retention relative to declared `R_parent` is at least `0.20` |
 | QN-G5 | projection leakage below frozen threshold |
 | QN-G6 | max family energy share below frozen threshold |
