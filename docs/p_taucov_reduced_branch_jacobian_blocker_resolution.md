@@ -58,6 +58,14 @@ It narrows the blocker further: `L_B_red` is computable in the current
 one-dimensional branch row, but `D_Phi_F_B` remains blocked unless the
 projection-mediated parent-forcing chain is made explicit.
 
+The mediated-chain audit is:
+
+[`p_taucov_mediated_parent_forcing_chain_audit.md`](p_taucov_mediated_parent_forcing_chain_audit.md)
+
+It shows that the current scaffold has a nonzero target-blind path
+`Phi -> P_morph -> B`. This resolves the forcing route at algebraic scaffold
+level, but active stability and `D_B_M_proj` remain open.
+
 ## Claim Boundary
 
 Allowed statement:

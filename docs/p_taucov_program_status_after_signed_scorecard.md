@@ -34,6 +34,7 @@ has not been scored; it is a pre-score structural audit.
 | Reduced branch-Jacobian requirement | required | no object, no scoring |
 | Reduced branch-Jacobian source spec | blocked by 4 source objects | no object, no scoring |
 | Branch-equation completion audit | partial completion; mediated forcing required | no object, no scoring |
+| Mediated parent-forcing chain | pass, stability open | no object, no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -143,3 +144,6 @@ The next branch-equation completion gate is recorded in
 
 The first branch-equation completion audit is recorded in
 [`p_taucov_branch_equation_completion_audit.md`](p_taucov_branch_equation_completion_audit.md).
+
+The mediated parent-forcing chain audit is recorded in
+[`p_taucov_mediated_parent_forcing_chain_audit.md`](p_taucov_mediated_parent_forcing_chain_audit.md).

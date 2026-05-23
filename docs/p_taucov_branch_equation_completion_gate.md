@@ -78,6 +78,10 @@ current branch row. The remaining task is therefore to declare a projection-
 mediated parent-forcing chain or derive a nonzero direct forcing term from the
 parent action.
 
+The mediated-chain audit is recorded in:
+
+[`p_taucov_mediated_parent_forcing_chain_audit.md`](p_taucov_mediated_parent_forcing_chain_audit.md)
+
 ## Claim Boundary
 
 Allowed statement:

@@ -53,6 +53,10 @@ path, but not a direct `D_Phi F_B` forcing term. The next step must therefore
 either declare the mediated chain explicitly or derive a nonzero direct forcing
 from the parent action.
 
+The first explicit mediated-chain audit is:
+
+[`p_taucov_mediated_parent_forcing_chain_audit.md`](p_taucov_mediated_parent_forcing_chain_audit.md)
+
 ## Stability Boundary
 
 The active Hessian minimum eigenvalue is:
