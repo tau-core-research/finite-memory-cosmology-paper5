@@ -1,0 +1,67 @@
+protocol_id: "P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1"
+freeze_id: "P_TAUCOV_BRANCH_SUPPORT_FREEZE_TEMPLATE_v1"
+claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+scoring_authorized: false
+v4_kernel_authorized: false
+branch_support_source: delta_C_Tau_only
+rows:
+  - item: "ProtocolID"
+    value: "P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1"
+    status: "DECLARED"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "FreezeID"
+    value: "P_TAUCOV_BRANCH_SUPPORT_FREEZE_TEMPLATE_v1"
+    status: "TEMPLATE_ONLY"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "BranchSupportSource"
+    value: "delta_C_Tau_only"
+    status: "REQUIRED"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "DefaultContinuousWeight"
+    value: "W_branch_ij_abs_delta_C_Tau_normalized_by_total_abs_mass"
+    status: "DECLARED"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "DefaultBinarySupport"
+    value: "Omega_branch_smallest_set_carrying_predeclared_q_branch_response_mass"
+    status: "DECLARED"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "q_branch"
+    value: "NOT_SET"
+    status: "MUST_BE_FROZEN_BEFORE_SCORING"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "ForbiddenInputP5Cv3GainPattern"
+    value: "forbidden"
+    status: "HARD_BLOCK"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "ForbiddenInputHeldOutResiduals"
+    value: "forbidden"
+    status: "HARD_BLOCK"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "ForbiddenInputDominantFamily"
+    value: "forbidden_unless_independently_derived_from_delta_C_Tau"
+    status: "HARD_BLOCK"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "P5Cv3Status"
+    value: "P5C_V3_STRONG_LOCAL_COVARIANCE_SIGNAL_BUT_NO_GLOBAL_SURVIVAL"
+    status: "ANOMALY_CANDIDATE_ONLY"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "V4KernelAuthorized"
+    value: "false"
+    status: "NOT_AUTHORIZED"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
+  - item: "PTauCovScoringAuthorized"
+    value: "false"
+    status: "NOT_AUTHORIZED"
+    scoring_authorized: false
+    claim_boundary: "branch_support_template_no_scoring_authorization_no_survival_claim"
