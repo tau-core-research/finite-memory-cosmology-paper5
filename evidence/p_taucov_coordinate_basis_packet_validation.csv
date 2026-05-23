@@ -1,0 +1,5 @@
+AuditID,CheckID,Passed,Required,Status
+P_TAUCOV_COORDINATE_BASIS_PACKET_VALIDATION,exists_data/p_taucov/linear/coordinate_basis.csv,False,True,FAIL
+P_TAUCOV_COORDINATE_BASIS_PACKET_VALIDATION,exists_evidence/p_taucov_coordinate_basis_manifest.yaml,False,True,FAIL
+P_TAUCOV_COORDINATE_BASIS_PACKET_VALIDATION,exists_evidence/p_taucov_coordinate_basis.sha256,False,True,FAIL
+P_TAUCOV_COORDINATE_BASIS_PACKET_VALIDATION,exists_evidence/p_taucov_coordinate_basis_leakage_audit.csv,False,True,FAIL
