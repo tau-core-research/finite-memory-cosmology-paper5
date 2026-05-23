@@ -8,13 +8,13 @@ fields remain partial.
 
 ## Blocking Fields
 
-`COVARIANCE_MAP;NULL_GAUGE_MODES;PARENT_DOMAIN;REFERENCE_BACKGROUND;S_REST`
+`COVARIANCE_MAP;REFERENCE_BACKGROUND;S_REST`
 
 ## Key Numbers
 
-- gates passed: `3/8`
-- declared fields: `5`
-- partial fields: `5`
+- gates passed: `5/8`
+- declared fields: `7`
+- partial fields: `3`
 
 ## Claim Boundary
 

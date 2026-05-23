@@ -11,6 +11,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 SCAFFOLD = ROOT / "evidence/p_taucov_minimal_global_parent_action_scaffold_summary.csv"
 GATE = ROOT / "evidence/p_taucov_full_parent_action_embedding_gate.csv"
+DOMAIN_SUMMARY = ROOT / "evidence/p_taucov_full_action_domain_null_gauge_summary.csv"
 OUT_PACKET = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet.csv"
 OUT_GATES = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_gates.csv"
 OUT_SUMMARY = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_summary.csv"
@@ -23,11 +24,23 @@ CLAIM_BOUNDARY = "candidate_full_parent_action_packet_no_scoring"
 
 def main() -> int:
     scaffold = pd.read_csv(SCAFFOLD).iloc[0]
+    domain_declared = False
+    if DOMAIN_SUMMARY.exists():
+        domain_summary = pd.read_csv(DOMAIN_SUMMARY).iloc[0]
+        domain_declared = str(domain_summary["Status"]).endswith("PASS_NO_SCORING")
     fields = [
-        ("PARENT_DOMAIN", "finite eight-coordinate tau response cell; continuum embedding not declared", "partial"),
+        (
+            "PARENT_DOMAIN",
+            "finite eight-coordinate tau response cell with active Phi,B,P sector",
+            "declared" if domain_declared else "partial",
+        ),
         ("MEASURE_DMU_TAU", "uniform counting measure on frozen tau-coordinate packet", "declared"),
         ("NORMALIZATION", "Frobenius normalization inherited from projection-essential witness packets", "declared"),
-        ("NULL_GAUGE_MODES", "inactive coordinate axes and forbidden morphology/target sector declared as excluded", "partial"),
+        (
+            "NULL_GAUGE_MODES",
+            "active Phi,B,P; gauge coordinate conventions; forbidden morphology/external metadata",
+            "declared" if domain_declared else "partial",
+        ),
         ("REDUCED_BRANCH_DOMAIN", "branch coordinate B with reduced metric coefficient -1/2", "declared"),
         ("REFERENCE_BACKGROUND", "local stationary point around Phi=0 P=0 B=0", "partial"),
         ("ACTIVE_SECTOR", "integral dmu_tau[-1/2 B^2 - 2PB - P Phi]", "declared"),
