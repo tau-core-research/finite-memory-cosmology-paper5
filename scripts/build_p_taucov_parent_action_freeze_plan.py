@@ -11,6 +11,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 FIREWALL = ROOT / "evidence/p_taucov_parent_action_scoring_firewall_summary.csv"
 SCORECARD_FREEZE = ROOT / "evidence/p_taucov_parent_action_scorecard_script_freeze_summary.csv"
+FOLD_POLICY = ROOT / "evidence/p_taucov_parent_action_fold_policy_summary.csv"
 OUT = ROOT / "evidence/p_taucov_parent_action_freeze_plan.csv"
 SUMMARY = ROOT / "evidence/p_taucov_parent_action_freeze_plan_summary.csv"
 DOC = ROOT / "docs/p_taucov_parent_action_freeze_plan.md"
@@ -27,6 +28,10 @@ def main() -> int:
     if SCORECARD_FREEZE.exists():
         scorecard = pd.read_csv(SCORECARD_FREEZE).iloc[0]
         scorecard_frozen = str(scorecard["Status"]) == "P_TAUCOV_PARENT_ACTION_SCORECARD_SCRIPT_FROZEN_NO_SCORING"
+    fold_policy_frozen = False
+    if FOLD_POLICY.exists():
+        fold_policy = pd.read_csv(FOLD_POLICY).iloc[0]
+        fold_policy_frozen = str(fold_policy["Status"]) == "P_TAUCOV_PARENT_ACTION_FOLD_POLICY_FROZEN_NO_SCORING"
     rows = [
         (
             "FREEZE_01_PRIMARY_SCORECARD_SCRIPT",
@@ -38,7 +43,7 @@ def main() -> int:
             "FREEZE_02_FOLD_POLICY",
             "evidence/p_taucov_parent_action_fold_policy.csv",
             "must declare folds, blocked aggregations, and leave-family/clock logic",
-            False,
+            fold_policy_frozen,
         ),
         (
             "FREEZE_03_NULL_COMPARATORS",
