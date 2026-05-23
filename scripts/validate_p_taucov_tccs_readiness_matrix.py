@@ -55,6 +55,8 @@ def main() -> int:
     add(rows, "operator_assembly_preflight_no_longer_blocks_object", bool(matrix[matrix["LayerID"].eq("TCCS_OPERATOR_ASSEMBLY_PREFLIGHT")]["BlocksObjectConstruction"].iloc[0]) is False)
     add(rows, "object_preflight_layer_present", bool(matrix["LayerID"].eq("TCCS_OBJECT_PREFLIGHT").any()))
     add(rows, "object_preflight_blocks_scoring", bool(matrix[matrix["LayerID"].eq("TCCS_OBJECT_PREFLIGHT")]["BlocksScoring"].iloc[0]) is True)
+    add(rows, "nogo_theorem_layer_present", bool(matrix["LayerID"].eq("TCCS_COMMUTATOR_NOGO_THEOREM").any()))
+    add(rows, "transfer_protocol_layer_present", bool(matrix["LayerID"].eq("TCCS_TRANSFER_CURVATURE_PROTOCOL").any()))
     add(rows, "doc_says_not_scoring", "not scoring" in doc and "not authorized" in doc)
     add(rows, "doc_forbids_empirical_tau_signal", "empirical Tau signal" in doc)
 

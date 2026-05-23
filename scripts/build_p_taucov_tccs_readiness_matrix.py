@@ -19,6 +19,8 @@ JTAU_SUMMARY = EVIDENCE / "p_taucov_tccs_jtau_anchor_candidate_summary.csv"
 ASSEMBLY_SUMMARY = EVIDENCE / "p_taucov_tccs_operator_assembly_preflight_summary.csv"
 OBJECT_SUMMARY = EVIDENCE / "p_taucov_tccs_object_preflight_summary.csv"
 OBJECT_INTERPRETATION = EVIDENCE / "p_taucov_tccs_object_preflight_interpretation.csv"
+NOGO_THEOREM = EVIDENCE / "p_taucov_tccs_commutator_nogo_theorem.csv"
+TRANSFER_PROTOCOL = EVIDENCE / "p_taucov_tccs_transfer_curvature_protocol_summary.csv"
 
 OUT_MATRIX = EVIDENCE / "p_taucov_tccs_readiness_matrix.csv"
 OUT_SUMMARY = EVIDENCE / "p_taucov_tccs_readiness_summary.csv"
@@ -122,6 +124,30 @@ def main() -> int:
             "Reason": "negative interpretation forbids scoring current TCCS object",
             "ClaimBoundary": CLAIM_BOUNDARY,
         },
+        {
+            "ProtocolID": PROTOCOL_ID,
+            "FreezeID": FREEZE_ID,
+            "LayerID": "TCCS_COMMUTATOR_NOGO_THEOREM",
+            "SourceArtifact": str(NOGO_THEOREM.relative_to(ROOT)),
+            "LayerStatus": read_status(NOGO_THEOREM),
+            "Ready": True,
+            "BlocksObjectConstruction": False,
+            "BlocksScoring": True,
+            "Reason": "no-go theorem explains why double-sided Pi_perp commutator collapses",
+            "ClaimBoundary": CLAIM_BOUNDARY,
+        },
+        {
+            "ProtocolID": PROTOCOL_ID,
+            "FreezeID": FREEZE_ID,
+            "LayerID": "TCCS_TRANSFER_CURVATURE_PROTOCOL",
+            "SourceArtifact": str(TRANSFER_PROTOCOL.relative_to(ROOT)),
+            "LayerStatus": read_status(TRANSFER_PROTOCOL),
+            "Ready": True,
+            "BlocksObjectConstruction": False,
+            "BlocksScoring": True,
+            "Reason": "corrected transfer-curvature object class is defined but no object or scoring is authorized",
+            "ClaimBoundary": CLAIM_BOUNDARY,
+        },
     ]
     matrix = pd.DataFrame(rows)
     matrix.to_csv(OUT_MATRIX, index=False)
@@ -140,7 +166,7 @@ def main() -> int:
                 "ScoringAuthorized": not scoring_blocked,
                 "SurvivalClaimAuthorized": False,
                 "TauCoreValidationClaimAuthorized": False,
-                "NextRequiredGate": "derive parent Hessian component whose commutator survives Pi_perp before any scoring",
+                "NextRequiredGate": "build transfer-curvature object preflight from K_curv without scoring",
                 "ClaimBoundary": CLAIM_BOUNDARY,
             }
         ]
@@ -173,6 +199,8 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | `J_tau` candidate | frozen, target-blind, no scoring |
 | operator assembly | ready for object-construction preflight |
 | TCCS object preflight | failed structurally, no scoring |
+| commutator no-go theorem | proven |
+| transfer-curvature protocol | defined, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -181,7 +209,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 The next legitimate Tau-specific step is not scoring. It is:
 
 ```text
-derive parent Hessian component whose commutator survives Pi_perp before any scoring
+build transfer-curvature object preflight from `K_curv` without scoring
 ```
 
 Only after that can a pre-score object-construction validator decide whether a TCCS object exists at all.

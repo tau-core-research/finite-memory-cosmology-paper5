@@ -1,0 +1,5 @@
+TheoremID,Status,AssumptionID,Assumption,Expression,PassedFromCurrentFreeze,ClaimBoundary
+P_TAUCOV_TCCS_COMMUTATOR_NOGO_THEOREM_v1,TCCS_DOUBLE_SIDED_PERP_COMMUTATOR_NOGO_PROVEN,A1,P is an idempotent morphology/projection projector,P^2 = P,True,tccs_commutator_nogo_theorem_no_scoring
+P_TAUCOV_TCCS_COMMUTATOR_NOGO_THEOREM_v1,TCCS_DOUBLE_SIDED_PERP_COMMUTATOR_NOGO_PROVEN,A2,Pi_perp is the orthogonal complement of P,Pi_perp P = P Pi_perp = 0,True,tccs_commutator_nogo_theorem_no_scoring
+P_TAUCOV_TCCS_COMMUTATOR_NOGO_THEOREM_v1,TCCS_DOUBLE_SIDED_PERP_COMMUTATOR_NOGO_PROVEN,R1,"For any reduced parent Hessian H, the double-sided projected commutator vanishes","Pi_perp [H,P] Pi_perp = 0",True,tccs_commutator_nogo_theorem_no_scoring
+P_TAUCOV_TCCS_COMMUTATOR_NOGO_THEOREM_v1,TCCS_DOUBLE_SIDED_PERP_COMMUTATOR_NOGO_PROVEN,C1,"The failed TCCS preflight is therefore structural, not empirical",current_TCCS_form_is_not_scoreable,True,tccs_commutator_nogo_theorem_no_scoring
