@@ -14,6 +14,7 @@ SCORECARD_FREEZE = ROOT / "evidence/p_taucov_parent_action_scorecard_script_free
 FOLD_POLICY = ROOT / "evidence/p_taucov_parent_action_fold_policy_summary.csv"
 NULL_COMPARATORS = ROOT / "evidence/p_taucov_parent_action_null_comparators_summary.csv"
 SURVIVAL_KILL = ROOT / "evidence/p_taucov_parent_action_survival_kill_gates_summary.csv"
+DF_COVARIANCE = ROOT / "evidence/p_taucov_parent_action_df_covariance_policy_summary.csv"
 OUT = ROOT / "evidence/p_taucov_parent_action_freeze_plan.csv"
 SUMMARY = ROOT / "evidence/p_taucov_parent_action_freeze_plan_summary.csv"
 DOC = ROOT / "docs/p_taucov_parent_action_freeze_plan.md"
@@ -42,6 +43,10 @@ def main() -> int:
     if SURVIVAL_KILL.exists():
         survival_kill = pd.read_csv(SURVIVAL_KILL).iloc[0]
         survival_kill_frozen = str(survival_kill["Status"]) == "P_TAUCOV_PARENT_ACTION_SURVIVAL_KILL_GATES_FROZEN_NO_SCORING"
+    df_covariance_frozen = False
+    if DF_COVARIANCE.exists():
+        df_covariance = pd.read_csv(DF_COVARIANCE).iloc[0]
+        df_covariance_frozen = str(df_covariance["Status"]) == "P_TAUCOV_PARENT_ACTION_DF_COVARIANCE_POLICY_FROZEN_NO_SCORING"
     rows = [
         (
             "FREEZE_01_PRIMARY_SCORECARD_SCRIPT",
@@ -71,7 +76,7 @@ def main() -> int:
             "FREEZE_05_DF_COVARIANCE_POLICY",
             "evidence/p_taucov_parent_action_df_covariance_policy.csv",
             "must define df=1 or other declared df, alpha bounds, PSD policy, and regularization",
-            False,
+            df_covariance_frozen,
         ),
         (
             "FREEZE_06_FINAL_MANIFEST",
