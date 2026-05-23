@@ -1,0 +1,2 @@
+ProtocolID,FreezeID,Status,GatesPassed,GatesTotal,MapDimension,MinEigenvalue,MaxEigenvalue,Trace,FrobeniusNorm,MapSymmetric,MapPositiveSemidefinite,ScoringAuthorized,MeasurementValidationAllowed,ClaimBoundary
+P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1,P_TAUCOV_COVARIANCE_MAP_DECLARATION_v1,P_TAUCOV_COVARIANCE_MAP_DECLARED_PASS_NO_SCORING,6,6,2,-1.3322676295501878e-17,1.0,1.0,1.0,True,True,False,False,covariance_map_declaration_no_scoring

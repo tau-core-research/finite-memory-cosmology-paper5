@@ -17,7 +17,6 @@ OUT = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_validation.c
 
 AUDIT_ID = "P_TAUCOV_CANDIDATE_FULL_PARENT_ACTION_PACKET_VALIDATION"
 EXPECTED_BLOCKERS = {
-    "COVARIANCE_MAP",
     "FULL_DYNAMICAL_STABILITY",
 }
 
@@ -46,7 +45,7 @@ def main() -> int:
         doc = DOC.read_text(encoding="utf-8")
         blockers = set(str(summary["BlockingFields"]).split(";"))
         add("status_blocked_no_scoring", str(summary["Status"]).endswith("BLOCKED_NO_SCORING"))
-        add("has_failed_embedding_gates", int((~gates["Passed"]).sum()) > 0)
+        add("blocked_by_failed_gate_or_partial_field", int((~gates["Passed"]).sum()) > 0 or bool(blockers))
         add("expected_blockers", blockers == EXPECTED_BLOCKERS)
         add("gates_match_summary", int(gates["Passed"].sum()) == int(summary["GatesPassed"]))
         add("partial_fields_match_summary", int(packet["DeclarationStatus"].eq("partial").sum()) == int(summary["PartialFields"]))

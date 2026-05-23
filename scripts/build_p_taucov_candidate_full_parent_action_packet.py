@@ -15,6 +15,7 @@ DOMAIN_SUMMARY = ROOT / "evidence/p_taucov_full_action_domain_null_gauge_summary
 BACKGROUND_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stationarity_summary.csv"
 BACKGROUND_STABILITY_SUMMARY = ROOT / "evidence/p_taucov_reference_background_stability_summary.csv"
 RESPONSE_ENERGY_SUMMARY = ROOT / "evidence/p_taucov_response_energy_split_summary.csv"
+COVARIANCE_MAP_SUMMARY = ROOT / "evidence/p_taucov_covariance_map_summary.csv"
 S_REST_SUMMARY = ROOT / "evidence/p_taucov_s_rest_no_leakage_summary.csv"
 OUT_PACKET = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet.csv"
 OUT_GATES = ROOT / "evidence/p_taucov_candidate_full_parent_action_packet_gates.csv"
@@ -44,6 +45,10 @@ def main() -> int:
     if RESPONSE_ENERGY_SUMMARY.exists():
         response_energy_summary = pd.read_csv(RESPONSE_ENERGY_SUMMARY).iloc[0]
         response_energy_declared = str(response_energy_summary["Status"]).endswith("PASS_NO_SCORING")
+    covariance_map_declared = False
+    if COVARIANCE_MAP_SUMMARY.exists():
+        covariance_map_summary = pd.read_csv(COVARIANCE_MAP_SUMMARY).iloc[0]
+        covariance_map_declared = str(covariance_map_summary["Status"]).endswith("PASS_NO_SCORING")
     s_rest_declared = False
     if S_REST_SUMMARY.exists():
         s_rest_summary = pd.read_csv(S_REST_SUMMARY).iloc[0]
@@ -83,7 +88,11 @@ def main() -> int:
             "positive no-leakage quadratic complement on inactive gauge/forbidden coordinates",
             "declared" if s_rest_declared else "partial",
         ),
-        ("COVARIANCE_MAP", "inherited empirical bridge/covariance map; full independent D_M C not declared", "partial"),
+        (
+            "COVARIANCE_MAP",
+            "target-blind PSD lift D_M C[T]=TT^T/||TT^T||_F declared before scoring",
+            "declared" if covariance_map_declared else "partial",
+        ),
         ("FORBIDDEN_INPUTS", "target residuals scores alpha behavior dominant-family identity excluded", "declared"),
     ]
     packet = pd.DataFrame(
@@ -146,7 +155,7 @@ def main() -> int:
     passed_count = int(gates["Passed"].sum())
     status = (
         "P_TAUCOV_CANDIDATE_FULL_PARENT_ACTION_PACKET_PASS_NO_SCORING"
-        if passed_count == len(gates)
+        if passed_count == len(gates) and not partial
         else "P_TAUCOV_CANDIDATE_FULL_PARENT_ACTION_PACKET_BLOCKED_NO_SCORING"
     )
     summary = pd.DataFrame(
