@@ -24,6 +24,7 @@ has not been scored; it is a pre-score structural audit.
 | TCCS double-sided commutator | exact no-go | blocked before scoring |
 | TCCS transfer-curvature | retained norm `0.0012660320646664862` | failed pre-score object gate |
 | Cleaner domain compatibility | `7 / 7` gates | pass, no scoring |
+| Common-clean-subspace support | `0 / 5` candidates pass | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -39,6 +40,8 @@ projection, and the no-go-corrected transfer-curvature object becomes too weak
 and leaky after branch/perp cleaning. A follow-up cleaner audit shows that the
 cleaners themselves are compatible, so the failure is now localized to the
 candidate curvature object rather than to the branch/perp cleaner pair.
+The common-clean-subspace support audit then checks the existing candidate
+inventory and finds no scoreable object.
 
 ## Scientific Meaning
 
@@ -89,3 +92,6 @@ The current theory refinement is recorded in
 
 The next no-scoring protocol gate is recorded in
 [`p_taucov_common_clean_subspace_support_protocol.md`](p_taucov_common_clean_subspace_support_protocol.md).
+
+The first support audit is recorded in
+[`p_taucov_common_clean_subspace_support_audit.md`](p_taucov_common_clean_subspace_support_audit.md).

@@ -4,7 +4,7 @@ Freeze ID: `P_TAUCOV_COMMON_CLEAN_SUBSPACE_SUPPORT_PROTOCOL_v1`
 
 Status:
 
-`P_TAUCOV_COMMON_CLEAN_SUBSPACE_SUPPORT_PROTOCOL_DEFINED_NO_OBJECT_NO_SCORING`
+`P_TAUCOV_COMMON_CLEAN_SUBSPACE_SUPPORT_AUDITED_NO_PASSING_CANDIDATE_NO_SCORING`
 
 ## Motivation
 
@@ -76,10 +76,42 @@ support_retention >= 0.20
 This is not a physical constant. It is a pre-score admissibility threshold for
 whether an object is worth scoring at all.
 
+## Inventory Audit Result
+
+The first support audit has now been run:
+
+[`p_taucov_common_clean_subspace_support_audit.md`](p_taucov_common_clean_subspace_support_audit.md)
+
+Result:
+
+```text
+P_TAUCOV_COMMON_CLEAN_SUBSPACE_SUPPORT_AUDIT_NO_PASSING_CANDIDATE_NO_SCORING
+```
+
+Five existing parent-derived or score-native candidates were inspected. None
+passed the support preflight. The best support retention was:
+
+```text
+TCCS_TRANSFER_CURVATURE: 0.00836108135986166
+```
+
+This is far below the predeclared `0.20` support threshold. The conclusion is
+not that Tau Core is falsified. The conclusion is narrower:
+
+```text
+the current parent-curvature inventory does not yet contain a clean-subspace-native candidate
+```
+
+The next theoretical task is therefore to derive a new parent-side curvature
+source whose range is native to `Q_clean`, rather than projecting an old object
+into `Q_clean` after construction.
+
 ## Forbidden Move
 
 Do not build another scorecard until a candidate passes common-clean-subspace
 support preflight. A weak object cannot be rescued by changing scoring mode.
+Also do not promote the best failed candidate: `0.00836` support retention is a
+negative structural result, not a weak positive.
 
 ## Claim Boundary
 

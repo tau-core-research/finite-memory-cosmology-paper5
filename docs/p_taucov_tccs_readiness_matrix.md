@@ -28,7 +28,7 @@ T_tau = Normalize(Pi_bal Pi_perp Orient_+([L_B_red, P_morph]; J_tau) Pi_perp Pi_
 | transfer-curvature protocol | defined, no scoring |
 | transfer-curvature preflight | failed structurally, no scoring |
 | domain-compatibility audit | cleaners compatible, no scoring |
-| common-clean-subspace support protocol | defined, no object, no scoring |
+| common-clean-subspace support audit | no passing candidate, no scoring |
 | scoring | not authorized |
 | survival claim | not authorized |
 
@@ -81,6 +81,18 @@ Only after that pre-score object exists can a scoring manifest be considered.
 Protocol:
 
 [`p_taucov_common_clean_subspace_support_protocol.md`](p_taucov_common_clean_subspace_support_protocol.md)
+
+The first inventory audit found no passing candidate:
+
+[`p_taucov_common_clean_subspace_support_audit.md`](p_taucov_common_clean_subspace_support_audit.md)
+
+Best candidate:
+
+```text
+TCCS_TRANSFER_CURVATURE support_retention = 0.00836108135986166
+```
+
+This is below the preflight threshold and blocks scoring.
 
 ## Claim Boundary
 
