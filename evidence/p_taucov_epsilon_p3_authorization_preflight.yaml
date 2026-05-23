@@ -1,0 +1,23 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+PreflightID: P_TAUCOV_EPSILON_P3_AUTHORIZATION_PREFLIGHT_v1
+Status: BLOCKED_NO_SCORING_AUTHORIZATION
+ChecksTotal: 6
+ChecksPassed: 3
+OpenRequiredChecks: 3
+PTauCovScoringAuthorized: false
+BlockingItems:
+- scorecard_script_frozen
+- observed_residual_input_contract_frozen
+- final_authorization_manifest_ready
+InputFiles:
+  epsilon_p3_freeze: evidence/p_taucov_epsilon_p3_freeze_manifest.yaml
+  branch_support: evidence/p_taucov_epsilon_p3_branch_support_freeze.yaml
+  scoring_policy: evidence/p_taucov_epsilon_p3_scoring_policy_freeze.yaml
+  checklist: evidence/p_taucov_epsilon_p3_authorization_preflight_checklist.csv
+InputSHA256:
+  epsilon_p3_freeze: 7a18e05a1efaed47836c8e46d3f95784fe99526078671ec769b0a87033c70943
+  branch_support: a9ef28f573999a28d43fbd90fa28951421f4dc4164b7efbbdf9430581c27ac32
+  scoring_policy: b38c749cd8e313eba792a7fbdccc0192bc59b48825e963b26592d4e78beb4c06
+  checklist: 11850c304708fe7b5860569b0747bde7b48e845db33d60be6849cda8720e8b0d
+GeneratedUTC: '2026-05-23T16:20:51+00:00'
+ClaimBoundary: epsilon_p3_authorization_preflight_blocks_scoring_until_scorecard_and_input_contract

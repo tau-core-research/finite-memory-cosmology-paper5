@@ -1,0 +1,27 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+FreezeID: P_TAUCOV_EPSILON_P3_SCORING_POLICY_FREEZE_v1
+Status: SCORING_POLICIES_FROZEN_NO_AUTHORIZATION
+FoldPolicyFrozen: true
+NullPolicyFrozen: true
+CovarianceDFPolicyFrozen: true
+SurvivalKillGatesFrozen: true
+BranchSupportFrozen: true
+ScorecardScriptFrozen: false
+PTauCovScoringAuthorized: false
+ReasonScoringNotAuthorized: scorecard_script_and_final_authorization_manifest_not_frozen
+InputFiles:
+  epsilon_p3_freeze: evidence/p_taucov_epsilon_p3_freeze_manifest.yaml
+  branch_support: evidence/p_taucov_epsilon_p3_branch_support_freeze.yaml
+  fold_policy: evidence/p_taucov_epsilon_p3_fold_policy.csv
+  null_policy: evidence/p_taucov_epsilon_p3_null_policy.csv
+  covariance_df_policy: evidence/p_taucov_epsilon_p3_covariance_df_policy.csv
+  survival_kill_gates: evidence/p_taucov_epsilon_p3_survival_kill_gates.csv
+InputSHA256:
+  epsilon_p3_freeze: 7a18e05a1efaed47836c8e46d3f95784fe99526078671ec769b0a87033c70943
+  branch_support: a9ef28f573999a28d43fbd90fa28951421f4dc4164b7efbbdf9430581c27ac32
+  fold_policy: b55ff2f891b7946ae5b6188ca463a21757f5f9d19ebfa9a126e039bf343ede21
+  null_policy: 1cca9c9f82092babba934bcde07db579981095a29698c27ebd5894039d3f6623
+  covariance_df_policy: 0c26d6f44d658662ef4a865afd4e5ead305854b56f08c5f0685020dc88c35465
+  survival_kill_gates: 48f31e27a0109a42320cc059f48c8cd6ea5396c7046d7396daeae71dde51e7ec
+GeneratedUTC: '2026-05-23T16:19:18+00:00'
+ClaimBoundary: epsilon_p3_scoring_policies_frozen_no_scorecard_no_scoring_authorization

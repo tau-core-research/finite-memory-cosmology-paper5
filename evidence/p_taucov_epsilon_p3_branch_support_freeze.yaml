@@ -1,0 +1,17 @@
+ProtocolID: P_TAUCOV_BRANCH_LOCALIZED_COVARIANCE_RESPONSE_v1
+FreezeID: P_TAUCOV_EPSILON_P3_BRANCH_SUPPORT_FREEZE_v1
+Status: FROZEN_BRANCH_SUPPORT_NO_SCORING
+q_branch: 0.8
+SelectedCells: 13
+SelectedMass: 0.8333333333333335
+BranchSupportSource: delta_C_Tau_only
+DeltaCTauSource: P3_core_mixing_operator_times_transpose
+OperatorFile: data/p_taucov/linear/P3_core_mixing_operator.csv
+CoordinateBasisFile: data/p_taucov/linear/coordinate_basis.csv
+WeightsFile: evidence/p_taucov_epsilon_p3_branch_support_weights.csv
+SelectedSupportFile: evidence/p_taucov_epsilon_p3_branch_support_freeze.csv
+TargetResidualsUsed: false
+P5CV3OutcomeUsed: false
+PTauCovScoringAuthorized: false
+GeneratedUTC: '2026-05-23T16:17:25+00:00'
+ClaimBoundary: epsilon_p3_branch_support_frozen_no_empirical_scoring_no_tau_signal_claim
