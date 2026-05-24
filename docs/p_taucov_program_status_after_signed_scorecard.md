@@ -48,6 +48,7 @@ has not been scored; it is a pre-score structural audit.
 | Projection-coupled specificity preflight | projection channel fixed, but diagonal/rank gates fail | no scoring |
 | Active-triad PSD ceiling audit | current `Phi/B/P` PSD route structurally too narrow | no scoring |
 | Parent-operator source expansion gate | broader non-outcome source space required | no object, no scoring |
+| Expanded parent-operator domain packet | 5 active coordinates, 2 new non-outcome axes | no object, no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -216,3 +217,9 @@ The parent-operator source expansion gate is recorded in
 It requires the next PSD route to declare at least five active reduced
 coordinates and at least two new non-outcome axes from allowed source classes
 before any new covariance object is assembled.
+
+The expanded parent-operator domain packet is recorded in
+[`p_taucov_expanded_parent_operator_domain_packet.md`](p_taucov_expanded_parent_operator_domain_packet.md).
+It keeps the `Phi/B/P` core active and adds `TEMPLATE_COORD_SCALE_UNIT` plus
+`TEMPLATE_EXT_OBSERVING_CONTEXT` as target-blind non-outcome axes. Direct
+`M_PARENT_MORPHOLOGY` and `EXT_SOURCE_FAMILY` remain forbidden.

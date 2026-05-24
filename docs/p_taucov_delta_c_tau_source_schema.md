@@ -124,6 +124,14 @@ It freezes the requirements for a broader PSD route: at least five active
 reduced coordinates, at least two new non-outcome axes, and a parent-side
 operator/source rule before covariance lifting.
 
+The expanded parent-operator domain packet is available at:
+
+[`p_taucov_expanded_parent_operator_domain_packet.md`](p_taucov_expanded_parent_operator_domain_packet.md)
+
+It supplies the first target-blind expanded reduced domain for the next
+parent-side operator/source packet. It does not yet construct an operator or a
+`delta_C_Tau` covariance candidate.
+
 ## Next Valid Step
 
 Provide a concrete, target-blind Tau-response input packet with:

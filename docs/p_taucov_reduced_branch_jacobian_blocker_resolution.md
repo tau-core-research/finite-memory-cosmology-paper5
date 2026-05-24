@@ -150,6 +150,14 @@ candidate must expand the reduced parent-side operator source to at least five
 active coordinates with at least two new non-outcome axes before object
 construction.
 
+The expanded parent-operator domain packet is:
+
+[`p_taucov_expanded_parent_operator_domain_packet.md`](p_taucov_expanded_parent_operator_domain_packet.md)
+
+It satisfies the domain-side part of that requirement without constructing a
+new covariance object. The next unresolved piece is the actual expanded
+parent-side operator/source rule on this five-coordinate active domain.
+
 ## Claim Boundary
 
 Allowed statement:
