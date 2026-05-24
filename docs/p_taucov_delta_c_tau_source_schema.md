@@ -107,6 +107,15 @@ still blocks scoring because the PSD-lifted candidate is diagonal-dominated and
 low-rank. The next valid route must therefore add a broader parent-side
 curvature/operator source, not merely the minimal active `B-P` derivative.
 
+The active-triad PSD ceiling audit is available at:
+
+[`p_taucov_active_triad_psd_ceiling_audit.md`](p_taucov_active_triad_psd_ceiling_audit.md)
+
+It checks deterministic target-blind off-diagonal source shapes on the active
+`Phi/B/P` triad. No scanned triad object passes both the diagonal-energy and
+effective-rank gates. This means the PSD route needs a broader parent-side
+operator source or a different, separately frozen signed-contrast claim class.
+
 ## Next Valid Step
 
 Provide a concrete, target-blind Tau-response input packet with:

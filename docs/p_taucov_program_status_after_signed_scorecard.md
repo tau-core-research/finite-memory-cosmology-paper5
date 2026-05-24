@@ -46,6 +46,7 @@ has not been scored; it is a pre-score structural audit.
 | `D_P M_proj` source spec | minimal active branch/projection derivative frozen | no object, no scoring |
 | Projection-coupled Jacobian assembly | active projection channel included | no scoring |
 | Projection-coupled specificity preflight | projection channel fixed, but diagonal/rank gates fail | no scoring |
+| Active-triad PSD ceiling audit | current `Phi/B/P` PSD route structurally too narrow | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -201,3 +202,10 @@ The projection-coupled specificity preflight is recorded in
 [`p_taucov_projection_coupled_specificity_preflight.md`](p_taucov_projection_coupled_specificity_preflight.md).
 It shows that the projection channel is now present, but the PSD-lifted
 candidate remains too diagonal-dominated and low-rank for scoring.
+
+The active-triad PSD ceiling audit is recorded in
+[`p_taucov_active_triad_psd_ceiling_audit.md`](p_taucov_active_triad_psd_ceiling_audit.md).
+It shows that the current active `Phi/B/P` triad is structurally too narrow for
+the PSD covariance route under the existing specificity gates. The next route
+must either expand the target-blind parent-side operator source or open a
+separately frozen signed-operator-contrast protocol.

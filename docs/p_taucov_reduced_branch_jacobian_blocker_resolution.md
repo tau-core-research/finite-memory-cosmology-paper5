@@ -133,6 +133,14 @@ blocker is no longer simply missing `D_P M_proj`; it is missing a broader
 parent-side curvature/operator source that can distribute support without
 target-derived tuning.
 
+The active-triad PSD ceiling audit is:
+
+[`p_taucov_active_triad_psd_ceiling_audit.md`](p_taucov_active_triad_psd_ceiling_audit.md)
+
+It shows that this is not merely a bad choice of minimal `Phi/B/P` weights. The
+current active triad itself is too narrow for the PSD covariance survival route
+under the frozen specificity gates.
+
 ## Claim Boundary
 
 Allowed statement:
