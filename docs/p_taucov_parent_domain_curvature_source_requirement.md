@@ -68,6 +68,15 @@ parent-domain provenance, source conventions, symmetry, constraint algebra, or
 self-adjoint-domain structure, but not from residual outcomes or scorecard
 success.
 
+The first metric-candidate audit did not find a passing metric on the current
+eight-coordinate embedding:
+
+[`p_taucov_domain_metric_candidate_audit.md`](p_taucov_domain_metric_candidate_audit.md)
+
+Therefore the next admissible route should focus on a richer parent-domain
+embedding/source coordinate rather than another metric on the same coordinate
+inventory.
+
 ## Claim Boundary
 
 Allowed statement:

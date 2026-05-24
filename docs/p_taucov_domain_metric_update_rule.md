@@ -50,6 +50,19 @@ only if it also declares:
 - target-blind support audit command;
 - forbidden inputs certificate.
 
+## First Candidate Audit
+
+The first target-blind candidate audit tested identity, parent-Hessian absolute
+coupling, parent-Hessian PSD-square, and active-sector variants:
+
+[`p_taucov_domain_metric_candidate_audit.md`](p_taucov_domain_metric_candidate_audit.md)
+
+No candidate passed. The best parent-Hessian absolute-coupling metric raised
+the minimum active-branch `Q_clean` support only to about `0.047`, below the
+frozen `0.20` threshold. This indicates that the current finite coordinate
+inventory is likely too poor for metric update alone; a richer admissible
+embedding coordinate or parent-domain source is required.
+
 ## Claim Boundary
 
 Allowed statement:
