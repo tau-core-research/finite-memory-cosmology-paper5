@@ -77,6 +77,17 @@ Therefore the next admissible route should focus on a richer parent-domain
 embedding/source coordinate rather than another metric on the same coordinate
 inventory.
 
+The coordinate-extension gate and first target-blind preflight are now:
+
+[`p_taucov_admissible_source_coordinate_extension.md`](p_taucov_admissible_source_coordinate_extension.md)
+
+That packet defines admissible parent-derived coordinate classes and audits a
+small set of nonlinear candidates before any scoring. Its first passing
+preflight coordinate is the projection-branch interaction `COORD_PB_INTERACTION`,
+derived from the parent `P*B` coupling. This is only a coordinate-source
+preflight result; it does not freeze a covariance object and does not authorize
+empirical scoring.
+
 ## Claim Boundary
 
 Allowed statement:
