@@ -141,6 +141,15 @@ It shows that this is not merely a bad choice of minimal `Phi/B/P` weights. The
 current active triad itself is too narrow for the PSD covariance survival route
 under the frozen specificity gates.
 
+The parent-operator source expansion gate is:
+
+[`p_taucov_parent_operator_source_expansion_gate.md`](p_taucov_parent_operator_source_expansion_gate.md)
+
+It turns that diagnosis into the next concrete requirement: a future PSD-route
+candidate must expand the reduced parent-side operator source to at least five
+active coordinates with at least two new non-outcome axes before object
+construction.
+
 ## Claim Boundary
 
 Allowed statement:

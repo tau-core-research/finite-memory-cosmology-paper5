@@ -47,6 +47,7 @@ has not been scored; it is a pre-score structural audit.
 | Projection-coupled Jacobian assembly | active projection channel included | no scoring |
 | Projection-coupled specificity preflight | projection channel fixed, but diagonal/rank gates fail | no scoring |
 | Active-triad PSD ceiling audit | current `Phi/B/P` PSD route structurally too narrow | no scoring |
+| Parent-operator source expansion gate | broader non-outcome source space required | no object, no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -209,3 +210,9 @@ It shows that the current active `Phi/B/P` triad is structurally too narrow for
 the PSD covariance route under the existing specificity gates. The next route
 must either expand the target-blind parent-side operator source or open a
 separately frozen signed-operator-contrast protocol.
+
+The parent-operator source expansion gate is recorded in
+[`p_taucov_parent_operator_source_expansion_gate.md`](p_taucov_parent_operator_source_expansion_gate.md).
+It requires the next PSD route to declare at least five active reduced
+coordinates and at least two new non-outcome axes from allowed source classes
+before any new covariance object is assembled.

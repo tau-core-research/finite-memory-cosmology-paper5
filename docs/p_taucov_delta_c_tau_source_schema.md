@@ -116,6 +116,14 @@ It checks deterministic target-blind off-diagonal source shapes on the active
 effective-rank gates. This means the PSD route needs a broader parent-side
 operator source or a different, separately frozen signed-contrast claim class.
 
+The parent-operator source expansion gate is available at:
+
+[`p_taucov_parent_operator_source_expansion_gate.md`](p_taucov_parent_operator_source_expansion_gate.md)
+
+It freezes the requirements for a broader PSD route: at least five active
+reduced coordinates, at least two new non-outcome axes, and a parent-side
+operator/source rule before covariance lifting.
+
 ## Next Valid Step
 
 Provide a concrete, target-blind Tau-response input packet with:
@@ -123,7 +131,8 @@ Provide a concrete, target-blind Tau-response input packet with:
 ```text
 F_B, L_B^red, branch-domain policy,
 P_morph, frozen D_P M_proj source derivative,
-broader parent-side curvature/operator source, D_M C,
+expanded parent-side curvature/operator source with >=5 active coordinates,
+D_M C,
 observable coordinate index,
 normalization policy,
 leakage exclusion audit.
