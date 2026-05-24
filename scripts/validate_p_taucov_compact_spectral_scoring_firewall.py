@@ -15,7 +15,7 @@ DOC = ROOT / "docs/p_taucov_compact_spectral_scoring_firewall.md"
 OUT = ROOT / "evidence/p_taucov_compact_spectral_scoring_firewall_validation.csv"
 
 AUDIT_ID = "P_TAUCOV_COMPACT_SPECTRAL_SCORING_FIREWALL_VALIDATION"
-EXPECTED_STATUS = "P_TAUCOV_COMPACT_SPECTRAL_SCORING_BLOCKED_FREEZE_REQUIRED"
+EXPECTED_STATUS = "P_TAUCOV_COMPACT_SPECTRAL_SCORING_AUTHORIZATION_READY"
 
 
 def main() -> int:
@@ -39,11 +39,11 @@ def main() -> int:
         table = pd.read_csv(TABLE)
         summary = pd.read_csv(SUMMARY).iloc[0]
         doc = DOC.read_text(encoding="utf-8")
-        missing = set(str(summary["MissingItems"]).split(";"))
-        expected_missing = {"CS-FW10_FINAL_MANIFEST_READY"}
-        add("status_blocked", str(summary["Status"]) == EXPECTED_STATUS)
-        add("nine_of_ten_satisfied", int(summary["SatisfiedItems"]) == 9 and int(summary["TotalItems"]) == 10)
-        add("expected_missing_items", missing == expected_missing)
+        missing_value = summary["MissingItems"]
+        missing = set() if pd.isna(missing_value) else set(str(missing_value).split(";"))
+        add("status_authorization_ready", str(summary["Status"]) == EXPECTED_STATUS)
+        add("ten_of_ten_satisfied", int(summary["SatisfiedItems"]) == 10 and int(summary["TotalItems"]) == 10)
+        add("no_missing_items", missing == set())
         add("source_items_satisfied", bool(table.loc[table["FirewallItemID"].isin(["CS-FW1_SOURCE_PREFLIGHT_PASS", "CS-FW2_SOURCE_OBJECT_HASH_READY", "CS-FW3_SOURCE_SPECTRUM_HASH_READY", "CS-FW4_SOURCE_VALIDATION_PASS"]), "Satisfied"].all()))
         add("scoring_false", bool(summary["ScoringAuthorized"]) is False)
         add("survival_false", bool(summary["SurvivalClaimAuthorized"]) is False)
