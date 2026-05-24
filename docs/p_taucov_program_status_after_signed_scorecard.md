@@ -52,6 +52,7 @@ has not been scored; it is a pre-score structural audit.
 | Expanded parent-operator source packet | 5-axis role-declared source matrix frozen | no scoring |
 | Expanded parent-operator PSD preflight | structural PSD specificity gates pass | no scoring |
 | Expanded parent-operator scoring firewall | structural hashes ready, policy freezes missing | no scoring |
+| Expanded parent-operator final manifest | primary scorecard authorized, no survival claim | scorecard authorized only |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -238,6 +239,10 @@ It passes the structural no-scoring PSD specificity gates that the active
 
 The expanded parent-operator scoring firewall is recorded in
 [`p_taucov_expanded_parent_operator_scoring_firewall.md`](p_taucov_expanded_parent_operator_scoring_firewall.md).
-It confirms that the candidate/source/domain hashes and expanded scorecard
-policies are ready. Scoring remains blocked until the final manifest binds
-those hashes and policies.
+It now validates 10/10 authorization items after the final manifest.
+
+The expanded parent-operator final manifest is recorded in
+[`p_taucov_expanded_parent_operator_final_manifest.md`](p_taucov_expanded_parent_operator_final_manifest.md).
+It authorizes only the primary expanded covariance scorecard entrypoint. It
+does not authorize survival language, null-survival language, measurement
+validation, or a Tau Core validation claim.

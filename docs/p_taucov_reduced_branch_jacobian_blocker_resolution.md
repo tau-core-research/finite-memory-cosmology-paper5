@@ -175,9 +175,9 @@ The expanded parent-operator scoring firewall is:
 [`p_taucov_expanded_parent_operator_scoring_firewall.md`](p_taucov_expanded_parent_operator_scoring_firewall.md)
 
 It records the current authorization state: structural hashes are ready, but
-empirical scoring is still blocked pending the final expanded-object manifest.
-The dedicated expanded-object scorecard script and policy freezes are now in
-place.
+the final expanded-object manifest is now in place. The primary scorecard
+entrypoint is authorized, but the scorecard implementation remains the next
+blocked step. Survival and Tau Core validation language remain unauthorized.
 
 ## Claim Boundary
 

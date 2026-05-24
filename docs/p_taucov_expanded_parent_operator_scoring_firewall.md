@@ -4,7 +4,7 @@ Freeze ID: `P_TAUCOV_EXPANDED_PARENT_OPERATOR_SCORING_FIREWALL_v1`
 
 Status:
 
-`P_TAUCOV_EXPANDED_PARENT_OPERATOR_SCORING_BLOCKED_FREEZE_REQUIRED`
+`P_TAUCOV_EXPANDED_PARENT_OPERATOR_SCORING_AUTHORIZATION_READY`
 
 ## Purpose
 
@@ -27,7 +27,7 @@ any empirical scorecard may be run.
 ## Missing Before Scoring
 
 ```text
-ESO-FW10_FINAL_MANIFEST_READY
+
 ```
 
 Required missing freezes:

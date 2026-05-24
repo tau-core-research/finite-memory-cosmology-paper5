@@ -153,8 +153,10 @@ DF/covariance policy, survival/kill gates, and final manifest are frozen for
 this expanded object.
 
 Update: the expanded scorecard script, fold policy, null policy,
-DF/covariance policy, and survival/kill gates have now been frozen. The only
-remaining scoring-authorization blocker is the final manifest.
+DF/covariance policy, survival/kill gates, and final manifest have now been
+frozen. The primary expanded covariance scorecard entrypoint is authorized, but
+the entrypoint is still inert until the scorecard implementation is provided.
+No survival claim or Tau Core validation claim is authorized.
 
 ## Next Valid Step
 
