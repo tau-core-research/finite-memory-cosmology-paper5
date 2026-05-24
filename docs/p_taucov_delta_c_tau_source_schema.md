@@ -152,6 +152,10 @@ It blocks scoring until the scorecard script, folds, null comparators,
 DF/covariance policy, survival/kill gates, and final manifest are frozen for
 this expanded object.
 
+Update: the expanded scorecard script, fold policy, null policy,
+DF/covariance policy, and survival/kill gates have now been frozen. The only
+remaining scoring-authorization blocker is the final manifest.
+
 ## Next Valid Step
 
 Provide a concrete, target-blind Tau-response input packet with:

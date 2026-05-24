@@ -18,11 +18,16 @@ any empirical scorecard may be run.
 - candidate hash ready: `True`
 - source hash ready: `True`
 - domain hash ready: `True`
+- scorecard script frozen: `True`
+- fold policy frozen: `True`
+- null comparator policy frozen: `True`
+- DF/covariance policy frozen: `True`
+- survival/kill gates frozen: `True`
 
 ## Missing Before Scoring
 
 ```text
-ESO-FW5_SCORECARD_SCRIPT_FROZEN;ESO-FW6_FOLD_POLICY_FROZEN;ESO-FW7_NULL_COMPARATORS_FROZEN;ESO-FW8_DF_COVARIANCE_POLICY_FROZEN;ESO-FW9_SURVIVAL_KILL_GATES_FROZEN;ESO-FW10_FINAL_MANIFEST_READY
+ESO-FW10_FINAL_MANIFEST_READY
 ```
 
 Required missing freezes:

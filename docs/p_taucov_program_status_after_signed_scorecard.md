@@ -238,6 +238,6 @@ It passes the structural no-scoring PSD specificity gates that the active
 
 The expanded parent-operator scoring firewall is recorded in
 [`p_taucov_expanded_parent_operator_scoring_firewall.md`](p_taucov_expanded_parent_operator_scoring_firewall.md).
-It confirms that the candidate/source/domain hashes are ready, but scoring
-remains blocked until the expanded scorecard script, fold policy, null policy,
-DF/covariance policy, survival/kill gates, and final manifest are frozen.
+It confirms that the candidate/source/domain hashes and expanded scorecard
+policies are ready. Scoring remains blocked until the final manifest binds
+those hashes and policies.
