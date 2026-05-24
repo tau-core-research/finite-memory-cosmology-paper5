@@ -51,6 +51,13 @@ Relevant precursor audits:
 - [`p_taucov_compact_spectral_scorecard.md`](p_taucov_compact_spectral_scorecard.md)
 - [`p_taucov_tccs_transfer_curvature_preflight.md`](p_taucov_tccs_transfer_curvature_preflight.md)
 - [`p_taucov_common_clean_subspace_support_audit.md`](p_taucov_common_clean_subspace_support_audit.md)
+- [`p_taucov_embedding_qclean_support_audit.md`](p_taucov_embedding_qclean_support_audit.md)
+
+The embedding audit is now the sharpest blocker. In the current
+parent-to-score embedding, the active branch coordinates have essentially no
+support in the frozen common clean subspace. The next candidate must therefore
+come with a revised parent-domain embedding or domain metric, not merely a new
+matrix on the old embedding.
 
 ## Claim Boundary
 
