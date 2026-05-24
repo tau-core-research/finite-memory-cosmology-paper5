@@ -132,6 +132,16 @@ explicit falsification criteria.
 - `scripts/build_source_split_external_k1_source_registry.py`: registry of allowed, blocked, and control source routes for external K1.
 - `scripts/build_source_split_family_mean_k1_policy.py`: policy gate for possible reconstruction-family mean K1 exports.
 - `scripts/build_source_split_future_rerun_protocol.py`: preregistered rerun protocol for future source-split K2 scorecards.
+- `scripts/build_source_branch_baseline_response_export.py`: diagnostic source-branch baseline response export for future source-realization gates.
+- `scripts/build_source_realization_future_freeze_packet.py`: future-only source-realization freeze packet builder.
+- `scripts/validate_source_realization_future_freeze_packet.py`: validator for the future-only source-realization freeze packet.
+- `scripts/check_source_realization_rerun_readiness.py`: aggregate guard for whether a source-realization A2/K2 rerun is currently allowed.
+- `scripts/audit_source_realization_poly2_dominance.py`: row-level POLY_DEG2 dominance audit for the source-realization dry run.
+- `scripts/adjudicate_source_realization_poly2_role.py`: adjudicates whether POLY_DEG2 is a physical null, overfit control, or baseline/target absorber.
+- `scripts/audit_source_realization_target_convention_absorber.py`: audits whether POLY_DEG2 is absorbing target-convention sign/scale structure.
+- `scripts/audit_source_realization_baseline_drift_absorber.py`: audits whether POLY_DEG2 is absorbing baseline drift, local K1 cancellation, or source-branch normalization drift.
+- `scripts/run_source_realization_survival_suite.py`: runs the source-realization penalty, out-of-sample, baseline-drift null, and K2 survival scorecard checks.
+- `scripts/audit_source_realization_morphological_rule_tuning.py`: tests Tau Core morphological sector classifiers against global K2 and null-demotion readings.
 - `scripts/build_source_split_family_mean_k1_future_export.py`: future-only equal-weight family-mean K1 export builder.
 - `scripts/run_source_split_future_k1_k2_dry_run.py`: future-only dry run for the family-mean K1 route.
 - `scripts/build_source_split_likelihood_native_k1_plan.py`: artifact checklist for the likelihood-native joint SN+BAO K1 route.
@@ -208,6 +218,7 @@ explicit falsification criteria.
 - `docs/source_split_k1_candidate_promotion.md`: primary-K1 promotion gate result.
 - `docs/source_split_external_k1_export_schema.md`: schema and validator for the missing external nonzero K1 target.
 - `docs/source_split_external_k1_source_registry.md`: source-route registry for the missing external K1 target.
+- `docs/paper5_tau_specific_observable_blocker.md`: current Paper 5 blocker stating that further scoring is paused until the Tau Core theory hub derives and freezes a Tau-specific observable class.
 - `docs/source_split_family_mean_k1_policy.md`: family-mean K1 policy gate result.
 - `docs/source_split_future_rerun_protocol.md`: future rerun protocol for source-split K2 comparisons.
 - `docs/source_split_family_mean_k1_future_export.md`: future-only family-mean K1 export status.
@@ -392,6 +403,28 @@ explicit falsification criteria.
 - `evidence/source_split_family_mean_k1_policy_readiness.csv`: readiness summary for family-mean K1 policies.
 - `evidence/source_split_future_rerun_protocol.csv`: preregistered future rerun protocol options.
 - `evidence/source_split_future_rerun_protocol_summary.csv`: summary of future rerun authorization status.
+- `evidence/source_branch_baseline_response_export.csv`: diagnostic branch-baseline response export for source-realization audits.
+- `evidence/source_branch_baseline_response_summary.csv`: summary of branch-baseline mismatch diagnostics.
+- `evidence/source_realization_future_freeze_packet.csv`: future-only freeze checklist for source-realization promotion gates.
+- `evidence/source_realization_future_freeze_summary.csv`: summary of source-realization future freeze status.
+- `evidence/source_realization_rerun_readiness.csv`: aggregate source-realization rerun readiness gate.
+- `evidence/source_realization_rerun_readiness_summary.csv`: summary of current source-realization rerun authorization.
+- `evidence/source_realization_poly2_dominance_row_audit.csv`: row-level K2 versus POLY_DEG2 dominance audit.
+- `evidence/source_realization_poly2_dominance_zone_summary.csv`: depth-zone summary for K2 versus POLY_DEG2 dominance.
+- `evidence/source_realization_poly2_dominance_summary.csv`: summary of source-realization POLY_DEG2 dominance.
+- `evidence/source_realization_poly2_role_adjudication.csv`: source-realization adjudication of POLY_DEG2's role.
+- `evidence/source_realization_poly2_role_adjudication_summary.csv`: summary of POLY_DEG2 role adjudication.
+- `evidence/source_realization_target_convention_absorber_audit.csv`: target-convention absorber audit for source-realization POLY_DEG2 dominance.
+- `evidence/source_realization_target_convention_absorber_summary.csv`: summary of target-convention absorber status.
+- `evidence/source_realization_baseline_drift_absorber_audit.csv`: row-level baseline-drift absorber audit for source-realization POLY_DEG2 dominance.
+- `evidence/source_realization_baseline_drift_absorber_summary.csv`: summary of baseline-drift absorber status.
+- `evidence/source_realization_poly2_penalty_audit.csv`: AIC/BIC-style penalty check for K2 versus POLY_DEG2.
+- `evidence/source_realization_oos_zone_audit.csv`: leave-one-out and zone-holdout source-realization control audit.
+- `evidence/source_realization_baseline_drift_null_scorecard.csv`: explicit baseline-drift null scorecard.
+- `evidence/source_realization_k2_survival_scorecard.csv`: consolidated source-realization K2 survival gate table.
+- `evidence/source_realization_k2_survival_summary.csv`: summary of current K2 survival status under source-realization controls.
+- `evidence/source_realization_morphological_rule_tuning_audit.csv`: row-level Tau Core morphology classifier tuning audit.
+- `evidence/source_realization_morphological_rule_tuning_summary.csv`: summary of morphology classifier fit and sector counts.
 - `data/k1/source_split_external_k1_response.csv`: future-only equal-weight family-mean K1 export.
 - `evidence/source_split_family_mean_k1_future_export_summary.csv`: summary of the future-only K1 export.
 - `evidence/source_split_future_k1_k2_dry_run.csv`: future-only K1/K2 dry-run score table.

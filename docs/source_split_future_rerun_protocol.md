@@ -18,6 +18,21 @@ evidence/source_split_future_rerun_protocol.csv
 evidence/source_split_future_rerun_protocol_summary.csv
 ```
 
+The source-realization layer has its own future-freeze packet:
+
+```text
+python3 scripts/build_source_branch_baseline_response_export.py
+python3 scripts/build_source_realization_future_freeze_packet.py
+python3 scripts/validate_source_realization_future_freeze_packet.py
+python3 scripts/check_source_realization_rerun_readiness.py
+```
+
+See:
+
+```text
+docs/source_realization_future_freeze_packet.md
+```
+
 ## Current Decision
 
 ```text
@@ -49,6 +64,22 @@ interpretation.
 - The K1 export must exist before the rerun.
 - Null comparators must be reported under the same covariance.
 - Sign-stability warning rows must remain visible.
+- Source labels, branch-baseline export, `K_min`, `eta`, and common-mode policy
+  must be frozen before the rerun.
+
+## Current Readiness
+
+The source-realization readiness guard currently reports:
+
+```text
+CurrentRerunAllowed: False
+ReadyForDryRunOnly: True
+```
+
+The old source-split K2 scoring authorization can be green while the
+source-realization rerun remains closed. The stricter source-realization layer
+requires pre-rerun freeze evidence for source labels, branch-baseline response,
+`K_min`, `eta`, common-mode protection, and rerun lock.
 
 ## Interpretation
 
