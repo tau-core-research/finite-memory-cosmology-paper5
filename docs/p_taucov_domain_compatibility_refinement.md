@@ -91,6 +91,15 @@ The next protocol-level expression of this requirement is:
 
 [`p_taucov_common_clean_subspace_support_protocol.md`](p_taucov_common_clean_subspace_support_protocol.md)
 
+The current audit of existing candidates found no passing source. The follow-up
+requirement is now frozen here:
+
+[`p_taucov_parent_domain_curvature_source_requirement.md`](p_taucov_parent_domain_curvature_source_requirement.md)
+
+This requirement is stricter than post-hoc cleaning: a future object must have
+an independent parent-domain origin and must carry support in the common clean
+subspace before any empirical scoring is authorized.
+
 ### Route B: Non-Commutation As Observable
 
 If a future parent geometry produces materially non-commuting cleaners, their
