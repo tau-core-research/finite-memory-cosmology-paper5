@@ -55,6 +55,14 @@ parent-domain embedding or domain metric in which active branch
 curvature has intrinsic support inside the clean subspace before
 projection cleaning is applied.
 
+The admissibility rule for such a metric update is frozen here:
+
+[`p_taucov_domain_metric_update_rule.md`](p_taucov_domain_metric_update_rule.md)
+
+The rule explicitly forbids choosing a metric merely because it increases
+`Q_clean` support. A future metric or embedding must have independent
+parent-domain provenance before any renewed support audit or scorecard.
+
 ## Claim Boundary
 
 Allowed statement:

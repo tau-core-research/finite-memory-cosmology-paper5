@@ -59,6 +59,15 @@ support in the frozen common clean subspace. The next candidate must therefore
 come with a revised parent-domain embedding or domain metric, not merely a new
 matrix on the old embedding.
 
+The rule constraining such a revised metric or embedding is:
+
+[`p_taucov_domain_metric_update_rule.md`](p_taucov_domain_metric_update_rule.md)
+
+This rule keeps the next step target-blind: the metric may be derived from
+parent-domain provenance, source conventions, symmetry, constraint algebra, or
+self-adjoint-domain structure, but not from residual outcomes or scorecard
+success.
+
 ## Claim Boundary
 
 Allowed statement:
