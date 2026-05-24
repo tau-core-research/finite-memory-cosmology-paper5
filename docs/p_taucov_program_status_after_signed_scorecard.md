@@ -49,6 +49,8 @@ has not been scored; it is a pre-score structural audit.
 | Active-triad PSD ceiling audit | current `Phi/B/P` PSD route structurally too narrow | no scoring |
 | Parent-operator source expansion gate | broader non-outcome source space required | no object, no scoring |
 | Expanded parent-operator domain packet | 5 active coordinates, 2 new non-outcome axes | no object, no scoring |
+| Expanded parent-operator source packet | 5-axis role-declared source matrix frozen | no scoring |
+| Expanded parent-operator PSD preflight | structural PSD specificity gates pass | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -223,3 +225,12 @@ The expanded parent-operator domain packet is recorded in
 It keeps the `Phi/B/P` core active and adds `TEMPLATE_COORD_SCALE_UNIT` plus
 `TEMPLATE_EXT_OBSERVING_CONTEXT` as target-blind non-outcome axes. Direct
 `M_PARENT_MORPHOLOGY` and `EXT_SOURCE_FAMILY` remain forbidden.
+
+The expanded parent-operator source packet is recorded in
+[`p_taucov_expanded_parent_operator_source_packet.md`](p_taucov_expanded_parent_operator_source_packet.md).
+It freezes a role-declared five-axis source rule without target or score input.
+
+The expanded parent-operator PSD preflight is recorded in
+[`p_taucov_expanded_parent_operator_psd_preflight.md`](p_taucov_expanded_parent_operator_psd_preflight.md).
+It passes the structural no-scoring PSD specificity gates that the active
+`Phi/B/P` triad could not pass. This is still not empirical survival.

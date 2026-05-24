@@ -132,6 +132,18 @@ It supplies the first target-blind expanded reduced domain for the next
 parent-side operator/source packet. It does not yet construct an operator or a
 `delta_C_Tau` covariance candidate.
 
+The expanded parent-operator source packet is available at:
+
+[`p_taucov_expanded_parent_operator_source_packet.md`](p_taucov_expanded_parent_operator_source_packet.md)
+
+The expanded parent-operator PSD structural preflight is available at:
+
+[`p_taucov_expanded_parent_operator_psd_preflight.md`](p_taucov_expanded_parent_operator_psd_preflight.md)
+
+This preflight passes the diagonal-energy, effective-rank, support-entropy,
+active-support, and forbidden-leakage gates without using target residuals or
+score outcomes. It still does not authorize empirical scoring.
+
 ## Next Valid Step
 
 Provide a concrete, target-blind Tau-response input packet with:

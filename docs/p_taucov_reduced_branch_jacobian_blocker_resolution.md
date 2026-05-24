@@ -158,6 +158,18 @@ It satisfies the domain-side part of that requirement without constructing a
 new covariance object. The next unresolved piece is the actual expanded
 parent-side operator/source rule on this five-coordinate active domain.
 
+The expanded parent-operator source packet is:
+
+[`p_taucov_expanded_parent_operator_source_packet.md`](p_taucov_expanded_parent_operator_source_packet.md)
+
+The expanded parent-operator PSD structural preflight is:
+
+[`p_taucov_expanded_parent_operator_psd_preflight.md`](p_taucov_expanded_parent_operator_psd_preflight.md)
+
+This resolves the immediate structural PSD blocker: the expanded source passes
+the no-score specificity preflight. The next blocker is now empirical
+authorization discipline, not structural diagonal/rank failure.
+
 ## Claim Boundary
 
 Allowed statement:
