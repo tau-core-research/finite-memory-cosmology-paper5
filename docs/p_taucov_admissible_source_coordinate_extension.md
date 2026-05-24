@@ -41,6 +41,13 @@ A passing candidate would only become a candidate for a later coordinate
 freeze packet. It would not establish a signal and would not authorize a
 survival claim.
 
+The first such coordinate freeze is:
+
+[`p_taucov_pb_interaction_coordinate_freeze.md`](p_taucov_pb_interaction_coordinate_freeze.md)
+
+It freezes `COORD_PB_INTERACTION` as a target-blind `P*B` parent-interaction
+coordinate. It still authorizes no object construction or empirical scoring.
+
 ## Links
 
 - [`p_taucov_parent_domain_curvature_source_requirement.md`](p_taucov_parent_domain_curvature_source_requirement.md)
