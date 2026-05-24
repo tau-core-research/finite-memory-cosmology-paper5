@@ -13,7 +13,7 @@ EVIDENCE = ROOT / "evidence"
 DOCS = ROOT / "docs"
 
 FREEZE_ID = "P_TAUCOV_PB_ZERO_DIAGONAL_SCORING_FIREWALL_v1"
-EXPECTED_STATUS = "P_TAUCOV_PB_ZERO_DIAGONAL_SCORING_FIREWALL_BLOCKED"
+EXPECTED_STATUS = "P_TAUCOV_PB_ZERO_DIAGONAL_SCORING_AUTHORIZATION_READY"
 
 FILES = {
     "table": EVIDENCE / "p_taucov_pb_zero_diagonal_scoring_firewall.csv",
@@ -43,9 +43,10 @@ def main() -> int:
         table = pd.read_csv(FILES["table"])
         summary = pd.read_csv(FILES["summary"]).iloc[0]
         doc = FILES["doc"].read_text(encoding="utf-8")
-        add("status_blocked", str(summary["Status"]) == EXPECTED_STATUS)
+        add("status_authorization_ready", str(summary["Status"]) == EXPECTED_STATUS)
         add("object_items_satisfied", bool(table.loc[table["FirewallItemID"].isin(["PB-FW1_OBJECT_FROZEN", "PB-FW2_OBJECT_VALIDATION_PASS", "PB-FW3_OBJECT_HASH_READY"]), "Satisfied"].all()))
-        add("policy_items_missing", bool((~table.loc[table["FirewallItemID"].str.startswith("PB-FW_POLICY_"), "Satisfied"]).all()))
+        add("policy_items_satisfied", bool(table.loc[table["FirewallItemID"].str.startswith("PB-FW_POLICY_"), "Satisfied"].all()))
+        add("eight_of_eight_satisfied", int(summary["SatisfiedItems"]) == 8 and int(summary["TotalItems"]) == 8)
         add("scoring_not_authorized", not bool(summary["ScoringAuthorized"]))
         add("survival_not_authorized", not bool(summary["SurvivalClaimAuthorized"]))
         add("tau_validation_not_authorized", not bool(summary["TauCoreValidationClaimAuthorized"]))
