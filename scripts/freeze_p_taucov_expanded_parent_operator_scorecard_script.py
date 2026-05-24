@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Freeze the inert expanded parent-operator scorecard script hash."""
+"""Freeze the expanded parent-operator scorecard script hash."""
 
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ def main() -> int:
                 "FreezeID": FREEZE_ID,
                 "ScriptPath": str(SCRIPT.relative_to(ROOT)),
                 "SHA256": digest,
-                "ScriptMode": "inert_until_expanded_final_manifest",
+                "ScriptMode": "blocked_until_expanded_final_manifest",
                 "UsesTargetResiduals": False,
                 "UsesScoreOutcome": False,
                 "ScoringAuthorized": False,
@@ -66,11 +66,11 @@ Status: `P_TAUCOV_EXPANDED_PARENT_OPERATOR_SCORECARD_SCRIPT_FROZEN_NO_SCORING`.
 
 - script: `{SCRIPT.relative_to(ROOT)}`
 - SHA256: `{digest}`
-- mode: `inert_until_expanded_final_manifest`
+- mode: `blocked_until_expanded_final_manifest`
 
 This freezes the expanded scorecard entrypoint before scoring authorization.
 The script remains blocked unless a final expanded authorization manifest
-exists.
+exists and explicitly authorizes the primary covariance scorecard scope.
 """,
         encoding="utf-8",
     )
