@@ -51,6 +51,7 @@ has not been scored; it is a pre-score structural audit.
 | Expanded parent-operator domain packet | 5 active coordinates, 2 new non-outcome axes | no object, no scoring |
 | Expanded parent-operator source packet | 5-axis role-declared source matrix frozen | no scoring |
 | Expanded parent-operator PSD preflight | structural PSD specificity gates pass | no scoring |
+| Expanded parent-operator scoring firewall | structural hashes ready, policy freezes missing | no scoring |
 
 The signed-response route failed because the diagonal signed control was much
 larger and the family contribution was single-family dominated:
@@ -234,3 +235,9 @@ The expanded parent-operator PSD preflight is recorded in
 [`p_taucov_expanded_parent_operator_psd_preflight.md`](p_taucov_expanded_parent_operator_psd_preflight.md).
 It passes the structural no-scoring PSD specificity gates that the active
 `Phi/B/P` triad could not pass. This is still not empirical survival.
+
+The expanded parent-operator scoring firewall is recorded in
+[`p_taucov_expanded_parent_operator_scoring_firewall.md`](p_taucov_expanded_parent_operator_scoring_firewall.md).
+It confirms that the candidate/source/domain hashes are ready, but scoring
+remains blocked until the expanded scorecard script, fold policy, null policy,
+DF/covariance policy, survival/kill gates, and final manifest are frozen.

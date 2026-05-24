@@ -144,6 +144,14 @@ This preflight passes the diagonal-energy, effective-rank, support-entropy,
 active-support, and forbidden-leakage gates without using target residuals or
 score outcomes. It still does not authorize empirical scoring.
 
+The expanded parent-operator scoring firewall is available at:
+
+[`p_taucov_expanded_parent_operator_scoring_firewall.md`](p_taucov_expanded_parent_operator_scoring_firewall.md)
+
+It blocks scoring until the scorecard script, folds, null comparators,
+DF/covariance policy, survival/kill gates, and final manifest are frozen for
+this expanded object.
+
 ## Next Valid Step
 
 Provide a concrete, target-blind Tau-response input packet with:

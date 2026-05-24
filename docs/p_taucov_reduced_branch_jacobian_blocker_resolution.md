@@ -170,6 +170,14 @@ This resolves the immediate structural PSD blocker: the expanded source passes
 the no-score specificity preflight. The next blocker is now empirical
 authorization discipline, not structural diagonal/rank failure.
 
+The expanded parent-operator scoring firewall is:
+
+[`p_taucov_expanded_parent_operator_scoring_firewall.md`](p_taucov_expanded_parent_operator_scoring_firewall.md)
+
+It records the current authorization state: structural hashes are ready, but
+empirical scoring is still blocked pending dedicated expanded-object freeze
+policies and a final manifest.
+
 ## Claim Boundary
 
 Allowed statement:
