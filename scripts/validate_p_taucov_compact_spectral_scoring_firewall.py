@@ -40,17 +40,10 @@ def main() -> int:
         summary = pd.read_csv(SUMMARY).iloc[0]
         doc = DOC.read_text(encoding="utf-8")
         missing = set(str(summary["MissingItems"]).split(";"))
-        expected_missing = {
-            "CS-FW5_SCORECARD_SCRIPT_FROZEN",
-            "CS-FW6_FOLD_POLICY_FROZEN",
-            "CS-FW7_NULL_COMPARATORS_FROZEN",
-            "CS-FW8_DF_COVARIANCE_POLICY_FROZEN",
-            "CS-FW9_SURVIVAL_KILL_GATES_FROZEN",
-            "CS-FW10_FINAL_MANIFEST_READY",
-        }
+        expected_missing = {"CS-FW10_FINAL_MANIFEST_READY"}
         add("status_blocked", str(summary["Status"]) == EXPECTED_STATUS)
-        add("four_of_ten_satisfied", int(summary["SatisfiedItems"]) == 4 and int(summary["TotalItems"]) == 10)
-        add("expected_missing_items", expected_missing.issubset(missing))
+        add("nine_of_ten_satisfied", int(summary["SatisfiedItems"]) == 9 and int(summary["TotalItems"]) == 10)
+        add("expected_missing_items", missing == expected_missing)
         add("source_items_satisfied", bool(table.loc[table["FirewallItemID"].isin(["CS-FW1_SOURCE_PREFLIGHT_PASS", "CS-FW2_SOURCE_OBJECT_HASH_READY", "CS-FW3_SOURCE_SPECTRUM_HASH_READY", "CS-FW4_SOURCE_VALIDATION_PASS"]), "Satisfied"].all()))
         add("scoring_false", bool(summary["ScoringAuthorized"]) is False)
         add("survival_false", bool(summary["SurvivalClaimAuthorized"]) is False)

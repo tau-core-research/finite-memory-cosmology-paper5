@@ -8,8 +8,8 @@ policies, hashes, and final authorization artifacts are frozen.
 
 ## Satisfied / Missing
 
-- satisfied items: `4/10`
-- missing items: `CS-FW5_SCORECARD_SCRIPT_FROZEN;CS-FW6_FOLD_POLICY_FROZEN;CS-FW7_NULL_COMPARATORS_FROZEN;CS-FW8_DF_COVARIANCE_POLICY_FROZEN;CS-FW9_SURVIVAL_KILL_GATES_FROZEN;CS-FW10_FINAL_MANIFEST_READY`
+- satisfied items: `9/10`
+- missing items: `CS-FW10_FINAL_MANIFEST_READY`
 
 ## Claim Boundary
 
