@@ -96,6 +96,13 @@ def main() -> int:
     meta = coord[["EmpiricalRowID", "FamilyID", "ClockIndex"]].copy()
 
     outer = np.outer(vector, vector)
+    zero_diag_outer = outer - np.diag(np.diag(outer))
+    family_ids = meta["FamilyID"].astype(str).to_numpy()
+    cross_family_mask = np.array(
+        [[family_ids[i] != family_ids[j] for j in range(len(family_ids))] for i in range(len(family_ids))],
+        dtype=float,
+    )
+    cross_family_outer = outer * cross_family_mask
     with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
         cleaned_outer = np.nan_to_num(q @ outer @ q, nan=0.0, posinf=0.0, neginf=0.0)
     candidates = [
@@ -104,17 +111,33 @@ def main() -> int:
             "PSD_COVARIANCE_CANDIDATE",
             "outer_product(frozen_PB_coordinate)",
             outer,
+            True,
+        ),
+        (
+            "PB_ZERO_DIAGONAL_OUTER_PRODUCT",
+            "OFFDIAGONAL_COVARIANCE_RESPONSE_CANDIDATE",
+            "outer_product(frozen_PB_coordinate) with fixed zero diagonal to exclude variance-inflation response",
+            zero_diag_outer,
+            True,
+        ),
+        (
+            "PB_CROSS_FAMILY_ONLY_DIAGNOSTIC",
+            "FAMILY_MASKED_DIAGNOSTIC_ONLY",
+            "cross-family-only mask applied to the PB outer product; diagnostic only, not parent source",
+            cross_family_outer,
+            False,
         ),
         (
             "PB_QCLEAN_RESTRICTED_OUTER_PRODUCT",
             "CLEANED_DIAGNOSTIC_ONLY",
             "Q_clean outer_product(frozen_PB_coordinate) Q_clean; diagnostic only, not parent source",
             cleaned_outer,
+            False,
         ),
     ]
     records = []
     matrices = []
-    for object_id, object_class, provenance, raw_matrix in candidates:
+    for object_id, object_class, provenance, raw_matrix, source_allowed in candidates:
         matrix = normalize_matrix(0.5 * (raw_matrix + raw_matrix.T))
         qsupport = fro_support(q, matrix)
         fshare = family_share(meta, matrix)
@@ -122,7 +145,6 @@ def main() -> int:
         passes_support = qsupport >= SUPPORT_THRESHOLD
         passes_family = fshare <= MAX_FAMILY_SHARE
         passes_diag = dshare <= MAX_DIAGONAL_SHARE
-        source_allowed = object_id == "PB_OUTER_PRODUCT_PSD"
         passes_overall = bool(source_allowed and passes_support and passes_family and passes_diag)
         records.append(
             {
@@ -167,6 +189,7 @@ def main() -> int:
     pd.DataFrame(matrices).to_csv(OUT_OBJECT, index=False)
     passing = audit[audit["PassesOverallPreflight"]]
     best = audit.iloc[0]
+    best_passing = passing.iloc[0] if len(passing) else best
     status = (
         "P_TAUCOV_PB_INTERACTION_OBJECT_PREFLIGHT_HAS_CANDIDATE_NO_SCORING"
         if len(passing)
@@ -183,6 +206,8 @@ def main() -> int:
                 "PassingObjectCandidates": len(passing),
                 "BestObjectCandidateID": best["ObjectCandidateID"],
                 "BestQCleanMatrixSupport": float(best["QCleanMatrixSupport"]),
+                "BestPassingObjectCandidateID": best_passing["ObjectCandidateID"],
+                "BestPassingQCleanMatrixSupport": float(best_passing["QCleanMatrixSupport"]) if len(passing) else 0.0,
                 "SupportThreshold": SUPPORT_THRESHOLD,
                 "MaxFamilyShareThreshold": MAX_FAMILY_SHARE,
                 "MaxDiagonalShareThreshold": MAX_DIAGONAL_SHARE,
@@ -225,6 +250,8 @@ def main() -> int:
                 "## Interpretation",
                 "",
                 f"Best candidate: `{best['ObjectCandidateID']}` with Q-clean matrix support `{float(best['QCleanMatrixSupport'])}`.",
+                "",
+                f"Best admissible passing candidate: `{best_passing['ObjectCandidateID']}` with Q-clean matrix support `{float(best_passing['QCleanMatrixSupport']) if len(passing) else 0.0}`.",
                 "",
                 "The cleaned diagnostic is reported to quantify clean-subspace retention,",
                 "but it is explicitly not an admissible parent source by itself. Only an",
