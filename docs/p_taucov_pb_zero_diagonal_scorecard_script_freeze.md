@@ -3,7 +3,7 @@
 Status: `P_TAUCOV_PB_ZERO_DIAGONAL_SCORECARD_SCRIPT_FROZEN_NO_SCORING`.
 
 - script: `scripts/run_p_taucov_pb_zero_diagonal_scorecard.py`
-- SHA256: `0ec2825d67c62826c0fa327ff669a87d685d5658c0ba8b075ce4d5af34c3fe73`
+- SHA256: `fe80a177c93c7c42730986b17738986357c74bc622eebe361a1f95b20dfe7f99`
 - mode: `blocked_until_pb_zero_diagonal_final_manifest`
 
 The script remains blocked unless a later final manifest explicitly

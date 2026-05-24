@@ -32,7 +32,7 @@ ObjectValidationPasses: true
 InputSHA256:
   object_manifest: 8d545c6009c1f15955f4175c1afa7c5a7a3cb926c765e31490979b6e0d37a542
   object_validation: 5c28d73ad29e629a4c1222691affbdd1505f5c5d82f900b44cf2de128cf16b2e
-  scorecard_script_freeze: 9ea7c85d0aefaeece317832ef1cc70f7f34a02b725bd31b131662f9104d5182d
+  scorecard_script_freeze: 3253712164faf099651cf5c3d365ede86917987705d8b29bebf05185640393c1
   fold_policy: 91d244d41b8340163a3a558c31fcbe03b05736f20e73208b16b1110136713deb
   null_comparators: 62a56bb87dec94db4e4d353f756655767bcef82e79ce2d7464e4378cde507564
   df_covariance_policy: 2ee4d8a875def5eb7351ef72827defad2b2153736804791bc87214d04ec41ff1
@@ -40,6 +40,6 @@ InputSHA256:
   scoring_firewall: f49e069da06e1623b60eadb937d068ea0d472f2cfae5aa458895f9d2cfc547ab
 RequiredSHA256:
   object_matrix: 14dd2f5d173caa602b27945e20eab9a3416ba9e7cca4a51c604b8791da05e579
-  scorecard_script: 0ec2825d67c62826c0fa327ff669a87d685d5658c0ba8b075ce4d5af34c3fe73
-GeneratedUTC: '2026-05-24T03:28:11+00:00'
+  scorecard_script: fe80a177c93c7c42730986b17738986357c74bc622eebe361a1f95b20dfe7f99
+GeneratedUTC: '2026-05-24T03:32:13+00:00'
 ClaimBoundary: pb_zero_diagonal_final_manifest_primary_scorecard_only_no_survival_claim
