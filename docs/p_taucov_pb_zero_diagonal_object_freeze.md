@@ -28,6 +28,7 @@ projector as a source and does not use family masks or target outcomes.
 
 ## Links
 
+- [`p_taucov_pb_zero_diagonal_scoring_firewall.md`](p_taucov_pb_zero_diagonal_scoring_firewall.md)
 - [`p_taucov_pb_interaction_object_preflight.md`](p_taucov_pb_interaction_object_preflight.md)
 - [`p_taucov_pb_interaction_coordinate_freeze.md`](p_taucov_pb_interaction_coordinate_freeze.md)
 
