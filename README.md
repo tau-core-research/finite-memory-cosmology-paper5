@@ -130,3 +130,14 @@ detection language.
 
 Use `CITATION.cff` for repository citation metadata. Data-use and
 redistribution boundaries are documented in `DATA_NOTICE.md`.
+
+<!-- BEGIN OBSERVER UPDATE 20260914 -->
+## Observer realization update (2026-09-14)
+
+No cosmological expansion law, occupied stress tensor, dark-sector replacement or offspring-universe transition is established by these observer calculations.
+
+The manuscript distinguishes inherited BRAC contact, conditional coherent-state
+selection and interacting local covariance from physical observer identification,
+preparation and stable resolution. Those physical claims remain open. No
+empirical score was changed. The [dependency and source-result ledger](data/derived/observer_update_2026_09_14.json) records the assumptions and controls.
+<!-- END OBSERVER UPDATE 20260914 -->
