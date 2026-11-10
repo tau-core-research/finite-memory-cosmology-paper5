@@ -141,3 +141,12 @@ selection and interacting local covariance from physical observer identification
 preparation and stable resolution. Those physical claims remain open. No
 empirical score was changed. The [dependency and source-result ledger](data/derived/observer_update_2026_09_14.json) records the assumptions and controls.
 <!-- END OBSERVER UPDATE 20260914 -->
+## Full finite source-state chain import (2026-11-10)
+
+The manuscript now records the HRZ/HSA constraint construction, HSD/HSE
+consistent initial jets, HSF/HSG coupled evolution and independent guard,
+HSH nodewise regularity, HSI/HSJ qualified covariance and HSL retarded response.
+Foundation VII-A retains the detailed response derivation and compact receipts.
+Negative controls, numerical warning qualifications and physical-selection,
+particle, spatial/renormalized, stability and cosmology gaps remain explicit.
+This is a local manuscript/PDF update, not a publication or new empirical score.
