@@ -9,6 +9,7 @@ facsimile, refreshes the ReportLab PDF, and builds an arXiv-style source ZIP.
 from __future__ import annotations
 
 from pathlib import Path
+import os
 import re
 import shutil
 import subprocess
@@ -191,15 +192,18 @@ def markdown_to_tex(markdown: str) -> str:
 
 
 def build_main_tex() -> None:
-    draft = (ROOT / "draft.md").read_text(encoding="utf-8")
-    body = markdown_to_tex(draft)
-    tex = rf"""\documentclass[11pt]{{article}}
+    SUBMISSION.mkdir(parents=True, exist_ok=True)
+    main_tex = SUBMISSION / "main.tex"
+    if not (main_tex.exists() and "% BEGIN OBSERVER UPDATE 20260914" in main_tex.read_text(encoding="utf-8")):
+        draft = (ROOT / "draft.md").read_text(encoding="utf-8")
+        body = markdown_to_tex(draft)
+        tex = rf"""\documentclass[11pt]{{article}}
 \usepackage[margin=1in]{{geometry}}
 \usepackage{{hyperref}}
 \usepackage{{amsmath}}
 \usepackage{{amssymb}}
 \usepackage{{graphicx}}
-\usepackage{{needspace}}
+\IfFileExists{{needspace.sty}}{{\usepackage{{needspace}}}}{{\newcommand{{\Needspace}}[1]{{}}}}
 \title{{Finite-memory projection corrections as a diagnostic gate for cosmological consistency tests}}
 \author{{Jozsef Olcsak}}
 \date{{2026-05-19}}
@@ -210,8 +214,7 @@ def build_main_tex() -> None:
 
 \end{{document}}
 """
-    SUBMISSION.mkdir(parents=True, exist_ok=True)
-    (SUBMISSION / "main.tex").write_text(tex, encoding="utf-8")
+        main_tex.write_text(tex, encoding="utf-8")
     shutil.copy2(ROOT / "draft.md", SUBMISSION / "draft.md")
     submission_figures = SUBMISSION / "figures"
     if submission_figures.exists():
@@ -224,6 +227,29 @@ def build_main_tex() -> None:
 
 
 def refresh_pdf() -> None:
+    env = os.environ.copy()
+    tinytex = Path("/Users/jolcsak/Library/TinyTeX/bin/universal-darwin")
+    if tinytex.is_dir():
+        env["PATH"] = f"{tinytex}:{env.get('PATH', '')}"
+    pdflatex = shutil.which("pdflatex", path=env.get("PATH"))
+    if pdflatex:
+        for _ in range(3):
+            subprocess.run(
+                [pdflatex, "-interaction=nonstopmode", "-halt-on-error", "main.tex"],
+                cwd=SUBMISSION,
+                env=env,
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+            )
+        for ext in (".aux", ".out"):
+            p = SUBMISSION / f"main{ext}"
+            if p.exists():
+                p.unlink()
+        shutil.copy2(SUBMISSION / "main.pdf", ROOT / "finite_memory_projection_corrections.pdf")
+        return
+
     tectonic = shutil.which("tectonic")
     if tectonic:
         subprocess.run(

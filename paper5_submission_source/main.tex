@@ -1,37 +1,39 @@
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
+\PassOptionsToPackage{hyphens}{url}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{needspace}
+\usepackage{hyperref}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{}
+\emergencystretch=2em
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
 \title{Finite-memory projection corrections as a diagnostic gate for cosmological consistency tests}
 \author{Jozsef Olcsak}
-\date{2026-05-19}
+\date{May 19, 2026\\Last revised: November 14, 2026}
 \begin{document}
 \maketitle
 
-
-
-\Needspace{10\baselineskip}
-\subsection*{Abstract}
-
+\begin{abstract}
 We introduce a bounded finite-memory projection operator for diagnostic
 cosmological consistency tests. The operator is formulated as an effective
-projection response over normalized depth, $W(x)=1+\rho x^3$, with a passive
-memory-budget bound $\rho \leq 4$. The construction is not presented as a complete
-cosmological model or a direct measurement claim. It is instead a disciplined
-diagnostic module for comparing projected response shapes against
-backreaction-aware distance consistency reconstructions. In a BAO-only
-diagnostic reconstruction, the locked K2 window overlaps the full target
+phenomenological response multiplier over normalized depth, $W(x)=1+\rho x^3$
+($x=z/z_{\max}$), with a passive memory-budget bound $\rho \leq 4$ (distinct
+from the canonical v19/v20 dilogarithmic director action $W_{\mathrm{COCA}}(s)$
+of the upstream foundational Tau Core series). The construction is not
+presented as a complete cosmological model or a direct measurement claim; it is
+instead a disciplined diagnostic module for comparing projected response shapes
+against backreaction-aware distance-consistency reconstructions. In a BAO-only
+diagnostic reconstruction, the locked $K_2$ window overlaps the full target
 envelope. In an SN+BAO source-split stress test, strict median-sign matching
-exhibits a localized tension; a reconstruction-aware sign-stability gate
-keeps this tension classified as non-violating without widening the K2 window.
-The result motivates a future full-likelihood comparison while preserving
-explicit claim boundaries.
+exhibits a localized tension near $z=1.1925$; a reconstruction-aware
+sign-stability gate keeps this tension classified as non-violating without
+widening the $K_2$ window. The result motivates a future covariance-native
+full-likelihood comparison while preserving explicit preflight claim boundaries.
+\end{abstract}
 
-\Needspace{10\baselineskip}
-\subsection*{1. Introduction}
+\section{Introduction}
 
 Modern cosmological consistency tests increasingly distinguish background
 expansion, light-propagation effects, curvature consistency, and cosmic
@@ -42,16 +44,16 @@ combination.
 
 Heinesen and Clifton recently emphasized that broad classes of cosmological
 models can be separated by how they violate FLRW curvature-consistency tests
-[1].
+\cite{HeinesenClifton2026}.
 They isolate two especially relevant routes: deviations in optical properties
 and deviations in large-scale expansion. This is naturally adjacent to the
-older Dyer-Roeder optical-distance tradition, where light propagation through
+older Dyer--Roeder optical-distance tradition, where light propagation through
 clumpy matter distributions is treated separately from the homogeneous
-background distance law [3,4]. Koksbang then applied this kind of
+background distance law \cite{DyerRoeder1972,DyerRoeder1973}. Koksbang then applied this kind of
 observable logic to constrain cosmic backreaction over an extended redshift
 range, finding consistency with vanishing backreaction at one standard
 deviation while also emphasizing that significant backreaction is not yet ruled
-out [2]. These papers are useful here because they make the main methodological
+out \cite{Koksbang2026}. These papers are useful here because they make the main methodological
 lesson sharp: a projected cosmological residual must be tested against optical,
 geometrical, and reconstruction degeneracies before it is interpreted.
 
@@ -68,8 +70,7 @@ cubic kernel from a small power-kernel family. Third, we state a sign-stability
 policy for interpreting reconstructed diagnostic points whose median sign is
 method-sensitive.
 
-\Needspace{10\baselineskip}
-\subsection*{2. Relation To Existing Diagnostic Ideas}
+\section{Relation to Existing Diagnostic Ideas}
 
 The present construction is closest in spirit to a consistency diagnostic, not
 to a replacement background cosmology. In a standard FLRW interpretation,
@@ -84,7 +85,7 @@ The finite-memory operator introduced here is designed to sit at this
 interface. It does not start by changing the background Friedmann equations.
 Instead, it asks whether a projected diagnostic response can carry a bounded
 memory of accumulated depth. This makes it naturally comparable to
-Dyer-Roeder-type optical reasoning, where light propagation through clumpy
+Dyer--Roeder-type optical reasoning, where light propagation through clumpy
 matter is separated from the homogeneous reference law, and to modern
 backreaction tests, where averaged expansion and observed distance relations
 need not encode the same effective geometry.
@@ -100,8 +101,7 @@ cubic formula by itself. The stronger contribution is the combination of a
 bounded response window, a predeclared admissibility rule, and a
 reconstruction-stability-aware interpretation policy.
 
-\Needspace{10\baselineskip}
-\subsection*{3. Effective Diagnostic Module}
+\section{Effective Diagnostic Module}
 
 Only the effective module needed for this note is used. We assume that an
 observed consistency residual can be represented as a projected response over a
@@ -111,7 +111,7 @@ normalized depth coordinate,
 0 \leq x \leq 1 .
 \]
 
-The variable x should be read operationally: it orders the accumulated
+The variable $x$ should be read operationally: it orders the accumulated
 projected response along the diagnostic light-path/reconstruction depth. In the
 point-level diagnostic table below, the public packet uses the frozen
 operational mapping
@@ -121,7 +121,7 @@ x = z/z_{\max}
 \]
 
 over the tested SN+BAO redshift grid. This is a redshift-ordered diagnostic
-coordinate, not a final physical identification of x with redshift and not a
+coordinate, not a final physical identification of $x$ with redshift and not a
 new cosmological observable.
 
 The finite-memory correction is a multiplicative response operator acting on a
@@ -131,7 +131,7 @@ baseline projected shape:
 K_2(x) = W(x)K_1(x).
 \]
 
-This note studies the locked K2 form
+This note studies the locked $K_2$ form
 
 \[
 W(x) = 1 + \rho x^3 .
@@ -139,7 +139,12 @@ W(x) = 1 + \rho x^3 .
 
 The form is intentionally simple. Its purpose is to test whether a bounded,
 delayed, monotone memory response can be made reproducible before comparison
-with diagnostic envelopes.
+with diagnostic envelopes. As an explicit notation guardrail across the Tau Core
+series, $W(x) = 1 + \rho x^3$ here denotes strictly this phenomenological
+one-dimensional depth-response multiplier; it is distinct from and not
+identified with the canonical v19/v20 dilogarithmic director action
+$W_{\mathrm{COCA}}(s)$ of the foundational Roman/TD series (or with Paper 14's
+symmetric traceless cosmic-web tidal witness tensors).
 
 \begin{figure}[htbp]
 \centering
@@ -147,8 +152,7 @@ with diagnostic envelopes.
 \caption{Locked finite-memory operator. The shaded band is the predeclared $\rho\in[3,4]$ window inside the passive bound $\rho\leq4$; the low-depth guard shows why the response remains weak near the origin.}
 \end{figure}
 
-\Needspace{16\baselineskip}
-\subsubsection*{Robustness And Coordinate Dependence}
+\subsection{Robustness and Coordinate Dependence}
 
 The present note is coordinate-explicit. Its numerical tables use
 
@@ -174,13 +178,12 @@ using the reconstruction grid or likelihood coordinate directly, is the Phase II
 target. Until such mappings are implemented, the method note should be read as
 a coordinate-explicit diagnostic proposal only.
 
-\Needspace{16\baselineskip}
-\subsubsection*{K1 Baseline Provenance}
+\subsection{K1 Baseline Provenance}
 
 The baseline shape $K_1(x)$ is a frozen diagnostic baseline imported from the
 distilled reconstruction packet. It is not fitted in this note. The comparison
 is organized around whether the locked multiplicative memory factor can keep
-the projected K2 response inside the reconstructed diagnostic envelope under
+the projected $K_2$ response inside the reconstructed diagnostic envelope under
 the predeclared amplitude and shape rules.
 
 The present manuscript therefore tests the finite-memory multiplier on top of a
@@ -200,8 +203,7 @@ These restrictions make the paper weaker than a full theory paper, but stronger
 as a falsifiable method note. A reader can reject or test the effective module
 without needing to adjudicate any larger research program.
 
-\Needspace{10\baselineskip}
-\subsection*{4. Passive Memory Bound}
+\section{Passive Memory Bound}
 
 The passive memory-budget condition requires the accumulated tail response not
 to exceed the unit local response budget. For the cubic operator,
@@ -228,7 +230,7 @@ This is the key discipline of the construction: the memory depth is bounded
 before the diagnostic comparison. The bound is not chosen by looking for the
 best residual fit.
 
-The word "passive" is used in this limited sense only. It means that the memory
+The word ``passive'' is used in this limited sense only. It means that the memory
 tail does not carry more integrated response budget than the local baseline
 term over the normalized interval. It does not mean that the underlying
 cosmology is static, nor that no physical energy exchange is possible in a
@@ -240,8 +242,7 @@ comparison requires $\rho > 4$ in order to remain compatible with the target
 envelope, the locked passive operator is not supported in its present form. The
 model is not then rescued by expanding the allowed amplitude range.
 
-\Needspace{10\baselineskip}
-\subsection*{5. Kernel-Shape Selection}
+\section{Kernel-Shape Selection}
 
 The cubic kernel is selected from the power-kernel family
 
@@ -269,9 +270,9 @@ Two additional effective-operator rules select the usable shape:
 
 The first rule rejects kernels that disturb the already locked low-depth
 response too early. The second rejects kernels whose memory budget collapses
-too sharply onto the last quarter of the path. In the present audit, p=1 and
-p=2 are too visible at low depth, while p>=4 is too endpoint-concentrated.
-The cubic p=3 case is the remaining admissible power-kernel representative.
+too sharply onto the last quarter of the path. In the present audit, $p=1$ and
+$p=2$ are too visible at low depth, while $p \ge 4$ is too endpoint-concentrated.
+The cubic $p=3$ case is the remaining admissible power-kernel representative.
 
 The locked diagnostic window is therefore
 
@@ -290,7 +291,7 @@ fundamental; it is the lowest simple power that is late enough at low depth
 while not being too endpoint-like.
 
 This distinction matters for interpretation. The paper does not say that
-cosmology "must" use a cubic memory law. It says that, inside this deliberately
+cosmology ``must'' use a cubic memory law. It says that, inside this deliberately
 small power-kernel audit, the cubic law is the locked representative that
 survives the predeclared admissibility rules.
 
@@ -335,8 +336,7 @@ baseline representative selected by the current audit thresholds. Relaxing or
 tightening those thresholds can broaden, shift, or empty the admissible simple
 power-kernel set.
 
-\Needspace{10\baselineskip}
-\subsection*{6. Diagnostic Targets And Gate Policy}
+\section{Diagnostic Targets and Gate Policy}
 
 The targets used here are reconstructed diagnostic envelopes rather than direct
 published likelihoods. The comparison is therefore deliberately separated into
@@ -380,8 +380,7 @@ question: whether the prediction violates a sign that is stable across
 reconstruction choices. Only the second question is used as a paper-level
 diagnostic violation/non-violation rule here.
 
-\Needspace{10\baselineskip}
-\subsection*{7. Source-Split Interpretation}
+\section{Source-Split Interpretation}
 
 The BAO-only and SN+BAO diagnostics are not interchangeable. BAO-only
 reconstructions are comparatively closer to a distance-scale consistency test,
@@ -392,8 +391,8 @@ single reconstructed median. It should also be judged by whether a claimed
 tension is robust across reconstruction families.
 
 In the present packet, this is exactly where the localized SN+BAO warning
-appears. The strict median-sign comparison identifies a point near z=1.1925
-where the median sign is negative while the locked K2 response does not follow
+appears. The strict median-sign comparison identifies a point near $z=1.1925$
+where the median sign is negative while the locked $K_2$ response does not follow
 that sign. The reconstruction audit, however, indicates that this sign is not
 stable across the tested method/degree families. Lower-degree reconstructions
 favor the opposite sign, while higher-degree reconstructions pull the median
@@ -407,8 +406,7 @@ paper-level statement is therefore deliberately asymmetric: the point remains a
 warning, but not a locked diagnostic violation under the envelope and
 normalized-residual gate.
 
-\Needspace{10\baselineskip}
-\subsection*{8. Results}
+\section{Results}
 
 The minimal result summary is:
 
@@ -422,10 +420,10 @@ The minimal result summary is:
 \hline
 Diagnostic & Result & Interpretation \\
 \hline
-BAO-only window overlap & 1.0000000000 & Locked K2 overlaps the BAO-only diagnostic envelope at all tested points. \\
-BAO-only best curve overlap & 1.0000000000 & The best locked K2 BAO-only curve remains inside the envelope. \\
-SN+BAO sign-stable non-violation fraction & 1.0000000000 & All sign-stable SN+BAO points are non-violating under exact sign matching. \\
-SN+BAO sign-unstable compatibility fraction & 1.0000000000 & All sign-unstable SN+BAO points remain envelope-compatible under diagonal residual handling. \\
+BAO-only window overlap & 1.000 & Locked $K_2$ overlaps the BAO-only diagnostic envelope at all tested points. \\
+BAO-only best curve overlap & 1.000 & The best locked $K_2$ BAO-only curve remains inside the envelope. \\
+SN+BAO sign-stable non-violation fraction & 1.000 & All sign-stable SN+BAO points are non-violating under exact sign matching. \\
+SN+BAO sign-unstable compatibility fraction & 1.000 & All sign-unstable SN+BAO points remain envelope-compatible under diagonal residual handling. \\
 \hline
 \end{tabular}%
 }
@@ -433,9 +431,9 @@ SN+BAO sign-unstable compatibility fraction & 1.0000000000 & All sign-unstable S
 \end{center}
 
 The strict SN+BAO median-sign test exhibits a localized tension near
-z=1.1925. The diagnostic audit shows that this point is method-degree
+$z=1.1925$. The diagnostic audit shows that this point is method-degree
 sensitive: lower-degree reconstructions are positive, while higher-degree
-reconstructions pull the median negative. The locked K2 prediction does not
+reconstructions pull the median negative. The locked $K_2$ prediction does not
 follow the negative median sign at that point, but it remains inside the broad
 diagnostic envelope with a small normalized residual. Under the sign-stability
 gate, this is treated as an envelope-compatible warning rather than a hard
@@ -457,7 +455,7 @@ claim level: theory-method diagnostic, not measurement validation
 \end{figure}
 
 The point-level SN+BAO audit makes the gate policy more explicit. The source
-for all rows is the no-degree-4 robust SN+BAO envelope, and the x column uses
+for all rows is the no-degree-4 robust SN+BAO envelope, and the $x$ column uses
 the provisional mapping $x=z/z_{\max}$ over this grid.
 
 \begin{center}
@@ -491,47 +489,43 @@ four of the nine SN+BAO points are sign-unstable. The table supports the narrow
 claim that the locked K2 response does not violate the current diagnostic gate;
 it does not support a direct measurement claim.
 
-\Needspace{10\baselineskip}
-\subsection*{9. Measurement Gate Preflight Status}
+\section{Measurement Gate Preflight Status}
 
 The measurement-gate scaffold is operational, but it remains a preflight
 benchmark rather than a measurement-validation result. The purpose of the gate
-is to keep the finite-memory diagnostic ansatz testable: the K2 operator is
+is to keep the finite-memory diagnostic ansatz testable: the $K_2$ operator is
 locked before scoring, null comparators are registered in advance, and stronger
 claims remain blocked until covariance-aware public benchmarks and calibrated
 physical nulls are available.
 
-\Needspace{16\baselineskip}
-\subsubsection*{9.1 Preflight Status}
+\subsection{Preflight Status}
 
 The current implementation shows five relevant facts. First, the BAO-only
-diagnostic envelope remains compatible with the locked K2 window under the
+diagnostic envelope remains compatible with the locked $K_2$ window under the
 current reconstruction-level packet. Second, the SN+BAO comparison contains a
 localized sign-stability warning rather than a clean median-sign match. Third,
-coordinate robustness is not automatic: an operator-only chi-normalized mapping
-produces an envelope-tension warning, although bounded rho values within the
-allowed rho <= 4 range can recover non-violating status in that diagnostic
-stress test. Fourth, locked K2 is materially more accurate than K1/no-memory in
+coordinate robustness is not automatic: an operator-only $\chi$-normalized mapping
+produces an envelope-tension warning, although bounded $\rho$ values within the
+allowed $\rho \leq 4$ range can recover non-violating status in that diagnostic
+stress test. Fourth, locked $K_2$ is materially more accurate than $K_1$/no-memory in
 several predeclared preflight scorecards: the memory-active scorecard improves
-over K1 across the full, low-, mid-, high-, mid/high-, sign-stable, and
-anti-aligned subsets, the positive-definite cross-covariance audit supports K2
-over K1 across its scanned routes, and the whitened covariance and external-alpha
-preflight routes also favor K2 over their K1 or optical-null comparators. Fifth,
+over $K_1$ across the full, low-, mid-, high-, mid/high-, sign-stable, and
+anti-aligned subsets, the positive-definite cross-covariance audit supports $K_2$
+over $K_1$ across its scanned routes, and the whitened covariance and external-$\alpha$
+preflight routes also favor $K_2$ over their $K_1$ or optical-null comparators. Fifth,
 this improvement is not yet a measurement-validation result, because flexible
 polynomial controls and some diagonal/public-proxy routes remain competitive and
 the decisive likelihood-native covariance benchmark is still missing.
 
-\Needspace{16\baselineskip}
-\subsubsection*{9.2 Coordinate Robustness}
+\subsection{Coordinate Robustness}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{figures/fig3_coordinate_robustness.pdf}
-\caption{Coordinate robustness audit. Most mappings remain non-violating under the current gate, while the chi-normalized operator-only remap produces the localized coordinate warning that remains a Phase II target.}
+\caption{Coordinate robustness audit. Most mappings remain non-violating under the current gate, while the $\chi$-normalized operator-only remap produces the localized coordinate warning that remains a Phase II target.}
 \end{figure}
 
-\Needspace{16\baselineskip}
-\subsubsection*{9.3 Null Comparators}
+\subsection{Null Comparators}
 
 \begin{figure}[htbp]
 \centering
@@ -539,13 +533,12 @@ the decisive likelihood-native covariance benchmark is still missing.
 \caption{Null-comparator preflight scorecard. The chart reports proxy information-criterion scores across the current mappings; it is a benchmark diagnostic, not a measurement-validation result. These proxy scores are route-dependent and do not constitute likelihood-level model selection.}
 \end{figure}
 
-\Needspace{16\baselineskip}
-\subsubsection*{9.4 K2 Support Ladder}
+\subsection{K2 Support Ladder}
 
-The K2-improvement claim is best read as a support ladder rather than as a
+The $K_2$-improvement claim is best read as a support ladder rather than as a
 single win/loss statement. The current repository contains a compact
 reproducibility table at
-evidence/source\_split\_likelihood\_native\_support\_ladder.csv. Its role is to
+\path{evidence/source_split_likelihood_native_support_ladder.csv}. Its role is to
 separate the robust preflight gains from the still-open validation blockers.
 
 \begin{center}
@@ -581,8 +574,7 @@ independent preflight routes show improvement over K1/no-memory. It also shows
 why the paper does not promote the result to a measurement claim: the flexible
 control and covariance-native gates remain unresolved.
 
-\Needspace{16\baselineskip}
-\subsubsection*{9.5 Gate Closure Conditions}
+\subsection{Gate Closure Conditions}
 
 Thus the measurement gate is useful precisely because it does not promote the
 current result too far. The present package supports a disciplined diagnostic
@@ -591,20 +583,19 @@ nulls, and stress-tested reproducibly. It does not yet support a measurement
 claim. The gate remains closed until the following objects are available:
 
 \begin{itemize}
-\item a likelihood-native K1/no-memory target;
+\item a likelihood-native $K_1$/no-memory target;
 \item a joint SN+BAO covariance or a preregistered shrinkage-covariance benchmark;
 \item calibrated optical and backreaction physical-null comparators;
 \item source-native or independently reproduced derivative/covariance exports for the backreaction route;
-\item a frozen public benchmark in which no K2 kernel, rho bound, or K1 baseline is changed after scoring.
+\item a frozen public benchmark in which no $K_2$ kernel, $\rho$ bound, or $K_1$ baseline is changed after scoring.
 \end{itemize}
 
 The detailed implementation log, including source-split export guards,
 covariance registries, predeclared-protocol-guided reproduction families, and
 backreaction preflight audits, is retained in the public repository as
-docs/measurement\_gate\_audit\_log.md.
+\path{docs/measurement_gate_audit_log.md}.
 
-\Needspace{10\baselineskip}
-\subsection*{10. Robustness And Falsification Criteria}
+\section{Robustness and Falsification Criteria}
 
 The current evidence is deliberately weaker than a full likelihood. For that
 reason, it is useful to state what would make the finite-memory diagnostic fail
@@ -613,7 +604,7 @@ or become substantially less interesting.
 The diagnostic would fail in its present form if:
 
 \begin{itemize}
-\item the BAO-only envelope overlap disappeared under the same locked K2 window;
+\item the BAO-only envelope overlap disappeared under the same locked $K_2$ window;
 \item sign-stable SN+BAO points required the opposite sign from the locked prediction;
 \item compatibility required $\rho > 4$ or a different kernel power chosen after seeing the envelope;
 \item the localized SN+BAO warning became sign-stable under a stronger reconstruction audit;
@@ -624,15 +615,14 @@ Conversely, the diagnostic would become more interesting if the same locked
 window survived a covariance-aware likelihood test, if independent
 reconstructions selected a similar late-depth response shape, or if
 backreaction-aware and optical-propagation tests separated in a way naturally
-tracked by the K2 window.
+tracked by the $K_2$ window.
 
 These criteria are included to keep the method honest. The finite-memory
 operator is useful only if it remains constrained. If it must be repeatedly
 relaxed to follow each new diagnostic reconstruction, it loses the main
 advantage of being predeclared.
 
-\Needspace{10\baselineskip}
-\subsection*{11. Expected Significance}
+\section{Expected Significance}
 
 The main significance of the construction is not that it establishes a new
 cosmological model. Its value is methodological:
@@ -650,8 +640,7 @@ method-level modified-gravity phenomenology. The higher-impact route requires
 a later full covariance or shrinkage-covariance likelihood comparison with
 direct public likelihood products.
 
-\Needspace{10\baselineskip}
-\subsection*{12. Limitations}
+\section{Limitations}
 
 This manuscript is a theory-method diagnostic note. It does not claim:
 
@@ -675,8 +664,7 @@ The current manuscript should therefore be read as a bridge from a compact
 diagnostic construction to a public, testable effective module, while leaving
 the stronger likelihood comparison for a later release.
 
-\Needspace{10\baselineskip}
-\subsection*{13. Phase II Roadmap}
+\section{Phase II Roadmap}
 
 The next technical step is to replace the diagonal/envelope diagnostic with a
 likelihood-level comparison. At minimum, this requires public likelihood or
@@ -687,11 +675,12 @@ coordinate $x$.
 A useful future workflow is:
 
 \begin{verbatim}
-freeze K2 window -> ingest public likelihood products -> build covariance-aware
-diagnostic -> compare locked window -> report posterior support or rejection
+freeze K2 window -> ingest public likelihood products
+  -> build covariance-aware diagnostic -> compare locked window
+  -> report posterior support or rejection
 \end{verbatim}
 
-This future comparison should not widen the K2 window unless a new paper is
+This future comparison should not widen the $K_2$ window unless a new paper is
 explicitly framed as a different model. The main value of the present note is
 that it fixes a small target before the stronger test is performed.
 
@@ -703,7 +692,7 @@ The Phase II work package should therefore include:
 \item a public reconstruction benchmark;
 \item coordinate-mapping robustness across redshift-normalized, comoving-distance, optical-depth-like, and likelihood-native coordinates;
 \item direct comparison against BAO-only and SN+BAO reconstruction families;
-\item a frozen benchmark challenge in which the K2 window is locked before testing.
+\item a frozen benchmark challenge in which the $K_2$ window is locked before testing.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -712,12 +701,11 @@ The Phase II work package should therefore include:
 \caption{Measurement-gate preflight workflow. The current repository implements the left-hand preflight stages; the covariance-aware benchmark and falsification criteria remain the required route to stronger empirical claims.}
 \end{figure}
 
-\Needspace{10\baselineskip}
-\subsection*{14. Independent Wolfram Verification}
+\section{Independent Wolfram Verification}
 
 The main diagnostic packet is generated by the Python gate engine, but the
 repository also includes an independent Wolfram Language audit:
-wolfram/FiniteMemory\_Diagnostic\_Check.wl. This is a second implementation
+\path{wolfram/FiniteMemory_Diagnostic_Check.wl}. This is a second implementation
 check rather than an additional measurement analysis. It verifies the symbolic
 finite-memory identities
 
@@ -738,8 +726,8 @@ E_{\mathrm{tail},p}=\frac{\rho}{p+1},\qquad
 The same Wolfram script then imports the compact manuscript-facing CSV outputs
 for the shape-selection audit, threshold sensitivity, and SN+BAO point-level
 gate. In the current repository state it reports
-ReproducibilityStatus=REPRODUCIBILITY\_OK: the baseline shape-selection row
-selects p=3, the threshold-sensitivity table has the expected sensitivity
+\path{ReproducibilityStatus=REPRODUCIBILITY_OK}: the baseline shape-selection row
+selects $p=3$, the threshold-sensitivity table has the expected sensitivity
 rows, and the SN+BAO point-level gate contains nine rows with five sign-stable
 and four sign-unstable points under the declared decision policy.
 
@@ -751,74 +739,146 @@ implementation using a different computational environment. The audit checks
 reproducibility of the published formulae and tables, not the physical
 correctness of the finite-memory diagnostic ansatz.
 
-\Needspace{10\baselineskip}
-\subsection*{15. Conclusion}
+\section{Upstream Interface and Canonical Three-Pillar Bridge}
+\label{sec:upstream-interface}
+
+% BEGIN OBSERVER UPDATE 20260914
+\subsection{Observer Realization: Inherited Results and Physical Boundary}
+\label{sec:observer-update-20260914}
+The current observer programme distinguishes a conditional mathematical
+construction from an occupied physical measuring system. The source order
+remains base plus one universal seed, stabilized morphological response
+$M_\tau^\star$, observer--source restriction, shared descriptor, and resolved
+terminal readouts. Neither a detector nor an empirical residual constructs the
+parent body backwards; dynamics concern downstream subsystems only.
+
+In Technical Paper TD-II (\emph{Body-to-Readout Derivation}), the joint source
+action fixes static and frequency-dependent response together: variation of the
+BRAC potential couples to the field square, fixed canonical means select a
+unique coherent state in a finite positive harmonic packet only at zero excess
+fluctuation energy, and for the coupled harmonic pair the joint ground state is
+pure while either local subsystem is mixed with covariance fixed by the
+complete joint Hamiltonian. The ORA-T1 selector conditionally chooses stable
+quantizers when the occupied context, admissible partition family, and positive
+closure barrier are supplied, without establishing those physical premises or
+implementing a stable quantizer $Q_{OS}$. Foundation Papers IV, V, and VI
+retain physical-selection, clock-descent, and quantum-readout ownership,
+respectively. No cosmological expansion law, occupied stress tensor,
+dark-sector replacement, or offspring-universe transition is established by
+these observer calculations, and no observational dataset, baseline, frozen
+coefficient, or diagnostic score in this paper is revised.
+% END OBSERVER UPDATE 20260914
+
+% BEGIN STATE UPDATE 20260918
+\subsection{Source Identification and Recovery}
+The observer audit separates a conditional forward construction from physical source selection. A frozen body, occupied observer incidence, preparation, complete instrument, and stable resolution can determine records without selecting those inputs from Nature. Equal effects do not fix postmeasurement states, and symmetry within a chosen interaction family does not exclude other symmetric couplings. Foundation VI and Technical Paper TD-II own the finite instrument/access proof; Foundation IV and TD-0 retain physical source selection; Foundation V, the temporal synthesis, and the seed--body companion own the gradient/inertial distinction. Canonical assumptions, countermodels, and calibration audits are archived at \url{https://github.com/tau-core-research/tau-core-theory/blob/main/docs/tau_rqm_instrument_to_record_bridge_001.md}. No physical seed, Nature occupation, or Tau-exclusive observation is established by this update, and existing empirical endpoint definitions and scores are unchanged.
+% END STATE UPDATE 20260918
+
+% BEGIN PAIR READOUT UPDATE 20260927
+\paragraph{Imported result (CPR1).}
+\href{https://github.com/tau-core-research/tau-core-higgs-module-paper4/blob/main/paper4_full_derivation/full_derivation.pdf#nameddest=cpr1}{Paper 4, \emph{Full Derivation Ledger for the Branch A Higgs Module}}, section ``Conditional source preparation and time-resolved access,'' Theorem CPR1(b,c), v1.0 (2026-09-28), is the sole proof owner.
+This conditional readout example supplies neither an expansion law nor an occupied cosmological stress tensor. It does not alter CMB or distance predictions, endpoint freezes or scores, and is not evidence for a dark-sector replacement.
+Physical preparation, detector/clock calibration and stable $Q_{OS}$ remain assumptions; no Tau-exclusive observation follows.
+% END PAIR READOUT UPDATE 20260927
+
+\subsection{Conditional Finite Source--State Result Chain}
+\label{sec:etcar-chain-20261110}
+The 10 November 2026 ET/CAR record (owned in detail by Foundation VII-A)
+supplies a bounded downstream homogeneous background-and-frame transport check
+(stages HRZ/HSA through HSL on $0\leq t\leq 0.02$), not a parent-source
+selection or empirical cosmological model. Specifically, HRZ/HSA derive the
+bosonic Hessian and once-summed metric/scalar mean constraints; HSD/HSE verify
+initial jets at $k=16,32$ (90-digit residuals below $4\times 10^{-85}$);
+HSF/HSG/HSH evolve the coupled background and occupied frame without state
+refill (RK4 refinement ratio $15.979$, finest lapse residual
+$4.29\times 10^{-10}$, replay discrepancy below $1.4\times 10^{-17}$); HSI/HSJ
+retain mandatory common-source cross-covariance; and HSL transports the
+16-mode carrier across nine retarded source blocks (refinement ratio $16.4278$,
+transport discrepancy below $10^{-15}$). Spatial and renormalized
+quantum--gravitational closure, physical state and $Q_{OS}$ selection, UV
+completion, and cosmological validation remain open. Crucially, that retarded
+downstream state-response kernel is not this paper's phenomenological
+finite-memory diagnostic operator $W(x)=1+\rho x^3$, and retarded downstream
+response does not make the atemporal Tau parent a memory store.
+
+\subsection{Canonical Three-Pillar Reduction (2026-11-14)}
+In the consolidated 2026-11-14 Three-Pillar Canonical Reduction of the
+foundational series (Theorems U1--U4, F1--F4, COV-DIR, and HOMOG-K4), the
+discrete $K_4$/Clifford projector lock fixes $r_{\mathrm{seed}}=1/4$ and the
+galactic logarithmic response slope $\alpha_{\mathrm{OCSR}}=\frac{5\sqrt{3}}{24}$
+with $k=0$ free fitted parameters under the canonical dilogarithmic director
+action $W_{\mathrm{COCA}}(s)$, leaving only the single ontic realization
+postulate (\texttt{POST-OCC-NU1} / \texttt{EAS-SNPR-N1}). Paper 5's cubic
+diagnostic multiplier $W(x)=1+\rho x^3$ ($\rho\leq 4$) is neither identified
+with $W_{\mathrm{COCA}}(s)$ nor claimed as a zero-parameter consequence of the
+$K_4$ lock; it remains a standalone, predeclared method-level consistency gate.
+
+\section{Conclusion}
 
 We have defined a finite-memory projection correction as a bounded diagnostic
 operator rather than as a complete cosmological model. The locked cubic form
 $W(x)=1+\rho x^3$ follows from a passive memory budget and a simple
 shape-selection audit over power kernels. With $\rho \leq 4$, the operator gives
-a compact K2 diagnostic window that can be compared against reconstructed
+a compact $K_2$ diagnostic window that can be compared against reconstructed
 cosmological consistency envelopes without fitting the memory depth after the
 fact.
 
-Within the distilled diagnostic packet used here, the locked K2 window is
+Within the distilled diagnostic packet used here, the locked $K_2$ window is
 compatible with the BAO-only envelope and remains non-violating under the
 reconstruction-aware SN+BAO sign-stability gate. The strict SN+BAO median-sign
 warning is retained as a limitation rather than hidden: it marks a
 reconstruction-sensitive point that should be revisited with direct likelihood
 products.
 
-The central preflight finding is therefore not that K2 lacks predictive gain.
-On the contrary, the locked K2 response repeatedly improves over K1/no-memory
+The central preflight finding is therefore not that $K_2$ lacks predictive gain.
+On the contrary, the locked $K_2$ response repeatedly improves over $K_1$/no-memory
 and several external or physical-null comparators in the current diagnostics.
 The conservative boundary is narrower: these gains are still preflight-level
 and do not yet establish a covariance-aware measurement validation or unique
 physical interpretation.
 
-The result is therefore a release-candidate method-note claim, not an
+The result is therefore a release-candidate method-note claim, not a
 measurement-validation claim. Its next meaningful test is a covariance-aware
 likelihood comparison against public likelihood data and predeclared null
 comparators.
 
-\Needspace{10\baselineskip}
-\subsection*{16. Data And Code Availability}
+\section{Data and Code Availability}
 
 The public Paper 5 repository is hosted at
-https://github.com/tau-core-research/finite-memory-cosmology-paper5. It
+\url{https://github.com/tau-core-research/finite-memory-cosmology-paper5}. It
 contains the manuscript source, rendered PDF, reproducibility scripts, derived
 input packets, audit summaries, and the arXiv-style source archive.
 
 The full Paper 5 reproducibility package is archived at
-https://doi.org/10.5281/zenodo.20285912. The archive includes the release
+\url{https://doi.org/10.5281/zenodo.20285912}. The archive includes the release
 source, compiled PDF, arXiv-style source packet, derived diagnostic tables, and
 the scripts needed to regenerate the current package.
 
 The most important repository paths are:
 
 \begin{itemize}
-\item paper5\_submission\_source/: paper-facing draft, LaTeX facsimile, and PDF;
-\item figures/: rendered manuscript figures in PDF and PNG form;
-\item src/fmc/: scoring, covariance, coordinate, operator, and backreaction helper code;
-\item scripts/: executable reproduction and audit scripts;
-\item data/: derived public-input and local reproduction packets;
-\item evidence/: compact CSV outputs used by the manuscript and audit gates;
-\item docs/measurement\_gate\_audit\_log.md: detailed implementation/audit log moved out of the main paper;
-\item frozen/: locked operator and configuration artifacts;
-\item wolfram/: independent Wolfram Language second-implementation checks;
-\item tests/: public reproducibility checks.
+\item \path{paper5_submission_source/}: paper-facing draft, LaTeX source, and PDF;
+\item \path{figures/}: rendered manuscript figures in PDF and PNG form;
+\item \path{src/fmc/}: scoring, covariance, coordinate, operator, and backreaction helper code;
+\item \path{scripts/}: executable reproduction and audit scripts;
+\item \path{data/}: derived public-input and local reproduction packets;
+\item \path{evidence/}: compact CSV outputs used by the manuscript and audit gates;
+\item \path{docs/measurement_gate_audit_log.md}: detailed implementation/audit log moved out of the main paper;
+\item \path{frozen/}: locked operator and configuration artifacts;
+\item \path{wolfram/}: independent Wolfram Language second-implementation checks;
+\item \path{tests/}: public reproducibility checks.
 \end{itemize}
 
 The key manuscript-facing outputs are:
 
 \begin{itemize}
-\item evidence/gate\_results\_current.csv;
-\item evidence/finite\_memory\_preflight\_summary.csv;
-\item evidence/registered\_protocol\_guided\_dominance\_summary.csv;
-\item evidence/source\_native\_reproduction\_family\_dominance\_summary.csv;
-\item studies/finite\_memory\_cosmology\_paper5\_v01/wolfram\_audit\_logs/finite\_memory\_diagnostic\_check\_wolfram.csv;
-\item finite\_memory\_projection\_corrections.pdf;
-\item arxiv\_submission\_source.zip.
+\item \path{evidence/gate_results_current.csv};
+\item \path{evidence/finite_memory_preflight_summary.csv};
+\item \path{evidence/registered_protocol_guided_dominance_summary.csv};
+\item \path{evidence/source_native_reproduction_family_dominance_summary.csv};
+\item \path{studies/finite_memory_cosmology_paper5_v01/wolfram_audit_logs/finite_memory_diagnostic_check_wolfram.csv};
+\item \path{finite_memory_projection_corrections.pdf};
+\item \path{arxiv_submission_source.zip}.
 \end{itemize}
 
 The current comparison should be treated as reconstruction-level diagnostic
@@ -833,134 +893,35 @@ python3 -m pip install -r requirements.txt
 PYTHONPATH=src python scripts/run_gate_current_packet.py
 PYTHONPATH=src python scripts/build_finite_memory_preflight_packet.py
 wolframscript -file wolfram/FiniteMemory_Diagnostic_Check.wl
-python studies/finite_memory_cosmology_paper5_v01/make_paper5_submission_source_v01.py
+python studies/finite_memory_cosmology_paper5_v01/\
+make_paper5_submission_source_v01.py
 python -m pytest -q
 \end{verbatim}
 
-\Needspace{10\baselineskip}
-\subsection*{References}
+\begin{thebibliography}{9}
 
-[1] A. Heinesen and T. Clifton, "Observational Tests for Distinguishing Classes
-of Cosmological Models", arXiv:2604.07244, 2026.
-https://arxiv.org/abs/2604.07244
+\bibitem{HeinesenClifton2026}
+A.~Heinesen and T.~Clifton,
+``Observational Tests for Distinguishing Classes of Cosmological Models,''
+arXiv:2604.07244 (2026),
+\url{https://arxiv.org/abs/2604.07244}.
 
-[2] S. M. Koksbang, "First observational constraints on cosmic backreaction
-over an extended redshift range", arXiv:2604.11249, 2026.
-https://arxiv.org/abs/2604.11249
+\bibitem{Koksbang2026}
+S.~M.~Koksbang,
+``First observational constraints on cosmic backreaction over an extended redshift range,''
+arXiv:2604.11249 (2026),
+\url{https://arxiv.org/abs/2604.11249}.
 
-[3] C. C. Dyer and R. C. Roeder, "The Distance-Redshift Relation for Universes
-with No Intergalactic Medium", The Astrophysical Journal 174, L115-L117,
-1972.
+\bibitem{DyerRoeder1972}
+C.~C.~Dyer and R.~C.~Roeder,
+``The Distance--Redshift Relation for Universes with No Intergalactic Medium,''
+\emph{The Astrophysical Journal} \textbf{174}, L115--L117 (1972).
 
-[4] C. C. Dyer and R. C. Roeder, "Distance-Redshift Relations for Universes
-with Some Intergalactic Medium", The Astrophysical Journal 180, L31-L34,
-1973.
+\bibitem{DyerRoeder1973}
+C.~C.~Dyer and R.~C.~Roeder,
+``Distance--Redshift Relations for Universes with Some Intergalactic Medium,''
+\emph{The Astrophysical Journal} \textbf{180}, L31--L34 (1973).
 
-% BEGIN OBSERVER UPDATE 20260914
-\section{Observer realization: inherited results and physical boundary}
-\label{sec:observer-update-20260914}
-The current observer programme distinguishes a conditional mathematical
-construction from an occupied physical measuring system. The source order
-remains base plus one universal seed, stabilized morphological response,
-observer--source restriction, shared descriptor, and resolved terminal
-readouts. Neither a detector nor an empirical residual constructs the parent
-body backwards. Dynamics below concern downstream subsystems only.
-
-The canonical observer-origin derivation, Sections 22--26, owns the following
-results. The existing joint source action fixes static and frequency-dependent
-response together. Variation of the BRAC potential couples to the field
-square; a linear field coupling is a distinct comparator unless derived by
-expansion about an occupied background. Fixed canonical means select a unique
-coherent state in a finite positive harmonic packet only if there is no excess
-fluctuation energy. This is a free/asymptotic preparation statement, not the
-ground state of an interacting detector. For the existing coupled harmonic
-pair, the joint ground is pure but either local subsystem is mixed, with its
-covariance fixed by the complete joint Hamiltonian.
-
-These are conditional derivations and internal numerical checks. The actual
-observer--source context, physical preparation process, kinetic/energy
-calibration and stable operational resolution remain unproved. The existing
-ORA-T1 selector conditionally chooses stable quantizers when the occupied
-context, admissible partition family and positive closure barrier are supplied;
-it does not establish those physical premises. A computed ground state is not
-a preparation mechanism, and a covariance or optimal abstract measurement is
-not an implemented stable quantizer $Q_{OS}$.
-
-\paragraph{Ownership and use.}
-The central observer-origin note owns the new contact, state and covariance
-derivations; the body-readout technical companion carries the consolidated
-mathematics. Foundation Papers IV, V and VI retain physical-selection,
-clock-descent and quantum-readout ownership, respectively. This paper imports
-only the consequences within its scope. No observational dataset, baseline,
-frozen coefficient, score or empirical conclusion is revised by this update.
-The reproducibility supplement records the source hashes and the exact
-conditional/physical distinction.
-
-
-\paragraph{Consequence for this paper.}
-No cosmological expansion law, occupied stress tensor, dark-sector replacement or offspring-universe transition is established by these observer calculations.
-% END OBSERVER UPDATE 20260914
-
-% BEGIN STATE UPDATE 20260918
-\section{Source identification and recovery}
-The current observer audit separates a conditional forward construction from physical source selection. A frozen body, occupied observer incidence, preparation, complete instrument and stable resolution can determine records without selecting those inputs from Nature. Equal effects do not fix postmeasurement states, and symmetry within a chosen interaction family does not exclude other symmetric couplings. No cosmological expansion law, occupied stress tensor, dark-sector replacement or offspring-universe transition is established by these observer calculations.
-
-\paragraph{Dependency and claim ownership.}
-Foundation VI and the body--readout technical companion own the finite instrument/access proof; Foundation IV and TD-0 retain physical source selection; Foundation V, the temporal synthesis and seed--body companion own the gradient/inertial distinction. This paper inherits only the stated specialization. Canonical assumptions, countermodels and calibration audits are in \url{https://github.com/tau-core-research/tau-core-theory/blob/main/docs/tau_rqm_instrument_to_record_bridge_001.md}. No physical seed, Nature occupation or Tau-exclusive observation is established by this update. Existing empirical endpoint definitions and scores are unchanged.
-% END STATE UPDATE 20260918
-
-% BEGIN PAIR READOUT UPDATE 20260927
-\paragraph{Imported result (CPR1).}
-\href{https://github.com/tau-core-research/tau-core-higgs-module-paper4/blob/main/paper4_full_derivation/full_derivation.pdf#nameddest=cpr1}{Paper 4, \emph{Full Derivation Ledger for the Branch A Higgs Module}}, section ``Conditional source preparation and time-resolved access, Theorem CPR1(b,c), v1.0 (2026-09-28), is the sole proof owner.
-This conditional readout example supplies neither an expansion law nor an occupied cosmological stress tensor. It does not alter CMB or distance predictions, endpoint freezes or scores, and is not evidence for a dark-sector replacement.
-Physical preparation, detector/clock calibration and stable $Q_{OS}$ remain assumptions; no Tau-exclusive observation follows.
-% END PAIR READOUT UPDATE 20260927
-
-\section{Conditional finite source--state result chain}
-\label{sec:etcar-chain-20261110}
-The 10 November 2026 ET/CAR record supplies a bounded downstream example,
-not a parent-source selection or empirical cosmological result.
-Foundation VII-A owns the detailed response presentation; its HSL section
-and compact receipt retain the numerical provenance.
-The inherited stages have different logical status:
-\begin{enumerate}
-\item HRZ/HSA derive the bosonic Hessian and the once-summed metric/scalar
-mean constraints from the same source functional. The original
-zero-derivative reference is not a saddle; positive volume alone does not
-repair it. This does not exclude the HORIZ preparation family.
-\item HSD/HSE solve regular initial jets for that original preparation
-at $k=16,32$ and check all three mean Euler equations and Hamilton-constraint
-propagation. At 90-digit precision the checked residuals are below
-$4\times10^{-85}$. A frozen-state derivative control fails.
-\item HSF evolves the background and occupied frame together on
-$0\leq t\leq0.02$, without instantaneous state refill or projection.
-RK4 refinement gives a ratio $15.979$; the finest lapse residual is
-$4.29\times10^{-10}$. Freezing the state instead gives a residual about
-$4.58$. HSG independently replays every fine-grid step, with discrepancy
-below $1.4\times10^{-17}$. The original numerical-backend warnings remain
-qualified, not explained away. HSH tests common-constraint regularity
-at the saved nodes, not a rigorous between-node or global stability bound.
-\item HSI/HSJ retain nonzero common-source covariance and mandatory cross
-terms in the same transported Slater state. A vanishing mean constraint
-does not imply vanishing quantum noise. HSI's coarse-grid mean-binding
-check failed its unchanged tolerance; the separate finest-grid guard
-passes without erasing that failure.
-\item HSL transports the full normal16 carrier on this same background and
-evaluates all nine retarded source blocks at three fixed times.
-Eight internal checks pass, with refinement ratio $16.4278$ and
-state-transport discrepancy below $10^{-15}$. This is not a continuum
-error certificate. The response formula retains the original preparation
-bracket, upper endpoint and local contacts; numerical contact/pulse assembly
-and the common metric Volterra solution remain open.
-\end{enumerate}
-The assumptions are a finite homogeneous normal Hamiltonian, the original
-HORIZ state prescription, one source functional and original endpoint maps.
-An alternative admissible state can change covariance and retarded expectation.
-Neither normal finite evolution nor off-diagonal response establishes
-physical particle creation. Spatial and renormalized quantum--gravitational
-closure, physical state and $Q_{OS}$ selection, general/all-state/UV stability,
-GR/UV completion and cosmological validation remain open.
-
-The state-response kernel is not this paper's phenomenological finite-memory projection operator. No identification, derivation of its kernel shape, coefficient, memory budget or observational score is implied. Retarded downstream response does not make the atemporal Tau parent a memory store.
+\end{thebibliography}
 
 \end{document}
