@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: Olcsak
     given-names: Jozsef
+    orcid: "https://orcid.org/0009-0003-7311-6522"
 doi: "10.5281/zenodo.20285912"
 repository-code: "https://github.com/tau-core-research/finite-memory-cosmology-paper5"
 date-released: "2026-05-19"
